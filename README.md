@@ -9,7 +9,7 @@ Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUB
 * **Integrante 1** - [Rodriguez Nazareno Jose Luis](https://github.com/RodriguezNazareno56)
 * **Integrante 2** - [Servin Velazquez Marcos](https://github.com/mark-1594)
 * **Integrante 3** - [Maldonado Henry](https://github.com/hmaldonado12)
-* **Integrante 4** - [integrante4](https://github.com/integrante4)
+* **Integrante 4** - [Condori Favio](https://github.com/fcondori10)
 
 Corrector: **{Corrector}**
 
