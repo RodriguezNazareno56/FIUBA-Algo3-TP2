@@ -1,10 +1,10 @@
 [![build](https://github.com/RodriguezNazareno56/FIUBA-Algo3-TP2/actions/workflows/build.yml/badge.svg)](https://github.com/RodriguezNazareno56/FIUBA-Algo3-TP2/actions/workflows/build.yml) [![codecov](https://codecov.io/github/RodriguezNazareno56/FIUBA-Algo3-TP2/graph/badge.svg?token=A6M4WZMIMN)](https://codecov.io/github/RodriguezNazareno56/FIUBA-Algo3-TP2)
 
-# TP2 Algoritmos 3: {nombre} 
+# TP2 Algoritmos 3: AlgoRoma *Edición: “Gladiadores en fuga”* 
 
 Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUBA
 
-## Grupo {N}
+## Grupo 7
 
 * **Integrante 1** - [Rodriguez Nazareno Jose Luis](https://github.com/RodriguezNazareno56)
 * **Integrante 2** - [Servin Velazquez Marcos](https://github.com/mark-1594)
@@ -12,7 +12,7 @@ Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUB
 * **Integrante 4** - [Condori Favio](https://github.com/fcondori10)
 * **Integrante 5** - [Sosa Juan Manuel](https://github.com/jmsosaa)
 
-Corrector: **{Corrector}**
+Corrector: **Sánchez Diego, Rivero Joaquin**
 
 ## Aplicación
 
