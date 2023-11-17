@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class CasoDeUso4 {
 
     @Test
-    public void verificarQueSiRecibeComidaIncrementaEnergíaEn10() {
+    public void verificarQueSiRecibeComidaIncrementaEnergiaEn10() {
         // TODO: falta implementar
     }
 }

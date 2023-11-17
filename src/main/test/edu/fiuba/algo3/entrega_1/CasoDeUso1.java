@@ -9,7 +9,7 @@ public class CasoDeUso1 {
      * Por enunciado: Cada gladiador comienza con 20 puntos de energía, sin equipamiento.
      */
     @Test
-    public void verificarQueElJugadorEmpiezaConLaEnergíaYEquipamientoCorrespondiente() {
+    public void verificarQueElJugadorEmpiezaConLaEnergiaYEquipamientoCorrespondiente() {
         // TODO: falta implementar
     }
 }
