@@ -1,13 +1,16 @@
 package edu.fiuba.algo3.Equipamientos;
 
-public class Nada extends Equipamiento {
+import edu.fiuba.algo3.Concecuencias.FieraSalvaje;
+import edu.fiuba.algo3.Gladiador.Energia;
+
+public class Nada extends Equipamiento { //TODO: El nombre es medio feo
     @Override
     public Equipamiento incrementar() {
         return new Casco();
     }
 
     @Override
-    public int disiparAtaque() {
-        return 20;
+    public Energia disiparAtaque(FieraSalvaje fieraSalvaje) {
+        return fieraSalvaje.atacarContraEquipado(this);
     }
 }
