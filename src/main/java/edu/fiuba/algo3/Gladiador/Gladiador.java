@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.Gladiador;
 
 import edu.fiuba.algo3.Casillero;
+import edu.fiuba.algo3.Concecuencias.Enemigo;
 import edu.fiuba.algo3.Concecuencias.FieraSalvaje;
 import edu.fiuba.algo3.Equipamientos.Equipamiento;
 import edu.fiuba.algo3.MovimientoExeption;
@@ -48,16 +49,16 @@ public class Gladiador {
         this.equipamiento = this.equipamiento.incrementar();
     }
 
-    public void recibirAtaque(FieraSalvaje fieraSalvaje) {
-        this.energia.disminuirEnergia(this.defenderse(fieraSalvaje));
+    public void recibirAtaque(Enemigo enemigo) {
+        this.energia.disminuirEnergia(this.defenderse(enemigo));
     }
 
     /**
-     * Utiliza el equipamiento de gladiador para disipar el ataque de acuerdo al daño que la fiera genere frente al mismo
-     * @param fieraSalvaje
+     * El gladiador utiliza su equipamiento para disipar el ataque de acuerdo al daño que la fiera genere ante al mismo.
+     * @param enemigo
      * @return Energia por el valor del daño
      */
-    private Energia defenderse(FieraSalvaje fieraSalvaje) {
-        return this.equipamiento.disiparAtaque(fieraSalvaje);
+    private Energia defenderse(Enemigo enemigo) {
+        return enemigo.atacarATravesDelEquipamiento(this.equipamiento);
     }
 }
