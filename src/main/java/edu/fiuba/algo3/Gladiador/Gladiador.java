@@ -49,7 +49,10 @@ public class Gladiador {
     }
 
     public void recibirAtaque(FieraSalvaje fieraSalvaje) {
-        Energia energiaADescontar = new Energia(this.equipamiento.disiparAtaque(fieraSalvaje));
-        this.energia.disminuirEnergia(energiaADescontar);
+        this.energia.disminuirEnergia(new Energia(this.defenderse(fieraSalvaje)));
+    }
+
+    private int defenderse(FieraSalvaje fieraSalvaje) {
+        return this.equipamiento.disiparAtaque(fieraSalvaje);
     }
 }
