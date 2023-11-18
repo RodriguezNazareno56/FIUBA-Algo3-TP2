@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.Gladiador;
 
 import edu.fiuba.algo3.Casillero;
+import edu.fiuba.algo3.Concecuencias.FieraSalvaje;
 import edu.fiuba.algo3.Equipamientos.Equipamiento;
 import edu.fiuba.algo3.MovimientoExeption;
 import edu.fiuba.algo3.Gladiador.Senority.Senority;
@@ -47,8 +48,8 @@ public class Gladiador {
         this.equipamiento = this.equipamiento.incrementar();
     }
 
-    public void recibirAtaque() {
-        Energia energiaADescontar = new Energia(this.equipamiento.disiparAtaque());
+    public void recibirAtaque(FieraSalvaje fieraSalvaje) {
+        Energia energiaADescontar = new Energia(this.equipamiento.disiparAtaque(fieraSalvaje));
         this.energia.disminuirEnergia(energiaADescontar);
     }
 }

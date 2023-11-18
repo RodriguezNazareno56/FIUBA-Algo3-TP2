@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.Equipamientos;
 
+import edu.fiuba.algo3.Concecuencias.FieraSalvaje;
+
 public class EscudoYEspada extends Equipamiento {
     @Override
     public Equipamiento incrementar() {
@@ -7,7 +9,7 @@ public class EscudoYEspada extends Equipamiento {
     }
 
     @Override
-    public int disiparAtaque() {
-        return 2;
+    public int disiparAtaque(FieraSalvaje fieraSalvaje) {
+        return fieraSalvaje.atacarContraEquipadoConEscudoYEspada();
     }
 }
