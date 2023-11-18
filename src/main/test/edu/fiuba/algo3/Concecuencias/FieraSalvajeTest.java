@@ -10,17 +10,17 @@ import org.mockito.Mockito;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.times;
 
-class FieraSalvajeTest {
+public class FieraSalvajeTest {
 
-    FieraSalvaje fieraSalvaje;
+    private FieraSalvaje fieraSalvaje;
 
     @BeforeEach
-    void setUp() {
+    public void setUp() {
         fieraSalvaje = new FieraSalvaje();
     }
 
     @Test
-    void afectarGladiador() {
+    public void afectarGladiador() {
         // Arrange
         Gladiador gladiador = Mockito.mock(Gladiador.class);
 
@@ -32,7 +32,7 @@ class FieraSalvajeTest {
     }
 
     @Test
-    void atacarATravesDeNadaCausaUnDanioDe20PuntosDeEnergia() {
+    public void atacarATravesDeNadaCausaUnDanioDe20PuntosDeEnergia() {
         // Arrange
         Equipamiento nada = Mockito.mock(Nada.class);
         Mockito.when(nada.disiparAtaque(fieraSalvaje))
@@ -47,7 +47,7 @@ class FieraSalvajeTest {
     }
 
     @Test
-    void atacarATravesDeUnCascoCausaUnDanioDe15PuntosDeEnergia() {
+    public void atacarATravesDeUnCascoCausaUnDanioDe15PuntosDeEnergia() {
         // Arrange
         Equipamiento casco = Mockito.mock(Casco.class);
         Mockito.when(casco.disiparAtaque(fieraSalvaje))
@@ -62,7 +62,7 @@ class FieraSalvajeTest {
     }
 
     @Test
-    void atacarATravesDeUnaArmaduraCausaUnDanioDe10PuntosDeEnergia() {
+    public void atacarATravesDeUnaArmaduraCausaUnDanioDe10PuntosDeEnergia() {
         // Arrange
         Equipamiento armadura = Mockito.mock(Armadura.class);
         Mockito.when(armadura.disiparAtaque(fieraSalvaje))
@@ -77,7 +77,7 @@ class FieraSalvajeTest {
     }
 
     @Test
-    void atacarATravesDeUnEscudoYEspadaCausaUnDanioDe2PuntosDeEnergia() {
+    public void atacarATravesDeUnEscudoYEspadaCausaUnDanioDe2PuntosDeEnergia() {
         // Arrange
         Equipamiento escudoYEspada = Mockito.mock(EscudoYEspada.class);
         Mockito.when(escudoYEspada.disiparAtaque(fieraSalvaje))
@@ -92,7 +92,7 @@ class FieraSalvajeTest {
     }
 
     @Test
-    void atacarATravesDeUnaLlaveCausaUnDanioDe0PuntosDeEnergia() {
+    public void atacarATravesDeUnaLlaveCausaUnDanioDe0PuntosDeEnergia() {
         // Arrange
         Equipamiento llave = Mockito.mock(Llave.class);
         Mockito.when(llave.disiparAtaque(fieraSalvaje))
