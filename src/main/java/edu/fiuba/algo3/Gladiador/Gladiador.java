@@ -49,10 +49,15 @@ public class Gladiador {
     }
 
     public void recibirAtaque(FieraSalvaje fieraSalvaje) {
-        this.energia.disminuirEnergia(new Energia(this.defenderse(fieraSalvaje)));
+        this.energia.disminuirEnergia(this.defenderse(fieraSalvaje));
     }
 
-    private int defenderse(FieraSalvaje fieraSalvaje) {
+    /**
+     * Utiliza el equipamiento de gladiador para disipar el ataque de acuerdo al daño que la fiera genere frente al mismo
+     * @param fieraSalvaje
+     * @return Energia por el valor del daño
+     */
+    private Energia defenderse(FieraSalvaje fieraSalvaje) {
         return this.equipamiento.disiparAtaque(fieraSalvaje);
     }
 }
