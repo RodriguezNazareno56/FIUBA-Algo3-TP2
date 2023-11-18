@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.Concecuencias;
 
-import edu.fiuba.algo3.Equipamientos.Equipamiento;
+import edu.fiuba.algo3.Equipamientos.*;
 import edu.fiuba.algo3.Gladiador.Energia;
 import edu.fiuba.algo3.Gladiador.Gladiador;
 
@@ -16,27 +16,27 @@ public class FieraSalvaje implements Consecuencia, Enemigo {
     }
 
     @Override
-    public Energia atacarContraSinEquipamiento() {
+    public Energia atacarContraEquipado(Nada nada) {
         return new Energia(20);
     }
 
     @Override
-    public Energia atacarContraEquipadoConCasco() {
+    public Energia atacarContraEquipado(Casco casco) {
         return new Energia(15);
     }
 
     @Override
-    public Energia atacarContraEquipadoConArmadura() {
+    public Energia atacarContraEquipado(Armadura armadura) {
         return new Energia(10);
     }
 
     @Override
-    public Energia atacarContraEquipadoConEscudoYEspada() {
+    public Energia atacarContraEquipado(EscudoYEspada escudoYEspada) {
         return new Energia(2);
     }
 
     @Override
-    public Energia atacarContraEquipadoConLLave() {
+    public Energia atacarContraEquipado(Llave llave) {
         return new Energia(0);
     }
 }

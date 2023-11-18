@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.Concecuencias;
 
-import edu.fiuba.algo3.Equipamientos.Equipamiento;
+import edu.fiuba.algo3.Equipamientos.*;
 import edu.fiuba.algo3.Gladiador.Energia;
 
 public interface Enemigo {
@@ -16,29 +16,29 @@ public interface Enemigo {
      * Daño que causa al atacar contra gladiador que no posee equipamiento
      * @return Energia por el valor del daño.
      */
-    public Energia atacarContraSinEquipamiento();
+    public Energia atacarContraEquipado(Nada nada);
 
     /**
      * Daño que causa al atacar contra gladiador que posee un casco
      * @return Energia por el valor del daño.
      */
-    public Energia atacarContraEquipadoConCasco();
+    public Energia atacarContraEquipado(Casco casco);
 
     /**
      * Daño que causa al atacar contra gladiador que posee una Armadura
      * @return Energia por el valor del daño.
      */
-    public Energia atacarContraEquipadoConArmadura();
+    public Energia atacarContraEquipado(Armadura armadura);
 
     /**
      * Daño que causa al atacar contra gladiador que posee un EscudoYEspada
      * @return Energia por el valor del daño.
      */
-    public Energia atacarContraEquipadoConEscudoYEspada();
+    public Energia atacarContraEquipado(EscudoYEspada escudoYEspada);
 
     /**
      * Daño que causa al atacar contra gladiador que posee una LLave
      * @return Energia por el valor del daño.
      */
-    public Energia atacarContraEquipadoConLLave();
+    public Energia atacarContraEquipado(Llave llave);
 }

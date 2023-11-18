@@ -11,6 +11,6 @@ public class Armadura extends Equipamiento {
 
     @Override
     public Energia disiparAtaque(FieraSalvaje fieraSalvaje) {
-        return fieraSalvaje.atacarContraEquipadoConArmadura();
+        return fieraSalvaje.atacarContraEquipado(this);
     }
 }

@@ -11,6 +11,6 @@ public class Nada extends Equipamiento { //TODO: El nombre es medio feo
 
     @Override
     public Energia disiparAtaque(FieraSalvaje fieraSalvaje) {
-        return fieraSalvaje.atacarContraSinEquipamiento();
+        return fieraSalvaje.atacarContraEquipado(this);
     }
 }

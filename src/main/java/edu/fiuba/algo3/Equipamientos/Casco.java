@@ -11,6 +11,6 @@ public class Casco extends Equipamiento {
 
     @Override
     public Energia disiparAtaque(FieraSalvaje fieraSalvaje) {
-        return fieraSalvaje.atacarContraEquipadoConCasco();
+        return fieraSalvaje.atacarContraEquipado(this);
     }
 }

@@ -11,6 +11,6 @@ public class EscudoYEspada extends Equipamiento {
 
     @Override
     public Energia disiparAtaque(FieraSalvaje fieraSalvaje) {
-        return fieraSalvaje.atacarContraEquipadoConEscudoYEspada();
+        return fieraSalvaje.atacarContraEquipado(this);
     }
 }

@@ -11,6 +11,6 @@ public class Llave extends Equipamiento {
 
     @Override
     public Energia disiparAtaque(FieraSalvaje fieraSalvaje) {
-        return fieraSalvaje.atacarContraEquipadoConLLave();
+        return fieraSalvaje.atacarContraEquipado(this);
     }
 }
