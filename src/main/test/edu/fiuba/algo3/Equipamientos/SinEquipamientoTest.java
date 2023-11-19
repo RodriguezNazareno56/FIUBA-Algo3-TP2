@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
-public class NadaTest {
+public class SinEquipamientoTest {
 
     private FieraSalvaje fieraSalvajeMock;
 
@@ -23,10 +23,10 @@ public class NadaTest {
     @Test
     public void incrementarNadaRetornaUnEquipamientoCasco() {
         // Arrange
-        Nada nada = new Nada();
+        SinEquipamiento sinEquipamiento = new SinEquipamiento();
 
         // Act
-        Equipamiento equipoIncrementado = nada.incrementar();
+        Equipamiento equipoIncrementado = sinEquipamiento.incrementar();
 
         // Assert.
         // El quipo incrementado al disipar un ataque invoca fieraSalvaje.atacarContraEquipado(Nada nada);
@@ -38,20 +38,20 @@ public class NadaTest {
     @Test
     public void disiparAtaqueDeUnaFieraRetornaUnaEnergiaConValor0ComoDanio() {
         // Arrange
-        Nada nada = new Nada();
+        SinEquipamiento sinEquipamiento = new SinEquipamiento();
         int danioEsperado = 20;
 
         Energia energiaMock = Mockito.mock(Energia.class);
         Mockito.when(energiaMock.getValor()).thenReturn(danioEsperado);
 
-        Mockito.when(fieraSalvajeMock.atacarContraEquipado(nada))
+        Mockito.when(fieraSalvajeMock.atacarContraEquipado(sinEquipamiento))
                 .thenReturn(energiaMock);
 
         // Act
-        Energia danio = nada.disiparAtaque(fieraSalvajeMock);
+        Energia danio = sinEquipamiento.disiparAtaque(fieraSalvajeMock);
 
         // Assert
         assertEquals(danio.getValor(), danioEsperado);
-        Mockito.verify(fieraSalvajeMock, times(1)).atacarContraEquipado(nada);
+        Mockito.verify(fieraSalvajeMock, times(1)).atacarContraEquipado(sinEquipamiento);
     }
 }

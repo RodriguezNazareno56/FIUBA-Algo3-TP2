@@ -36,16 +36,16 @@ public class FieraSalvajeTest {
     @Test
     public void atacarATravesDeNadaCausaUnDanioDe20PuntosDeEnergia() {
         // Arrange
-        Nada nada = Mockito.mock(Nada.class);
-        Mockito.when(nada.disiparAtaque(fieraSalvaje))
-                .thenReturn(fieraSalvaje.atacarContraEquipado(nada));
+        SinEquipamiento sinEquipamiento = Mockito.mock(SinEquipamiento.class);
+        Mockito.when(sinEquipamiento.disiparAtaque(fieraSalvaje))
+                .thenReturn(fieraSalvaje.atacarContraEquipado(sinEquipamiento));
 
         // Act
-        Energia danio = fieraSalvaje.atacarATravesDelEquipamiento(nada);
+        Energia danio = fieraSalvaje.atacarATravesDelEquipamiento(sinEquipamiento);
 
         // Assert
         assertEquals(danio.getValor(), 20);
-        Mockito.verify(nada, times(1)).disiparAtaque(fieraSalvaje);
+        Mockito.verify(sinEquipamiento, times(1)).disiparAtaque(fieraSalvaje);
     }
 
     @Test

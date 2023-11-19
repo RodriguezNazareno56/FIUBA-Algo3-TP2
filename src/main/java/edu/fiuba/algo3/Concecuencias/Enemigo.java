@@ -16,7 +16,7 @@ public interface Enemigo {
      * Daño que causa al atacar contra gladiador que no posee equipamiento
      * @return Energia por el valor del daño.
      */
-    public Energia atacarContraEquipado(Nada nada);
+    public Energia atacarContraEquipado(SinEquipamiento sinEquipamiento);
 
     /**
      * Daño que causa al atacar contra gladiador que posee un casco
