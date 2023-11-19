@@ -1,0 +1,44 @@
+@startuml
+
+!theme plain
+top to bottom direction
+skinparam linetype ortho
+
+interface Afectable << interface >> {
+  + disiparAtaque(FieraSalvaje): Energia
+}
+class Armadura {
+  + disiparAtaque(FieraSalvaje): Energia
+  + incrementar(): Equipamiento
+}
+class Casco {
+  + disiparAtaque(FieraSalvaje): Energia
+  + incrementar(): Equipamiento
+}
+class Equipamiento {
+  + incrementar(): Equipamiento
+}
+class EscudoYEspada {
+  + disiparAtaque(FieraSalvaje): Energia
+  + incrementar(): Equipamiento
+}
+class Llave {
+  + disiparAtaque(FieraSalvaje): Energia
+  + incrementar(): Equipamiento
+}
+class Nada {
+  + incrementar(): Equipamiento
+  + disiparAtaque(FieraSalvaje): Energia
+}
+
+Armadura       -[#000082,plain]-^  Equipamiento  
+Armadura       -[#595959,dashed]->  EscudoYEspada : "«create»"
+Casco          -[#595959,dashed]->  Armadura      : "«create»"
+Casco          -[#000082,plain]-^  Equipamiento  
+Equipamiento   -[#008200,dashed]-^  Afectable     
+EscudoYEspada  -[#000082,plain]-^  Equipamiento  
+EscudoYEspada  -[#595959,dashed]->  Llave         : "«create»"
+Llave          -[#000082,plain]-^  Equipamiento  
+Nada           -[#595959,dashed]->  Casco         : "«create»"
+Nada           -[#000082,plain]-^  Equipamiento  
+@enduml
