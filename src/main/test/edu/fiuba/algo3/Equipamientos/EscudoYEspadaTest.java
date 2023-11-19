@@ -29,7 +29,7 @@ public class EscudoYEspadaTest {
         Equipamiento equipoIncrementado = escudoYEspada.incrementar();
 
         // Assert.
-        // El quipo incrementado al disipar un ataque invoca fieraSalvaje.atacarContraEquipado(Llave llave);
+        // El quipo incrementado al disipar un ataque invoca fieraSalvaje.atacarContraEquipado(EscudoYEspada escudoYEspada);
         equipoIncrementado.disiparAtaque(fieraSalvajeMock);
         verify(fieraSalvajeMock, times(1))
                 .atacarContraEquipado(ArgumentMatchers.isA(Llave.class));
