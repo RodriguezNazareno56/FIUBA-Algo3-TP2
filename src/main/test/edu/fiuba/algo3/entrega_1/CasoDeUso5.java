@@ -41,7 +41,7 @@ public class CasoDeUso5 {
         this.gladiador = new Gladiador(energia, equipamiento, casillero, senority, inventarioDeEquipamiento);
 
         //Act
-        this.gladiador.recibirConsecuencia(incrementoDeEquipo);
+        incrementoDeEquipo.afectarGladiador(gladiador);
 
         //Assert
         assertEquals(gladiador.obtenerEquipamiento(), inventarioDeEquipamiento.buscarPor(1));
