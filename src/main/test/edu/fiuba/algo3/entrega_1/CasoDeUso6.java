@@ -1,14 +1,16 @@
 package edu.fiuba.algo3.entrega_1;
 
 import edu.fiuba.algo3.*;
-import edu.fiuba.algo3.Concecuencias.IncrementoDeEquipamiento;
+import edu.fiuba.algo3.Concecuencias.Consecuencia;
+import edu.fiuba.algo3.Concecuencias.EquipamientoIncrementado;
 import edu.fiuba.algo3.Equipamientos.Equipamiento;
-import edu.fiuba.algo3.Equipamientos.EscudoYEspada;
 import edu.fiuba.algo3.Equipamientos.Nada;
 import edu.fiuba.algo3.Gladiador.Energia;
 import edu.fiuba.algo3.Gladiador.Gladiador;
 import edu.fiuba.algo3.Gladiador.Senority.Novato;
 import edu.fiuba.algo3.Gladiador.Senority.Senority;
+import edu.fiuba.algo3.inventario.Inventario;
+import edu.fiuba.algo3.inventario.InventarioDeEquipamiento;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -16,6 +18,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class CasoDeUso6 {
 
     private Gladiador gladiador;
+    private Inventario<Equipamiento> inventarioDeEquipamiento;
 
     @BeforeEach
     void setUp() {
@@ -23,18 +26,21 @@ public class CasoDeUso6 {
         Energia energia = new Energia(20);
         Equipamiento equipamiento = new Nada();
         Senority senority = new Novato();
-        this.gladiador = new Gladiador(energia, equipamiento, casillero, senority);
+        this.inventarioDeEquipamiento = new InventarioDeEquipamiento();
+        this.gladiador = new Gladiador(energia, equipamiento, casillero, senority, inventarioDeEquipamiento);
     }
 
     @Test
     public void verificarQueSiRecibeUnPremioPorTerceraVezObtieneEscudoYEspada() {
         // TODO: falta implementar
-        IncrementoDeEquipamiento incrementoDeEquipo = new IncrementoDeEquipamiento();
+        //Arrenge
+        Consecuencia incrementoDeEquipo = new EquipamientoIncrementado();
 
-        incrementoDeEquipo.afectarGladiador(gladiador);
-        incrementoDeEquipo.afectarGladiador(gladiador);
-        incrementoDeEquipo.afectarGladiador(gladiador);
+        //Act
+        this.gladiador.recibirConsecuencia(incrementoDeEquipo);
+        this.gladiador.recibirConsecuencia(incrementoDeEquipo);
+        this.gladiador.recibirConsecuencia(incrementoDeEquipo);
 
-        assertEquals(gladiador.getEquipamiento().getClass(), EscudoYEspada.class);
+        assertEquals(gladiador.obtenerEquipamiento(), this.inventarioDeEquipamiento.buscarPor(3));
     }
 }

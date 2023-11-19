@@ -1,9 +1,10 @@
 package edu.fiuba.algo3.Gladiador;
 
 import edu.fiuba.algo3.Casillero;
+import edu.fiuba.algo3.Concecuencias.Consecuencia;
 import edu.fiuba.algo3.Concecuencias.Enemigo;
-import edu.fiuba.algo3.Concecuencias.FieraSalvaje;
 import edu.fiuba.algo3.Equipamientos.Equipamiento;
+import edu.fiuba.algo3.inventario.Inventario;
 import edu.fiuba.algo3.MovimientoExeption;
 import edu.fiuba.algo3.Gladiador.Senority.Senority;
 
@@ -11,21 +12,26 @@ public class Gladiador {
 
     private Energia energia;
     private Equipamiento equipamiento;
+
+    private Inventario<Equipamiento> inventario;
     private Casillero casillero;
     private Senority senority;
 
-    public Gladiador(Energia energia, Equipamiento equipamiento, Casillero casillero, Senority senority) {
+    public Gladiador(Energia energia, Equipamiento equipamiento, Casillero casillero, Senority senority, Inventario<Equipamiento> inventario) {
         this.energia = energia;
         this.equipamiento = equipamiento;
         this.casillero = casillero;
         this.senority = senority;
+        this.inventario = inventario;
+        this.inventario.agregarSiNoExiste(equipamiento);
+
     }
 
     public int getEnergia() {
         return energia.getValor();
     }
 
-    public Equipamiento getEquipamiento() {
+    public Equipamiento obtenerEquipamiento() {
         return equipamiento;
     }
 
@@ -47,6 +53,11 @@ public class Gladiador {
 
     public void incrementarEquipamiento() {
         this.equipamiento = this.equipamiento.incrementar();
+        this.inventario.agregarSiNoExiste(equipamiento);
+    }
+
+    public void recibirConsecuencia(Consecuencia consecuencia){
+        consecuencia.afectarGladiador(this);
     }
 
     public void recibirAtaque(Enemigo enemigo) {
