@@ -34,10 +34,13 @@ public class CasoDeUso11 {
     @Test
     public void verificarQueSiElGladiadorTieneLaLlaveYRecibeOtroPremioNoCambiaNada() {
         // TODO: falta implementar
+        // Arrange
         Consecuencia equipamientoIncrementado = new EquipamientoIncrementado();
 
-        this.gladiador.recibirConsecuencia(equipamientoIncrementado);
+        // Act
+        equipamientoIncrementado.afectarGladiador(gladiador);
 
+        // Assert
         assertEquals(gladiador.obtenerEquipamiento(), this.inventarioDeEquipamiento.buscarPor(this.equipamiento));
 
     }

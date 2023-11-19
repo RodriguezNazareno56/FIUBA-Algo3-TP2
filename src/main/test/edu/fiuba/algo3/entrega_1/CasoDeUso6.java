@@ -37,9 +37,9 @@ public class CasoDeUso6 {
         Consecuencia incrementoDeEquipo = new EquipamientoIncrementado();
 
         //Act
-        this.gladiador.recibirConsecuencia(incrementoDeEquipo);
-        this.gladiador.recibirConsecuencia(incrementoDeEquipo);
-        this.gladiador.recibirConsecuencia(incrementoDeEquipo);
+        incrementoDeEquipo.afectarGladiador(gladiador);
+        incrementoDeEquipo.afectarGladiador(gladiador);
+        incrementoDeEquipo.afectarGladiador(gladiador);
 
         assertEquals(gladiador.obtenerEquipamiento(), this.inventarioDeEquipamiento.buscarPor(3));
     }
