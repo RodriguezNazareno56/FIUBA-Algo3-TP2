@@ -16,7 +16,7 @@ public class FieraSalvaje implements Consecuencia, Enemigo {
     }
 
     @Override
-    public Energia atacarContraEquipado(Nada nada) {
+    public Energia atacarContraEquipado(SinEquipamiento sinEquipamiento) {
         return new Energia(20);
     }
 

@@ -4,7 +4,7 @@ import edu.fiuba.algo3.*;
 import edu.fiuba.algo3.Concecuencias.Consecuencia;
 import edu.fiuba.algo3.Concecuencias.EquipamientoIncrementado;
 import edu.fiuba.algo3.Equipamientos.Equipamiento;
-import edu.fiuba.algo3.Equipamientos.Nada;
+import edu.fiuba.algo3.Equipamientos.SinEquipamiento;
 import edu.fiuba.algo3.Gladiador.Energia;
 import edu.fiuba.algo3.Gladiador.Gladiador;
 import edu.fiuba.algo3.Gladiador.Senority.Novato;
@@ -33,7 +33,7 @@ public class CasoDeUso5 {
         //Arrange
         Casillero casillero = new Casillero(0);
         Energia energia = new Energia(20);
-        Equipamiento equipamiento = new Nada();
+        Equipamiento equipamiento = new SinEquipamiento();
         Senority senority = new Novato();
         Inventario<Equipamiento> inventarioDeEquipamiento = new InventarioDeEquipamiento();
         Consecuencia incrementoDeEquipo = new EquipamientoIncrementado();

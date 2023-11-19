@@ -2,7 +2,7 @@ package edu.fiuba.algo3.entrega_1;
 
 import edu.fiuba.algo3.*;
 import edu.fiuba.algo3.Equipamientos.Equipamiento;
-import edu.fiuba.algo3.Equipamientos.Nada;
+import edu.fiuba.algo3.Equipamientos.SinEquipamiento;
 import edu.fiuba.algo3.Gladiador.Energia;
 import edu.fiuba.algo3.Gladiador.Gladiador;
 import edu.fiuba.algo3.Gladiador.Senority.Novato;
@@ -21,7 +21,7 @@ public class CasoDeUso3 {
     void setUp() {
         Casillero casillero = new Casillero(0);
         Energia energia = new Energia(0);
-        Equipamiento equipamiento = new Nada();
+        Equipamiento equipamiento = new SinEquipamiento();
         Senority senority = new Novato();
         InventarioDeEquipamiento inventarioDeEquipamiento = new InventarioDeEquipamiento();
         this.gladiador = new Gladiador(energia, equipamiento, casillero, senority, inventarioDeEquipamiento);
