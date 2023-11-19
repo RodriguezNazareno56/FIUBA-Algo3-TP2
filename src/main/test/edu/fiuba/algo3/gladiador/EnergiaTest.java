@@ -6,10 +6,10 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class EnergiaTest {
+public class EnergiaTest {
 
     @Test
-    void verificarQueAumentaLaCantidadDeEnergia(){
+    public void verificarQueAumentaLaCantidadDeEnergia(){
 
         //Arrange
         Energia energia = new Energia(10);
@@ -25,7 +25,7 @@ class EnergiaTest {
     }
 
     @Test
-    void verficarQuedisminuyeCantidadDeEnergia(){
+    public void verficarQuedisminuyeCantidadDeEnergia(){
 
         //Arrange
         Energia energia = new Energia(10);
@@ -41,7 +41,7 @@ class EnergiaTest {
     }
 
     @Test
-    void verficarQueSeInicializaELValorDeLaEnergia(){
+    public void verficarQueSeInicializaELValorDeLaEnergia(){
 
         //Arrange
         Energia energia = new Energia(10);
