@@ -6,10 +6,10 @@ import org.mockito.Mockito;
 
 import static org.mockito.Mockito.times;
 
-class EquipamientoIncrementadoTest {
+public class EquipamientoIncrementadoTest {
 
     @Test
-    void afectarGladiadorHaceQueGladiadorIncrementeSuEquipamiento() {
+    public void afectarGladiadorHaceQueGladiadorIncrementeSuEquipamiento() {
         // Arrange
         Gladiador gladiador = Mockito.mock(Gladiador.class);
         EquipamientoIncrementado equipamientoIncrementado = new EquipamientoIncrementado();
