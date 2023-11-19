@@ -12,3 +12,4 @@ buildNumber.properties
 *.iml
 /appmap.yml
 /tmp/
+/qodana.yaml

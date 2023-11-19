@@ -4,7 +4,7 @@ import edu.fiuba.algo3.Casillero;
 import edu.fiuba.algo3.Concecuencias.Consecuencia;
 import edu.fiuba.algo3.Concecuencias.Enemigo;
 import edu.fiuba.algo3.Equipamientos.Equipamiento;
-import edu.fiuba.algo3.Inventario.Inventario;
+import edu.fiuba.algo3.inventario.Inventario;
 import edu.fiuba.algo3.MovimientoExeption;
 import edu.fiuba.algo3.Gladiador.Senority.Senority;
 

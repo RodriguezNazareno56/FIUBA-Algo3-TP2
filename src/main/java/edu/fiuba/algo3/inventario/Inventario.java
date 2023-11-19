@@ -1,6 +1,4 @@
-package edu.fiuba.algo3.Inventario;
-
-import edu.fiuba.algo3.Equipamientos.Equipamiento;
+package edu.fiuba.algo3.inventario;
 
 public interface Inventario<T> {
     void agregarSiNoExiste(T t);

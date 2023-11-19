@@ -8,7 +8,7 @@ import edu.fiuba.algo3.Concecuencias.FieraSalvaje;
 import edu.fiuba.algo3.Gladiador.Gladiador;
 import edu.fiuba.algo3.Gladiador.Senority.Novato;
 import edu.fiuba.algo3.Gladiador.Senority.Senority;
-import edu.fiuba.algo3.Inventario.InventarioDeEquipamiento;
+import edu.fiuba.algo3.inventario.InventarioDeEquipamiento;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;

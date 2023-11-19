@@ -5,7 +5,7 @@ import edu.fiuba.algo3.Gladiador.Energia;
 import edu.fiuba.algo3.Equipamientos.Casco;
 import edu.fiuba.algo3.Equipamientos.Equipamiento;
 import edu.fiuba.algo3.Gladiador.Gladiador;
-import edu.fiuba.algo3.Inventario.InventarioDeEquipamiento;
+import edu.fiuba.algo3.inventario.InventarioDeEquipamiento;
 import edu.fiuba.algo3.MovimientoExeption;
 import edu.fiuba.algo3.Gladiador.Senority.Novato;
 import edu.fiuba.algo3.Gladiador.Senority.Senority;
