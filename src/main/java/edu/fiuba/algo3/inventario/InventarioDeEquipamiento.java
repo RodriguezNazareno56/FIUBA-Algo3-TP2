@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.Inventario;
+package edu.fiuba.algo3.inventario;
 
 import edu.fiuba.algo3.Equipamientos.Equipamiento;
 
