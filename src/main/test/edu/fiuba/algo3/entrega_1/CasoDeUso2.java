@@ -7,6 +7,7 @@ import edu.fiuba.algo3.Gladiador.Energia;
 import edu.fiuba.algo3.Gladiador.Gladiador;
 import edu.fiuba.algo3.Gladiador.senority.Novato;
 import edu.fiuba.algo3.Gladiador.senority.Senority;
+import edu.fiuba.algo3.casilleros.Casillero;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

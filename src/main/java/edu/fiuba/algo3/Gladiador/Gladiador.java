@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.Gladiador;
 
-import edu.fiuba.algo3.Casillero;
+import edu.fiuba.algo3.casilleros.Casillero;
 import edu.fiuba.algo3.Concecuencias.Consecuencia;
 import edu.fiuba.algo3.Concecuencias.Enemigo;
 import edu.fiuba.algo3.Equipamientos.Equipamiento;

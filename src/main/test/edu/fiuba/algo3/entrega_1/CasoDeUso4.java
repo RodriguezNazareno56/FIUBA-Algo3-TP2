@@ -1,6 +1,5 @@
 package edu.fiuba.algo3.entrega_1;
 
-import edu.fiuba.algo3.*;
 import edu.fiuba.algo3.Concecuencias.Comida;
 import edu.fiuba.algo3.Equipamientos.Equipamiento;
 import edu.fiuba.algo3.Equipamientos.SinEquipamiento;
@@ -8,6 +7,7 @@ import edu.fiuba.algo3.Gladiador.Energia;
 import edu.fiuba.algo3.Gladiador.Gladiador;
 import edu.fiuba.algo3.Gladiador.senority.Novato;
 import edu.fiuba.algo3.Gladiador.senority.Senority;
+import edu.fiuba.algo3.casilleros.Casillero;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;

@@ -5,4 +5,5 @@ module edu.fiuba.algo3 {
     exports edu.fiuba.algo3.Gladiador.senority;
     exports edu.fiuba.algo3.Concecuencias;
     exports edu.fiuba.algo3.Gladiador;
+    exports edu.fiuba.algo3.casilleros;
 }
