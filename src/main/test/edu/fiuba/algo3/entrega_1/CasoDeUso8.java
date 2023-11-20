@@ -30,11 +30,11 @@ public class CasoDeUso8 {
         // TODO: ver si podemos sacar ese .getEnergia()
         // Arrange
         for (int i = 1; i <= 8; i++) {
-            gladiador.mover();
+            gladiador.avanzar();
         }
 
         // Act
-        gladiador.mover();
+        gladiador.avanzar();
 
         // Assert
         assertEquals(gladiador.getEnergia(), 25);

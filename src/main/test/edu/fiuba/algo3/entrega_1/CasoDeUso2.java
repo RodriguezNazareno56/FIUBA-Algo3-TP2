@@ -7,6 +7,7 @@ import edu.fiuba.algo3.Gladiador.Energia;
 import edu.fiuba.algo3.Gladiador.Gladiador;
 import edu.fiuba.algo3.Gladiador.senority.Novato;
 import edu.fiuba.algo3.Gladiador.senority.Senority;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -26,9 +27,14 @@ public class CasoDeUso2 {
 
     @Test
     public void verificarQueElJugadorSalgaDeLaCasillaInicial() {
-        // TODO: falta quitar el getPosicion()
 
         // Assert
-        assertEquals(gladiador.getPosicion(), 0);
+
+        Throwable exception= Assertions.assertThrows(MovimientoExeption.class, () -> {
+            this.gladiador.retroceder();
+        });
+        assertEquals("Gladiador: Movimiento invalido", exception.getMessage());
+
+
     }
 }
