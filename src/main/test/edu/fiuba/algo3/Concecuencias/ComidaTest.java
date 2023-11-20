@@ -15,7 +15,7 @@ import static org.mockito.Mockito.times;
 
 class ComidaTest {
     @Test
-    public void afectarGladiadorHaceQueGladiadorIncrementeSuEquipamiento() {
+    public void afectarGladiadorHaceQueGladiadorComa() {
         // Arrange
         Gladiador gladiador = Mockito.mock(Gladiador.class);
         Comida comida= new Comida();
