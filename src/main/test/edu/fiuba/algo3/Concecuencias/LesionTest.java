@@ -12,7 +12,7 @@ import static org.mockito.Mockito.*;
 public class LesionTest {
 
     @Test
-    void afectarGladiador() throws MovimientoExeption, MovimientoPausadoExeption {
+    public void afectarGladiador() throws MovimientoExeption, MovimientoPausadoExeption {
         //Arrange
         Consecuencia lesion = new Lesion();
         Gladiador gladiadorMock = mock(Gladiador.class);
