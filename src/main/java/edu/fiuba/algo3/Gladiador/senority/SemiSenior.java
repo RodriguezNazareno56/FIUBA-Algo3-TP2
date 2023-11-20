@@ -10,6 +10,10 @@ public class SemiSenior extends Senority {
 
     @Override
     public Senority aumentarExperiencia() {
+        experiencia += 1;
+        if (experiencia == 12) {
+            return new Senior();
+        }
         return this;
     }
 

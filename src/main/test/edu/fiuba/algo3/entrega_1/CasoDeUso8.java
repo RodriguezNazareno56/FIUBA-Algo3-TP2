@@ -5,7 +5,6 @@ import edu.fiuba.algo3.Gladiador.Energia;
 import edu.fiuba.algo3.Equipamientos.Casco;
 import edu.fiuba.algo3.Equipamientos.Equipamiento;
 import edu.fiuba.algo3.Gladiador.Gladiador;
-import edu.fiuba.algo3.inventario.InventarioDeEquipamiento;
 import edu.fiuba.algo3.MovimientoExeption;
 import edu.fiuba.algo3.Gladiador.senority.Novato;
 import edu.fiuba.algo3.Gladiador.senority.Senority;
@@ -23,8 +22,7 @@ public class CasoDeUso8 {
         Senority senority = new Novato();
         Energia energia = new Energia(20);
         Equipamiento equipamiento = new Casco();
-        InventarioDeEquipamiento inventarioDeEquipamiento = new InventarioDeEquipamiento();
-        this.gladiador = new Gladiador(energia, equipamiento, casillero, senority, inventarioDeEquipamiento);
+        this.gladiador = new Gladiador(energia, equipamiento, casillero, senority);
     }
 
     @Test
