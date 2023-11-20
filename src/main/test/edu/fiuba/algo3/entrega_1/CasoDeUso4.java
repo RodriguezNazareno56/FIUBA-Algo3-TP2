@@ -28,7 +28,7 @@ public class CasoDeUso4 {
     }
 
     @Test
-    public void verificarQueSiRecibeComidaIncrementaEnergiaEn10() {
+    public void verificarQueSiRecibeComidaIncrementaEnergiaEn15() {
         // TODO: falta capas quitar el .getEnergia()
         // Arrange
         Comida comida = new Comida();
@@ -37,6 +37,6 @@ public class CasoDeUso4 {
         comida.afectarGladiador(gladiador);
 
         // Assert
-        assertEquals(gladiador.getEnergia(), 30);
+        assertEquals(gladiador.getEnergia(), 35);
     }
 }
