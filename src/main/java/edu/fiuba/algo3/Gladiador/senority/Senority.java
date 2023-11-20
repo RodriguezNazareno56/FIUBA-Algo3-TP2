@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.Gladiador.Senority;
+package edu.fiuba.algo3.Gladiador.senority;
 
 import edu.fiuba.algo3.Gladiador.Energia;
 
