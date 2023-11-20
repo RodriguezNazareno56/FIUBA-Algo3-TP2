@@ -9,7 +9,7 @@ public class AsisteAUnBacanalTest {
 
 
     @Test
-    void afectarGladiador(){
+    public void afectarGladiador(){
         //Arrange
         int cantiadDeTragos = 6;
         Consecuencia asisteAUnBacanal = new AsisteAUnBacanal(cantiadDeTragos);
