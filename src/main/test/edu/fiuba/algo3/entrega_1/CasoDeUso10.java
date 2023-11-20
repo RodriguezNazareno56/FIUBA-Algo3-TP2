@@ -27,7 +27,6 @@ public class CasoDeUso10 {
 
     @Test
     public void verificarQueSiLoAtacaUnaFieraSalvajeYPoseeTodoElEquipamientoElDanioEnEnergiaEs0() {
-        // TODO: double dispatch para diferenciar ataque ante los distintos tipos de equipamiento
         FieraSalvaje fieraSalvaje = new FieraSalvaje();
 
         // Act

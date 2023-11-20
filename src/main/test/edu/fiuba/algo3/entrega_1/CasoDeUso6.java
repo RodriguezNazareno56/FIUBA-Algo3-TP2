@@ -29,8 +29,7 @@ public class CasoDeUso6 {
 
     @Test
     public void verificarQueSiRecibeUnPremioPorTerceraVezObtieneEscudoYEspada() {
-        // TODO: falta implementar
-        //Arrenge
+        //Arrange
         Consecuencia incrementoDeEquipo = new EquipamientoIncrementado();
         int energiaEsperada = 18;
 
@@ -40,6 +39,7 @@ public class CasoDeUso6 {
         this.gladiador.recibirConsecuencia(incrementoDeEquipo);
         this.gladiador.recibirAtaque(new FieraSalvaje());
 
+        //Assert
         assertEquals(energiaEsperada, this.gladiador.getEnergia());
     }
 }

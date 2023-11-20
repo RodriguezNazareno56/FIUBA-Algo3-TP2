@@ -27,7 +27,7 @@ public class CasoDeUso7 {
 
     @Test
     public void verificarQueSiHayUnCombateConUnaFieraSalvajeYTieneUnCascoPierde15PuntosDeEnergia() {
-        // TODO: falta implementar
+        // TODO: falta ver si se puede sacar el getEnergia()
         // Arrange
         FieraSalvaje fieraSalvaje = new FieraSalvaje();
 

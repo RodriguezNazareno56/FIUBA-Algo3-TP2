@@ -27,7 +27,6 @@ public class CasoDeUso3 {
 
     @Test
     public void verificarQueUnJugadorSinEnergiaNoPuedaJugarElTurno() {
-        // TODO: falta implementar
         Throwable exception= Assertions.assertThrows(MovimientoExeption.class, () -> {
             this.gladiador.avanzar();
         });

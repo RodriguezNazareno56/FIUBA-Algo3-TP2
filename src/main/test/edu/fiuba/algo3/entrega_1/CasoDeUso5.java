@@ -28,7 +28,7 @@ public class CasoDeUso5 {
 
     @Test
     public void verificarQueSiRecibeUnPremioPorPrimeraVezObtieneUnCasco() {
-        // TODO: falta implementar
+        // TODO: falta ver si se puede sacar el .getEnergia()
         //Arrange
         Casillero casillero = new Casillero(0);
         Energia energia = new Energia(20);

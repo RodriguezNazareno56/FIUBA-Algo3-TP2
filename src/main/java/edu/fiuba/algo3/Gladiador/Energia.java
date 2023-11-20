@@ -18,6 +18,4 @@ public class Energia {
     public void disminuirEnergia(Energia energia){
         valor -= energia.getValor();
     }
-
-    //TODO: combinar energia
 }
