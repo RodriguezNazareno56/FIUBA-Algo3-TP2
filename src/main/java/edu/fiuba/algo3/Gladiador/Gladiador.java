@@ -48,7 +48,7 @@ public class Gladiador {
     }
 
     public void avanzar() throws MovimientoExeption, MovimientoPausadoExeption {
-        if (this.getEnergia() == 0) {
+        if (this.getEnergia() <= 0) {
             throw new MovimientoExeption("El gladiador no se puede mover sin energia");
         }
         if(!this.estaHabilitadoParaMover) throw new MovimientoPausadoExeption("El gladiador esta pausado para mover en este turno");
