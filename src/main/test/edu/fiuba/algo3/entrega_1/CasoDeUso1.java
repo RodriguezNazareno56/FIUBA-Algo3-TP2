@@ -30,5 +30,6 @@ public class CasoDeUso1 {
         // Assert
         assertEquals(gladiador.obtenerEquipamiento(), equipamiento);
         assertEquals(gladiador.getEnergia(), 20);
+
     }
 }

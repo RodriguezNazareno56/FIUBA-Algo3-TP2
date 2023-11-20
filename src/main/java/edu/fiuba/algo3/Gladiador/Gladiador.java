@@ -39,10 +39,21 @@ public class Gladiador {
         return this.casillero.getPosicion();
     }
 
-    public void mover() throws MovimientoExeption {
+    public void retroceder() throws MovimientoExeption{
+
+        if(  casillero.anterior() == null ){
+            throw new MovimientoExeption("Gladiador: Movimiento invalido");
+        }
+
+        casillero = casillero.anterior();
+
+    }
+
+    public void avanzar() throws MovimientoExeption {
         if (this.getEnergia() == 0) {
             throw new MovimientoExeption("El gladiador no se puede mover sin energia");
         }
+
         this.senority.aumentarEnergia(energia);
         this.senority = this.senority.aumentarExperiencia();
     }
