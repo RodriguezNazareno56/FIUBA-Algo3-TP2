@@ -45,6 +45,10 @@ public class Gladiador {
         this.energia.aumentarEnergia(energia);
     }
 
+    public void tomarCopasDeVino(Energia energia){
+        this.energia.disminuirEnergia(energia);
+    }
+
     public void incrementarEquipamiento() {
         this.equipamiento = this.equipamiento.incrementar();
     }
