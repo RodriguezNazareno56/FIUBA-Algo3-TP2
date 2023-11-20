@@ -7,7 +7,6 @@ import edu.fiuba.algo3.Gladiador.Energia;
 import edu.fiuba.algo3.Gladiador.Gladiador;
 import edu.fiuba.algo3.Gladiador.senority.Novato;
 import edu.fiuba.algo3.Gladiador.senority.Senority;
-import edu.fiuba.algo3.inventario.InventarioDeEquipamiento;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -24,8 +23,7 @@ public class CasoDeUso1 {
         Equipamiento equipamiento = new SinEquipamiento();
         Casillero casillero = new Casillero(0);
         Senority senority = new Novato();
-        InventarioDeEquipamiento inventarioDeEquipamiento = new InventarioDeEquipamiento();
-        Gladiador gladiador = new Gladiador(energia, equipamiento, casillero, senority, inventarioDeEquipamiento);
+        Gladiador gladiador = new Gladiador(energia, equipamiento, casillero, senority);
 
         // Assert
         assertEquals(gladiador.obtenerEquipamiento(), equipamiento);

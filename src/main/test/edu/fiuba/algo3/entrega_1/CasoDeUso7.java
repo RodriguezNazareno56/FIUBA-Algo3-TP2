@@ -8,7 +8,6 @@ import edu.fiuba.algo3.Concecuencias.FieraSalvaje;
 import edu.fiuba.algo3.Gladiador.Gladiador;
 import edu.fiuba.algo3.Gladiador.senority.Novato;
 import edu.fiuba.algo3.Gladiador.senority.Senority;
-import edu.fiuba.algo3.inventario.InventarioDeEquipamiento;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -23,8 +22,7 @@ public class CasoDeUso7 {
         Energia energia = new Energia(20);
         Equipamiento equipamiento = new Casco();
         Senority senority = new Novato();
-        InventarioDeEquipamiento inventarioDeEquipamiento = new InventarioDeEquipamiento();
-        this.gladiador = new Gladiador(energia, equipamiento, casillero, senority, inventarioDeEquipamiento);
+        this.gladiador = new Gladiador(energia, equipamiento, casillero, senority);
     }
 
     @Test
@@ -34,7 +32,7 @@ public class CasoDeUso7 {
         FieraSalvaje fieraSalvaje = new FieraSalvaje();
 
         // Act
-        fieraSalvaje.afectarGladiador(gladiador);
+        this.gladiador.recibirConsecuencia(fieraSalvaje);
 
         // Assert
         assertEquals(gladiador.getEnergia(), 5);

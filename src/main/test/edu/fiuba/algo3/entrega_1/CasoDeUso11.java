@@ -2,6 +2,7 @@ package edu.fiuba.algo3.entrega_1;
 
 import edu.fiuba.algo3.Casillero;
 import edu.fiuba.algo3.Concecuencias.Consecuencia;
+import edu.fiuba.algo3.Concecuencias.FieraSalvaje;
 import edu.fiuba.algo3.Gladiador.Energia;
 import edu.fiuba.algo3.Equipamientos.Equipamiento;
 import edu.fiuba.algo3.Equipamientos.Llave;
@@ -9,8 +10,6 @@ import edu.fiuba.algo3.Gladiador.Gladiador;
 import edu.fiuba.algo3.Concecuencias.EquipamientoIncrementado;
 import edu.fiuba.algo3.Gladiador.senority.Novato;
 import edu.fiuba.algo3.Gladiador.senority.Senority;
-import edu.fiuba.algo3.inventario.Inventario;
-import edu.fiuba.algo3.inventario.InventarioDeEquipamiento;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -18,7 +17,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class CasoDeUso11 {
 
     private Gladiador gladiador;
-    private Inventario<Equipamiento> inventarioDeEquipamiento;
     private Equipamiento equipamiento;
 
     @BeforeEach
@@ -27,8 +25,7 @@ public class CasoDeUso11 {
         Senority senority = new Novato();
         Energia energia = new Energia(20);
         this.equipamiento = new Llave();
-        this.inventarioDeEquipamiento = new InventarioDeEquipamiento();
-        this.gladiador = new Gladiador(energia, equipamiento, casillero, senority, inventarioDeEquipamiento);
+        this.gladiador = new Gladiador(energia, equipamiento, casillero, senority);
     }
 
     @Test
@@ -36,12 +33,14 @@ public class CasoDeUso11 {
         // TODO: falta implementar
         // Arrange
         Consecuencia equipamientoIncrementado = new EquipamientoIncrementado();
+        int enerigiaEsperada = 20;
 
         // Act
-        equipamientoIncrementado.afectarGladiador(gladiador);
+        this.gladiador.recibirConsecuencia(equipamientoIncrementado);
+        this.gladiador.recibirAtaque(new FieraSalvaje());
 
         // Assert
-        assertEquals(gladiador.obtenerEquipamiento(), this.inventarioDeEquipamiento.buscarPor(this.equipamiento));
+        assertEquals(enerigiaEsperada, this.gladiador.getEnergia());
 
     }
 }

@@ -7,7 +7,6 @@ import edu.fiuba.algo3.Gladiador.Energia;
 import edu.fiuba.algo3.Gladiador.Gladiador;
 import edu.fiuba.algo3.Gladiador.senority.Novato;
 import edu.fiuba.algo3.Gladiador.senority.Senority;
-import edu.fiuba.algo3.inventario.InventarioDeEquipamiento;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -22,8 +21,7 @@ public class CasoDeUso2 {
         Energia energia = new Energia(20);
         Equipamiento equipamiento = new SinEquipamiento();
         Senority senority = new Novato();
-        InventarioDeEquipamiento inventarioDeEquipamiento = new InventarioDeEquipamiento();
-        this.gladiador = new Gladiador(energia, equipamiento, casillero, senority, inventarioDeEquipamiento);
+        this.gladiador = new Gladiador(energia, equipamiento, casillero, senority);
     }
 
     @Test
