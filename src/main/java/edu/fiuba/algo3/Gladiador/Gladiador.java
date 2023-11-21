@@ -7,6 +7,8 @@ import edu.fiuba.algo3.Equipamientos.Equipamiento;
 import edu.fiuba.algo3.MovimientoExeption;
 import edu.fiuba.algo3.Gladiador.senority.Senority;
 import edu.fiuba.algo3.casilleros.ICasillero;
+import edu.fiuba.algo3.MovimientoPausadoExeption;
+
 
 public class Gladiador {
 
@@ -15,11 +17,14 @@ public class Gladiador {
     private ICasillero casillero;
     private Senority senority;
 
+    private boolean estaHabilitadoParaMover;
+
     public Gladiador(Energia energia, Equipamiento equipamiento, Casillero casillero, Senority senority) {
         this.energia = energia;
         this.equipamiento = equipamiento;
         this.casillero = casillero;
         this.senority = senority;
+        this.estaHabilitadoParaMover = true;
     }
 
     // TODO: Eliminar el otro
@@ -67,6 +72,18 @@ public class Gladiador {
 
         this.senority.aumentarEnergia(energia);
         this.senority = this.senority.aumentarExperiencia();
+        this.casillero = casillero.proximoEnNPosiciones(cantidadDePosiciones);
+    }
+  
+    public void avanzar() throws MovimientoExeption, MovimientoPausadoExeption {
+        if (this.getEnergia() <= 0) {
+
+            throw new MovimientoExeption("El gladiador no se puede mover sin energia");
+        }
+        if(!this.estaHabilitadoParaMover) throw new MovimientoPausadoExeption("El gladiador esta pausado para mover en este turno");
+
+        this.senority.aumentarEnergia(energia);
+        this.senority = this.senority.aumentarExperiencia();
         this.casillero = casillero.proximoEnNPosiciones(5);
     }
 
@@ -89,6 +106,10 @@ public class Gladiador {
     public void recibirAtaque(Enemigo enemigo) {
         this.energia.disminuirEnergia(this.defenderse(enemigo));
     }
+    public void enojar() {
+        this.pausarMovimiento();
+    }
+
 
     /**
      * El gladiador utiliza su equipamiento para disipar el ataque de acuerdo al daño que la fiera genere ante al mismo.
@@ -98,4 +119,10 @@ public class Gladiador {
     private Energia defenderse(Enemigo enemigo) {
         return enemigo.atacarATravesDelEquipamiento(this.equipamiento);
     }
+
+    public void pausarMovimiento(){
+        this.estaHabilitadoParaMover = false;
+    }
+
+
 }
