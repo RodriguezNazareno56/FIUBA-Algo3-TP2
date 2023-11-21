@@ -10,7 +10,7 @@ public interface Enemigo {
      * @param equipamiento equipamiento que posee el gladiador.
      * @return Energia por el valor del daño.
      */
-    public abstract Energia atacarATravesDelEquipamiento(Equipamiento equipamiento);
+    public Energia atacarATravesDelEquipamiento(Equipamiento equipamiento);
 
     /**
      * Daño que causa al atacar contra gladiador que no posee equipamiento
