@@ -1,15 +1,14 @@
-package edu.fiuba.algo3;
+package edu.fiuba.algo3.casilleros;
 
-import edu.fiuba.algo3.casilleros.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class CasilleroTest {
+public class CasilleroTest {
 
     @Test
-    void proximoEnNPosiciones() throws Exception {
+    public void proximoEnNPosiciones() {
         // Arrange
         CasilleroFactory casilleroFactory = new CasilleroFactory();
         ICasillero casilleroInicial = casilleroFactory.construirCasilleros(10);
@@ -23,7 +22,7 @@ class CasilleroTest {
     }
 
     @Test
-    void anteriorEnNPosiciones() throws Exception {
+    public void anteriorEnNPosiciones() {
         // Arrange
         CasilleroFactory casilleroFactory = new CasilleroFactory();
         ICasillero casilleroInicial = casilleroFactory.construirCasilleros(10);
@@ -39,25 +38,25 @@ class CasilleroTest {
     }
 
     @Test
-    void obtenerAnteriorAlCasilleroInicial() {
+    public void obtenerAnteriorAlCasilleroInicial() {
         ICasillero casillero = new CasilleroInicial(0);
-        Throwable exception= Assertions.assertThrows(Exception.class, () -> {
+        Throwable exception= Assertions.assertThrows(CasilleroInexistenteException.class, () -> {
             casillero.anterior();
         });
         assertEquals("No hay casillero anterior al inicial", exception.getMessage());
     }
 
     @Test
-    void obtenerProximoAlCasilleroFinal() {
+    public void obtenerProximoAlCasilleroFinal() {
         ICasillero casillero = new CasilleroFinal(1, new Casillero(0));
-        Throwable exception= Assertions.assertThrows(Exception.class, () -> {
+        Throwable exception= Assertions.assertThrows(CasilleroInexistenteException.class, () -> {
             casillero.proximo();
         });
         assertEquals("No hay casillero proximo al final", exception.getMessage());
     }
 
     @Test
-    void proximoEn5PosicionesDeUnTableroDe4PosicionesTerminaEnElFinal() throws Exception { //TODO: Que es un tablero?
+    public void proximoEn5PosicionesDeUnTableroDe4PosicionesTerminaEnElFinal() { //TODO: Que es un tablero?
         // Arrange
         CasilleroFactory casilleroFactory = new CasilleroFactory();
         ICasillero casilleroInicial = casilleroFactory.construirCasilleros(4);
@@ -72,7 +71,7 @@ class CasilleroTest {
     }
 
     @Test
-    void anteriorEn5PosicionesDeUnTableroDe4PosicionesTerminaEnElInicio() throws Exception { //TODO: Que es un tablero?
+    public void anteriorEn5PosicionesDeUnTableroDe4PosicionesTerminaEnElInicio() { //TODO: Que es un tablero?
         // Arrange
         CasilleroFactory casilleroFactory = new CasilleroFactory();
         ICasillero casilleroInicial = casilleroFactory.construirCasilleros(4);

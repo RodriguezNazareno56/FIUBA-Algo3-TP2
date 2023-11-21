@@ -1,33 +1,34 @@
 package edu.fiuba.algo3.casilleros;
 
-public class Casillero {
+public class Casillero implements ICasillero {
 
     private int posicion;
 
-    private Casillero proximo = null; //TODO: Idealmente deberiamos quitar estos null
-    private Casillero anterior = null;
+    protected ICasillero proximo;
+    protected ICasillero anterior;
 
     public int getPosicion() {
         return posicion;
     }
 
-    public Casillero anterior( ){
+    public ICasillero anterior( ) throws CasilleroInexistenteException {
         return this.anterior;
     }
 
-    public Casillero proximo( ){
+    public ICasillero proximo( ) throws CasilleroInexistenteException {
         return this.proximo;
     }
+
     public Casillero(int posicion) {
         this.posicion = posicion;
     }
 
-    public Casillero(int posicion, Casillero anterior) {
+    protected Casillero(int posicion, ICasillero anterior) {
         this.posicion = posicion;
         this.anterior = anterior;
     }
 
-    public Casillero proximoEnNPosiciones(int cantidadDePosiciones) { // TODO: Buscarle un mejor nombre(?
+    public ICasillero proximoEnNPosiciones(int cantidadDePosiciones) { // TODO: Buscarle un mejor nombre(?
         if (cantidadDePosiciones == 0) {
             return this;
         }
@@ -35,7 +36,15 @@ public class Casillero {
         return this.proximo.proximoEnNPosiciones(cantidadDePosiciones);
     }
 
-    public void setProximo(Casillero casilleroProximo) {
+    public ICasillero anteriorEnNPosiciones(int cantidadDePosiciones) { // TODO: Buscarle un mejor nombre(?
+        if (cantidadDePosiciones == 0) {
+            return this;
+        }
+        cantidadDePosiciones--;
+        return this.anterior.anteriorEnNPosiciones(cantidadDePosiciones);
+    }
+
+    public void setProximo(ICasillero casilleroProximo) {
         this.proximo = casilleroProximo;
     }
 }

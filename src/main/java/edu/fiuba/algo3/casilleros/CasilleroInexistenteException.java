@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.casilleros;
 
-public class CasilleroInexistenteExcpetion extends Exception {
-    public CasilleroInexistenteExcpetion(String message) {
+public class CasilleroInexistenteException extends Exception {
+    public CasilleroInexistenteException(String message) {
         super(message);
     }
 }

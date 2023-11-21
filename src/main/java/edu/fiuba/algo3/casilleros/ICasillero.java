@@ -1,13 +1,16 @@
 package edu.fiuba.algo3.casilleros;
 
-public interface CasilleroInterface {
-    Casillero proximoEnNPosiciones(int cantidadDePosiciones);
+public interface ICasillero {
 
     int getPosicion();
 
-    CasilleroInterface anterior() throws Exception;
+    ICasillero anterior() throws CasilleroInexistenteException;
 
-    CasilleroInterface proximo() throws Exception;;
+    ICasillero proximo() throws CasilleroInexistenteException;;
 
-    void setProximo(CasilleroInterface casilleroProximo);
+    ICasillero proximoEnNPosiciones(int cantidadDePosiciones);
+
+    ICasillero anteriorEnNPosiciones(int cantidadDePosiciones);
+
+    void setProximo(ICasillero casilleroProximo);
 }
