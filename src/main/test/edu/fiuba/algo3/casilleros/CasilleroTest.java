@@ -10,8 +10,8 @@ public class CasilleroTest {
     @Test
     public void proximoEnNPosiciones() {
         // Arrange
-        CasilleroFactory casilleroFactory = new CasilleroFactory();
-        ICasillero casilleroInicial = casilleroFactory.construirCasilleros(10);
+        CasillerosFactory casillerosFactory = new CasillerosFactory();
+        ICasillero casilleroInicial = casillerosFactory.construirCasilleros(10);
 
         // Act
         ICasillero casilleroProximoEn5Posiciones = casilleroInicial.proximoEnNPosiciones(5);
@@ -24,8 +24,8 @@ public class CasilleroTest {
     @Test
     public void anteriorEnNPosiciones() {
         // Arrange
-        CasilleroFactory casilleroFactory = new CasilleroFactory();
-        ICasillero casilleroInicial = casilleroFactory.construirCasilleros(10);
+        CasillerosFactory casillerosFactory = new CasillerosFactory();
+        ICasillero casilleroInicial = casillerosFactory.construirCasilleros(10);
 
         // Act
         ICasillero casilleroProximoEn5Posiciones = casilleroInicial.proximoEnNPosiciones(5);
@@ -58,8 +58,8 @@ public class CasilleroTest {
     @Test
     public void proximoEn5PosicionesDeUnTableroDe4PosicionesTerminaEnElFinal() { //TODO: Que es un tablero?
         // Arrange
-        CasilleroFactory casilleroFactory = new CasilleroFactory();
-        ICasillero casilleroInicial = casilleroFactory.construirCasilleros(4);
+        CasillerosFactory casillerosFactory = new CasillerosFactory();
+        ICasillero casilleroInicial = casillerosFactory.construirCasilleros(4);
 
         // Act
         ICasillero casilleroProximoAlInicialEn5posiciones = casilleroInicial.proximoEnNPosiciones(5);
@@ -73,8 +73,8 @@ public class CasilleroTest {
     @Test
     public void anteriorEn5PosicionesDeUnTableroDe4PosicionesTerminaEnElInicio() { //TODO: Que es un tablero?
         // Arrange
-        CasilleroFactory casilleroFactory = new CasilleroFactory();
-        ICasillero casilleroInicial = casilleroFactory.construirCasilleros(4);
+        CasillerosFactory casillerosFactory = new CasillerosFactory();
+        ICasillero casilleroInicial = casillerosFactory.construirCasilleros(4);
         ICasillero casilleroFinal = casilleroInicial.proximoEnNPosiciones(4);
         assertEquals(casilleroFinal.getPosicion(), 3);
 

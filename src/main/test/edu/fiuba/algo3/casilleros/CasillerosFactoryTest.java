@@ -5,13 +5,13 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class CasilleroFactoryTest {
+public class CasillerosFactoryTest {
 
     @Test
     public void construirCasillerosRetornaUnCasilleroInicialDoblementeEnlazadoDelTamanioCorrecto() {
         // Arrange
-        CasilleroFactory casilleroFactory = new CasilleroFactory();
-        ICasillero casillero = casilleroFactory.construirCasilleros(10);
+        CasillerosFactory casillerosFactory = new CasillerosFactory();
+        ICasillero casillero = casillerosFactory.construirCasilleros(10);
 
         // Assert
         // Compruebo que puedo recorrer la los casilleros en ambas direcciones

@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.casilleros;
 
-public class CasilleroFactory {
+public class CasillerosFactory {
 
     public ICasillero construirCasilleros(int cantidad) {
         // TODO: medio feo. Al final del dia es como armar una lista doblemente enlazada de casilleros,

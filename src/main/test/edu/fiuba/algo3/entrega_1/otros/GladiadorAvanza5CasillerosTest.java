@@ -6,8 +6,7 @@ import edu.fiuba.algo3.Gladiador.Energia;
 import edu.fiuba.algo3.Gladiador.Gladiador;
 import edu.fiuba.algo3.Gladiador.senority.Novato;
 import edu.fiuba.algo3.Gladiador.senority.Senority;
-import edu.fiuba.algo3.MovimientoExeption;
-import edu.fiuba.algo3.casilleros.CasilleroFactory;
+import edu.fiuba.algo3.casilleros.CasillerosFactory;
 import edu.fiuba.algo3.casilleros.ICasillero;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -20,8 +19,8 @@ public class GladiadorAvanza5CasillerosTest {
 
     @BeforeEach
     public void setUp() {
-        CasilleroFactory casilleroFactory = new CasilleroFactory();
-        ICasillero casilleroInicial = casilleroFactory.construirCasilleros(10);
+        CasillerosFactory casillerosFactory = new CasillerosFactory();
+        ICasillero casilleroInicial = casillerosFactory.construirCasilleros(10);
         ICasillero casillero = casilleroInicial;
         Energia energia = new Energia(20);
         Equipamiento equipamiento = new SinEquipamiento();
