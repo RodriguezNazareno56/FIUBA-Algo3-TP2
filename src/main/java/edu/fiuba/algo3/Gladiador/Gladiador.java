@@ -1,23 +1,23 @@
 package edu.fiuba.algo3.Gladiador;
 
-import edu.fiuba.algo3.Casillero;
 import edu.fiuba.algo3.Concecuencias.Consecuencia;
 import edu.fiuba.algo3.Concecuencias.Enemigo;
 import edu.fiuba.algo3.Equipamientos.Equipamiento;
 import edu.fiuba.algo3.MovimientoExeption;
 import edu.fiuba.algo3.Gladiador.senority.Senority;
 import edu.fiuba.algo3.MovimientoPausadoExeption;
+import edu.fiuba.algo3.casilleros.ICasillero;
 
 public class Gladiador {
 
     private Energia energia;
     private Equipamiento equipamiento;
-    private Casillero casillero;
+    private ICasillero casillero;
     private Senority senority;
 
     private boolean estaHabilitadoParaMover;
 
-    public Gladiador(Energia energia, Equipamiento equipamiento, Casillero casillero, Senority senority) {
+    public Gladiador(Energia energia, Equipamiento equipamiento, ICasillero casillero, Senority senority) {
         this.energia = energia;
         this.equipamiento = equipamiento;
         this.casillero = casillero;
@@ -38,13 +38,11 @@ public class Gladiador {
     }
 
     public void retroceder() throws MovimientoExeption{
-
-        if(  casillero.anterior() == null ){
+        try {
+            this.casillero = casillero.anterior();
+        } catch (Exception e) {
             throw new MovimientoExeption("Gladiador: Movimiento invalido");
         }
-
-        casillero = casillero.anterior();
-
     }
 
     public void avanzar() throws MovimientoExeption, MovimientoPausadoExeption {
@@ -56,6 +54,20 @@ public class Gladiador {
         this.senority.aumentarEnergia(energia);
         this.senority = this.senority.aumentarExperiencia();
     }
+
+    // TODO: Eliminar el otro
+    public void avanzar(int cantidadDePosiciones) throws MovimientoExeption, MovimientoPausadoExeption {
+        if (this.getEnergia() <= 0) {
+            throw new MovimientoExeption("El gladiador no se puede mover sin energia");
+        }
+        if(!this.estaHabilitadoParaMover) throw new MovimientoPausadoExeption("El gladiador esta pausado para mover en este turno");
+
+        this.senority.aumentarEnergia(energia);
+        this.senority = this.senority.aumentarExperiencia();
+
+        this.casillero = casillero.proximoEnNPosiciones(cantidadDePosiciones);
+    }
+
 
     public void comer(Energia energia) {
         this.energia.aumentarEnergia(energia);

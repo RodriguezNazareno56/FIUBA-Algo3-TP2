@@ -1,24 +1,28 @@
-package edu.fiuba.algo3.entrega_1;
+package edu.fiuba.algo3.entrega_1.otros;
 
-import edu.fiuba.algo3.Concecuencias.Comida;
 import edu.fiuba.algo3.Equipamientos.Equipamiento;
 import edu.fiuba.algo3.Equipamientos.SinEquipamiento;
 import edu.fiuba.algo3.Gladiador.Energia;
 import edu.fiuba.algo3.Gladiador.Gladiador;
 import edu.fiuba.algo3.Gladiador.senority.Novato;
 import edu.fiuba.algo3.Gladiador.senority.Senority;
-import edu.fiuba.algo3.casilleros.Casillero;
+import edu.fiuba.algo3.MovimientoExeption;
+import edu.fiuba.algo3.casilleros.CasilleroFactory;
+import edu.fiuba.algo3.casilleros.ICasillero;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class CasoDeUso4 {
+public class GladiadorAvanza5CasillerosTest {
 
     private Gladiador gladiador;
 
     @BeforeEach
-    void setUp() {
-        Casillero casillero = new Casillero(0);
+    public void setUp() {
+        CasilleroFactory casilleroFactory = new CasilleroFactory();
+        ICasillero casilleroInicial = casilleroFactory.construirCasilleros(10);
+        ICasillero casillero = casilleroInicial;
         Energia energia = new Energia(20);
         Equipamiento equipamiento = new SinEquipamiento();
         Senority senority = new Novato();
@@ -26,15 +30,15 @@ public class CasoDeUso4 {
     }
 
     @Test
-    public void verificarQueSiRecibeComidaIncrementaEnergiaEn15() {
-        // TODO: falta capas quitar el .getEnergia()
-        // Arrange
-        Comida comida = new Comida();
-
+    public void gladiadorAvanzar5CasillerosAvanza5Casilleros() {
         // Act
-        this.gladiador.recibirConsecuencia(comida);
+        try {
+            gladiador.avanzar(5);
+        } catch (Exception e) {
+            assert false;
+        }
 
         // Assert
-        assertEquals(gladiador.getEnergia(), 35);
+        assertEquals(gladiador.getPosicion(), 5);
     }
 }

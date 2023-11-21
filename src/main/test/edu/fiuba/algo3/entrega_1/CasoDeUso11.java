@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.entrega_1;
 
-import edu.fiuba.algo3.Casillero;
+import edu.fiuba.algo3.casilleros.Casillero;
 import edu.fiuba.algo3.Concecuencias.Consecuencia;
 import edu.fiuba.algo3.Concecuencias.FieraSalvaje;
 import edu.fiuba.algo3.Gladiador.Energia;

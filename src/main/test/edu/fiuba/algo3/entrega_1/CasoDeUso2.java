@@ -7,6 +7,9 @@ import edu.fiuba.algo3.Gladiador.Energia;
 import edu.fiuba.algo3.Gladiador.Gladiador;
 import edu.fiuba.algo3.Gladiador.senority.Novato;
 import edu.fiuba.algo3.Gladiador.senority.Senority;
+import edu.fiuba.algo3.casilleros.Casillero;
+import edu.fiuba.algo3.casilleros.CasilleroFactory;
+import edu.fiuba.algo3.casilleros.ICasillero;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -18,7 +21,8 @@ public class CasoDeUso2 {
 
     @BeforeEach
     void setUp() {
-        Casillero casillero = new Casillero(0);
+        CasilleroFactory casilleroFactory = new CasilleroFactory();
+        ICasillero casillero = casilleroFactory.construirCasilleros(2);
         Energia energia = new Energia(20);
         Equipamiento equipamiento = new SinEquipamiento();
         Senority senority = new Novato();
