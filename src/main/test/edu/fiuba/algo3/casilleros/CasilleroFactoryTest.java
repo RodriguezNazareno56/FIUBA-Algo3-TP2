@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class CasilleroFactoryTest {
 
     @Test
-    void construirCasillerosRetornaUnCasilleroInicialDoblementeEnlazadoDelTamanioCorrecto() {
+    public void construirCasillerosRetornaUnCasilleroInicialDoblementeEnlazadoDelTamanioCorrecto() {
         // Arrange
         CasilleroFactory casilleroFactory = new CasilleroFactory();
         ICasillero casillero = casilleroFactory.construirCasilleros(10);

@@ -19,7 +19,7 @@ public class GladiadorAvanza5CasillerosTest {
     private Gladiador gladiador;
 
     @BeforeEach
-    void setUp() {
+    public void setUp() {
         CasilleroFactory casilleroFactory = new CasilleroFactory();
         ICasillero casilleroInicial = casilleroFactory.construirCasilleros(10);
         ICasillero casillero = casilleroInicial;
