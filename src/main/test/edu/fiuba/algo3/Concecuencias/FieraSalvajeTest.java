@@ -1,8 +1,11 @@
 package edu.fiuba.algo3.Concecuencias;
 
+import edu.fiuba.algo3.Casillero;
 import edu.fiuba.algo3.Equipamientos.*;
 import edu.fiuba.algo3.Gladiador.Energia;
 import edu.fiuba.algo3.Gladiador.Gladiador;
+import edu.fiuba.algo3.Gladiador.senority.Novato;
+import edu.fiuba.algo3.Gladiador.senority.Senority;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -106,5 +109,92 @@ public class FieraSalvajeTest {
         // Assert
         assertEquals(danio.getValor(), 0);
         Mockito.verify(llave, times(1)).disiparAtaque(fieraSalvaje);
+    }
+
+    // Pruebas sin MOCK
+
+    @Test
+    public void unaFieraAtacaAUnGladiadorSinEquipamientoYLeResta20DeEnergia() {
+        // Arrange
+        Energia energia = new Energia(20);
+        Equipamiento equipamiento = new SinEquipamiento();
+        Casillero casillero = new Casillero(0);
+        Senority senority = new Novato();
+        Gladiador gladiador = new Gladiador(energia, equipamiento, casillero, senority);
+        int energiaEsperada = 0; //se le restan 20 puntos
+
+        //Act
+        fieraSalvaje.afectarGladiador(gladiador);
+
+        //Assert
+        assertEquals(energiaEsperada, gladiador.getEnergia());
+    }
+
+    @Test
+    public void unaFieraAtacaAUnGladiadorConCascoYLeResta15DeEnergia() {
+        // Arrange
+        Energia energia = new Energia(20);
+        Equipamiento equipamiento = new Casco();
+        Casillero casillero = new Casillero(0);
+        Senority senority = new Novato();
+        Gladiador gladiador = new Gladiador(energia, equipamiento, casillero, senority);
+        int energiaEsperada = 5;  //se le restan 15 puntos
+
+        //Act
+        fieraSalvaje.afectarGladiador(gladiador);
+
+        //Assert
+        assertEquals(energiaEsperada, gladiador.getEnergia());
+    }
+
+    @Test
+    public void unaFieraAtacaAUnGladiadorConArmaduraYLeResta10DeEnergia() {
+        // Arrange
+        Energia energia = new Energia(20);
+        Equipamiento equipamiento = new Armadura();
+        Casillero casillero = new Casillero(0);
+        Senority senority = new Novato();
+        Gladiador gladiador = new Gladiador(energia, equipamiento, casillero, senority);
+        int energiaEsperada = 10; //se le restan 10 puntos
+
+        //Act
+        fieraSalvaje.afectarGladiador(gladiador);
+
+        //Assert
+        assertEquals(energiaEsperada, gladiador.getEnergia());
+    }
+
+    @Test
+    public void unaFieraAtacaAUnGladiadorEscudoYEspadaYLeResta2DeEnergia() {
+        // Arrange
+        Energia energia = new Energia(20);
+        Equipamiento equipamiento = new EscudoYEspada();
+        Casillero casillero = new Casillero(0);
+        Senority senority = new Novato();
+        Gladiador gladiador = new Gladiador(energia, equipamiento, casillero, senority);
+        int energiaEsperada = 18; // se le restan 2 puntos
+
+        //Act
+        fieraSalvaje.afectarGladiador(gladiador);
+
+        //Assert
+        assertEquals(energiaEsperada, gladiador.getEnergia());
+    }
+
+    @Test
+    public void unaFieraAtacaAUnGladiadorConLlaveYNoLeRestaEnergia() {
+        // Arrange
+        Energia energia = new Energia(20);
+        Equipamiento equipamiento = new Llave();
+        Casillero casillero = new Casillero(0);
+        Senority senority = new Novato();
+        Gladiador gladiador = new Gladiador(energia, equipamiento, casillero, senority);
+        int energiaEsperada = 20; // la energia queda igual
+
+        //Act
+        fieraSalvaje.afectarGladiador(gladiador);
+
+        //Assert
+        assertEquals(energiaEsperada, gladiador.getEnergia());
     }
 }
