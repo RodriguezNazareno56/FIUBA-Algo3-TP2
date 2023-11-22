@@ -9,6 +9,7 @@ import edu.fiuba.algo3.Gladiador.senority.Novato;
 import edu.fiuba.algo3.Gladiador.senority.Senority;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
 public class AsisteAUnBacanalTest {
@@ -43,6 +44,9 @@ public class AsisteAUnBacanalTest {
 
         //Act
         bacanal.afectarGladiador(gladiador);
+
+        //Assert
+        assertEquals(energiaEsperada, gladiador.getEnergia());
     }
 
     @Test
@@ -59,6 +63,9 @@ public class AsisteAUnBacanalTest {
 
         //Act
         bacanal.afectarGladiador(gladiador);
+
+        //Assert
+        assertEquals(energiaEsperada, gladiador.getEnergia());
     }
 
     @Test
@@ -75,6 +82,9 @@ public class AsisteAUnBacanalTest {
 
         //Act
         bacanal.afectarGladiador(gladiador);
+
+        //Assert
+        assertEquals(energiaEsperada, gladiador.getEnergia());
     }
 
     @Test
@@ -91,6 +101,9 @@ public class AsisteAUnBacanalTest {
 
         //Act
         bacanal.afectarGladiador(gladiador);
+
+        //Assert
+        assertEquals(energiaEsperada, gladiador.getEnergia());
     }
 
     @Test
@@ -107,6 +120,9 @@ public class AsisteAUnBacanalTest {
 
         //Act
         bacanal.afectarGladiador(gladiador);
+
+        //Assert
+        assertEquals(energiaEsperada, gladiador.getEnergia());
     }
 
     @Test
@@ -123,5 +139,8 @@ public class AsisteAUnBacanalTest {
 
         //Act
         bacanal.afectarGladiador(gladiador);
+
+        //Assert
+        assertEquals(energiaEsperada, gladiador.getEnergia());
     }
 }
