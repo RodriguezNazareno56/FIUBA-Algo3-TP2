@@ -17,7 +17,7 @@ public class CasoDeUso9 {
     private Gladiador gladiador;
 
     @BeforeEach
-    void setUp() {
+    public void setUp() {
         CasillerosFactory casillerosFactory = new CasillerosFactory();
         ICasillero casillero = casillerosFactory.construirCasilleros(10);
         Energia energia = new Energia(20);

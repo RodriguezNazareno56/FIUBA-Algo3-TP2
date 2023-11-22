@@ -112,7 +112,7 @@ public class Gladiador {
     }
 
     public void triunfar() throws TriunfoException {
-        // La llave al incrementarse retorna la propia llave
+        // El ultimo equipamiento (llave) al incrementarse se retorna asi mismo.
         if (equipamiento == equipamiento.incrementar()) {
             throw new TriunfoException("Campeon");
         } else {
