@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.Concecuencias;
 
-import edu.fiuba.algo3.Casillero;
+import edu.fiuba.algo3.casilleros.Casillero;
 import edu.fiuba.algo3.Equipamientos.Casco;
 import edu.fiuba.algo3.Equipamientos.Armadura;
 import edu.fiuba.algo3.Equipamientos.EscudoYEspada;

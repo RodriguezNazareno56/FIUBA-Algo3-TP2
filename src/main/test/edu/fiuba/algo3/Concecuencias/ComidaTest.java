@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.Concecuencias;
 
 
-import edu.fiuba.algo3.Casillero;
+import edu.fiuba.algo3.casilleros.Casillero;
 import edu.fiuba.algo3.Equipamientos.Equipamiento;
 import edu.fiuba.algo3.Equipamientos.SinEquipamiento;
 import edu.fiuba.algo3.Gladiador.Energia;
