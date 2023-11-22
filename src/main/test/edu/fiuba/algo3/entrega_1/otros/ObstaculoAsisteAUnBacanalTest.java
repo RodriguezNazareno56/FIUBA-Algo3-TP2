@@ -9,7 +9,7 @@ import edu.fiuba.algo3.Gladiador.Energia;
 import edu.fiuba.algo3.Gladiador.Gladiador;
 import edu.fiuba.algo3.Gladiador.senority.Novato;
 import edu.fiuba.algo3.Gladiador.senority.Senority;
-import edu.fiuba.algo3.MovimientoExeption;
+import edu.fiuba.algo3.MovimientoException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -32,7 +32,7 @@ public class ObstaculoAsisteAUnBacanalTest {
         gladiador.recibirConsecuencia(asisteAUnBacanal);
 
         //Assert
-        Throwable exception= Assertions.assertThrows(MovimientoExeption.class, gladiador::avanzar);
+        Throwable exception= Assertions.assertThrows(MovimientoException.class, gladiador::avanzar);
         assertEquals("El gladiador no se puede mover sin energia", exception.getMessage());
     }
 }

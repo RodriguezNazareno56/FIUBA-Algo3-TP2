@@ -32,12 +32,8 @@ public class CasoDeUso2 {
     public void verificarQueElJugadorSalgaDeLaCasillaInicial() {
 
         // Assert
-
-        Throwable exception= Assertions.assertThrows(MovimientoExeption.class, () -> {
-            this.gladiador.retroceder();
-        });
+        Throwable exception= Assertions.assertThrows(MovimientoException.class,
+                this.gladiador::retroceder);
         assertEquals("Gladiador: Movimiento invalido", exception.getMessage());
-
-
     }
 }
