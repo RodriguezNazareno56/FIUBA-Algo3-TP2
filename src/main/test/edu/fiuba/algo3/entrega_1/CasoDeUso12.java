@@ -18,7 +18,6 @@ public class CasoDeUso12 {
 
     @Test
     public void verificarQueSiPasan30TurnosYNadieLlegoALaMetaSeTerminaElJuego() {
-        // TODO: falta implementar
 
         for( int i=0 ; i < 30 ; i++ ){
 
@@ -34,7 +33,5 @@ public class CasoDeUso12 {
         });
 
         assertEquals("Fin del Juego: Se alcanzo el numero maximo de rondas", exception.getMessage());
-
-
     }
 }
