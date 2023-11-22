@@ -43,6 +43,9 @@ public class AsisteAUnBacanalTest {
 
         //Act
         bacanal.afectarGladiador(gladiador);
+
+        //Assert
+        assertEquals(energiaEsperada, gladiador.getEnergia());
     }
 
     @Test
@@ -59,6 +62,9 @@ public class AsisteAUnBacanalTest {
 
         //Act
         bacanal.afectarGladiador(gladiador);
+
+        //Assert
+        assertEquals(energiaEsperada, gladiador.getEnergia());
     }
 
     @Test
@@ -75,6 +81,9 @@ public class AsisteAUnBacanalTest {
 
         //Act
         bacanal.afectarGladiador(gladiador);
+
+        //Assert
+        assertEquals(energiaEsperada, gladiador.getEnergia());
     }
 
     @Test
@@ -91,6 +100,9 @@ public class AsisteAUnBacanalTest {
 
         //Act
         bacanal.afectarGladiador(gladiador);
+
+        //Assert
+        assertEquals(energiaEsperada, gladiador.getEnergia());
     }
 
     @Test
@@ -107,6 +119,9 @@ public class AsisteAUnBacanalTest {
 
         //Act
         bacanal.afectarGladiador(gladiador);
+
+        //Assert
+        assertEquals(energiaEsperada, gladiador.getEnergia());
     }
 
     @Test
@@ -123,5 +138,8 @@ public class AsisteAUnBacanalTest {
 
         //Act
         bacanal.afectarGladiador(gladiador);
+
+        //Assert
+        assertEquals(energiaEsperada, gladiador.getEnergia());
     }
 }
