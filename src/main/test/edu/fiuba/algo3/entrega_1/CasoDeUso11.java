@@ -29,7 +29,7 @@ public class CasoDeUso11 {
     }
 
     @Test
-    public void verificarQueSiElGladiadorTieneLaLlaveYRecibeOtroPremioNoCambiaNada() {
+    public void verificarQueSiElGladiadorTieneLaLlaveYRecibeOtroPremioNoCambiaNada() throws Exception {
         // Arrange
         Consecuencia equipamientoIncrementado = new EquipamientoIncrementado();
         int enerigiaEsperada = 20;

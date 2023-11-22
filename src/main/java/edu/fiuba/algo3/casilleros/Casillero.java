@@ -1,8 +1,14 @@
 package edu.fiuba.algo3.casilleros;
 
+import edu.fiuba.algo3.Concecuencias.Consecuencia;
+import edu.fiuba.algo3.Concecuencias.SinConcecuencia;
+import edu.fiuba.algo3.Gladiador.Gladiador;
+import edu.fiuba.algo3.Gladiador.TriunfoException;
+
 public class Casillero implements ICasillero {
 
     private int posicion;
+    protected Consecuencia consecuencia = new SinConcecuencia();
 
     protected ICasillero proximo;
     protected ICasillero anterior;
@@ -46,5 +52,11 @@ public class Casillero implements ICasillero {
 
     public void setProximo(ICasillero casilleroProximo) {
         this.proximo = casilleroProximo;
+    }
+
+    @Override
+    public void afectarGladiadorConConsecuencia(Gladiador gladiador) throws TriunfoException {
+        // TODO: falta implementar que se setee la concecuencia
+        this.consecuencia.afectarGladiador(gladiador);
     }
 }

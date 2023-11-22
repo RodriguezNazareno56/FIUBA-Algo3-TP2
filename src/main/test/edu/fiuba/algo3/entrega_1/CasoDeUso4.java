@@ -26,7 +26,7 @@ public class CasoDeUso4 {
     }
 
     @Test
-    public void verificarQueSiRecibeComidaIncrementaEnergiaEn15() {
+    public void verificarQueSiRecibeComidaIncrementaEnergiaEn15() throws Exception {
         // TODO: falta capas quitar el .getEnergia()
         // Arrange
         Comida comida = new Comida();

@@ -28,7 +28,7 @@ public class CasoDeUso6 {
     }
 
     @Test
-    public void verificarQueSiRecibeUnPremioPorTerceraVezObtieneEscudoYEspada() {
+    public void verificarQueSiRecibeUnPremioPorTerceraVezObtieneEscudoYEspada() throws Exception {
         //Arrange
         Consecuencia incrementoDeEquipo = new EquipamientoIncrementado();
         int energiaEsperada = 18;
