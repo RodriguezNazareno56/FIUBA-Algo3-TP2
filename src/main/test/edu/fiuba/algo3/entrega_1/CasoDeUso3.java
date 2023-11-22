@@ -29,10 +29,8 @@ public class CasoDeUso3 {
     @Test
     public void verificarQueUnJugadorSinEnergiaNoPuedaJugarElTurno() {
 
-        Throwable exception= Assertions.assertThrows(MovimientoException.class, () -> {
-
-            this.gladiador.avanzar();
-        });
+        Throwable exception= Assertions.assertThrows(MovimientoException.class,
+                gladiador::avanzar);
         assertEquals("El gladiador no se puede mover sin energia", exception.getMessage());
     }
 }
