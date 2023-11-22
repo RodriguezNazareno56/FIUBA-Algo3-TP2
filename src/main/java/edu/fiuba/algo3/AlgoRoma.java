@@ -15,4 +15,7 @@ public class AlgoRoma {
 
     }
 
+    public int getCantidadRondas() {
+        return cantidadDeRondas;
+    }
 }
