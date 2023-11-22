@@ -10,6 +10,7 @@ import edu.fiuba.algo3.Gladiador.Gladiador;
 import edu.fiuba.algo3.Gladiador.senority.Novato;
 import edu.fiuba.algo3.Gladiador.senority.Senority;
 import edu.fiuba.algo3.casilleros.Casillero;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -17,34 +18,27 @@ public class CasoDeUso5 {
 
     private Gladiador gladiador;
 
-    /**@BeforeEach
+    @BeforeEach
     void setUp() {
         Casillero casillero = new Casillero(0);
         Energia energia = new Energia(20);
-        Equipamiento equipamiento = new Nada();
+        Equipamiento equipamiento = new SinEquipamiento();
         Senority senority = new Novato();
         this.gladiador = new Gladiador(energia, equipamiento, casillero, senority);
-    }**/
+    }
 
     @Test
     public void verificarQueSiRecibeUnPremioPorPrimeraVezObtieneUnCasco() throws Exception {
         // TODO: falta ver si se puede sacar el .getEnergia()
         //Arrange
-        Casillero casillero = new Casillero(0);
-        Energia energia = new Energia(20);
-        Equipamiento equipamiento = new SinEquipamiento();
-        Senority senority = new Novato();
-        Consecuencia incrementoDeEquipo = new EquipamientoIncrementado();
-
         int energiaEsperada = 5;
-
-        this.gladiador = new Gladiador(energia, equipamiento, casillero, senority);
+        Consecuencia incrementoDeEquipo = new EquipamientoIncrementado();
 
         //Act
         this.gladiador.recibirConsecuencia(incrementoDeEquipo);
         this.gladiador.recibirAtaque(new FieraSalvaje());
 
         //Assert
-        assertEquals(5, this.gladiador.getEnergia());
+        assertEquals(energiaEsperada, this.gladiador.getEnergia());
     }
 }
