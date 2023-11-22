@@ -1,7 +1,6 @@
 package edu.fiuba.algo3.entrega_1.otros;
 
-import edu.fiuba.algo3.Casillero;
-import edu.fiuba.algo3.Concecuencias.AsisteAUnBacanal;
+import edu.fiuba.algo3.casilleros.Casillero;
 import edu.fiuba.algo3.Concecuencias.Consecuencia;
 import edu.fiuba.algo3.Concecuencias.Lesion;
 import edu.fiuba.algo3.Equipamientos.Equipamiento;
@@ -10,7 +9,6 @@ import edu.fiuba.algo3.Gladiador.Energia;
 import edu.fiuba.algo3.Gladiador.Gladiador;
 import edu.fiuba.algo3.Gladiador.senority.Novato;
 import edu.fiuba.algo3.Gladiador.senority.Senority;
-import edu.fiuba.algo3.MovimientoExeption;
 import edu.fiuba.algo3.MovimientoPausadoExeption;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
