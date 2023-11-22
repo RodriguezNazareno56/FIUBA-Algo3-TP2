@@ -56,7 +56,7 @@ public class CasilleroTest {
     }
 
     @Test
-    public void proximoEn5PosicionesDeUnTableroDe4PosicionesTerminaEnElFinal() { //TODO: Que es un tablero?
+    public void proximoEn5PosicionesCuandoTanSoloHay4CasillerosTerminaEnElCasilleroFinal() {
         // Arrange
         CasillerosFactory casillerosFactory = new CasillerosFactory();
         ICasillero casilleroInicial = casillerosFactory.construirCasilleros(4);
@@ -71,7 +71,7 @@ public class CasilleroTest {
     }
 
     @Test
-    public void anteriorEn5PosicionesDeUnTableroDe4PosicionesTerminaEnElInicio() { //TODO: Que es un tablero?
+    public void anteriorEn5PosicionesCuandoTanSoloHay4CasillerosTerminaEnElCasilleroInicio() {
         // Arrange
         CasillerosFactory casillerosFactory = new CasillerosFactory();
         ICasillero casilleroInicial = casillerosFactory.construirCasilleros(4);
