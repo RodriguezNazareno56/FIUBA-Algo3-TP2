@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.Concecuencias;
 
+import edu.fiuba.algo3.Gladiador.TriunfoException;
 import edu.fiuba.algo3.casilleros.Casillero;
 import edu.fiuba.algo3.Equipamientos.Equipamiento;
 import edu.fiuba.algo3.Equipamientos.SinEquipamiento;
@@ -18,7 +19,7 @@ import static org.mockito.Mockito.*;
 public class LesionTest {
 
     @Test
-    public void afectarGladiador() throws MovimientoExeption, MovimientoPausadoExeption {
+    public void afectarGladiador() throws Exception {
         //Arrange
         Consecuencia lesion = new Lesion();
         Gladiador gladiadorMock = mock(Gladiador.class);
@@ -35,7 +36,7 @@ public class LesionTest {
     }
 
     @Test
-    public void unaLesionAfectaAUnGladiadorImpidiendoleAvanzarUnTurno() {
+    public void unaLesionAfectaAUnGladiadorImpidiendoleAvanzarUnTurno() throws TriunfoException {
         //Arrange
         Consecuencia lesion = new Lesion();
         Energia energia = new Energia(20);

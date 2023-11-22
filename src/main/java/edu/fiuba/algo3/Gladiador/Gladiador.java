@@ -56,7 +56,7 @@ public class Gladiador {
     }
 
     // TODO: Eliminar el otro
-    public void avanzar(int cantidadDePosiciones) throws MovimientoExeption, MovimientoPausadoExeption {
+    public void avanzar(int cantidadDePosiciones) throws MovimientoExeption, MovimientoPausadoExeption, TriunfoException {
         if (this.getEnergia() <= 0) {
             throw new MovimientoExeption("El gladiador no se puede mover sin energia");
         }
@@ -66,6 +66,11 @@ public class Gladiador {
         this.senority = this.senority.aumentarExperiencia();
 
         this.casillero = casillero.proximoEnNPosiciones(cantidadDePosiciones);
+        this.casillero.afectarGladiadorConConsecuencia(this);
+    }
+
+    public void retroceder(int cantidadDePosiciones) {
+        this.casillero = casillero.anteriorEnNPosiciones(cantidadDePosiciones);
     }
 
 
@@ -81,7 +86,7 @@ public class Gladiador {
         this.equipamiento = this.equipamiento.incrementar();
     }
 
-    public void recibirConsecuencia(Consecuencia consecuencia){
+    public void recibirConsecuencia(Consecuencia consecuencia) throws Exception {
         consecuencia.afectarGladiador(this);
     }
 
@@ -106,5 +111,12 @@ public class Gladiador {
         this.estaHabilitadoParaMover = false;
     }
 
-
+    public void triunfar() throws TriunfoException {
+        // El ultimo equipamiento (llave) al incrementarse se retorna asi mismo.
+        if (equipamiento == equipamiento.incrementar()) {
+            throw new TriunfoException("Campeon");
+        } else {
+            this.retroceder(casillero.getPosicion()/2);
+        }
+    }
 }

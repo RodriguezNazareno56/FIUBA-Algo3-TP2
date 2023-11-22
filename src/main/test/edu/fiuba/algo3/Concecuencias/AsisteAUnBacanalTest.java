@@ -16,7 +16,7 @@ public class AsisteAUnBacanalTest {
 
 
     @Test
-    public void afectarGladiador(){
+    public void afectarGladiador() throws Exception {
         //Arrange
         int cantiadDeTragos = 6;
         Consecuencia asisteAUnBacanal = new AsisteAUnBacanal(cantiadDeTragos);

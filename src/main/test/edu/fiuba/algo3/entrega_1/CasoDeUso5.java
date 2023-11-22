@@ -27,7 +27,7 @@ public class CasoDeUso5 {
     }**/
 
     @Test
-    public void verificarQueSiRecibeUnPremioPorPrimeraVezObtieneUnCasco() {
+    public void verificarQueSiRecibeUnPremioPorPrimeraVezObtieneUnCasco() throws Exception {
         // TODO: falta ver si se puede sacar el .getEnergia()
         //Arrange
         Casillero casillero = new Casillero(0);

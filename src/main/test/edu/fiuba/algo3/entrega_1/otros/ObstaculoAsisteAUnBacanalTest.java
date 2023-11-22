@@ -18,7 +18,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class ObstaculoAsisteAUnBacanalTest {
 
     @Test
-    public void verificarQueSiRecibeUnObstaculoAsisteAUnBacanalSacaCuatroPuntosDeEnergiaPorCadaTragoTomado(){
+    public void verificarQueSiRecibeUnObstaculoAsisteAUnBacanalSacaCuatroPuntosDeEnergiaPorCadaTragoTomado() throws Exception {
         //Arrange
         int cantiadDeTragos = 6;
         Consecuencia asisteAUnBacanal = new AsisteAUnBacanal(cantiadDeTragos);
