@@ -3,7 +3,7 @@ package edu.fiuba.algo3.Gladiador;
 import edu.fiuba.algo3.Concecuencias.Consecuencia;
 import edu.fiuba.algo3.Concecuencias.Enemigo;
 import edu.fiuba.algo3.Equipamientos.Equipamiento;
-import edu.fiuba.algo3.MovimientoExeption;
+import edu.fiuba.algo3.MovimientoException;
 import edu.fiuba.algo3.Gladiador.senority.Senority;
 import edu.fiuba.algo3.MovimientoPausadoExeption;
 import edu.fiuba.algo3.casilleros.ICasillero;
@@ -37,17 +37,17 @@ public class Gladiador {
         return this.casillero.getPosicion();
     }
 
-    public void retroceder() throws MovimientoExeption{
+    public void retroceder() throws MovimientoException {
         try {
             this.casillero = casillero.anterior();
         } catch (Exception e) {
-            throw new MovimientoExeption("Gladiador: Movimiento invalido");
+            throw new MovimientoException("Gladiador: Movimiento invalido");
         }
     }
 
-    public void avanzar() throws MovimientoExeption, MovimientoPausadoExeption {
+    public void avanzar() throws MovimientoException, MovimientoPausadoExeption {
         if (this.getEnergia() <= 0) {
-            throw new MovimientoExeption("El gladiador no se puede mover sin energia");
+            throw new MovimientoException("El gladiador no se puede mover sin energia");
         }
         if(!this.estaHabilitadoParaMover) throw new MovimientoPausadoExeption("El gladiador esta pausado para mover en este turno");
 
@@ -56,9 +56,9 @@ public class Gladiador {
     }
 
     // TODO: Eliminar el otro
-    public void avanzar(int cantidadDePosiciones) throws MovimientoExeption, MovimientoPausadoExeption, TriunfoException {
+    public void avanzar(int cantidadDePosiciones) throws MovimientoException, MovimientoPausadoExeption, TriunfoException {
         if (this.getEnergia() <= 0) {
-            throw new MovimientoExeption("El gladiador no se puede mover sin energia");
+            throw new MovimientoException("El gladiador no se puede mover sin energia");
         }
         if(!this.estaHabilitadoParaMover) throw new MovimientoPausadoExeption("El gladiador esta pausado para mover en este turno");
 

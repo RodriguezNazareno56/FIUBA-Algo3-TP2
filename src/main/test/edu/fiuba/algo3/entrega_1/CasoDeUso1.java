@@ -7,7 +7,7 @@ import edu.fiuba.algo3.Gladiador.Energia;
 import edu.fiuba.algo3.Gladiador.Gladiador;
 import edu.fiuba.algo3.Gladiador.senority.Novato;
 import edu.fiuba.algo3.Gladiador.senority.Senority;
-import edu.fiuba.algo3.MovimientoExeption;
+import edu.fiuba.algo3.MovimientoException;
 import edu.fiuba.algo3.casilleros.Casillero;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -33,7 +33,7 @@ public class CasoDeUso1 {
         // Si la inicializacion fue correcta, entonces tras el ataque debe quedar sin energia
         // y por ende incapaz de moverse
         gladiador.recibirConsecuencia(new FieraSalvaje());
-        Throwable exception= Assertions.assertThrows(MovimientoExeption.class, gladiador::avanzar);
+        Throwable exception= Assertions.assertThrows(MovimientoException.class, gladiador::avanzar);
         assertEquals("El gladiador no se puede mover sin energia", exception.getMessage());
     }
 }
