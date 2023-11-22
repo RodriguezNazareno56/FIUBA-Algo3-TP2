@@ -15,11 +15,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class CasoDeUso9 {
 
     private Gladiador gladiador;
+    private final int cantidadDeCasilleros = 10;
 
     @BeforeEach
     public void setUp() {
         CasillerosFactory casillerosFactory = new CasillerosFactory();
-        ICasillero casillero = casillerosFactory.construirCasilleros(10);
+        ICasillero casillero = casillerosFactory.construirCasilleros(cantidadDeCasilleros);
         Energia energia = new Energia(20);
         Equipamiento equipamiento = new SinEquipamiento();
         Senority senority = new Novato();
@@ -28,9 +29,11 @@ public class CasoDeUso9 {
 
     @Test
     public void verificarQueSiLlegaALaMetaSinLaLlaveEnElEquipamientoRetrocedeALaMitadDeLasCasillas() throws Exception {
-        // TODO: falta implementar
-        this.gladiador.avanzar(10);
-        // Empieza en casillero 0, avanza 10 hasta el 9, vuelve a la mitad (5)
-        assertEquals(5, this.gladiador.getPosicion());
+        // Act
+        this.gladiador.avanzar(cantidadDeCasilleros);
+
+        // Assert
+        // Al llegar al final sin la llave vuelve a mitad de las casillas
+        assertEquals(cantidadDeCasilleros/2, this.gladiador.getPosicion());
     }
 }

@@ -5,7 +5,7 @@ import edu.fiuba.algo3.Gladiador.Energia;
 import edu.fiuba.algo3.Equipamientos.Casco;
 import edu.fiuba.algo3.Equipamientos.Equipamiento;
 import edu.fiuba.algo3.Gladiador.Gladiador;
-import edu.fiuba.algo3.MovimientoExeption;
+import edu.fiuba.algo3.MovimientoException;
 import edu.fiuba.algo3.Gladiador.senority.Novato;
 import edu.fiuba.algo3.Gladiador.senority.Senority;
 import edu.fiuba.algo3.MovimientoPausadoExeption;
@@ -27,7 +27,7 @@ public class CasoDeUso8 {
     }
 
     @Test
-    public void verificarQueSiPasan8TurnosElSeniorityDelGladiadorPasaDeNovatoASemiSeniorYVeSuEnergiaIncrementadaAlProximoTurno() throws MovimientoExeption, MovimientoPausadoExeption {
+    public void verificarQueSiPasan8TurnosElSeniorityDelGladiadorPasaDeNovatoASemiSeniorYVeSuEnergiaIncrementadaAlProximoTurno() throws MovimientoException, MovimientoPausadoExeption {
         // TODO: ver si podemos sacar ese .getEnergia()
         // Arrange
         for (int i = 1; i <= 8; i++) {
