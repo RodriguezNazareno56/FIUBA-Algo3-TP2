@@ -9,7 +9,9 @@ import edu.fiuba.algo3.Gladiador.Energia;
 import edu.fiuba.algo3.Gladiador.Gladiador;
 import edu.fiuba.algo3.Gladiador.senority.Novato;
 import edu.fiuba.algo3.Gladiador.senority.Senority;
+import edu.fiuba.algo3.MovimientoException;
 import edu.fiuba.algo3.casilleros.Casillero;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -21,7 +23,7 @@ public class CasoDeUso5 {
     @BeforeEach
     void setUp() {
         Casillero casillero = new Casillero(0);
-        Energia energia = new Energia(20);
+        Energia energia = new Energia(10);
         Equipamiento equipamiento = new SinEquipamiento();
         Senority senority = new Novato();
         this.gladiador = new Gladiador(energia, equipamiento, casillero, senority);
@@ -31,7 +33,6 @@ public class CasoDeUso5 {
     public void verificarQueSiRecibeUnPremioPorPrimeraVezObtieneUnCasco() throws Exception {
         // TODO: falta ver si se puede sacar el .getEnergia()
         //Arrange
-        int energiaEsperada = 5;
         Consecuencia incrementoDeEquipo = new EquipamientoIncrementado();
 
         //Act
@@ -39,6 +40,9 @@ public class CasoDeUso5 {
         this.gladiador.recibirAtaque(new FieraSalvaje());
 
         //Assert
-        assertEquals(energiaEsperada, this.gladiador.getEnergia());
+        Throwable exception= Assertions.assertThrows(MovimientoException.class, () -> {
+            gladiador.avanzar(1);
+        });
+        assertEquals("El gladiador no se puede mover sin energia", exception.getMessage());
     }
 }
