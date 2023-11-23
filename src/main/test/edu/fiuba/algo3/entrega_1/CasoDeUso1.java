@@ -33,7 +33,9 @@ public class CasoDeUso1 {
         // Si la inicializacion fue correcta, entonces tras el ataque debe quedar sin energia
         // y por ende incapaz de moverse
         gladiador.recibirConsecuencia(new FieraSalvaje());
-        Throwable exception= Assertions.assertThrows(MovimientoException.class, gladiador::avanzar);
+        Throwable exception= Assertions.assertThrows(MovimientoException.class, () -> {
+            gladiador.avanzar(1);
+        });
         assertEquals("El gladiador no se puede mover sin energia", exception.getMessage());
     }
 }

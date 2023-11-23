@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.entrega_1;
 
+import edu.fiuba.algo3.Gladiador.TriunfoException;
 import edu.fiuba.algo3.casilleros.Casillero;
 import edu.fiuba.algo3.Gladiador.Energia;
 import edu.fiuba.algo3.Equipamientos.Casco;
@@ -9,6 +10,8 @@ import edu.fiuba.algo3.MovimientoException;
 import edu.fiuba.algo3.Gladiador.senority.Novato;
 import edu.fiuba.algo3.Gladiador.senority.Senority;
 import edu.fiuba.algo3.MovimientoPausadoExeption;
+import edu.fiuba.algo3.casilleros.CasillerosFactory;
+import edu.fiuba.algo3.casilleros.ICasillero;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -19,7 +22,8 @@ public class CasoDeUso8 {
 
     @BeforeEach
     void setUp() {
-        Casillero casillero = new Casillero(0);
+        CasillerosFactory casillerosFactory = new CasillerosFactory();
+        ICasillero casillero = casillerosFactory.construirCasilleros(10);
         Senority senority = new Novato();
         Energia energia = new Energia(20);
         Equipamiento equipamiento = new Casco();
@@ -27,15 +31,15 @@ public class CasoDeUso8 {
     }
 
     @Test
-    public void verificarQueSiPasan8TurnosElSeniorityDelGladiadorPasaDeNovatoASemiSeniorYVeSuEnergiaIncrementadaAlProximoTurno() throws MovimientoException, MovimientoPausadoExeption {
+    public void verificarQueSiPasan8TurnosElSeniorityDelGladiadorPasaDeNovatoASemiSeniorYVeSuEnergiaIncrementadaAlProximoTurno() throws MovimientoException, MovimientoPausadoExeption, TriunfoException {
         // TODO: ver si podemos sacar ese .getEnergia()
         // Arrange
         for (int i = 1; i <= 8; i++) {
-            gladiador.avanzar();
+            gladiador.avanzar(1);
         }
 
         // Act
-        gladiador.avanzar();
+        gladiador.avanzar(1);
 
         // Assert
         assertEquals(gladiador.getEnergia(), 25);

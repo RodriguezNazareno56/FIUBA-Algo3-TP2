@@ -45,17 +45,6 @@ public class Gladiador {
         }
     }
 
-    public void avanzar() throws MovimientoException, MovimientoPausadoExeption {
-        if (this.getEnergia() <= 0) {
-            throw new MovimientoException("El gladiador no se puede mover sin energia");
-        }
-        if(!this.estaHabilitadoParaMover) throw new MovimientoPausadoExeption("El gladiador esta pausado para mover en este turno");
-
-        this.senority.aumentarEnergia(energia);
-        this.senority = this.senority.aumentarExperiencia();
-    }
-
-    // TODO: Eliminar el otro
     public void avanzar(int cantidadDePosiciones) throws MovimientoException, MovimientoPausadoExeption, TriunfoException {
         if (this.getEnergia() <= 0) {
             throw new MovimientoException("El gladiador no se puede mover sin energia");

@@ -31,7 +31,9 @@ public class ObstaculoLesionTest {
         gladiador.recibirConsecuencia(lesion);
 
         //Assert
-        Throwable exception= Assertions.assertThrows(MovimientoPausadoExeption.class, gladiador::avanzar);
+        Throwable exception= Assertions.assertThrows(MovimientoPausadoExeption.class, () -> {
+            gladiador.avanzar(1);
+        });
         assertEquals("El gladiador esta pausado para mover en este turno", exception.getMessage());
     }
 }
