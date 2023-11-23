@@ -9,7 +9,7 @@ public interface ICasillero {
 
     ICasillero anterior() throws CasilleroInexistenteException;
 
-    ICasillero proximo() throws CasilleroInexistenteException;;
+    ICasillero proximo() throws CasilleroInexistenteException;
 
     ICasillero proximoEnNPosiciones(int cantidadDePosiciones);
 
