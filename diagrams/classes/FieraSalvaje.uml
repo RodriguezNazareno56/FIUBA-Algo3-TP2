@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>edu.fiuba.algo3.Concecuencias.Enemigo</OriginalElement>
+  <nodes>
+    <node x="-84.0" y="192.0">edu.fiuba.algo3.Concecuencias.FieraSalvaje</node>
+    <node x="-239.27777777777777" y="-42.27777777777777">edu.fiuba.algo3.Concecuencias.Enemigo</node>
+    <node x="211.12962962962956" y="11.870370370370381">edu.fiuba.algo3.Concecuencias.Consecuencia</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="edu.fiuba.algo3.Concecuencias.FieraSalvaje" target="edu.fiuba.algo3.Concecuencias.Consecuencia" relationship="REALIZATION">
+      <point x="0.0" y="-101.0" />
+      <point x="127.0" y="163.86111111111111" />
+      <point x="348.12962962962956" y="163.86111111111111" />
+      <point x="0.0" y="29.0" />
+    </edge>
+    <edge source="edu.fiuba.algo3.Concecuencias.FieraSalvaje" target="edu.fiuba.algo3.Concecuencias.Enemigo" relationship="REALIZATION">
+      <point x="0.0" y="-101.0" />
+      <point x="127.0" y="163.86111111111111" />
+      <point x="-28.27777777777777" y="163.86111111111111" />
+      <point x="0.0" y="89.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="1.255813953488372" showDependencies="false" x="189.46296296296202" y="209.7962962962963" />
+  <SelectedNodes>
+    <node>edu.fiuba.algo3.Concecuencias.Consecuencia</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Inner Classes</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
