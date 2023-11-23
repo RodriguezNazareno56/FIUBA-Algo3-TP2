@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.Concecuencias;
 
 import edu.fiuba.algo3.Gladiador.TriunfoException;
+import edu.fiuba.algo3.MovimientoException;
 import edu.fiuba.algo3.casilleros.Casillero;
 import edu.fiuba.algo3.Equipamientos.Equipamiento;
 import edu.fiuba.algo3.Equipamientos.SinEquipamiento;
@@ -24,18 +25,20 @@ public class LesionTest {
         Gladiador gladiadorMock = mock(Gladiador.class);
         doThrow(new MovimientoPausadoExeption("El gladiador esta pausado para mover en este turno"))
                 .when(gladiadorMock)
-                .avanzar();
+                .avanzar(1);
 
         //Act
         gladiadorMock.recibirConsecuencia(lesion);
 
         //Assert
-        Throwable exception= Assertions.assertThrows(MovimientoPausadoExeption.class, gladiadorMock::avanzar);
+        Throwable exception= Assertions.assertThrows(MovimientoPausadoExeption.class, () -> {
+            gladiadorMock.avanzar(1);
+        });
         assertEquals("El gladiador esta pausado para mover en este turno", exception.getMessage());
     }
 
     @Test
-    public void unaLesionAfectaAUnGladiadorImpidiendoleAvanzarUnTurno() throws TriunfoException {
+    public void unaLesionAfectaAUnGladiadorImpidiendoleAvanzarUnTurno() throws TriunfoException, MovimientoPausadoExeption, MovimientoException {
         //Arrange
         Consecuencia lesion = new Lesion();
         Energia energia = new Energia(20);
@@ -48,7 +51,12 @@ public class LesionTest {
         lesion.afectarGladiador(gladiador);
 
         //Assert
-        Throwable exception= Assertions.assertThrows(MovimientoPausadoExeption.class, gladiador::avanzar);
+//        Throwable exception= Assertions.assertThrows(MovimientoPausadoExeption.class, () -> {
+//            gladiador.avanzar(1);
+//        });
+        Throwable exception= Assertions.assertThrows(MovimientoPausadoExeption.class, () -> {
+            gladiador.avanzar(1);
+        });
         assertEquals("El gladiador esta pausado para mover en este turno", exception.getMessage());
     }
 }

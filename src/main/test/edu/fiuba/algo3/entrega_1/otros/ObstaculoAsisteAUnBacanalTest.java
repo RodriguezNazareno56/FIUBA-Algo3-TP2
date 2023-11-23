@@ -32,7 +32,9 @@ public class ObstaculoAsisteAUnBacanalTest {
         gladiador.recibirConsecuencia(asisteAUnBacanal);
 
         //Assert
-        Throwable exception= Assertions.assertThrows(MovimientoException.class, gladiador::avanzar);
+        Throwable exception= Assertions.assertThrows(MovimientoException.class, () -> {
+            gladiador.avanzar(1);
+        });
         assertEquals("El gladiador no se puede mover sin energia", exception.getMessage());
     }
 }
