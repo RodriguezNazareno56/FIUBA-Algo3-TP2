@@ -1,7 +1,6 @@
 package edu.fiuba.algo3.gladiador;
 
 
-import edu.fiuba.algo3.Gladiador.Energia;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

@@ -1,8 +1,8 @@
 package edu.fiuba.algo3.seniority;
 
-import edu.fiuba.algo3.Gladiador.Energia;
-import edu.fiuba.algo3.Gladiador.senority.Novato;
-import edu.fiuba.algo3.Gladiador.senority.Senority;
+import edu.fiuba.algo3.gladiador.Energia;
+import edu.fiuba.algo3.gladiador.senority.Novato;
+import edu.fiuba.algo3.gladiador.senority.Senority;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentMatchers;

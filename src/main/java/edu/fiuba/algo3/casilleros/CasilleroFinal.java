@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.casilleros;
 
-import edu.fiuba.algo3.Concecuencias.Triunfo;
+import edu.fiuba.algo3.consecuencias.Triunfo;
 
 public class CasilleroFinal extends Casillero implements ICasillero {
 

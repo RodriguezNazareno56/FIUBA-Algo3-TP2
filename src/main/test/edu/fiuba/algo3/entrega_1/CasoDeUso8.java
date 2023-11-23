@@ -1,14 +1,13 @@
 package edu.fiuba.algo3.entrega_1;
 
-import edu.fiuba.algo3.Gladiador.TriunfoException;
-import edu.fiuba.algo3.casilleros.Casillero;
-import edu.fiuba.algo3.Gladiador.Energia;
-import edu.fiuba.algo3.Equipamientos.Casco;
-import edu.fiuba.algo3.Equipamientos.Equipamiento;
-import edu.fiuba.algo3.Gladiador.Gladiador;
+import edu.fiuba.algo3.gladiador.TriunfoException;
+import edu.fiuba.algo3.gladiador.Energia;
+import edu.fiuba.algo3.equipamientos.Casco;
+import edu.fiuba.algo3.equipamientos.Equipamiento;
+import edu.fiuba.algo3.gladiador.Gladiador;
 import edu.fiuba.algo3.MovimientoException;
-import edu.fiuba.algo3.Gladiador.senority.Novato;
-import edu.fiuba.algo3.Gladiador.senority.Senority;
+import edu.fiuba.algo3.gladiador.senority.Novato;
+import edu.fiuba.algo3.gladiador.senority.Senority;
 import edu.fiuba.algo3.MovimientoPausadoExeption;
 import edu.fiuba.algo3.casilleros.CasillerosFactory;
 import edu.fiuba.algo3.casilleros.ICasillero;
