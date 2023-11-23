@@ -23,7 +23,7 @@ public class CasoDeUso5 {
     @BeforeEach
     void setUp() {
         Casillero casillero = new Casillero(0);
-        Energia energia = new Energia(10);
+        Energia energia = new Energia(20);
         Equipamiento equipamiento = new SinEquipamiento();
         Senority senority = new Novato();
         this.gladiador = new Gladiador(energia, equipamiento, casillero, senority);
@@ -31,7 +31,6 @@ public class CasoDeUso5 {
 
     @Test
     public void verificarQueSiRecibeUnPremioPorPrimeraVezObtieneUnCasco() throws Exception {
-        // TODO: falta ver si se puede sacar el .getEnergia()
         //Arrange
         Consecuencia incrementoDeEquipo = new EquipamientoIncrementado();
 
@@ -40,9 +39,8 @@ public class CasoDeUso5 {
         this.gladiador.recibirAtaque(new FieraSalvaje());
 
         //Assert
-        Throwable exception= Assertions.assertThrows(MovimientoException.class, () -> {
-            gladiador.avanzar(1);
-        });
-        assertEquals("El gladiador no se puede mover sin energia", exception.getMessage());
+        // Un gladiador sin equipamiento y con 20 puntos de vida. Recibira un primer premio y sera atacado por
+        // una fiera, se espera que se defienda con el casco y tan solo sufra 15 puntos de danio
+        assertEquals(5, this.gladiador.getEnergia());
     }
 }

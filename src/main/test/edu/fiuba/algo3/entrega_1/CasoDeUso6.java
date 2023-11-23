@@ -39,16 +39,11 @@ public class CasoDeUso6 {
         this.gladiador.recibirConsecuencia(incrementoDeEquipo);
         this.gladiador.recibirConsecuencia(incrementoDeEquipo);
         this.gladiador.recibirConsecuencia(incrementoDeEquipo);
-
-        for(int i=0;i<10;i++){
-            this.gladiador.recibirAtaque(new FieraSalvaje());
-        }
-
+        this.gladiador.recibirAtaque(new FieraSalvaje());
 
         //Assert
-        Throwable exception= Assertions.assertThrows(MovimientoException.class, () -> {
-            gladiador.avanzar(1);
-        });
-        assertEquals("El gladiador no se puede mover sin energia", exception.getMessage());
+        // Un gladiador sin equipamiento y con 20 puntos de vida. Recibira un premio por tercera vez y sera atacado
+        // por una fiera, se espera que se defienda con el EscudoYEspada y tan solo sufra 2 puntos de danio
+        assertEquals(18, this.gladiador.getEnergia());
     }
 }
