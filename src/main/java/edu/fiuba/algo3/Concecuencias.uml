@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>/home/nazareno/Desktop/Algo 3/FIUBA-Algo3-TP2/src/main/java/edu/fiuba/algo3/Concecuencias</OriginalElement>
+  <nodes>
+    <node x="933.0" y="44.0">edu.fiuba.algo3.Concecuencias.Consecuencia</node>
+    <node x="-145.0" y="212.0">edu.fiuba.algo3.Concecuencias.FieraSalvaje</node>
+    <node x="297.0000000000001" y="272.0">edu.fiuba.algo3.Concecuencias.AsisteAUnBacanal</node>
+    <node x="639.0000000000001" y="284.0">edu.fiuba.algo3.Concecuencias.Comida</node>
+    <node x="1227.0" y="284.0">edu.fiuba.algo3.Concecuencias.Lesion</node>
+    <node x="-145.0" y="-16.0">edu.fiuba.algo3.Concecuencias.Enemigo</node>
+    <node x="1832.0" y="284.0">edu.fiuba.algo3.Concecuencias.SinConcecuencia</node>
+    <node x="1521.0" y="284.0">edu.fiuba.algo3.Concecuencias.EquipamientoIncrementado</node>
+    <node x="933.0" y="284.0">edu.fiuba.algo3.Concecuencias.Triunfo</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="edu.fiuba.algo3.Concecuencias.AsisteAUnBacanal" target="edu.fiuba.algo3.Concecuencias.Consecuencia" relationship="REALIZATION">
+      <point x="0.0" y="-41.0" />
+      <point x="458.0000000000001" y="192.0" />
+      <point x="1070.0" y="192.0" />
+      <point x="0.0" y="29.0" />
+    </edge>
+    <edge source="edu.fiuba.algo3.Concecuencias.SinConcecuencia" target="edu.fiuba.algo3.Concecuencias.Consecuencia" relationship="REALIZATION">
+      <point x="0.0" y="-29.0" />
+      <point x="1969.0" y="192.0" />
+      <point x="1070.0" y="192.0" />
+      <point x="0.0" y="29.0" />
+    </edge>
+    <edge source="edu.fiuba.algo3.Concecuencias.EquipamientoIncrementado" target="edu.fiuba.algo3.Concecuencias.Consecuencia" relationship="REALIZATION">
+      <point x="0.0" y="-29.0" />
+      <point x="1666.5" y="192.0" />
+      <point x="1070.0" y="192.0" />
+      <point x="0.0" y="29.0" />
+    </edge>
+    <edge source="edu.fiuba.algo3.Concecuencias.Comida" target="edu.fiuba.algo3.Concecuencias.Consecuencia" relationship="REALIZATION">
+      <point x="0.0" y="-29.0" />
+      <point x="776.0000000000001" y="192.0" />
+      <point x="1070.0" y="192.0" />
+      <point x="0.0" y="29.0" />
+    </edge>
+    <edge source="edu.fiuba.algo3.Concecuencias.FieraSalvaje" target="edu.fiuba.algo3.Concecuencias.Consecuencia" relationship="REALIZATION">
+      <point x="0.0" y="-101.0" />
+      <point x="66.00000000000011" y="182.0" />
+      <point x="1070.0" y="182.0" />
+      <point x="0.0" y="29.0" />
+    </edge>
+    <edge source="edu.fiuba.algo3.Concecuencias.FieraSalvaje" target="edu.fiuba.algo3.Concecuencias.Enemigo" relationship="REALIZATION">
+      <point x="0.0" y="-101.0" />
+      <point x="0.0" y="89.0" />
+    </edge>
+    <edge source="edu.fiuba.algo3.Concecuencias.Lesion" target="edu.fiuba.algo3.Concecuencias.Consecuencia" relationship="REALIZATION">
+      <point x="-1.1368683772161603E-13" y="-29.0" />
+      <point x="1364.0" y="192.0" />
+      <point x="1070.0" y="192.0" />
+      <point x="0.0" y="29.0" />
+    </edge>
+    <edge source="edu.fiuba.algo3.Concecuencias.Triunfo" target="edu.fiuba.algo3.Concecuencias.Consecuencia" relationship="REALIZATION">
+      <point x="0.0" y="-29.0" />
+      <point x="0.0" y="29.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.5918097754293263" showDependencies="false" x="990.5" y="209.0" />
+  <SelectedNodes>
+    <node>edu.fiuba.algo3.Concecuencias.FieraSalvaje</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
