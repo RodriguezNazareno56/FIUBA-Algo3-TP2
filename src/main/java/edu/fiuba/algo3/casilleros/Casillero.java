@@ -1,9 +1,9 @@
 package edu.fiuba.algo3.casilleros;
 
-import edu.fiuba.algo3.Concecuencias.Consecuencia;
-import edu.fiuba.algo3.Concecuencias.SinConcecuencia;
-import edu.fiuba.algo3.Gladiador.Gladiador;
-import edu.fiuba.algo3.Gladiador.TriunfoException;
+import edu.fiuba.algo3.consecuencias.Consecuencia;
+import edu.fiuba.algo3.consecuencias.SinConcecuencia;
+import edu.fiuba.algo3.gladiador.Gladiador;
+import edu.fiuba.algo3.gladiador.TriunfoException;
 
 public class Casillero implements ICasillero {
 

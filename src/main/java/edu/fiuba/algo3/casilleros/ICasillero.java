@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.casilleros;
 
-import edu.fiuba.algo3.Gladiador.Gladiador;
-import edu.fiuba.algo3.Gladiador.TriunfoException;
+import edu.fiuba.algo3.gladiador.Gladiador;
+import edu.fiuba.algo3.gladiador.TriunfoException;
 
 public interface ICasillero {
 
