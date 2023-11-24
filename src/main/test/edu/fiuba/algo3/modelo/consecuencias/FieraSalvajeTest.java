@@ -1,7 +1,6 @@
-package edu.fiuba.algo3.modeloUnitTests.consecuencias;
+package edu.fiuba.algo3.modelo.consecuencias;
 
 import edu.fiuba.algo3.modelo.casilleros.Casillero;
-import edu.fiuba.algo3.modelo.consecuencias.FieraSalvaje;
 import edu.fiuba.algo3.modelo.equipamientos.*;
 import edu.fiuba.algo3.modelo.gladiador.Energia;
 import edu.fiuba.algo3.modelo.gladiador.Gladiador;

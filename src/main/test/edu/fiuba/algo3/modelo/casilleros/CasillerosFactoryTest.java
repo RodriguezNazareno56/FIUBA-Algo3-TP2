@@ -1,12 +1,7 @@
-package edu.fiuba.algo3.modeloUnitTests.casilleros;
+package edu.fiuba.algo3.modelo.casilleros;
 
-import edu.fiuba.algo3.modelo.casilleros.CasilleroInexistenteException;
-import edu.fiuba.algo3.modelo.casilleros.CasillerosFactory;
-import edu.fiuba.algo3.modelo.casilleros.ICasillero;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 public class CasillerosFactoryTest {
 

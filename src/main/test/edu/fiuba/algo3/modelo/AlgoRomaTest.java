@@ -1,7 +1,5 @@
-package edu.fiuba.algo3.modeloUnitTests;
+package edu.fiuba.algo3.modelo;
 
-import edu.fiuba.algo3.modelo.AlgoRoma;
-import edu.fiuba.algo3.modelo.FinDelJuegoException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

@@ -1,10 +1,8 @@
-package edu.fiuba.algo3.modeloUnitTests.consecuencias;
+package edu.fiuba.algo3.modelo.consecuencias;
 
 import edu.fiuba.algo3.modelo.casilleros.Casillero;
 import edu.fiuba.algo3.modelo.equipamientos.Equipamiento;
 import edu.fiuba.algo3.modelo.equipamientos.SinEquipamiento;
-import edu.fiuba.algo3.modelo.consecuencias.AsisteAUnBacanal;
-import edu.fiuba.algo3.modelo.consecuencias.Consecuencia;
 import edu.fiuba.algo3.modelo.gladiador.Energia;
 import edu.fiuba.algo3.modelo.gladiador.Gladiador;
 import edu.fiuba.algo3.modelo.gladiador.senority.Senority;

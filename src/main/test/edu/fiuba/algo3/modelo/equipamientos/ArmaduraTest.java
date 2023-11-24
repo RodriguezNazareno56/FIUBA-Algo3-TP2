@@ -1,8 +1,6 @@
-package edu.fiuba.algo3.modeloUnitTests.equipamientos;
+package edu.fiuba.algo3.modelo.equipamientos;
 
 import edu.fiuba.algo3.modelo.consecuencias.FieraSalvaje;
-import edu.fiuba.algo3.modelo.equipamientos.Equipamiento;
-import edu.fiuba.algo3.modelo.equipamientos.Llave;
 import edu.fiuba.algo3.modelo.gladiador.Energia;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -13,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
-public class LlaveTest {
+public class ArmaduraTest {
 
     private FieraSalvaje fieraSalvajeMock;
 
@@ -23,37 +21,38 @@ public class LlaveTest {
     }
 
     @Test
-    public void incrementarLlaveRetornaUnEquipamientoLlave() {
+    public void incrementarArmaduraRetornaUnEquipamientoEscudoYEspada() {
         // Arrange
-        Llave llave = new Llave();
+        Armadura armadura = new Armadura();
 
         // Act
-        Equipamiento equipoIncrementado = llave.incrementar();
+        Equipamiento equipoIncrementado = armadura.incrementar();
 
         // Assert.
-        // El quipo incrementado al disipar un ataque invoca fieraSalvaje.atacarContraEquipado(Llave llave);
+        // El quipo incrementado al disipar un ataque invoca fieraSalvaje.atacarContraEquipado(EscudoYEspada escudoYEspada);
         equipoIncrementado.disiparAtaque(fieraSalvajeMock);
         verify(fieraSalvajeMock, times(1))
-                .atacarContraEquipado(ArgumentMatchers.isA(Llave.class));
+                .atacarContraEquipado(ArgumentMatchers.isA(EscudoYEspada.class));
     }
 
     @Test
-    public void disiparAtaqueDeUnaFieraRetornaUnaEnergiaConValor0ComoDanio() {
+    public void disiparAtaqueDeUnaFieraRetornaUnaEnergiaConValor10ComoDanio() {
         // Arrange
-        Llave llave = new Llave();
-        int danioEsperado = 0;
+        Armadura armadura = new Armadura();
+        int danioEsperado = 10;
 
         Energia energiaMock = Mockito.mock(Energia.class);
         Mockito.when(energiaMock.getValor()).thenReturn(danioEsperado);
 
-        Mockito.when(fieraSalvajeMock.atacarContraEquipado(llave))
+        Mockito.when(fieraSalvajeMock.atacarContraEquipado(armadura))
                 .thenReturn(energiaMock);
 
         // Act
-        Energia danio = llave.disiparAtaque(fieraSalvajeMock);
+        Energia danio = armadura.disiparAtaque(fieraSalvajeMock);
 
         // Assert
         assertEquals(danioEsperado, danio.getValor());
-        Mockito.verify(fieraSalvajeMock, times(1)).atacarContraEquipado(llave);
+        Mockito.verify(fieraSalvajeMock, times(1)).atacarContraEquipado(armadura);
     }
+
 }

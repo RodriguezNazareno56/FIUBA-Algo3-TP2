@@ -1,7 +1,5 @@
-package edu.fiuba.algo3.modeloUnitTests.consecuencias;
+package edu.fiuba.algo3.modelo.consecuencias;
 
-import edu.fiuba.algo3.modelo.consecuencias.Consecuencia;
-import edu.fiuba.algo3.modelo.consecuencias.Lesion;
 import edu.fiuba.algo3.modelo.gladiador.TriunfoException;
 import edu.fiuba.algo3.modelo.MovimientoException;
 import edu.fiuba.algo3.modelo.casilleros.Casillero;

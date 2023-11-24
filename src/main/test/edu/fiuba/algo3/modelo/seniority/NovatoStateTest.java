@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.modeloUnitTests.seniority;
+package edu.fiuba.algo3.modelo.seniority;
 
 import edu.fiuba.algo3.modelo.gladiador.Energia;
 import edu.fiuba.algo3.modelo.gladiador.senority.states.NovatoState;

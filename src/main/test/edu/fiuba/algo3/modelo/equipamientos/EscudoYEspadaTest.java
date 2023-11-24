@@ -1,9 +1,6 @@
-package edu.fiuba.algo3.modeloUnitTests.equipamientos;
+package edu.fiuba.algo3.modelo.equipamientos;
 
 import edu.fiuba.algo3.modelo.consecuencias.FieraSalvaje;
-import edu.fiuba.algo3.modelo.equipamientos.Equipamiento;
-import edu.fiuba.algo3.modelo.equipamientos.EscudoYEspada;
-import edu.fiuba.algo3.modelo.equipamientos.Llave;
 import edu.fiuba.algo3.modelo.gladiador.Energia;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
