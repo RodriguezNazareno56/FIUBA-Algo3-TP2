@@ -45,7 +45,6 @@ public class Gladiador {
         if(!this.estaHabilitadoParaMover) throw new MovimientoPausadoExeption("El gladiador esta pausado para mover en este turno");
 
         this.senority.aumentarEnergia(energia);
-//        this.senority = this.senority.aumentarExperiencia();
         this.senority.aumentarExperiencia();
 
         this.casillero = casillero.proximoEnNPosiciones(cantidadDePosiciones);
