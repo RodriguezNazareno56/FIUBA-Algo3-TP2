@@ -51,6 +51,7 @@ public class Gladiador {
     }
 
     public void retroceder(int cantidadDePosiciones) throws MovimientoException {
+        // Si al retroceder permanece en el mismo casillero significa que esta en el Inicio y no puede retroceder.
         if (casillero == casillero.anteriorEnNPosiciones(cantidadDePosiciones)) {
             throw new MovimientoException("Gladiador: Movimiento invalido");
         }
