@@ -13,7 +13,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class CasoDeUso5 {
+public class CasoDeUso6Test {
 
     private Gladiador gladiador;
 
@@ -27,17 +27,19 @@ public class CasoDeUso5 {
     }
 
     @Test
-    public void verificarQueSiRecibeUnPremioPorPrimeraVezObtieneUnCasco() throws Exception {
+    public void verificarQueSiRecibeUnPremioPorTerceraVezObtieneEscudoYEspada() throws Exception {
         //Arrange
         Consecuencia incrementoDeEquipo = new EquipamientoIncrementado();
 
         //Act
         this.gladiador.recibirConsecuencia(incrementoDeEquipo);
+        this.gladiador.recibirConsecuencia(incrementoDeEquipo);
+        this.gladiador.recibirConsecuencia(incrementoDeEquipo);
         this.gladiador.recibirAtaque(new FieraSalvaje());
 
         //Assert
-        // Un gladiador sin equipamiento y con 20 puntos de vida. Recibira un primer premio y sera atacado por
-        // una fiera, se espera que se defienda con el casco y tan solo sufra 15 puntos de danio
-        assertEquals(5, this.gladiador.getEnergia());
+        // Un gladiador sin equipamiento y con 20 puntos de vida. Recibira un premio por tercera vez y sera atacado
+        // por una fiera, se espera que se defienda con el EscudoYEspada y tan solo sufra 2 puntos de danio
+        assertEquals(18, this.gladiador.getEnergia());
     }
 }

@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class CasoDeUso1 {
+public class CasoDeUso1Test {
 
     /**
      * Por enunciado: Cada gladiador comienza con 20 puntos de energía, sin equipamiento.

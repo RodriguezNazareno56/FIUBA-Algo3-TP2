@@ -14,7 +14,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class CasoDeUso11 {
+public class CasoDeUso11Test {
 
     private Gladiador gladiador;
     private Equipamiento equipamiento;

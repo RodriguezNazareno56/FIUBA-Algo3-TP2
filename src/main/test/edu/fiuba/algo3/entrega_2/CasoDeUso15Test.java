@@ -3,8 +3,8 @@ package edu.fiuba.algo3.entrega_2;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class CasoDeUso18 {
+public class CasoDeUso15Test {
 
     @Test
-    public void verificarSistemaLogNecesarioEntrega3(){}
+    public void verificarLecturaYConversionUnidadesModeloDominioJsonEnemigos(){}
 }
