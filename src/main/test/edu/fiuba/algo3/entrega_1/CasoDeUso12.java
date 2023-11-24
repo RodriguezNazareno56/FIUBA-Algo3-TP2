@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.entrega_1;
 
 import edu.fiuba.algo3.modelo.AlgoRoma;
-import edu.fiuba.algo3.modelo.FinDelJuego;
+import edu.fiuba.algo3.modelo.FinDelJuegoException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -23,12 +23,12 @@ public class CasoDeUso12 {
 
             try {
                 this.algoRoma.jugarRonda();
-            } catch (FinDelJuego e) {
+            } catch (FinDelJuegoException e) {
                 throw new RuntimeException(e);
             }
         }
 
-        Throwable exception= Assertions.assertThrows(FinDelJuego.class, () -> {
+        Throwable exception= Assertions.assertThrows(FinDelJuegoException.class, () -> {
             this.algoRoma.jugarRonda();
         });
 

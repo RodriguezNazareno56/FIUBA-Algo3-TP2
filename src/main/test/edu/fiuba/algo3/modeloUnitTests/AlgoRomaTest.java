@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.modeloUnitTests;
 
 import edu.fiuba.algo3.modelo.AlgoRoma;
-import edu.fiuba.algo3.modelo.FinDelJuego;
+import edu.fiuba.algo3.modelo.FinDelJuegoException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -19,7 +19,7 @@ public class AlgoRomaTest {
 
             try {
                 algoRoma.jugarRonda();
-            } catch (FinDelJuego e){
+            } catch (FinDelJuegoException e){
                 throw new RuntimeException(e);
             }
         }
@@ -37,12 +37,12 @@ public class AlgoRomaTest {
 
             try {
                 algoRoma.jugarRonda();
-            } catch (FinDelJuego e){
+            } catch (FinDelJuegoException e){
                 throw new RuntimeException(e);
             }
         }
 
-        Assertions.assertThrows(FinDelJuego.class, algoRoma::jugarRonda);
+        Assertions.assertThrows(FinDelJuegoException.class, algoRoma::jugarRonda);
     }
 
 

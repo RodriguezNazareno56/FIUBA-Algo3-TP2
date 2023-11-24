@@ -4,11 +4,11 @@ public class AlgoRoma {
 
     private int cantidadDeRondas = 0;
 
-    public void jugarRonda() throws FinDelJuego{
+    public void jugarRonda() throws FinDelJuegoException {
 
         if( cantidadDeRondas == 30 ){
 
-            throw new FinDelJuego( "Fin del Juego: Se alcanzo el numero maximo de rondas");
+            throw new FinDelJuegoException( "Fin del Juego: Se alcanzo el numero maximo de rondas");
         }
 
         cantidadDeRondas++;
