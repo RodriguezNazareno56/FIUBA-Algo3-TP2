@@ -1,13 +1,13 @@
 package edu.fiuba.algo3.entrega_1.otros;
 
-import edu.fiuba.algo3.equipamientos.Equipamiento;
-import edu.fiuba.algo3.equipamientos.SinEquipamiento;
-import edu.fiuba.algo3.gladiador.Energia;
-import edu.fiuba.algo3.gladiador.Gladiador;
-import edu.fiuba.algo3.gladiador.senority.Novato;
-import edu.fiuba.algo3.gladiador.senority.Senority;
-import edu.fiuba.algo3.casilleros.CasillerosFactory;
-import edu.fiuba.algo3.casilleros.ICasillero;
+import edu.fiuba.algo3.modelo.equipamientos.Equipamiento;
+import edu.fiuba.algo3.modelo.equipamientos.SinEquipamiento;
+import edu.fiuba.algo3.modelo.gladiador.Energia;
+import edu.fiuba.algo3.modelo.gladiador.Gladiador;
+import edu.fiuba.algo3.modelo.gladiador.senority.Novato;
+import edu.fiuba.algo3.modelo.gladiador.senority.Senority;
+import edu.fiuba.algo3.modelo.casilleros.CasillerosFactory;
+import edu.fiuba.algo3.modelo.casilleros.ICasillero;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
