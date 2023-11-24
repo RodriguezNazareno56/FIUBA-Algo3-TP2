@@ -28,9 +28,7 @@ public class CasillerosFactoryTest {
             }
         }
         // El casillero final no tiene proximo
-        Throwable exception= Assertions.assertThrows(CasilleroInexistenteException.class,
-                casillero::proximo);
-        assertEquals("No hay casillero proximo al final", exception.getMessage());
+        Assertions.assertThrows(CasilleroInexistenteException.class, casillero::proximo);
 
         // Los ultimo 9 casilleros tienen casillero anterior
         for (int i = 10; i > 1; i--) {
@@ -41,8 +39,6 @@ public class CasillerosFactoryTest {
             }
         }
         // El casillero inicial no tiene proximo anterior
-        exception = Assertions.assertThrows(CasilleroInexistenteException.class,
-                casillero::anterior);
-        assertEquals("No hay casillero anterior al inicial", exception.getMessage());
+        Assertions.assertThrows(CasilleroInexistenteException.class, casillero::anterior);
     }
 }

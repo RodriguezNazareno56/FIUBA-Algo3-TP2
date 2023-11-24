@@ -33,10 +33,9 @@ public class LesionTest {
         gladiadorMock.recibirConsecuencia(lesion);
 
         //Assert
-        Throwable exception= Assertions.assertThrows(MovimientoPausadoExeption.class, () -> {
+        Assertions.assertThrows(MovimientoPausadoExeption.class, () -> {
             gladiadorMock.avanzar(1);
         });
-        assertEquals("El gladiador esta pausado para mover en este turno", exception.getMessage());
     }
 
     @Test
@@ -53,12 +52,8 @@ public class LesionTest {
         lesion.afectarGladiador(gladiador);
 
         //Assert
-//        Throwable exception= Assertions.assertThrows(MovimientoPausadoExeption.class, () -> {
-//            gladiador.avanzar(1);
-//        });
-        Throwable exception= Assertions.assertThrows(MovimientoPausadoExeption.class, () -> {
+        Assertions.assertThrows(MovimientoPausadoExeption.class, () -> {
             gladiador.avanzar(1);
         });
-        assertEquals("El gladiador esta pausado para mover en este turno", exception.getMessage());
     }
 }

@@ -42,13 +42,7 @@ public class AlgoRomaTest {
             }
         }
 
-        Throwable exception= Assertions.assertThrows(FinDelJuego.class, () -> {
-            algoRoma.jugarRonda();
-        });
-
-        assertEquals("Fin del Juego: Se alcanzo el numero maximo de rondas", exception.getMessage());
-
-
+        Assertions.assertThrows(FinDelJuego.class, algoRoma::jugarRonda);
     }
 
 

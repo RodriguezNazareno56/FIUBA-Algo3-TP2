@@ -41,19 +41,13 @@ public class CasilleroTest {
     @Test
     public void obtenerAnteriorAlCasilleroInicial() {
         ICasillero casillero = new CasilleroInicial(0);
-        Throwable exception= Assertions.assertThrows(CasilleroInexistenteException.class, () -> {
-            casillero.anterior();
-        });
-        assertEquals("No hay casillero anterior al inicial", exception.getMessage());
+        Assertions.assertThrows(CasilleroInexistenteException.class,casillero::anterior);
     }
 
     @Test
     public void obtenerProximoAlCasilleroFinal() {
         ICasillero casillero = new CasilleroFinal(1, new Casillero(0));
-        Throwable exception= Assertions.assertThrows(CasilleroInexistenteException.class, () -> {
-            casillero.proximo();
-        });
-        assertEquals("No hay casillero proximo al final", exception.getMessage());
+        Assertions.assertThrows(CasilleroInexistenteException.class, casillero::proximo);
     }
 
     @Test

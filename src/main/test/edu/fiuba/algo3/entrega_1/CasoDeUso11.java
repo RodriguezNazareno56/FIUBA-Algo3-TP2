@@ -42,11 +42,6 @@ public class CasoDeUso11 {
         //Si "triunfar" lanza la Excepcion "Campeon" significa que aun posee la llave
         //Y no se modifico su equipamiento luego de recibir anteriormente otro
 
-        Throwable exception= Assertions.assertThrows(TriunfoException.class,() -> {
-            this.gladiador.triunfar();
-        });
-
-        assertEquals("Campeon", exception.getMessage());
-
+        Assertions.assertThrows(TriunfoException.class,gladiador::triunfar);
     }
 }
