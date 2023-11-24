@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.modelo.gladiador;
+package edu.fiuba.algo3.modelo.equipamientos;
 
 import edu.fiuba.algo3.modelo.consecuencias.FieraSalvaje;
 import edu.fiuba.algo3.modelo.gladiador.Energia;

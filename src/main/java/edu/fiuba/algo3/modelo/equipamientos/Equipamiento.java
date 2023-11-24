@@ -1,7 +1,5 @@
 package edu.fiuba.algo3.modelo.equipamientos;
 
-import edu.fiuba.algo3.modelo.gladiador.Afectable;
-
 public abstract class Equipamiento implements Afectable {
     public abstract Equipamiento incrementar();
 
