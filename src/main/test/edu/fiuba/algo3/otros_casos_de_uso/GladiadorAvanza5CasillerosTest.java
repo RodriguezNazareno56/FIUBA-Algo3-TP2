@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.entrega_1.otros;
+package edu.fiuba.algo3.otros_casos_de_uso;
 
 import edu.fiuba.algo3.modelo.equipamientos.Equipamiento;
 import edu.fiuba.algo3.modelo.equipamientos.SinEquipamiento;
