@@ -18,7 +18,7 @@ public class CasoDeUso5Test {
     private Gladiador gladiador;
 
     @BeforeEach
-    void setUp() {
+    public void setUp() {
         Casillero casillero = new Casillero(0);
         Energia energia = new Energia(20);
         Equipamiento equipamiento = new SinEquipamiento();

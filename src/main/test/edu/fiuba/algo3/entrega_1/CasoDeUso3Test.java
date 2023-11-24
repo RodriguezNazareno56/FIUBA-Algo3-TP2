@@ -17,7 +17,7 @@ public class CasoDeUso3Test {
     private Gladiador gladiador;
 
     @BeforeEach
-    void setUp() {
+    public void setUp() {
         Casillero casillero = new Casillero(0);
         Energia energia = new Energia(0);
         Equipamiento equipamiento = new SinEquipamiento();

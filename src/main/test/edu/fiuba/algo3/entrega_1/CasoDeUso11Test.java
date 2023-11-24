@@ -20,7 +20,7 @@ public class CasoDeUso11Test {
     private Equipamiento equipamiento;
 
     @BeforeEach
-    void setUp() {
+    public void setUp() {
         Casillero casillero = new Casillero(0);
         Senority senority = new Senority();
         Energia energia = new Energia(20);

@@ -16,7 +16,7 @@ public class CasoDeUso10Test {
     private Gladiador gladiador;
 
     @BeforeEach
-    void setUp() {
+    public void setUp() {
         Casillero casillero = new Casillero(0);
         Senority senority = new Senority();
         Energia energia = new Energia(20);

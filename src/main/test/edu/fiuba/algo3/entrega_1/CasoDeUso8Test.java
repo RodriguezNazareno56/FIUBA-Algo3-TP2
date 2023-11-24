@@ -19,7 +19,7 @@ public class CasoDeUso8Test {
     private Gladiador gladiador;
 
     @BeforeEach
-    void setUp() {
+    public void setUp() {
         CasillerosFactory casillerosFactory = new CasillerosFactory();
         ICasillero casillero = casillerosFactory.construirCasilleros(10);
         Senority senority = new Senority();
