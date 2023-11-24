@@ -29,6 +29,7 @@ public class Gladiador {
         return energia.getValor();
     }
 
+    // TODO: se puede eliminar mirar issue #87
     public Equipamiento obtenerEquipamiento() {
         return equipamiento;
     }
@@ -58,6 +59,10 @@ public class Gladiador {
         this.casillero = casillero.anteriorEnNPosiciones(cantidadDePosiciones);
     }
 
+    public void recibirConsecuencia(Consecuencia consecuencia) throws Exception {
+        consecuencia.afectarGladiador(this);
+    }
+
 
     public void comer(Energia energia) {
         this.energia.aumentarEnergia(energia);
@@ -71,25 +76,16 @@ public class Gladiador {
         this.equipamiento = this.equipamiento.incrementar();
     }
 
-    public void recibirConsecuencia(Consecuencia consecuencia) throws Exception {
-        consecuencia.afectarGladiador(this);
-    }
-
     public void recibirAtaque(Enemigo enemigo) {
         this.energia.disminuirEnergia(this.defenderse(enemigo));
     }
-    public void enojar() {
-        this.pausarMovimiento();
-    }
 
-
-    /**
-     * El gladiador utiliza su equipamiento para disipar el ataque de acuerdo al daño que la fiera genere ante al mismo.
-     * @param enemigo
-     * @return Energia por el valor del daño
-     */
     private Energia defenderse(Enemigo enemigo) {
         return enemigo.atacarATravesDelEquipamiento(this.equipamiento);
+    }
+
+    public void enojar() {
+        this.pausarMovimiento();
     }
 
     public void pausarMovimiento(){
