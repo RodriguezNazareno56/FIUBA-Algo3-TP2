@@ -30,7 +30,8 @@ public class CasoDeUso2 {
 
     @Test
     public void verificarQueElJugadorSalgaDeLaCasillaInicial() {
-        Assertions.assertThrows(MovimientoException.class,
-                this.gladiador::retroceder);
+        Assertions.assertThrows(MovimientoException.class, () -> {
+            this.gladiador.retroceder(1);
+        });
     }
 }

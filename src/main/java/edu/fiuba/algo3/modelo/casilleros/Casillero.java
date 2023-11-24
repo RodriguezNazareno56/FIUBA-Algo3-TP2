@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo.casilleros;
 
+import edu.fiuba.algo3.modelo.MovimientoException;
 import edu.fiuba.algo3.modelo.consecuencias.Consecuencia;
 import edu.fiuba.algo3.modelo.consecuencias.SinConcecuencia;
 import edu.fiuba.algo3.modelo.gladiador.Gladiador;
@@ -55,7 +56,7 @@ public class Casillero implements ICasillero {
     }
 
     @Override
-    public void afectarGladiadorConConsecuencia(Gladiador gladiador) throws TriunfoException {
+    public void afectarGladiadorConConsecuencia(Gladiador gladiador) throws TriunfoException, MovimientoException {
         // TODO: falta implementar que se setee la concecuencia
         this.consecuencia.afectarGladiador(gladiador);
     }
