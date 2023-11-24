@@ -1,15 +1,16 @@
 package edu.fiuba.algo3.modeloUnitTests.seniority;
 
 import edu.fiuba.algo3.modelo.gladiador.Energia;
-import edu.fiuba.algo3.modelo.gladiador.senority.SemiSenior;
+import edu.fiuba.algo3.modelo.gladiador.senority.states.SemiSeniorState;
 import edu.fiuba.algo3.modelo.gladiador.senority.Senority;
+import edu.fiuba.algo3.modelo.gladiador.senority.states.SenorityState;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentMatchers;
 import org.mockito.Mockito;
 
 
-public class SemiSeniorTest {
+public class SemiSeniorStateTestState {
 
     private Energia energiaMock;
 
@@ -22,12 +23,12 @@ public class SemiSeniorTest {
     public void semiSeniorIncrementa5PuntosLaEnergia(){
 
         //Arrange
-        SemiSenior semiSenior = new SemiSenior();
+        SemiSeniorState semiSeniorState = new SemiSeniorState(Mockito.mock(Senority.class));
 
         //Act
         //Una vez inicializado se incrementa 3 veces la energia
         for(int i = 0 ; i < 3 ; i++ ) {
-            semiSenior.aumentarEnergia(energiaMock);
+            semiSeniorState.aumentarEnergia(energiaMock);
         }
 
         //Assert
@@ -45,8 +46,8 @@ public class SemiSeniorTest {
     public void semiSeniorAlIncrementarCincoVecesExperienciaRetornaUnSenior() {
 
         //Arrange
-        SemiSenior novato = new SemiSenior();
-        Senority miSeniority;
+        SemiSeniorState novato = new SemiSeniorState(Mockito.mock(Senority.class));
+        SenorityState miSeniority;
 
         //Act
 

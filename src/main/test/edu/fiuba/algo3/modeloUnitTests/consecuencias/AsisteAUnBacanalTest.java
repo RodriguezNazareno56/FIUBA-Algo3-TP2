@@ -7,7 +7,6 @@ import edu.fiuba.algo3.modelo.consecuencias.AsisteAUnBacanal;
 import edu.fiuba.algo3.modelo.consecuencias.Consecuencia;
 import edu.fiuba.algo3.modelo.gladiador.Energia;
 import edu.fiuba.algo3.modelo.gladiador.Gladiador;
-import edu.fiuba.algo3.modelo.gladiador.senority.Novato;
 import edu.fiuba.algo3.modelo.gladiador.senority.Senority;
 import org.junit.jupiter.api.Test;
 
@@ -38,7 +37,7 @@ public class AsisteAUnBacanalTest {
         Energia energia = new Energia(20);
         Equipamiento equipamiento = new SinEquipamiento();
         Casillero casillero = new Casillero(0);
-        Senority senority = new Novato();
+        Senority senority = new Senority();
         Gladiador gladiador = new Gladiador(energia, equipamiento, casillero, senority);
 
         AsisteAUnBacanal bacanal = new AsisteAUnBacanal(1);
@@ -57,7 +56,7 @@ public class AsisteAUnBacanalTest {
         Energia energia = new Energia(20);
         Equipamiento equipamiento = new SinEquipamiento();
         Casillero casillero = new Casillero(0);
-        Senority senority = new Novato();
+        Senority senority = new Senority();
         Gladiador gladiador = new Gladiador(energia, equipamiento, casillero, senority);
 
         AsisteAUnBacanal bacanal = new AsisteAUnBacanal(2);
@@ -76,7 +75,7 @@ public class AsisteAUnBacanalTest {
         Energia energia = new Energia(20);
         Equipamiento equipamiento = new SinEquipamiento();
         Casillero casillero = new Casillero(0);
-        Senority senority = new Novato();
+        Senority senority = new Senority();
         Gladiador gladiador = new Gladiador(energia, equipamiento, casillero, senority);
 
         AsisteAUnBacanal bacanal = new AsisteAUnBacanal(3);
@@ -95,7 +94,7 @@ public class AsisteAUnBacanalTest {
         Energia energia = new Energia(20);
         Equipamiento equipamiento = new SinEquipamiento();
         Casillero casillero = new Casillero(0);
-        Senority senority = new Novato();
+        Senority senority = new Senority();
         Gladiador gladiador = new Gladiador(energia, equipamiento, casillero, senority);
 
         AsisteAUnBacanal bacanal = new AsisteAUnBacanal(4);
@@ -114,7 +113,7 @@ public class AsisteAUnBacanalTest {
         Energia energia = new Energia(20);
         Equipamiento equipamiento = new SinEquipamiento();
         Casillero casillero = new Casillero(0);
-        Senority senority = new Novato();
+        Senority senority = new Senority();
         Gladiador gladiador = new Gladiador(energia, equipamiento, casillero, senority);
 
         AsisteAUnBacanal bacanal = new AsisteAUnBacanal(5);
@@ -133,7 +132,7 @@ public class AsisteAUnBacanalTest {
         Energia energia = new Energia(20);
         Equipamiento equipamiento = new SinEquipamiento();
         Casillero casillero = new Casillero(0);
-        Senority senority = new Novato();
+        Senority senority = new Senority();
         Gladiador gladiador = new Gladiador(energia, equipamiento, casillero, senority);
 
         AsisteAUnBacanal bacanal = new AsisteAUnBacanal(6);

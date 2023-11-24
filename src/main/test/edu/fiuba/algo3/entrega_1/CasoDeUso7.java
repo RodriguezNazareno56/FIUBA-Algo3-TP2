@@ -6,7 +6,6 @@ import edu.fiuba.algo3.modelo.equipamientos.Casco;
 import edu.fiuba.algo3.modelo.equipamientos.Equipamiento;
 import edu.fiuba.algo3.modelo.consecuencias.FieraSalvaje;
 import edu.fiuba.algo3.modelo.gladiador.Gladiador;
-import edu.fiuba.algo3.modelo.gladiador.senority.Novato;
 import edu.fiuba.algo3.modelo.gladiador.senority.Senority;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -21,7 +20,7 @@ public class CasoDeUso7 {
         Casillero casillero = new Casillero(0);
         Energia energia = new Energia(20);
         Equipamiento equipamiento = new Casco();
-        Senority senority = new Novato();
+        Senority senority = new Senority();
         this.gladiador = new Gladiador(energia, equipamiento, casillero, senority);
     }
 

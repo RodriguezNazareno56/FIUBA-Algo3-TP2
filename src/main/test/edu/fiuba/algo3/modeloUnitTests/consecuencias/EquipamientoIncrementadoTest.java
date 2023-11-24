@@ -10,7 +10,6 @@ import edu.fiuba.algo3.modelo.equipamientos.SinEquipamiento;
 import edu.fiuba.algo3.modelo.consecuencias.EquipamientoIncrementado;
 import edu.fiuba.algo3.modelo.gladiador.Energia;
 import edu.fiuba.algo3.modelo.gladiador.Gladiador;
-import edu.fiuba.algo3.modelo.gladiador.senority.Novato;
 import edu.fiuba.algo3.modelo.gladiador.senority.Senority;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -39,7 +38,7 @@ public class EquipamientoIncrementadoTest {
         Energia energia = new Energia(20);
         Equipamiento equipamiento = new SinEquipamiento();
         Casillero casillero = new Casillero(0);
-        Senority senority = new Novato();
+        Senority senority = new Senority();
         Gladiador gladiador = new Gladiador(energia, equipamiento, casillero, senority);
 
         EquipamientoIncrementado equipamientoIncrementado = new EquipamientoIncrementado();
@@ -58,7 +57,7 @@ public class EquipamientoIncrementadoTest {
         Energia energia = new Energia(20);
         Equipamiento equipamiento = new Casco();
         Casillero casillero = new Casillero(0);
-        Senority senority = new Novato();
+        Senority senority = new Senority();
         Gladiador gladiador = new Gladiador(energia, equipamiento, casillero, senority);
 
         EquipamientoIncrementado equipamientoIncrementado = new EquipamientoIncrementado();
@@ -77,7 +76,7 @@ public class EquipamientoIncrementadoTest {
         Energia energia = new Energia(20);
         Equipamiento equipamiento = new Armadura();
         Casillero casillero = new Casillero(0);
-        Senority senority = new Novato();
+        Senority senority = new Senority();
         Gladiador gladiador = new Gladiador(energia, equipamiento, casillero, senority);
 
         EquipamientoIncrementado equipamientoIncrementado = new EquipamientoIncrementado();
@@ -96,7 +95,7 @@ public class EquipamientoIncrementadoTest {
         Energia energia = new Energia(20);
         Equipamiento equipamiento = new EscudoYEspada();
         Casillero casillero = new Casillero(0);
-        Senority senority = new Novato();
+        Senority senority = new Senority();
         Gladiador gladiador = new Gladiador(energia, equipamiento, casillero, senority);
 
         EquipamientoIncrementado equipamientoIncrementado = new EquipamientoIncrementado();
@@ -115,7 +114,7 @@ public class EquipamientoIncrementadoTest {
         Energia energia = new Energia(20);
         Equipamiento equipamiento = new Llave();
         Casillero casillero = new Casillero(0);
-        Senority senority = new Novato();
+        Senority senority = new Senority();
         Gladiador gladiador = new Gladiador(energia, equipamiento, casillero, senority);
 
         EquipamientoIncrementado equipamientoIncrementado = new EquipamientoIncrementado();

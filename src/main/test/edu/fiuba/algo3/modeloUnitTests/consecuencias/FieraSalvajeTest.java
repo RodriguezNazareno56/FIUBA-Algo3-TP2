@@ -5,7 +5,6 @@ import edu.fiuba.algo3.modelo.consecuencias.FieraSalvaje;
 import edu.fiuba.algo3.modelo.equipamientos.*;
 import edu.fiuba.algo3.modelo.gladiador.Energia;
 import edu.fiuba.algo3.modelo.gladiador.Gladiador;
-import edu.fiuba.algo3.modelo.gladiador.senority.Novato;
 import edu.fiuba.algo3.modelo.gladiador.senority.Senority;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -120,7 +119,7 @@ public class FieraSalvajeTest {
         Energia energia = new Energia(20);
         Equipamiento equipamiento = new SinEquipamiento();
         Casillero casillero = new Casillero(0);
-        Senority senority = new Novato();
+        Senority senority = new Senority();
         Gladiador gladiador = new Gladiador(energia, equipamiento, casillero, senority);
         int energiaEsperada = 0; //se le restan 20 puntos
 
@@ -137,7 +136,7 @@ public class FieraSalvajeTest {
         Energia energia = new Energia(20);
         Equipamiento equipamiento = new Casco();
         Casillero casillero = new Casillero(0);
-        Senority senority = new Novato();
+        Senority senority = new Senority();
         Gladiador gladiador = new Gladiador(energia, equipamiento, casillero, senority);
         int energiaEsperada = 5;  //se le restan 15 puntos
 
@@ -154,7 +153,7 @@ public class FieraSalvajeTest {
         Energia energia = new Energia(20);
         Equipamiento equipamiento = new Armadura();
         Casillero casillero = new Casillero(0);
-        Senority senority = new Novato();
+        Senority senority = new Senority();
         Gladiador gladiador = new Gladiador(energia, equipamiento, casillero, senority);
         int energiaEsperada = 10; //se le restan 10 puntos
 
@@ -171,7 +170,7 @@ public class FieraSalvajeTest {
         Energia energia = new Energia(20);
         Equipamiento equipamiento = new EscudoYEspada();
         Casillero casillero = new Casillero(0);
-        Senority senority = new Novato();
+        Senority senority = new Senority();
         Gladiador gladiador = new Gladiador(energia, equipamiento, casillero, senority);
         int energiaEsperada = 18; // se le restan 2 puntos
 
@@ -188,7 +187,7 @@ public class FieraSalvajeTest {
         Energia energia = new Energia(20);
         Equipamiento equipamiento = new Llave();
         Casillero casillero = new Casillero(0);
-        Senority senority = new Novato();
+        Senority senority = new Senority();
         Gladiador gladiador = new Gladiador(energia, equipamiento, casillero, senority);
         int energiaEsperada = 20; // la energia queda igual
 
