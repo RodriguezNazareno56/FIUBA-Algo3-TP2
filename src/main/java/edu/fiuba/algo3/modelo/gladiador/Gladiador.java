@@ -58,7 +58,10 @@ public class Gladiador {
         this.casillero.afectarGladiadorConConsecuencia(this);
     }
 
-    public void retroceder(int cantidadDePosiciones) {
+    public void retroceder(int cantidadDePosiciones) throws MovimientoException {
+        if (casillero == casillero.anteriorEnNPosiciones(cantidadDePosiciones)) {
+            throw new MovimientoException("Gladiador: Movimiento invalido");
+        }
         this.casillero = casillero.anteriorEnNPosiciones(cantidadDePosiciones);
     }
 
@@ -100,7 +103,7 @@ public class Gladiador {
         this.estaHabilitadoParaMover = false;
     }
 
-    public void triunfar() throws TriunfoException {
+    public void triunfar() throws TriunfoException, MovimientoException {
         // El ultimo equipamiento (llave) al incrementarse se retorna asi mismo.
         if (equipamiento == equipamiento.incrementar()) {
             throw new TriunfoException("Campeon");
