@@ -10,7 +10,7 @@ import org.mockito.ArgumentMatchers;
 import org.mockito.Mockito;
 
 
-public class SemiSeniorStateTestState {
+public class SemiSeniorStateTest {
 
     private Energia energiaMock;
 
