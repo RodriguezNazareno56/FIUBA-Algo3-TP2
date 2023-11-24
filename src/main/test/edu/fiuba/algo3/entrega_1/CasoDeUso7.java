@@ -35,6 +35,6 @@ public class CasoDeUso7 {
         this.gladiador.recibirConsecuencia(fieraSalvaje);
 
         // Assert
-        assertEquals(gladiador.getEnergia(), 5);
+        assertEquals(5, gladiador.getEnergia());
     }
 }

@@ -48,7 +48,7 @@ public class FieraSalvajeTest {
         Energia danio = fieraSalvaje.atacarATravesDelEquipamiento(sinEquipamiento);
 
         // Assert
-        assertEquals(danio.getValor(), 20);
+        assertEquals(20, danio.getValor());
         Mockito.verify(sinEquipamiento, times(1)).disiparAtaque(fieraSalvaje);
     }
 
@@ -63,7 +63,7 @@ public class FieraSalvajeTest {
         Energia danio = fieraSalvaje.atacarATravesDelEquipamiento(casco);
 
         // Assert
-        assertEquals(danio.getValor(), 15);
+        assertEquals(15, danio.getValor());
         Mockito.verify(casco, times(1)).disiparAtaque(fieraSalvaje);
     }
 
@@ -78,7 +78,7 @@ public class FieraSalvajeTest {
         Energia danio = fieraSalvaje.atacarATravesDelEquipamiento(armadura);
 
         // Assert
-        assertEquals(danio.getValor(), 10);
+        assertEquals(10, danio.getValor());
         Mockito.verify(armadura, times(1)).disiparAtaque(fieraSalvaje);
     }
 
@@ -93,7 +93,7 @@ public class FieraSalvajeTest {
         Energia danio = fieraSalvaje.atacarATravesDelEquipamiento(escudoYEspada);
 
         // Assert
-        assertEquals(danio.getValor(), 2);
+        assertEquals(2, danio.getValor());
         Mockito.verify(escudoYEspada, times(1)).disiparAtaque(fieraSalvaje);
     }
 
@@ -108,7 +108,7 @@ public class FieraSalvajeTest {
         Energia danio = fieraSalvaje.atacarATravesDelEquipamiento(llave);
 
         // Assert
-        assertEquals(danio.getValor(), 0);
+        assertEquals(0, danio.getValor());
         Mockito.verify(llave, times(1)).disiparAtaque(fieraSalvaje);
     }
 

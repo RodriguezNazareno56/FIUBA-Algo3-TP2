@@ -54,7 +54,7 @@ public class SinEquipamientoTest {
         Energia danio = sinEquipamiento.disiparAtaque(fieraSalvajeMock);
 
         // Assert
-        assertEquals(danio.getValor(), danioEsperado);
+        assertEquals(danioEsperado, danio.getValor());
         Mockito.verify(fieraSalvajeMock, times(1)).atacarContraEquipado(sinEquipamiento);
     }
 }

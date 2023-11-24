@@ -33,6 +33,6 @@ public class CasoDeUso10 {
         fieraSalvaje.afectarGladiador(gladiador);
 
         // Assert
-        assertEquals(gladiador.getEnergia(), 20);
+        assertEquals(20, gladiador.getEnergia());
     }
 }

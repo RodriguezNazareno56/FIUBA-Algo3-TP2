@@ -38,6 +38,6 @@ public class GladiadorAvanza5CasillerosTest {
         }
 
         // Assert
-        assertEquals(gladiador.getPosicion(), 5);
+        assertEquals(5, gladiador.getPosicion());
     }
 }
