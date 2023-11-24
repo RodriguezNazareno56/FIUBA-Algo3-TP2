@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.entrega_1;
 
-import edu.fiuba.algo3.AlgoRoma;
-import edu.fiuba.algo3.FinDelJuego;
+import edu.fiuba.algo3.modelo.AlgoRoma;
+import edu.fiuba.algo3.modelo.FinDelJuego;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
