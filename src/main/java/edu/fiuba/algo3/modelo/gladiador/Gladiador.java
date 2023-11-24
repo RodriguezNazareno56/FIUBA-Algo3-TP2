@@ -37,14 +37,6 @@ public class Gladiador {
         return this.casillero.getPosicion();
     }
 
-    public void retroceder() throws MovimientoException {
-        try {
-            this.casillero = casillero.anterior();
-        } catch (Exception e) {
-            throw new MovimientoException("Gladiador: Movimiento invalido");
-        }
-    }
-
     public void avanzar(int cantidadDePosiciones) throws MovimientoException, MovimientoPausadoExeption, TriunfoException {
         if (this.getEnergia() <= 0) {
             throw new MovimientoException("El gladiador no se puede mover sin energia");
