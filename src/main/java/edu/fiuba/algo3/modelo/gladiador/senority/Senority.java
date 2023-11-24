@@ -1,9 +1,22 @@
 package edu.fiuba.algo3.modelo.gladiador.senority;
 
 import edu.fiuba.algo3.modelo.gladiador.Energia;
+import edu.fiuba.algo3.modelo.gladiador.senority.states.NovatoState;
+import edu.fiuba.algo3.modelo.gladiador.senority.states.SenorityState;
 
-public abstract class Senority {
-    int experiencia;
-    public abstract Senority aumentarExperiencia();
-    public abstract void aumentarEnergia(Energia energia);
+public class Senority {
+
+    private SenorityState estado;
+
+    public Senority() {
+        this.estado = new NovatoState(this);
+    }
+
+    public void aumentarExperiencia() {
+        this.estado = this.estado.aumentarExperiencia();
+    }
+
+    public void aumentarEnergia(Energia energia) {
+        this.estado.aumentarEnergia(energia);
+    }
 }

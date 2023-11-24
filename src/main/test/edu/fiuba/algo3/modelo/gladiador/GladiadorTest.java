@@ -5,7 +5,6 @@ import edu.fiuba.algo3.modelo.casilleros.Casillero;
 import edu.fiuba.algo3.modelo.casilleros.ICasillero;
 import edu.fiuba.algo3.modelo.equipamientos.Casco;
 import edu.fiuba.algo3.modelo.equipamientos.Equipamiento;
-import edu.fiuba.algo3.modelo.gladiador.senority.Novato;
 import edu.fiuba.algo3.modelo.gladiador.senority.Senority;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -29,7 +28,7 @@ public class GladiadorTest {
         casilleroMock = Mockito.mock(Casillero.class);
         energiaMock = Mockito.mock(Energia.class);
         equipamientoMock = Mockito.mock(Casco.class);
-        senorityMock = Mockito.mock(Novato.class);
+        senorityMock = Mockito.mock(Senority.class);
         gladiador = new Gladiador(energiaMock, equipamientoMock, casilleroMock, senorityMock);
     }
 

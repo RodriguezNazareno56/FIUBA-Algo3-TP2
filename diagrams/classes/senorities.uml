@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>edu.fiuba.algo3.modelo.gladiador.senority</OriginalElement>
+  <nodes>
+    <node x="-533.8107142857143" y="318.64583333333326">edu.fiuba.algo3.modelo.gladiador.senority.states.NovatoState</node>
+    <node x="-229.10357142857143" y="144.33333333333337">edu.fiuba.algo3.modelo.gladiador.senority.states.SenorityState</node>
+    <node x="-210.10357142857143" y="-41.0">edu.fiuba.algo3.modelo.gladiador.senority.Senority</node>
+    <node x="108.3964285714286" y="318.64583333333326">edu.fiuba.algo3.modelo.gladiador.senority.states.SeniorState</node>
+    <node x="-212.70714285714283" y="318.64583333333326">edu.fiuba.algo3.modelo.gladiador.senority.states.SemiSeniorState</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="edu.fiuba.algo3.modelo.gladiador.senority.states.SemiSeniorState" target="edu.fiuba.algo3.modelo.gladiador.senority.states.SeniorState" relationship="CREATE">
+      <point x="58.6035714285714" y="37.72916666666674" />
+      <point x="-5.603571428571428" y="445.45833333333326" />
+      <point x="256.8964285714286" y="445.45833333333326" />
+      <point x="0.0" y="41.0" />
+    </edge>
+    <edge source="edu.fiuba.algo3.modelo.gladiador.senority.states.NovatoState" target="edu.fiuba.algo3.modelo.gladiador.senority.states.SenorityState" relationship="GENERALIZATION">
+      <point x="8.1660714285714" y="-40.08333333333326" />
+      <point x="-377.1446428571429" y="272.4895833333333" />
+      <point x="-80.604" y="272.4895833333333" />
+      <point x="-4.28571428572333E-4" y="40.9996666666666" />
+    </edge>
+    <edge source="edu.fiuba.algo3.modelo.gladiador.senority.Senority" target="edu.fiuba.algo3.modelo.gladiador.senority.states.NovatoState" relationship="CREATE">
+      <point x="-129.5" y="0.0" />
+      <point x="-454.0196428571429" y="0.0" />
+      <point x="-68.7089285714286" y="-38.20833333333326" />
+    </edge>
+    <edge source="edu.fiuba.algo3.modelo.gladiador.senority.states.SemiSeniorState" target="edu.fiuba.algo3.modelo.gladiador.senority.states.SenorityState" relationship="GENERALIZATION">
+      <point x="-16.3964285714286" y="-42.89583333333326" />
+      <point x="-80.60357142857143" y="253.0" />
+      <point x="-80.604" y="253.0" />
+      <point x="-4.28571428572333E-4" y="40.9996666666666" />
+    </edge>
+    <edge source="edu.fiuba.algo3.modelo.gladiador.senority.states.NovatoState" target="edu.fiuba.algo3.modelo.gladiador.senority.states.SemiSeniorState" relationship="CREATE">
+      <point x="4.603571428571399" y="43.35416666666674" />
+      <point x="-380.7071428571429" y="445.45833333333326" />
+      <point x="-128.41607142857143" y="445.45833333333326" />
+      <point x="-64.2089285714286" y="41.47916666666674" />
+    </edge>
+    <edge source="edu.fiuba.algo3.modelo.gladiador.senority.states.SeniorState" target="edu.fiuba.algo3.modelo.gladiador.senority.states.SenorityState" relationship="GENERALIZATION">
+      <point x="-4.28571428572333E-4" y="-41.00033333333329" />
+      <point x="256.896" y="272.4895833333333" />
+      <point x="-80.604" y="272.4895833333333" />
+      <point x="-4.28571428572333E-4" y="40.9996666666666" />
+    </edge>
+    <edge source="edu.fiuba.algo3.modelo.gladiador.senority.Senority" target="edu.fiuba.algo3.modelo.gladiador.senority.states.SenorityState" relationship="TO_ONE">
+      <point x="-79.5" y="41.0" />
+      <point x="-160.10357142857143" y="92.66666666666669" />
+      <point x="-120.625" y="92.66666666666669" />
+      <point x="-40.02142857142857" y="-40.14583333333337" />
+    </edge>
+    <edge source="edu.fiuba.algo3.modelo.gladiador.senority.states.SenorityState" target="edu.fiuba.algo3.modelo.gladiador.senority.Senority" relationship="TO_ONE">
+      <point x="79.5" y="-41.0" />
+      <point x="-1.1035714285714278" y="92.66666666666669" />
+      <point x="-39.12500000000003" y="92.66666666666669" />
+      <point x="41.4785714285714" y="39.25" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="1.0666666666666667" showDependencies="true" x="-40.0" y="274.5625" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

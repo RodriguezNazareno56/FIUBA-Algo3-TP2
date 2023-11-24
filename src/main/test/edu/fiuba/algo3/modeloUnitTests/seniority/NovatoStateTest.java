@@ -1,15 +1,16 @@
 package edu.fiuba.algo3.modeloUnitTests.seniority;
 
 import edu.fiuba.algo3.modelo.gladiador.Energia;
-import edu.fiuba.algo3.modelo.gladiador.senority.Novato;
+import edu.fiuba.algo3.modelo.gladiador.senority.states.NovatoState;
 import edu.fiuba.algo3.modelo.gladiador.senority.Senority;
+import edu.fiuba.algo3.modelo.gladiador.senority.states.SenorityState;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentMatchers;
 import org.mockito.Mockito;
 
 
-public class NovatoTest {
+public class NovatoStateTest {
 
     private Energia energiaMock;
 
@@ -22,13 +23,13 @@ public class NovatoTest {
     public void novatoNoIncrementaEnergia(){
 
         //Arrange
-        Novato novato = new Novato();
+        NovatoState novatoState = new NovatoState(Mockito.mock(Senority.class));
 
         //Act
 
         //Una vez inicializado se incrementa 3 veces la energia
         for(int i = 0 ; i < 3 ; i++ ) {
-            novato.aumentarEnergia(energiaMock);
+            novatoState.aumentarEnergia(energiaMock);
         }
 
 
@@ -49,15 +50,15 @@ public class NovatoTest {
     public void novatoAlIncrementarNueveVecesExperienciaRetornaSemiSenior() {
 
         //Arrange
-        Novato novato = new Novato();
-        Senority miSeniority;
+        NovatoState novatoState = new NovatoState(Mockito.mock(Senority.class));
+        SenorityState miSeniority;
 
         //Act
 
         //Una vez inicializado se incrementa 8 veces la experiencia
         //Por lo tanto el proximo estado de miSeniority es SemiSenior
 
-        miSeniority = novato.aumentarExperiencia();
+        miSeniority = novatoState.aumentarExperiencia();
 
         for (int i = 0; i < 8; i++) {
             miSeniority = miSeniority.aumentarExperiencia();

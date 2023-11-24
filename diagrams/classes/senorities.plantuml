@@ -1,0 +1,36 @@
+@startuml
+
+!theme plain
+top to bottom direction
+skinparam linetype ortho
+
+class NovatoState {
+  + aumentarEnergia(Energia): void
+  + aumentarExperiencia(): SenorityState
+}
+class SemiSeniorState {
+  + aumentarEnergia(Energia): void
+  + aumentarExperiencia(): SenorityState
+}
+class SeniorState {
+  + aumentarExperiencia(): SenorityState
+  + aumentarEnergia(Energia): void
+}
+class Senority {
+  + aumentarEnergia(Energia): void
+  + aumentarExperiencia(): void
+}
+class SenorityState {
+  + aumentarEnergia(Energia): void
+  + aumentarExperiencia(): SenorityState
+}
+
+NovatoState      -[#595959,dashed]->  SemiSeniorState : "«create»"
+NovatoState      -[#000082,plain]-^  SenorityState   
+SemiSeniorState  -[#595959,dashed]->  SeniorState     : "«create»"
+SemiSeniorState  -[#000082,plain]-^  SenorityState   
+SeniorState      -[#000082,plain]-^  SenorityState   
+Senority         -[#595959,dashed]->  NovatoState     : "«create»"
+Senority        "1" *-[#595959,plain]-> "estado\n1" SenorityState   
+SenorityState   "1" *-[#595959,plain]-> "senority\n1" Senority        
+@enduml

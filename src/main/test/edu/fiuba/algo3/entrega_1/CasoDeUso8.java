@@ -6,7 +6,6 @@ import edu.fiuba.algo3.modelo.equipamientos.Casco;
 import edu.fiuba.algo3.modelo.equipamientos.Equipamiento;
 import edu.fiuba.algo3.modelo.gladiador.Gladiador;
 import edu.fiuba.algo3.modelo.MovimientoException;
-import edu.fiuba.algo3.modelo.gladiador.senority.Novato;
 import edu.fiuba.algo3.modelo.gladiador.senority.Senority;
 import edu.fiuba.algo3.modelo.MovimientoPausadoExeption;
 import edu.fiuba.algo3.modelo.casilleros.CasillerosFactory;
@@ -23,7 +22,7 @@ public class CasoDeUso8 {
     void setUp() {
         CasillerosFactory casillerosFactory = new CasillerosFactory();
         ICasillero casillero = casillerosFactory.construirCasilleros(10);
-        Senority senority = new Novato();
+        Senority senority = new Senority();
         Energia energia = new Energia(20);
         Equipamiento equipamiento = new Casco();
         this.gladiador = new Gladiador(energia, equipamiento, casillero, senority);

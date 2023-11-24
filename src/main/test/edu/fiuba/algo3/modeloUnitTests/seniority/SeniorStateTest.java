@@ -1,13 +1,14 @@
 package edu.fiuba.algo3.modeloUnitTests.seniority;
 import edu.fiuba.algo3.modelo.gladiador.Energia;
-import edu.fiuba.algo3.modelo.gladiador.senority.Senior;
+import edu.fiuba.algo3.modelo.gladiador.senority.states.SeniorState;
+import edu.fiuba.algo3.modelo.gladiador.senority.Senority;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentMatchers;
 import org.mockito.Mockito;
 
 
-public class SeniorTest {
+public class SeniorStateTest {
 
     private Energia energiaMock;
 
@@ -20,12 +21,12 @@ public class SeniorTest {
     public void seniorIncrementa10PuntosLaEnergia(){
 
         //Arrange
-        Senior senior = new Senior();
+        SeniorState seniorState = new SeniorState(Mockito.mock(Senority.class));
         //Act
 
         //Una vez inicializado se incrementa 3 veces la energia
         for(int i = 0 ; i < 3 ; i++ ) {
-            senior.aumentarEnergia(energiaMock);
+            seniorState.aumentarEnergia(energiaMock);
         }
 
 
