@@ -2,14 +2,14 @@ package edu.fiuba.algo3.modelo.casilleros;
 
 import edu.fiuba.algo3.modelo.MovimientoException;
 import edu.fiuba.algo3.modelo.consecuencias.Consecuencia;
-import edu.fiuba.algo3.modelo.consecuencias.SinConcecuencia;
+import edu.fiuba.algo3.modelo.consecuencias.SinConsecuencia;
 import edu.fiuba.algo3.modelo.gladiador.Gladiador;
 import edu.fiuba.algo3.modelo.gladiador.TriunfoException;
 
 public class Casillero implements ICasillero {
 
     private int posicion;
-    protected Consecuencia consecuencia = new SinConcecuencia();
+    protected Consecuencia consecuencia = new SinConsecuencia();
 
     protected ICasillero proximo;
     protected ICasillero anterior;
