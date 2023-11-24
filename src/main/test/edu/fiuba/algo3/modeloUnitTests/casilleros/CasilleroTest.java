@@ -19,7 +19,7 @@ public class CasilleroTest {
 
         // Assert
         // Partiendo del casilleroInicial (posicion 0) pido el proximo en 5 posiciones retorna casillero(posicion5)
-        assertEquals(casilleroProximoEn5Posiciones.getPosicion(), 5);
+        assertEquals(5, casilleroProximoEn5Posiciones.getPosicion());
     }
 
     @Test
@@ -35,7 +35,7 @@ public class CasilleroTest {
         // Assert
         // Partiendo del casilleroInicial (posicion 0) pido el proximo en 5 (posicion5), pido el anterior en 2 obtengo
         // casillero (posicion 3)
-        assertEquals(casilleroAnteriorEn2Posiciones.getPosicion(), 3);
+        assertEquals(3, casilleroAnteriorEn2Posiciones.getPosicion());
     }
 
     @Test
@@ -68,7 +68,7 @@ public class CasilleroTest {
         // Assert
         // El proximo al inicial (posicion 0) en 5 posiciones debe ser (posicion 3) en un tablero de 4 posiciones
         // no se sale del tablero
-        assertEquals(casilleroProximoAlInicialEn5posiciones.getPosicion(), 3);
+        assertEquals(3, casilleroProximoAlInicialEn5posiciones.getPosicion());
     }
 
     @Test
@@ -85,6 +85,6 @@ public class CasilleroTest {
         // Assert
         // El anterior al Final (posicion 3) en 5 posiciones debe ser (posicion 0) en un tablero de 4 posiciones
         // no se sale del tablero
-        assertEquals(casilleroAnteriorAlFinalEn5posiciones.getPosicion(), 0);
+        assertEquals(0, casilleroAnteriorAlFinalEn5posiciones.getPosicion());
     }
 }

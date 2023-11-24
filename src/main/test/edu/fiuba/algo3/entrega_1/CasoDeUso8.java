@@ -41,6 +41,6 @@ public class CasoDeUso8 {
         gladiador.avanzar(1);
 
         // Assert
-        assertEquals(gladiador.getEnergia(), 25);
+        assertEquals(25, gladiador.getEnergia());
     }
 }

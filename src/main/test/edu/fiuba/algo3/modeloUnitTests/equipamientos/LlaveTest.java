@@ -53,7 +53,7 @@ public class LlaveTest {
         Energia danio = llave.disiparAtaque(fieraSalvajeMock);
 
         // Assert
-        assertEquals(danio.getValor(), danioEsperado);
+        assertEquals(danioEsperado, danio.getValor());
         Mockito.verify(fieraSalvajeMock, times(1)).atacarContraEquipado(llave);
     }
 }

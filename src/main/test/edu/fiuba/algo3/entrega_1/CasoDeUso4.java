@@ -34,7 +34,7 @@ public class CasoDeUso4 {
         this.gladiador.recibirConsecuencia(comida);
 
         // Assert
-        assertEquals(gladiador.getEnergia(), 35);
+        assertEquals(35, gladiador.getEnergia());
     }
 }
 
