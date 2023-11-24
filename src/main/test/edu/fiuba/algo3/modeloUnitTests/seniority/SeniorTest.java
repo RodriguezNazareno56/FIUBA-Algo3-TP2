@@ -17,7 +17,7 @@ public class SeniorTest {
     }
 
     @Test
-    public void novatoNoIncrementaEnergiaConExperienciaMenorAOcho(){
+    public void seniorIncrementa10PuntosLaEnergia(){
 
         //Arrange
         Senior senior = new Senior();
@@ -31,15 +31,12 @@ public class SeniorTest {
 
         //Assert
 
-        //La energia resultante debe ser nula
-
         //Verifico que el metodo aumentarEnergia de la clase Energia se llame 3 veces
         Mockito.verify(energiaMock, Mockito.times(3))
                 .aumentarEnergia(Mockito.any(Energia.class));
         //Verifico que el metodo aumentarEnergia de la clase Energia se llame 3 veces con parametro cinco
         Mockito.verify(energiaMock, Mockito.times(3))
                 .aumentarEnergia( ArgumentMatchers.argThat(arg -> arg.getValor() == 10));
-
     }
 
 

@@ -19,7 +19,7 @@ public class NovatoTest {
     }
 
     @Test
-    public void novatoNoIncrementaEnergiaConExperienciaMenorAOcho(){
+    public void novatoNoIncrementaEnergia(){
 
         //Arrange
         Novato novato = new Novato();

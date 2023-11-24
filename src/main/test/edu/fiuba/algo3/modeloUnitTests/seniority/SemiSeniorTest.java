@@ -19,21 +19,18 @@ public class SemiSeniorTest {
     }
 
     @Test
-    public void novatoNoIncrementaEnergiaConExperienciaMenorAOcho(){
+    public void semiSeniorIncrementa5PuntosLaEnergia(){
 
         //Arrange
         SemiSenior semiSenior = new SemiSenior();
-        //Act
 
+        //Act
         //Una vez inicializado se incrementa 3 veces la energia
         for(int i = 0 ; i < 3 ; i++ ) {
             semiSenior.aumentarEnergia(energiaMock);
         }
 
-
         //Assert
-
-        //La energia resultante debe ser nula
 
         //Verifico que el metodo aumentarEnergia de la clase Energia se llame 3 veces
         Mockito.verify(energiaMock, Mockito.times(3))
@@ -41,12 +38,11 @@ public class SemiSeniorTest {
         //Verifico que el metodo aumentarEnergia de la clase Energia se llame 3 veces con parametro cinco
         Mockito.verify(energiaMock, Mockito.times(3))
                 .aumentarEnergia( ArgumentMatchers.argThat(arg -> arg.getValor() == 5));
-
     }
 
 
     @Test
-    public void semiSeniorAlIncrementarCincoVecesExperienciaRetornaSeSenior() {
+    public void semiSeniorAlIncrementarCincoVecesExperienciaRetornaUnSenior() {
 
         //Arrange
         SemiSenior novato = new SemiSenior();
@@ -71,8 +67,6 @@ public class SemiSeniorTest {
         //Ya que si es Senior el aumento de energia es 10
         Mockito.verify(energiaMock, Mockito.times(1))
                 .aumentarEnergia( ArgumentMatchers.argThat(arg -> arg.getValor() == 10));
-
-
     }
 
 }
