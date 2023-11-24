@@ -25,7 +25,7 @@ public class GladiadorTest {
     Senority senorityMock;
 
     @BeforeEach
-    void setUp() {
+    public void setUp() {
         casilleroMock = Mockito.mock(Casillero.class);
         energiaMock = Mockito.mock(Energia.class);
         equipamientoMock = Mockito.mock(Casco.class);
