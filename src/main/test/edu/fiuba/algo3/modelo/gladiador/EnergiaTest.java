@@ -3,7 +3,7 @@ package edu.fiuba.algo3.modelo.gladiador;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class EnergiaTest {
 
@@ -53,4 +53,53 @@ public class EnergiaTest {
         assertEquals(valorInicialEsperadoDeLaEnergia, energiaInicial);
     }
 
+    @Test
+    void testEqualsDosObjetosEnergiaSonIgualesCuandoPoseenElMismoValor() {
+        // Arrange
+        Energia energiaUno = new Energia(10);
+        Energia energiaDos = new Energia(10);
+
+        // Assert
+        assertEquals(energiaUno, energiaDos);
+    }
+
+    @Test
+    void testEqualsDosObjetosEnergiaNoSonIgualesCuandoPoseenDistintosValor() {
+        // Arrange
+        Energia energiaUno = new Energia(10);
+        Energia energiaDos = new Energia(20);
+
+        // Assert
+        assertNotEquals(energiaUno, energiaDos);
+    }
+
+    @Test
+    void isAgotadaRetornaTrueSiElValorEs0() {
+        // Arrange
+        Energia energia = new Energia(0);
+
+        // Assert
+        assertTrue(energia.isAgotada());
+    }
+
+    @Test
+    void isAgotadaRetornaFalseSiElValorEsMayorDe0() {
+        // Arrange
+        Energia energia = new Energia(10);
+
+        // Assert
+        assertFalse(energia.isAgotada());
+    }
+
+    @Test
+    void isAgotadaRetornaTrueTrasSerDisminuidaA0() {
+        // Arrange
+        Energia energia = new Energia(10);
+
+        // Act
+        energia.disminuirEnergia(new Energia(10));
+
+        // Assert
+        assertTrue(energia.isAgotada());
+    }
 }

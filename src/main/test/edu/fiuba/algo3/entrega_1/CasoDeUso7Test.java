@@ -26,14 +26,16 @@ public class CasoDeUso7Test {
 
     @Test
     public void verificarQueSiHayUnCombateConUnaFieraSalvajeYTieneUnCascoPierde15PuntosDeEnergia() throws Exception {
-        // TODO: falta ver si se puede sacar el getEnergia()
         // Arrange
         FieraSalvaje fieraSalvaje = new FieraSalvaje();
+        // Se espera que un gladiador que inicia con 20 puntos de energia, pierda 15 puntos al ser atacado por una
+        // fiera cuando el mismo posee un Casco como equipamiento
+        Energia energiaEsperada = new Energia(5);
 
         // Act
         this.gladiador.recibirConsecuencia(fieraSalvaje);
 
         // Assert
-        assertEquals(5, gladiador.getEnergia());
+        assertEquals(energiaEsperada, gladiador.getEnergia());
     }
 }

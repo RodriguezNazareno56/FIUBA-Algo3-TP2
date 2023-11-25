@@ -32,7 +32,6 @@ public class CasoDeUso11Test {
     public void verificarQueSiElGladiadorTieneLaLlaveYRecibeOtroPremioNoCambiaNada() throws Exception {
         // Arrange
         Consecuencia equipamientoIncrementado = new EquipamientoIncrementado();
-        int enerigiaEsperada = 20;
 
         // Act
         this.gladiador.recibirConsecuencia(equipamientoIncrementado);

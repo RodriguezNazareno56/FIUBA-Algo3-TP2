@@ -37,7 +37,7 @@ public class ComidaTest {
         Senority senority = new Senority();
         Gladiador gladiador = new Gladiador(energia, equipamiento, casillero, senority);
         Comida comida = new Comida();
-        int energiaEsperada = 35;
+        Energia energiaEsperada = new Energia(35);
 
         //Act
         comida.afectarGladiador(gladiador);
@@ -55,7 +55,7 @@ public class ComidaTest {
         Senority senority = new Senority();
         Gladiador gladiador = new Gladiador(energia, equipamiento, casillero, senority);
         Comida comida = new Comida();
-        int energiaEsperada = 5; // -10 + 15
+        Energia energiaEsperada = new Energia(5); // -10 + 15
 
         //Act
         comida.afectarGladiador(gladiador);

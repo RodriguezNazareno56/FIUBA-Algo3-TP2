@@ -30,6 +30,9 @@ public class CasoDeUso6Test {
     public void verificarQueSiRecibeUnPremioPorTerceraVezObtieneEscudoYEspada() throws Exception {
         //Arrange
         Consecuencia incrementoDeEquipo = new EquipamientoIncrementado();
+        // Un gladiador sin equipamiento y con 20 puntos de vida. Recibira un premio por tercera vez y sera atacado
+        // por una fiera, se espera que se defienda con el EscudoYEspada y tan solo sufra 2 puntos de danio
+        Energia energiaEsperada = new Energia(18);
 
         //Act
         this.gladiador.recibirConsecuencia(incrementoDeEquipo);
@@ -38,8 +41,6 @@ public class CasoDeUso6Test {
         this.gladiador.recibirAtaque(new FieraSalvaje());
 
         //Assert
-        // Un gladiador sin equipamiento y con 20 puntos de vida. Recibira un premio por tercera vez y sera atacado
-        // por una fiera, se espera que se defienda con el EscudoYEspada y tan solo sufra 2 puntos de danio
-        assertEquals(18, this.gladiador.getEnergia());
+        assertEquals(energiaEsperada, this.gladiador.getEnergia());
     }
 }

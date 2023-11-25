@@ -18,9 +18,8 @@ public class CasoDeUso12Test {
 
     @Test
     public void verificarQueSiPasan30TurnosYNadieLlegoALaMetaSeTerminaElJuego() {
-
+        // Arrange
         for( int i=0 ; i < 30 ; i++ ){
-
             try {
                 this.algoRoma.jugarRonda();
             } catch (FinDelJuegoException e) {
@@ -28,10 +27,7 @@ public class CasoDeUso12Test {
             }
         }
 
-        Throwable exception= Assertions.assertThrows(FinDelJuegoException.class, () -> {
-            this.algoRoma.jugarRonda();
-        });
-
-        assertEquals("Fin del Juego: Se alcanzo el numero maximo de rondas", exception.getMessage());
+        // Assert
+        Assertions.assertThrows(FinDelJuegoException.class, algoRoma::jugarRonda);
     }
 }

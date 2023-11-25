@@ -26,12 +26,16 @@ public class CasoDeUso10Test {
 
     @Test
     public void verificarQueSiLoAtacaUnaFieraSalvajeYPoseeTodoElEquipamientoElDanioEnEnergiaEs0() {
+        // Arrange
         FieraSalvaje fieraSalvaje = new FieraSalvaje();
+        // Se espera que un gladiador que inicia con una energia de 20 puntos, no pierda energia al ser atacado por
+        // una fiera cuando el gladiador posee el maximo equipamiento
+        Energia energiaEsperada = new Energia(20);
 
         // Act
         fieraSalvaje.afectarGladiador(gladiador);
 
         // Assert
-        assertEquals(20, gladiador.getEnergia());
+        assertEquals(energiaEsperada, gladiador.getEnergia());
     }
 }

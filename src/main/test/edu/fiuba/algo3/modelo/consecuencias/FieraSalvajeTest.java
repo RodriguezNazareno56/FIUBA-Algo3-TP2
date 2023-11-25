@@ -120,7 +120,7 @@ public class FieraSalvajeTest {
         Casillero casillero = new Casillero(0);
         Senority senority = new Senority();
         Gladiador gladiador = new Gladiador(energia, equipamiento, casillero, senority);
-        int energiaEsperada = 0; //se le restan 20 puntos
+        Energia energiaEsperada = new Energia(0); //se le restan 20 puntos
 
         //Act
         fieraSalvaje.afectarGladiador(gladiador);
@@ -137,7 +137,7 @@ public class FieraSalvajeTest {
         Casillero casillero = new Casillero(0);
         Senority senority = new Senority();
         Gladiador gladiador = new Gladiador(energia, equipamiento, casillero, senority);
-        int energiaEsperada = 5;  //se le restan 15 puntos
+        Energia energiaEsperada = new Energia(5);  //se le restan 15 puntos
 
         //Act
         fieraSalvaje.afectarGladiador(gladiador);
@@ -154,7 +154,7 @@ public class FieraSalvajeTest {
         Casillero casillero = new Casillero(0);
         Senority senority = new Senority();
         Gladiador gladiador = new Gladiador(energia, equipamiento, casillero, senority);
-        int energiaEsperada = 10; //se le restan 10 puntos
+        Energia energiaEsperada = new Energia(10); //se le restan 10 puntos
 
         //Act
         fieraSalvaje.afectarGladiador(gladiador);
@@ -171,7 +171,7 @@ public class FieraSalvajeTest {
         Casillero casillero = new Casillero(0);
         Senority senority = new Senority();
         Gladiador gladiador = new Gladiador(energia, equipamiento, casillero, senority);
-        int energiaEsperada = 18; // se le restan 2 puntos
+        Energia energiaEsperada = new Energia(18); // se le restan 2 puntos
 
         //Act
         fieraSalvaje.afectarGladiador(gladiador);
@@ -188,7 +188,7 @@ public class FieraSalvajeTest {
         Casillero casillero = new Casillero(0);
         Senority senority = new Senority();
         Gladiador gladiador = new Gladiador(energia, equipamiento, casillero, senority);
-        int energiaEsperada = 20; // la energia queda igual
+        Energia energiaEsperada = new Energia(20); // la energia queda igual
 
         //Act
         fieraSalvaje.afectarGladiador(gladiador);
