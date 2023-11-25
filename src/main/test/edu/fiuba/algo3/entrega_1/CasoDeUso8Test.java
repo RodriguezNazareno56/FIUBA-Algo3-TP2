@@ -35,11 +35,14 @@ public class CasoDeUso8Test {
         for (int i = 1; i <= 8; i++) {
             gladiador.avanzar(1);
         }
+        // se espera que un gladiador que inicia con 20 puntos de energia, al avanzar ya siendo SemiSenior, incrementa
+        //  en 5 puntos su energia.
+        Energia energiaEsperada = new Energia(25);
 
         // Act
         gladiador.avanzar(1);
 
         // Assert
-        assertEquals(25, gladiador.getEnergia());
+        assertEquals(energiaEsperada, gladiador.getEnergia());
     }
 }

@@ -28,12 +28,14 @@ public class CasoDeUso4Test {
     public void verificarQueSiRecibeComidaIncrementaEnergiaEn15() throws Exception {
         // Arrange
         Comida comida = new Comida();
+        // Se espera que un gladiador que inicia con 20 puntos de energia, al comer incremente la misma en 15 puntos
+        Energia energiaEsperada = new Energia(35);
 
         // Act
         this.gladiador.recibirConsecuencia(comida);
 
         // Assert
-        assertEquals(35, gladiador.getEnergia());
+        assertEquals(energiaEsperada, gladiador.getEnergia());
     }
 }
 

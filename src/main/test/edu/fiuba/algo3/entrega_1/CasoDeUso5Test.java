@@ -30,14 +30,15 @@ public class CasoDeUso5Test {
     public void verificarQueSiRecibeUnPremioPorPrimeraVezObtieneUnCasco() throws Exception {
         //Arrange
         Consecuencia incrementoDeEquipo = new EquipamientoIncrementado();
+        // Un gladiador sin equipamiento y con 20 puntos de vida. Recibira un primer premio y sera atacado por
+        // una fiera, se espera que se defienda con el casco y tan solo sufra 15 puntos de danio
+        Energia energiaEsperada = new Energia(5);
 
         //Act
         this.gladiador.recibirConsecuencia(incrementoDeEquipo);
         this.gladiador.recibirAtaque(new FieraSalvaje());
 
         //Assert
-        // Un gladiador sin equipamiento y con 20 puntos de vida. Recibira un primer premio y sera atacado por
-        // una fiera, se espera que se defienda con el casco y tan solo sufra 15 puntos de danio
-        assertEquals(5, this.gladiador.getEnergia());
+        assertEquals(energiaEsperada, this.gladiador.getEnergia());
     }
 }

@@ -39,7 +39,7 @@ public class AsisteAUnBacanalTest {
         Gladiador gladiador = new Gladiador(energia, equipamiento, casillero, senority);
 
         AsisteAUnBacanal bacanal = new AsisteAUnBacanal(1);
-        int energiaEsperada = 16; // se le restan 4 * cantidadTragos
+        Energia energiaEsperada = new Energia(16); // se le restan 4 * cantidadTragos
 
         //Act
         bacanal.afectarGladiador(gladiador);
@@ -58,7 +58,7 @@ public class AsisteAUnBacanalTest {
         Gladiador gladiador = new Gladiador(energia, equipamiento, casillero, senority);
 
         AsisteAUnBacanal bacanal = new AsisteAUnBacanal(2);
-        int energiaEsperada = 12; // se le restan 4 * cantidadTragos
+        Energia energiaEsperada = new Energia(12); // se le restan 4 * cantidadTragos
 
         //Act
         bacanal.afectarGladiador(gladiador);
@@ -77,7 +77,7 @@ public class AsisteAUnBacanalTest {
         Gladiador gladiador = new Gladiador(energia, equipamiento, casillero, senority);
 
         AsisteAUnBacanal bacanal = new AsisteAUnBacanal(3);
-        int energiaEsperada = 8; // se le restan 4 * cantidadTragos
+        Energia energiaEsperada = new Energia(8); // se le restan 4 * cantidadTragos
 
         //Act
         bacanal.afectarGladiador(gladiador);
@@ -96,7 +96,7 @@ public class AsisteAUnBacanalTest {
         Gladiador gladiador = new Gladiador(energia, equipamiento, casillero, senority);
 
         AsisteAUnBacanal bacanal = new AsisteAUnBacanal(4);
-        int energiaEsperada = 4; // se le restan 4 * cantidadTragos
+        Energia energiaEsperada = new Energia(4); // se le restan 4 * cantidadTragos
 
         //Act
         bacanal.afectarGladiador(gladiador);
@@ -115,7 +115,7 @@ public class AsisteAUnBacanalTest {
         Gladiador gladiador = new Gladiador(energia, equipamiento, casillero, senority);
 
         AsisteAUnBacanal bacanal = new AsisteAUnBacanal(5);
-        int energiaEsperada = 0; // se le restan 4 * cantidadTragos
+        Energia energiaEsperada = new Energia(0); // se le restan 4 * cantidadTragos
 
         //Act
         bacanal.afectarGladiador(gladiador);
@@ -134,7 +134,7 @@ public class AsisteAUnBacanalTest {
         Gladiador gladiador = new Gladiador(energia, equipamiento, casillero, senority);
 
         AsisteAUnBacanal bacanal = new AsisteAUnBacanal(6);
-        int energiaEsperada = -4; // se le restan 4 * cantidadTragos
+        Energia energiaEsperada = new Energia(-4); // se le restan 4 * cantidadTragos
 
         //Act
         bacanal.afectarGladiador(gladiador);

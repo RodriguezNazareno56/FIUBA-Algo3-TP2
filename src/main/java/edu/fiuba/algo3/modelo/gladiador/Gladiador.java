@@ -25,8 +25,9 @@ public class Gladiador {
         this.estaHabilitadoParaMover = true;
     }
 
-    public int getEnergia() {
-        return energia.getValor();
+    public Energia getEnergia() {
+        // Retorna una copia de la energia que posee
+        return new Energia(this.energia.getValor());
     }
 
     // TODO: se puede eliminar mirar issue #87
@@ -39,7 +40,7 @@ public class Gladiador {
     }
 
     public void avanzar(int cantidadDePosiciones) throws MovimientoException, MovimientoPausadoExeption, TriunfoException {
-        if (this.getEnergia() <= 0) {
+        if (this.energia.isAgotada()) {
             throw new MovimientoException("El gladiador no se puede mover sin energia");
         }
         if(!this.estaHabilitadoParaMover) throw new MovimientoPausadoExeption("El gladiador esta pausado para mover en este turno");
