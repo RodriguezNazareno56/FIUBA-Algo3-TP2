@@ -54,7 +54,7 @@ public class EnergiaTest {
     }
 
     @Test
-    void testEqualsDosObjetosEnergiaSonIgualesCuandoPoseenElMismoValor() {
+    public void testEqualsDosObjetosEnergiaSonIgualesCuandoPoseenElMismoValor() {
         // Arrange
         Energia energiaUno = new Energia(10);
         Energia energiaDos = new Energia(10);
@@ -64,7 +64,7 @@ public class EnergiaTest {
     }
 
     @Test
-    void testEqualsDosObjetosEnergiaNoSonIgualesCuandoPoseenDistintosValor() {
+    public void testEqualsDosObjetosEnergiaNoSonIgualesCuandoPoseenDistintosValor() {
         // Arrange
         Energia energiaUno = new Energia(10);
         Energia energiaDos = new Energia(20);
@@ -74,7 +74,7 @@ public class EnergiaTest {
     }
 
     @Test
-    void isAgotadaRetornaTrueSiElValorEs0() {
+    public void isAgotadaRetornaTrueSiElValorEs0() {
         // Arrange
         Energia energia = new Energia(0);
 
@@ -83,7 +83,7 @@ public class EnergiaTest {
     }
 
     @Test
-    void isAgotadaRetornaFalseSiElValorEsMayorDe0() {
+    public void isAgotadaRetornaFalseSiElValorEsMayorDe0() {
         // Arrange
         Energia energia = new Energia(10);
 
@@ -92,7 +92,7 @@ public class EnergiaTest {
     }
 
     @Test
-    void isAgotadaRetornaTrueTrasSerDisminuidaA0() {
+    public void isAgotadaRetornaTrueTrasSerDisminuidaA0() {
         // Arrange
         Energia energia = new Energia(10);
 
