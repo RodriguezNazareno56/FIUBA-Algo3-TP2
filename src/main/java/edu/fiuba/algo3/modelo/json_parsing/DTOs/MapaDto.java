@@ -1,10 +1,10 @@
-package edu.fiuba.algo3.modelo.json_parsing;
+package edu.fiuba.algo3.modelo.json_parsing.DTOs;
 
-public class Mapa {
+public class MapaDto {
     private int ancho;
     private int largo;
 
-    public Mapa() {
+    public MapaDto() {
     }
 
     public int getAncho() {

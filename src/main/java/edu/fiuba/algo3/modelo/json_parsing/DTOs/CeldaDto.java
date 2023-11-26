@@ -1,13 +1,13 @@
-package edu.fiuba.algo3.modelo.json_parsing;
+package edu.fiuba.algo3.modelo.json_parsing.DTOs;
 
-public class Celda {
+public class CeldaDto {
     private int x;
     private int y;
     private String tipo;
     private String obstaculo;
     private String premio;
 
-    public Celda() {
+    public CeldaDto() {
     }
 
     public int getX() {

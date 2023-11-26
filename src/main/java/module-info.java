@@ -1,6 +1,7 @@
 module edu.fiuba.algo3 {
     requires javafx.controls;
     requires com.fasterxml.jackson.databind;
+    requires org.json;
     exports edu.fiuba.algo3;
     exports edu.fiuba.algo3.modelo;
     exports edu.fiuba.algo3.modelo.gladiador.senority;
@@ -10,4 +11,6 @@ module edu.fiuba.algo3 {
     exports edu.fiuba.algo3.modelo.equipamientos;
     exports edu.fiuba.algo3.modelo.gladiador.senority.states;
     exports edu.fiuba.algo3.modelo.json_parsing;
+    exports edu.fiuba.algo3.modelo.json_parsing.DAOs;
+    exports edu.fiuba.algo3.modelo.json_parsing.DTOs;
 }

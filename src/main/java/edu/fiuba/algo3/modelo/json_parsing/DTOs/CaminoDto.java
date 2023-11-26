@@ -1,20 +1,20 @@
-package edu.fiuba.algo3.modelo.json_parsing;
+package edu.fiuba.algo3.modelo.json_parsing.DTOs;
 
 import java.util.Arrays;
 import java.util.List;
 
-public class Camino {
-    private List<Celda> celdas;
+public class CaminoDto {
+    private List<CeldaDto> celdas;
 
-    public Camino() {
+    public CaminoDto() {
     }
 
-    public List<Celda> getCeldas() {
+    public List<CeldaDto> getCeldas() {
         return celdas;
     }
 
-    public void setCeldas(List<Celda> celdas) {
-        this.celdas = celdas;
+    public void setCeldas(List<CeldaDto> celdaDtos) {
+        this.celdas = celdaDtos;
     }
 
     @Override
