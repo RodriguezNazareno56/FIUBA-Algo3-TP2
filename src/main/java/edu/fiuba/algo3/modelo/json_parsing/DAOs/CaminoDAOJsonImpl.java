@@ -9,7 +9,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-public class CaminoDaoJsonImpl implements CaminoDao {
+public class CaminoDAOJsonImpl implements CaminoDAO {
     @Override
     public CaminoDto obtener() {
         try {
@@ -25,8 +25,8 @@ public class CaminoDaoJsonImpl implements CaminoDao {
 
             // Deserializar el objeto camino del JSON a la clase CaminoDto
             ObjectMapper objectMapper = new ObjectMapper();
-            CaminoDto camino = objectMapper.readValue(jsonObjectCamino.toString(), CaminoDto.class);
-            return camino;
+            CaminoDto caminoDto = objectMapper.readValue(jsonObjectCamino.toString(), CaminoDto.class);
+            return caminoDto;
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

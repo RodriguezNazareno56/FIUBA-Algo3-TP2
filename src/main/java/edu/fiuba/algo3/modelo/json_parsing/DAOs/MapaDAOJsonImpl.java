@@ -9,7 +9,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-public class MapaDaoJsonImp implements MapaDao {
+public class MapaDAOJsonImpl implements MapaDAO {
     @Override
     public MapaDto obtener() {
         try {
