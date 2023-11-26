@@ -13,4 +13,5 @@ module edu.fiuba.algo3 {
     exports edu.fiuba.algo3.modelo.json_parsing;
     exports edu.fiuba.algo3.modelo.json_parsing.repositories;
     exports edu.fiuba.algo3.modelo.json_parsing.DTOs;
+    exports edu.fiuba.algo3.modelo.celda;
 }
