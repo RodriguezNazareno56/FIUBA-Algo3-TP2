@@ -28,8 +28,6 @@ public class ObstaculoLesionTest {
         gladiador.recibirConsecuencia(lesion);
 
         //Assert
-        Assertions.assertThrows(MovimientoPausadoExeption.class, () -> {
-            gladiador.avanzar(1);
-        });
+        Assertions.assertThrows(MovimientoPausadoExeption.class, gladiador::avanzar);
     }
 }

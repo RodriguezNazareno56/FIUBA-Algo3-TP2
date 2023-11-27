@@ -23,15 +23,13 @@ public class LesionTest {
         Gladiador gladiadorMock = mock(Gladiador.class);
         doThrow(new MovimientoPausadoExeption("El gladiador esta pausado para mover en este turno"))
                 .when(gladiadorMock)
-                .avanzar(1);
+                .avanzar();
 
         //Act
         gladiadorMock.recibirConsecuencia(lesion);
 
         //Assert
-        Assertions.assertThrows(MovimientoPausadoExeption.class, () -> {
-            gladiadorMock.avanzar(1);
-        });
+        Assertions.assertThrows(MovimientoPausadoExeption.class, gladiadorMock::avanzar);
     }
 
     @Test
@@ -47,8 +45,6 @@ public class LesionTest {
         lesion.afectarGladiador(gladiador);
 
         //Assert
-        Assertions.assertThrows(MovimientoPausadoExeption.class, () -> {
-            gladiador.avanzar(1);
-        });
+        Assertions.assertThrows(MovimientoPausadoExeption.class, gladiador::avanzar);
     }
 }

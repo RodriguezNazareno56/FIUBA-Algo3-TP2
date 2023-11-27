@@ -29,8 +29,6 @@ public class ObstaculoAsisteAUnBacanalTest {
         gladiador.recibirConsecuencia(asisteAUnBacanal);
 
         //Assert
-        Assertions.assertThrows(MovimientoException.class, () -> {
-            gladiador.avanzar(1);
-        });
+        Assertions.assertThrows(MovimientoException.class, gladiador::avanzar);
     }
 }

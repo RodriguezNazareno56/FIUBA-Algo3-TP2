@@ -6,7 +6,7 @@ import edu.fiuba.algo3.modelo.gladiador.TriunfoException;
 
 public interface ICelda {
 
-//    void afectarGladiadorConConsecuencia(Gladiador gladiador) throws TriunfoException, MovimientoException;
+    void afectarGladiadorConConsecuencia(Gladiador gladiador) throws TriunfoException;
 //
 //    Coordenada getPosicion();
 }
