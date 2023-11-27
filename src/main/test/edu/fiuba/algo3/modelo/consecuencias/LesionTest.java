@@ -2,7 +2,6 @@ package edu.fiuba.algo3.modelo.consecuencias;
 
 import edu.fiuba.algo3.modelo.gladiador.TriunfoException;
 import edu.fiuba.algo3.modelo.MovimientoException;
-import edu.fiuba.algo3.modelo.casilleros.Casillero;
 import edu.fiuba.algo3.modelo.equipamientos.Equipamiento;
 import edu.fiuba.algo3.modelo.equipamientos.SinEquipamiento;
 import edu.fiuba.algo3.modelo.gladiador.Energia;
@@ -41,9 +40,8 @@ public class LesionTest {
         Consecuencia lesion = new Lesion();
         Energia energia = new Energia(20);
         Equipamiento equipamiento = new SinEquipamiento();
-        Casillero casillero = new Casillero(0);
         Senority senority = new Senority();
-        Gladiador gladiador = new Gladiador(energia, equipamiento, casillero, senority);
+        Gladiador gladiador = new Gladiador(energia, equipamiento, senority);
 
         //Act
         lesion.afectarGladiador(gladiador);

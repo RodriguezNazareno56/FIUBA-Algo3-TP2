@@ -25,6 +25,13 @@ public class Gladiador {
         this.estaHabilitadoParaMover = true;
     }
 
+    public Gladiador(Energia energia, Equipamiento equipamiento, Senority senority) {
+        this.energia = energia;
+        this.equipamiento = equipamiento;
+        this.senority = senority;
+        this.estaHabilitadoParaMover = true;
+    }
+
     public Energia getEnergia() {
         // Retorna una copia de la energia que posee
         return new Energia(this.energia.getValor());

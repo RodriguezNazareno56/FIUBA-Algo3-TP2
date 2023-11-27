@@ -21,11 +21,10 @@ public class CasoDeUso11Test {
 
     @BeforeEach
     public void setUp() {
-        Casillero casillero = new Casillero(0);
         Senority senority = new Senority();
         Energia energia = new Energia(20);
         this.equipamiento = new Llave();
-        this.gladiador = new Gladiador(energia, equipamiento, casillero, senority);
+        this.gladiador = new Gladiador(energia, equipamiento, senority);
     }
 
     @Test

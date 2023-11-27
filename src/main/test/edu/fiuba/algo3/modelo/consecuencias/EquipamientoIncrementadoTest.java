@@ -1,6 +1,5 @@
 package edu.fiuba.algo3.modelo.consecuencias;
 
-import edu.fiuba.algo3.modelo.casilleros.Casillero;
 import edu.fiuba.algo3.modelo.equipamientos.Casco;
 import edu.fiuba.algo3.modelo.equipamientos.Armadura;
 import edu.fiuba.algo3.modelo.equipamientos.EscudoYEspada;
@@ -36,9 +35,8 @@ public class EquipamientoIncrementadoTest {
         // Arrange
         Energia energia = new Energia(20);
         Equipamiento equipamiento = new SinEquipamiento();
-        Casillero casillero = new Casillero(0);
         Senority senority = new Senority();
-        Gladiador gladiador = new Gladiador(energia, equipamiento, casillero, senority);
+        Gladiador gladiador = new Gladiador(energia, equipamiento, senority);
 
         EquipamientoIncrementado equipamientoIncrementado = new EquipamientoIncrementado();
         Equipamiento equipamientoEsperado = new Casco();
@@ -55,9 +53,8 @@ public class EquipamientoIncrementadoTest {
         // Arrange
         Energia energia = new Energia(20);
         Equipamiento equipamiento = new Casco();
-        Casillero casillero = new Casillero(0);
         Senority senority = new Senority();
-        Gladiador gladiador = new Gladiador(energia, equipamiento, casillero, senority);
+        Gladiador gladiador = new Gladiador(energia, equipamiento, senority);
 
         EquipamientoIncrementado equipamientoIncrementado = new EquipamientoIncrementado();
         Equipamiento equipamientoEsperado = new Armadura();
@@ -74,9 +71,8 @@ public class EquipamientoIncrementadoTest {
         // Arrange
         Energia energia = new Energia(20);
         Equipamiento equipamiento = new Armadura();
-        Casillero casillero = new Casillero(0);
         Senority senority = new Senority();
-        Gladiador gladiador = new Gladiador(energia, equipamiento, casillero, senority);
+        Gladiador gladiador = new Gladiador(energia, equipamiento, senority);
 
         EquipamientoIncrementado equipamientoIncrementado = new EquipamientoIncrementado();
         Equipamiento equipamientoEsperado = new EscudoYEspada();
@@ -93,9 +89,8 @@ public class EquipamientoIncrementadoTest {
         // Arrange
         Energia energia = new Energia(20);
         Equipamiento equipamiento = new EscudoYEspada();
-        Casillero casillero = new Casillero(0);
         Senority senority = new Senority();
-        Gladiador gladiador = new Gladiador(energia, equipamiento, casillero, senority);
+        Gladiador gladiador = new Gladiador(energia, equipamiento, senority);
 
         EquipamientoIncrementado equipamientoIncrementado = new EquipamientoIncrementado();
         Equipamiento equipamientoEsperado = new Llave();
@@ -112,9 +107,8 @@ public class EquipamientoIncrementadoTest {
         // Arrange
         Energia energia = new Energia(20);
         Equipamiento equipamiento = new Llave();
-        Casillero casillero = new Casillero(0);
         Senority senority = new Senority();
-        Gladiador gladiador = new Gladiador(energia, equipamiento, casillero, senority);
+        Gladiador gladiador = new Gladiador(energia, equipamiento, senority);
 
         EquipamientoIncrementado equipamientoIncrementado = new EquipamientoIncrementado();
         Equipamiento equipamientoEsperado = new Llave();

@@ -22,9 +22,8 @@ public class CasoDeUso1Test {
         // Arrange
         Energia energia = new Energia(20);
         Equipamiento equipamiento = new SinEquipamiento();
-        Casillero casillero = new Casillero(0);
         Senority senority = new Senority();
-        Gladiador gladiador = new Gladiador(energia, equipamiento, casillero, senority);
+        Gladiador gladiador = new Gladiador(energia, equipamiento, senority);
 
         // Assert
         // Un gladiador debe iniciar sin equipamiento y con 20 puntos de energia.
