@@ -1,7 +1,7 @@
-package edu.fiuba.algo3.modelo.json_parsing.DAOs;
+package edu.fiuba.algo3.json_parsing.DAOs;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import edu.fiuba.algo3.modelo.json_parsing.DTOs.CaminoDto;
+import edu.fiuba.algo3.json_parsing.DTOs.CaminoDto;
 import org.json.JSONObject;
 
 import java.io.IOException;
@@ -14,7 +14,7 @@ public class CaminoDAOJsonImpl implements CaminoDAO {
     public CaminoDto obtener() {
         try {
             // Obtén la ruta relativa al directorio de trabajo
-            Path path = Paths.get("src/main/java/edu/fiuba/algo3/modelo/json_parsing/mapa.json");
+            Path path = Paths.get("src/main/java/edu/fiuba/algo3/json_parsing/mapa.json");
 
             // Lee el contenido del archivo JSON
             String jsonString = new String(Files.readAllBytes(path));

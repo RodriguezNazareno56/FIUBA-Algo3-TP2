@@ -1,16 +1,13 @@
-package edu.fiuba.algo3.modelo.json_parsing.data_mappers;
+package edu.fiuba.algo3.json_parsing.data_mappers;
 
-import edu.fiuba.algo3.modelo.celda.CeldaCamino;
-import edu.fiuba.algo3.modelo.celda.CeldaLlegada;
-import edu.fiuba.algo3.modelo.celda.CeldaSalida;
-import edu.fiuba.algo3.modelo.celda.ICelda;
+import edu.fiuba.algo3.json_parsing.DTOs.CeldaDto;
+import edu.fiuba.algo3.modelo.celda.*;
 import edu.fiuba.algo3.modelo.consecuencias.*;
-import edu.fiuba.algo3.modelo.json_parsing.DTOs.CeldaDto;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class CeldaMapper {
+public class CeldaMapper implements Mapper<ICelda, CeldaDto>{
 
     public ICelda convertirDesdeDto(CeldaDto celdaDto) throws Exception {
         List<Consecuencia> consecuencias = new ArrayList<>();
