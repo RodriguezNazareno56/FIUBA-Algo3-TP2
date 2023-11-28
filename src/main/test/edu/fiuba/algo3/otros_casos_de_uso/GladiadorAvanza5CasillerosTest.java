@@ -37,10 +37,8 @@ public class GladiadorAvanza5CasillerosTest {
         Senority senority = new Senority();
         this.gladiador = new Gladiador(energia, equipamiento, senority);
 
-        List<Gladiador> gladiadores = new ArrayList<>();
-        gladiadores.add(this.gladiador);
-
-        this.mapa = new Mapa(10, 10, camino, gladiadores);
+        this.mapa = new Mapa(10, 10, camino);
+        this.mapa.setGladiador(gladiador);
     }
 
     @Test
