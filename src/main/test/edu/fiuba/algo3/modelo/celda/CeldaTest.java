@@ -12,10 +12,10 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class CeldaTest {
+public class CeldaTest {
 
     @Test
-    void afectarGladiadorConConsecuenciaCuandoCeldaTieneUnaSolaConsecuencia() throws TriunfoException {
+    public void afectarGladiadorConConsecuenciaCuandoCeldaTieneUnaSolaConsecuencia() throws TriunfoException {
         // Arrange
         Gladiador gladiador = Mockito.mock(Gladiador.class);
         Coordenada coordenada = Mockito.mock(Coordenada.class);
@@ -34,7 +34,7 @@ class CeldaTest {
     }
 
     @Test
-    void afectarGladiadorConConsecuenciaCuandoCeldaTieneMasDeUnaConsecuencia() throws TriunfoException {
+    public void afectarGladiadorConConsecuenciaCuandoCeldaTieneMasDeUnaConsecuencia() throws TriunfoException {
         // Arrange
         Gladiador gladiador = Mockito.mock(Gladiador.class);
         Coordenada coordenada = Mockito.mock(Coordenada.class);
