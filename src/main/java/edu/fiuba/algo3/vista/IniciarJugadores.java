@@ -27,8 +27,9 @@ public class IniciarJugadores extends VBox {
         this.setSpacing(20);
         this.setPadding(new Insets(25));
 
-        ContenedorComenzar contenedorComenzar = new ContenedorComenzar(stage, this.getScene());
-        Scene escenaComenzar = new Scene(contenedorComenzar, 640, 480);
+
+        Arena arena = new Arena(stage);
+        Scene escenaArena = new Scene(arena, 640, 480);
 
         Image imagenComenzar = new Image("file:src/main/java/edu/fiuba/algo3/vista/imagenIniciarJugadores.jpg");
 
@@ -50,9 +51,9 @@ public class IniciarJugadores extends VBox {
         etiqueta.setTextFill(Color.web("#66A7C5"));
 
         Button botonVolver = new Button();
-        botonVolver.setText("Volver");
+        botonVolver.setText("ARENA");
 
-        BotonVolverEventHandler botonVolverEventHandler = new BotonVolverEventHandler(stage, escenaComenzar);
+        BotonVolverEventHandler botonVolverEventHandler = new BotonVolverEventHandler(stage, escenaArena);
         botonVolver.setOnAction(botonVolverEventHandler);
 
 
