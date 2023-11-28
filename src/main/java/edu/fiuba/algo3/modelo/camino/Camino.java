@@ -11,7 +11,7 @@ public class Camino {
         this.celdas = celdas;
     }
 
-    public ICelda getCasilleroSalida() {
+    public ICelda getCeldaSalida() {
         return this.celdas.get(0);
     }
 
@@ -43,5 +43,17 @@ public class Camino {
 
     public ICelda getMitadDeCamino() {
         return celdas.get(celdas.size()/2);
+    }
+
+    @Override
+    public String toString() {
+        return "Camino{" +
+                "celdas=" + celdas +
+                '}';
+    }
+
+    // TODO: con motivo de testear
+    public List<ICelda> getCeldas() {
+        return this.celdas;
     }
 }

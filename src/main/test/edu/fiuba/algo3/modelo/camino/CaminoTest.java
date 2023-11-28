@@ -33,7 +33,7 @@ public class CaminoTest {
 
     @Test
     public void getCasilleroSalida() {
-        assertEquals(this.celdaSalida, this.camino.getCasilleroSalida());
+        assertEquals(this.celdaSalida, this.camino.getCeldaSalida());
     }
 
     @Test

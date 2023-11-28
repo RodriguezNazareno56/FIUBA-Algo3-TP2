@@ -9,7 +9,7 @@ import java.util.List;
 
 public class CeldaMapper implements Mapper<ICelda, CeldaDto>{
 
-    public ICelda convertirDesdeDto(CeldaDto celdaDto) throws Exception {
+    public ICelda convertirDesdeDto(CeldaDto celdaDto) throws JsonFormatoInvalidoException {
         List<Consecuencia> consecuencias = new ArrayList<>();
         switch (celdaDto.getObstaculo()) {
             case "Lesion":
@@ -19,9 +19,9 @@ public class CeldaMapper implements Mapper<ICelda, CeldaDto>{
                 consecuencias.add(new FieraSalvaje());
                 break;
             case "Bacanal":
-                // La cantidad de tragos no debe ser definida en la inicializacion sino en el momento que el juegador
-                // arroja el dado y conoce cuantos tragos debe tomar.
-//                consecuencias.add(new AsisteAUnBacanal());
+//              TODO: La cantidad de tragos no debe ser definida en la inicializacion sino en el momento que el juegador
+//               arroja el dado y conoce cuantos tragos debe tomar.
+                consecuencias.add(new AsisteAUnBacanal(1));
                 break;
         }
         switch (celdaDto.getPremio()) {
@@ -33,18 +33,18 @@ public class CeldaMapper implements Mapper<ICelda, CeldaDto>{
                 break;
         }
         ICelda celda;
+        Coordenada coordenada = new Coordenada(celdaDto.getX(), celdaDto.getY());
         switch (celdaDto.getTipo()) {
             case "Salida":
-                celda = new CeldaSalida(celdaDto.getX(), celdaDto.getY(), consecuencias);
-                return celda;
             case "Camino":
-                celda = new CeldaCamino(celdaDto.getX(), celdaDto.getY(), consecuencias);
+                celda = new Celda(coordenada, consecuencias);
                 return celda;
             case "Llegada":
-                celda = new CeldaLlegada(celdaDto.getX(), celdaDto.getY(), consecuencias);
+                consecuencias.add(new Triunfo());
+                celda = new Celda(coordenada, consecuencias);
                 return celda;
+            default:
+                throw new JsonFormatoInvalidoException("Formato de la celda invalido");
         }
-        // Una exepcion de formato invalido
-        throw new Exception();
     }
 }

@@ -3,6 +3,7 @@ package edu.fiuba.algo3.json_parsing.repositories;
 import edu.fiuba.algo3.json_parsing.DTOs.CaminoDto;
 import edu.fiuba.algo3.json_parsing.DAOs.CaminoDAO;
 import edu.fiuba.algo3.json_parsing.data_mappers.CaminoMapper;
+import edu.fiuba.algo3.json_parsing.data_mappers.JsonFormatoInvalidoException;
 import edu.fiuba.algo3.modelo.camino.Camino;
 
 public class CaminoRepositoryImpl implements CaminoRepository {
@@ -16,9 +17,8 @@ public class CaminoRepositoryImpl implements CaminoRepository {
     }
 
     @Override
-    public Camino obtener() {
+    public Camino obtener() throws JsonFormatoInvalidoException {
         CaminoDto caminoDto = this.caminoDAO.obtener();
-        // Deberia retorna un camino no un DTO
         return this.caminoMapper.convertirDesdeDto(caminoDto);
     }
 }

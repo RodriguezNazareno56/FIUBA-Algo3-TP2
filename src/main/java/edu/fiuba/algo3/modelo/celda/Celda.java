@@ -19,7 +19,7 @@ public class Celda implements ICelda {
 
     @Override
     public String toString() {
-        return "Celda{" +
+        return "\nCelda{" +
                 "coordenada=" + coordenada +
                 ", consecuencias=" + consecuencias +
                 '}';
