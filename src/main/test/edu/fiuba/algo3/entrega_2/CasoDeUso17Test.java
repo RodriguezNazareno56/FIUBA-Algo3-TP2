@@ -6,5 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class CasoDeUso17Test {
 
     @Test
-    public void verificarCreacionJuegoAcordeJson(){}
+    public void verificarCreacionJuegoAcordeJson() {
+        // TODO: Basicamente se puede hacer lo mismo que en el casoDeUso18 pero desde AlgoRoma, osea iniciando el juego.
+    }
 }

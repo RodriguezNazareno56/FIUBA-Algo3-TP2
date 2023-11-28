@@ -37,7 +37,10 @@ public class Gladiador {
         if (this.energia.isAgotada()) {
             throw new MovimientoException("El gladiador no se puede mover sin energia");
         }
-        if(!this.estaHabilitadoParaMover) throw new MovimientoPausadoExeption("El gladiador esta pausado para mover en este turno");
+        if(!this.estaHabilitadoParaMover) {
+            this.estaHabilitadoParaMover = true;
+            throw new MovimientoPausadoExeption("El gladiador esta pausado para mover en este turno");
+        }
 
         this.senority.aumentarEnergia(energia);
         this.senority.aumentarExperiencia();

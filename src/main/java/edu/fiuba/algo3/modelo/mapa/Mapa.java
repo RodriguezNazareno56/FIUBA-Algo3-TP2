@@ -45,16 +45,18 @@ public class Mapa {
         });
     }
 
-    public void avanzarNPosicionesGladiador(Gladiador gladiador, int posicionesCantidad) {
+    public void avanzarNPosicionesGladiador(Gladiador gladiador, int posicionesCantidad) throws MovimientoPausadoExeption, MovimientoException {
         ICelda celdaActual = posicionDeGladiadores.get(gladiador);
         ICelda celdaDestino = this.camino.proximoEnNPosiciones(celdaActual, posicionesCantidad);
 
-        try {
-            gladiador.avanzar();
-            this.posicionDeGladiadores.put(gladiador, celdaDestino);
-        } catch (MovimientoPausadoExeption | MovimientoException e) {
-            throw new RuntimeException(e);
-        }
+        gladiador.avanzar();
+        this.posicionDeGladiadores.put(gladiador, celdaDestino);
+//        try {
+//            gladiador.avanzar();
+//            this.posicionDeGladiadores.put(gladiador, celdaDestino);
+//        } catch (MovimientoPausadoExeption | MovimientoException e) {
+//            throw new RuntimeException(e);
+//        }
 
         try {
             celdaDestino.afectarGladiadorConConsecuencia(gladiador);

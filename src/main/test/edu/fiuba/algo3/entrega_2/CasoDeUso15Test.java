@@ -3,25 +3,20 @@ package edu.fiuba.algo3.entrega_2;
 import edu.fiuba.algo3.json_parsing.DAOs.CaminoDAOJsonImpl;
 import edu.fiuba.algo3.json_parsing.data_mappers.CaminoMapper;
 import edu.fiuba.algo3.json_parsing.data_mappers.CeldaMapper;
-import edu.fiuba.algo3.json_parsing.data_mappers.JsonFormatoInvalidoException;
 import edu.fiuba.algo3.json_parsing.repositories.CaminoRepository;
 import edu.fiuba.algo3.json_parsing.repositories.CaminoRepositoryImpl;
-import edu.fiuba.algo3.modelo.MovimientoException;
 import edu.fiuba.algo3.modelo.MovimientoPausadoExeption;
 import edu.fiuba.algo3.modelo.camino.Camino;
 import edu.fiuba.algo3.modelo.celda.ICelda;
 import edu.fiuba.algo3.modelo.equipamientos.Casco;
 import edu.fiuba.algo3.modelo.equipamientos.Equipamiento;
-import edu.fiuba.algo3.modelo.equipamientos.SinEquipamiento;
 import edu.fiuba.algo3.modelo.gladiador.Energia;
 import edu.fiuba.algo3.modelo.gladiador.Gladiador;
-import edu.fiuba.algo3.modelo.gladiador.TriunfoException;
 import edu.fiuba.algo3.modelo.gladiador.senority.Senority;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
@@ -30,7 +25,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CasoDeUso15Test {
 
-    Path jsonConCaminoInvalidoPath = Paths.get("src/main/test/edu/fiuba/algo3/entrega_2/Json_test_resources/CasoDeUso15.json");
+    Path json = Paths.get("src/main/test/edu/fiuba/algo3/entrega_2/Json_test_resources/CasoDeUso15.json");
     private Gladiador gladiador;
 
     @BeforeEach
@@ -47,7 +42,7 @@ public class CasoDeUso15Test {
         //  correctamente una Lesion, una FieraSalvaje y un Bacanal
         // Arrange
         CaminoRepository caminoRepository = new CaminoRepositoryImpl(
-                new CaminoDAOJsonImpl(jsonConCaminoInvalidoPath),
+                new CaminoDAOJsonImpl(json),
                 new CaminoMapper(new CeldaMapper()));
 
         // Act
@@ -63,7 +58,7 @@ public class CasoDeUso15Test {
         celdas.get(3).afectarGladiadorConConsecuencia(gladiador);
         assertEquals(new Energia(5), gladiador.getEnergia());
         // El json especifica, en la quinta celda un Bacanal
-        // TODO: por el momento el bancal es inicializado con 1 trago por lo que pierde 4 puntos de energia
+        // TODO: por el momento el bacanal es inicializado con 1 trago por lo que pierde 4 puntos de energia
         celdas.get(4).afectarGladiadorConConsecuencia(gladiador);
         assertEquals(new Energia(1), gladiador.getEnergia());
     }

@@ -42,7 +42,8 @@ public class Camino {
     }
 
     public ICelda getMitadDeCamino() {
-        return celdas.get(celdas.size()/2);
+        // TODO: Explicar esto
+        return celdas.get((celdas.size()-1)/2);
     }
 
     @Override
