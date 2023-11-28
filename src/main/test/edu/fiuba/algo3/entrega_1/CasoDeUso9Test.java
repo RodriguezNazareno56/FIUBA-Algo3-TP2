@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.entrega_1;
 
+import edu.fiuba.algo3.modelo.MovimientoException;
+import edu.fiuba.algo3.modelo.MovimientoPausadoExeption;
 import edu.fiuba.algo3.modelo.camino.Camino;
 import edu.fiuba.algo3.modelo.celda.Celda;
 import edu.fiuba.algo3.modelo.celda.Coordenada;
@@ -25,6 +27,7 @@ public class CasoDeUso9Test {
     private Gladiador gladiador;
     private Mapa mapa;
     private List<ICelda> celdas;
+    private int cantidadDeCasillero =  0;
 
     @BeforeEach
     public void setUp() {
@@ -32,12 +35,14 @@ public class CasoDeUso9Test {
         this.celdas = new ArrayList<>();
         for (int i = 0; i < 9; i++) {
             celdas.add(new Celda(new Coordenada(i,i), new ArrayList<>()));
+            cantidadDeCasillero++;
         }
         // Celda final con consecuencia Triunfo
         List<Consecuencia> consecuencias = new ArrayList<>();
         Consecuencia triunfo = new Triunfo();
         consecuencias.add(triunfo);
         celdas.add(new Celda(new Coordenada(9,9), consecuencias));
+        cantidadDeCasillero++;
         Camino camino = new Camino(celdas);
 
         // Construyo un Gladiador
@@ -52,12 +57,13 @@ public class CasoDeUso9Test {
     }
 
     @Test
-    public void verificarQueSiLlegaALaMetaSinLaLlaveEnElEquipamientoRetrocedeALaMitadDeLasCasillas() {
+    public void verificarQueSiLlegaALaMetaSinLaLlaveEnElEquipamientoRetrocedeALaMitadDeLasCasillas() throws MovimientoPausadoExeption, MovimientoException {
         // Act
-        mapa.avanzarNPosicionesGladiador(gladiador,10);
+        mapa.avanzarNPosicionesGladiador(gladiador,cantidadDeCasillero);
 
         // Assert
-        // Al llegar al final sin la llave vuelve a mitad de las casillas
-        assertEquals(this.celdas.get(5), mapa.getPosicionDeGladiador(gladiador));
+        // Al llegar al final sin la llave vuelve a mitad de las casillas. cantidadDeCasillero-1 por ser que el array empieza en 0
+        // TODO: se podria ver mejor este asserEquals
+        assertEquals(this.celdas.get((cantidadDeCasillero-1)/2), mapa.getPosicionDeGladiador(gladiador));
     }
 }

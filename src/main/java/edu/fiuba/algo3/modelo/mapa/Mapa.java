@@ -7,6 +7,7 @@ import edu.fiuba.algo3.modelo.celda.ICelda;
 import edu.fiuba.algo3.modelo.gladiador.Gladiador;
 import edu.fiuba.algo3.modelo.gladiador.TriunfoException;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -23,26 +24,39 @@ public class Mapa {
         this.posicionDeGladiadores = new HashMap<>();
     }
 
+    public Mapa(int ancho, int largo) {
+        this.ancho = ancho;
+        this.largo = largo;
+        this.camino = new Camino(new ArrayList<>());
+        this.posicionDeGladiadores = new HashMap<>();
+    }
+
+    public void setCamino(Camino camino) {
+        this.camino = camino;
+    }
+
     public void setGladiador(Gladiador gladiador) {
-        posicionDeGladiadores.put(gladiador, camino.getCasilleroSalida());
+        posicionDeGladiadores.put(gladiador, camino.getCeldaSalida());
     }
 
     public void setGladiadores(List<Gladiador> gladiadorList) {
         gladiadorList.forEach( gladiador -> {
-            posicionDeGladiadores.put(gladiador, camino.getCasilleroSalida());
+            posicionDeGladiadores.put(gladiador, camino.getCeldaSalida());
         });
     }
 
-    public void avanzarNPosicionesGladiador(Gladiador gladiador, int posicionesCantidad) {
+    public void avanzarNPosicionesGladiador(Gladiador gladiador, int posicionesCantidad) throws MovimientoPausadoExeption, MovimientoException {
         ICelda celdaActual = posicionDeGladiadores.get(gladiador);
         ICelda celdaDestino = this.camino.proximoEnNPosiciones(celdaActual, posicionesCantidad);
 
-        try {
-            gladiador.avanzar();
-            this.posicionDeGladiadores.put(gladiador, celdaDestino);
-        } catch (MovimientoPausadoExeption | MovimientoException e) {
-            throw new RuntimeException(e);
-        }
+        gladiador.avanzar();
+        this.posicionDeGladiadores.put(gladiador, celdaDestino);
+//        try {
+//            gladiador.avanzar();
+//            this.posicionDeGladiadores.put(gladiador, celdaDestino);
+//        } catch (MovimientoPausadoExeption | MovimientoException e) {
+//            throw new RuntimeException(e);
+//        }
 
         try {
             celdaDestino.afectarGladiadorConConsecuencia(gladiador);
@@ -66,5 +80,14 @@ public class Mapa {
 
     public ICelda getPosicionDeGladiador(Gladiador gladiador) {
         return posicionDeGladiadores.get(gladiador);
+    }
+
+    @Override
+    public String toString() {
+        return "Mapa{" + "\n" +
+                "ancho=" + ancho +
+                ", largo=" + largo + "\n" +
+                ", camino=" + camino +
+                '}';
     }
 }
