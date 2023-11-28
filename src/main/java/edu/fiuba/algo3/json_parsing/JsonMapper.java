@@ -20,6 +20,7 @@ public class JsonMapper {
 
     public static void main(String[] args) throws IOException {
         Path jsonPath = Paths.get("src/main/java/edu/fiuba/algo3/json_parsing/mapa.json");
+        // TODO: Eliminar clase, simplemente esta a modo de testear rapidamente por medio de prints
         try {
             CaminoRepository caminoRepository = new CaminoRepositoryImpl(
                     new CaminoDAOJsonImpl(jsonPath),
