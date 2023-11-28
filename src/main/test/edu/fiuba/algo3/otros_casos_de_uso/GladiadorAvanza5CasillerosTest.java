@@ -26,17 +26,20 @@ public class GladiadorAvanza5CasillerosTest {
 
     @BeforeEach
     public void setUp() {
+        // Construyo un camino con 10 celdas
         this.celdas = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
             celdas.add(new Celda(new Coordenada(i,i), new ArrayList<>()));
         }
         Camino camino = new Camino(celdas);
 
+        // Construyo un gladiador
         Energia energia = new Energia(20);
         Equipamiento equipamiento = new SinEquipamiento();
         Senority senority = new Senority();
         this.gladiador = new Gladiador(energia, equipamiento, senority);
 
+        // construyo un Mapa con el camino y el gladiador
         this.mapa = new Mapa(10, 10, camino);
         this.mapa.setGladiador(gladiador);
     }

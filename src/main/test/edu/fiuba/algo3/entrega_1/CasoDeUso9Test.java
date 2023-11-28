@@ -28,21 +28,25 @@ public class CasoDeUso9Test {
 
     @BeforeEach
     public void setUp() {
+        // Construyo un camino con 9 celdas sin consecuencias y una celda final con consecuencia Triunfo
         this.celdas = new ArrayList<>();
         for (int i = 0; i < 9; i++) {
             celdas.add(new Celda(new Coordenada(i,i), new ArrayList<>()));
         }
+        // Celda final con consecuencia Triunfo
         List<Consecuencia> consecuencias = new ArrayList<>();
         Consecuencia triunfo = new Triunfo();
         consecuencias.add(triunfo);
         celdas.add(new Celda(new Coordenada(9,9), consecuencias));
         Camino camino = new Camino(celdas);
 
+        // Construyo un Gladiador
         Energia energia = new Energia(20);
         Equipamiento equipamiento = new SinEquipamiento();
         Senority senority = new Senority();
         this.gladiador = new Gladiador(energia, equipamiento, senority);
 
+        // Construyo un mapa con el camino y el gladiador
         this.mapa = new Mapa(10, 10, camino);
         this.mapa.setGladiador(gladiador);
     }
