@@ -12,7 +12,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
-public class ContenedorComenzar extends VBox {
+public class ContenedorComenzar extends BorderPane {
 
     Stage stage;
 
@@ -21,34 +21,44 @@ public class ContenedorComenzar extends VBox {
         super();
         this.stage  = stage;
 
-        this.setAlignment(Pos.CENTER);
-        this.setSpacing(20);
-        this.setPadding(new Insets(25));
+        //this.setAlignment(Pos.CENTER);
+        //this.setSpacing(20);
+        //this.setPadding(new Insets(25));
 
         Image imagenComenzar = new Image("file:src/main/java/edu/fiuba/algo3/vista/imagenComenzarGladiador.jpg");
-        BackgroundImage imagenDeFondoComenzar = new BackgroundImage(imagenComenzar,
+
+        BackgroundSize backgroundSize = new BackgroundSize(
+                100, 100, true, true, true, false);
+         BackgroundImage imagenDeFondoComenzar = new BackgroundImage(imagenComenzar,
                 BackgroundRepeat.NO_REPEAT,
                 BackgroundRepeat.NO_REPEAT,
                 BackgroundPosition.CENTER,
-                BackgroundSize.DEFAULT);
+                backgroundSize);
+
         this.setBackground(new Background(imagenDeFondoComenzar));
 
+
+
         Button botonComenzar = new Button();
-        botonComenzar.setText("Comenzar");
+        botonComenzar.setText("COMENZAR");
+        botonComenzar.setFont(Font.font("Tahoma", FontWeight.BOLD,18 ));
+        botonComenzar.setMaxWidth(Double.MAX_VALUE);
+        botonComenzar.setMaxHeight(Double.MAX_VALUE);
 
-        Label etiqueta = new Label();
-        etiqueta.setFont(Font.font("Tahoma", FontWeight.BOLD, 18 ));
-
-        etiqueta.setText("Presiona en comenzar");
-        etiqueta.setTextFill(Color.web("#66A7C5"));
+        //Label etiqueta = new Label();
+        //etiqueta.setFont(Font.font("Tahoma", FontWeight.BOLD, 18 ));
+        //etiqueta.setText("Presiona en comenzar");
+        //etiqueta.setTextFill(Color.web("#66A7C5"));
 
         BotonComenzarEventHandler botonComenzarEventHandler = new BotonComenzarEventHandler(stage, proximaExcena);
         botonComenzar.setOnAction(botonComenzarEventHandler);
 
-        this.getChildren().addAll(etiqueta, botonComenzar);
+        this.setBottom(botonComenzar);
+        botonComenzar.setMaxHeight(Double.MAX_VALUE);
+        botonComenzar.setMaxHeight(Double.MAX_VALUE);
+        this.setMargin(botonComenzar, new Insets(5,5,5,5));
 
-
-
+        //this.getChildren().addAll(etiqueta, botonComenzar);
 
 
     }

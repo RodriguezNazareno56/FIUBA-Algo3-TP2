@@ -27,12 +27,19 @@ public class IniciarJugadores extends VBox {
         this.setSpacing(20);
         this.setPadding(new Insets(25));
 
+        ContenedorComenzar contenedorComenzar = new ContenedorComenzar(stage, this.getScene());
+        Scene escenaComenzar = new Scene(contenedorComenzar, 640, 480);
+
         Image imagenComenzar = new Image("file:src/main/java/edu/fiuba/algo3/vista/imagenIniciarJugadores.jpg");
+
+        BackgroundSize backgroundSize = new BackgroundSize(
+                100, 100, true, true, true, false);
+
         BackgroundImage imagenDeFondoComenzar = new BackgroundImage(imagenComenzar,
                 BackgroundRepeat.NO_REPEAT,
                 BackgroundRepeat.NO_REPEAT,
                 BackgroundPosition.CENTER,
-                BackgroundSize.DEFAULT);
+                backgroundSize);
         this.setBackground(new Background(imagenDeFondoComenzar));
 
 
@@ -42,8 +49,14 @@ public class IniciarJugadores extends VBox {
         etiqueta.setText("Iniciar Jugadores");
         etiqueta.setTextFill(Color.web("#66A7C5"));
 
+        Button botonVolver = new Button();
+        botonVolver.setText("Volver");
 
-        this.getChildren().addAll(etiqueta);
+        BotonVolverEventHandler botonVolverEventHandler = new BotonVolverEventHandler(stage, escenaComenzar);
+        botonVolver.setOnAction(botonVolverEventHandler);
+
+
+        this.getChildren().addAll(etiqueta, botonVolver);
 
 
 
