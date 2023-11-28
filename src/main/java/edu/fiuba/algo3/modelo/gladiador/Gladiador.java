@@ -6,21 +6,18 @@ import edu.fiuba.algo3.modelo.equipamientos.Equipamiento;
 import edu.fiuba.algo3.modelo.MovimientoException;
 import edu.fiuba.algo3.modelo.gladiador.senority.Senority;
 import edu.fiuba.algo3.modelo.MovimientoPausadoExeption;
-import edu.fiuba.algo3.modelo.casilleros.ICasillero;
 
 public class Gladiador {
 
     private Energia energia;
     private Equipamiento equipamiento;
-    private ICasillero casillero;
     private Senority senority;
 
     private boolean estaHabilitadoParaMover;
 
-    public Gladiador(Energia energia, Equipamiento equipamiento, ICasillero casillero, Senority senority) {
+    public Gladiador(Energia energia, Equipamiento equipamiento, Senority senority) {
         this.energia = energia;
         this.equipamiento = equipamiento;
-        this.casillero = casillero;
         this.senority = senority;
         this.estaHabilitadoParaMover = true;
     }
@@ -35,11 +32,8 @@ public class Gladiador {
         return equipamiento;
     }
 
-    public int getPosicion() {
-        return this.casillero.getPosicion();
-    }
 
-    public void avanzar(int cantidadDePosiciones) throws MovimientoException, MovimientoPausadoExeption, TriunfoException {
+    public void avanzar() throws MovimientoException, MovimientoPausadoExeption {
         if (this.energia.isAgotada()) {
             throw new MovimientoException("El gladiador no se puede mover sin energia");
         }
@@ -47,23 +41,11 @@ public class Gladiador {
 
         this.senority.aumentarEnergia(energia);
         this.senority.aumentarExperiencia();
-
-        this.casillero = casillero.proximoEnNPosiciones(cantidadDePosiciones);
-        this.casillero.afectarGladiadorConConsecuencia(this);
-    }
-
-    public void retroceder(int cantidadDePosiciones) throws MovimientoException {
-        // Si al retroceder permanece en el mismo casillero significa que esta en el Inicio y no puede retroceder.
-        if (casillero == casillero.anteriorEnNPosiciones(cantidadDePosiciones)) {
-            throw new MovimientoException("Gladiador: Movimiento invalido");
-        }
-        this.casillero = casillero.anteriorEnNPosiciones(cantidadDePosiciones);
     }
 
     public void recibirConsecuencia(Consecuencia consecuencia) throws Exception {
         consecuencia.afectarGladiador(this);
     }
-
 
     public void comer(Energia energia) {
         this.energia.aumentarEnergia(energia);
@@ -93,12 +75,9 @@ public class Gladiador {
         this.estaHabilitadoParaMover = false;
     }
 
-    public void triunfar() throws TriunfoException, MovimientoException {
-        // El ultimo equipamiento (llave) al incrementarse se retorna asi mismo.
-        if (equipamiento == equipamiento.incrementar()) {
-            throw new TriunfoException("Campeon");
-        } else {
-            this.retroceder(casillero.getPosicion()/2);
+    public void triunfar() throws TriunfoException {
+        if (equipamiento != equipamiento.incrementar()) {
+            throw new TriunfoException("El jugador no posee el equipamiento requerido");
         }
     }
 }

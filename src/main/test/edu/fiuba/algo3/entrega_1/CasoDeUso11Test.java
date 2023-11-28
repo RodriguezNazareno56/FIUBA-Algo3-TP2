@@ -1,7 +1,11 @@
 package edu.fiuba.algo3.entrega_1;
 
+import edu.fiuba.algo3.modelo.camino.Camino;
+import edu.fiuba.algo3.modelo.celda.Celda;
+import edu.fiuba.algo3.modelo.celda.ICelda;
+import edu.fiuba.algo3.modelo.consecuencias.Triunfo;
+import edu.fiuba.algo3.modelo.equipamientos.SinEquipamiento;
 import edu.fiuba.algo3.modelo.gladiador.TriunfoException;
-import edu.fiuba.algo3.modelo.casilleros.Casillero;
 import edu.fiuba.algo3.modelo.consecuencias.Consecuencia;
 import edu.fiuba.algo3.modelo.gladiador.Energia;
 import edu.fiuba.algo3.modelo.equipamientos.Equipamiento;
@@ -9,23 +13,43 @@ import edu.fiuba.algo3.modelo.equipamientos.Llave;
 import edu.fiuba.algo3.modelo.gladiador.Gladiador;
 import edu.fiuba.algo3.modelo.consecuencias.EquipamientoIncrementado;
 import edu.fiuba.algo3.modelo.gladiador.senority.Senority;
+import edu.fiuba.algo3.modelo.mapa.Mapa;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CasoDeUso11Test {
 
     private Gladiador gladiador;
-    private Equipamiento equipamiento;
+    private Mapa mapa;
+    private List<ICelda> celdas;
 
     @BeforeEach
     public void setUp() {
-        Casillero casillero = new Casillero(0);
-        Senority senority = new Senority();
+        this.celdas = new ArrayList<>();
+        for (int i = 0; i < 9; i++) {
+            celdas.add(new Celda(i));
+        }
+        List<Consecuencia> consecuencias = new ArrayList<>();
+        Consecuencia triunfo = new Triunfo();
+        consecuencias.add(triunfo);
+        celdas.add(new Celda(consecuencias));
+        Camino camino = new Camino(celdas);
+
         Energia energia = new Energia(20);
-        this.equipamiento = new Llave();
-        this.gladiador = new Gladiador(energia, equipamiento, casillero, senority);
+        Equipamiento equipamiento = new Llave();
+        Senority senority = new Senority();
+        this.gladiador = new Gladiador(energia, equipamiento, senority);
+
+        List<Gladiador> gladiadores = new ArrayList<>();
+        gladiadores.add(this.gladiador);
+
+        this.mapa = new Mapa(10, 10, camino, gladiadores);
     }
 
     @Test
@@ -37,9 +61,9 @@ public class CasoDeUso11Test {
         this.gladiador.recibirConsecuencia(equipamientoIncrementado);
 
         // Assert
-        //Si "triunfar" lanza la Excepcion "Campeon" significa que aun posee la llave
-        //Y no se modifico su equipamiento luego de recibir anteriormente otro
-
-        Assertions.assertThrows(TriunfoException.class,gladiador::triunfar);
+        // Si al llegar a la ultima celda, el jugador no retrocede a la mitad del camino significa que tras
+        // recibir otra premio teniendo la llave, no cambio de equipo sino que aun conserva la llave
+        mapa.avanzarNPosicionesGladiador(this.gladiador,10);
+        assertEquals(this.celdas.get(celdas.size()-1), mapa.getPosicionDeGladiador(gladiador));
     }
 }

@@ -6,5 +6,5 @@ import edu.fiuba.algo3.modelo.gladiador.TriunfoException;
 
 public interface Consecuencia {
 
-    void afectarGladiador(Gladiador gladiador) throws TriunfoException, MovimientoException;
+    void afectarGladiador(Gladiador gladiador) throws TriunfoException;
 }

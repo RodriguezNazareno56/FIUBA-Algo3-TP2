@@ -1,6 +1,5 @@
 package edu.fiuba.algo3.entrega_1;
 
-import edu.fiuba.algo3.modelo.casilleros.Casillero;
 import edu.fiuba.algo3.modelo.gladiador.Energia;
 import edu.fiuba.algo3.modelo.equipamientos.Equipamiento;
 import edu.fiuba.algo3.modelo.equipamientos.Llave;
@@ -17,11 +16,10 @@ public class CasoDeUso10Test {
 
     @BeforeEach
     public void setUp() {
-        Casillero casillero = new Casillero(0);
         Senority senority = new Senority();
         Energia energia = new Energia(20);
         Equipamiento equipamiento = new Llave();
-        this.gladiador = new Gladiador(energia, equipamiento, casillero, senority);
+        this.gladiador = new Gladiador(energia, equipamiento, senority);
     }
 
     @Test
