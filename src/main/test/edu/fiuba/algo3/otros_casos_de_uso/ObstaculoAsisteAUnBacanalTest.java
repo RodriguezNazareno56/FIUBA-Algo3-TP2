@@ -1,6 +1,5 @@
 package edu.fiuba.algo3.otros_casos_de_uso;
 
-import edu.fiuba.algo3.modelo.casilleros.Casillero;
 import edu.fiuba.algo3.modelo.consecuencias.AsisteAUnBacanal;
 import edu.fiuba.algo3.modelo.consecuencias.Consecuencia;
 import edu.fiuba.algo3.modelo.equipamientos.Equipamiento;
@@ -23,16 +22,13 @@ public class ObstaculoAsisteAUnBacanalTest {
         Consecuencia asisteAUnBacanal = new AsisteAUnBacanal(cantiadDeTragos);
         Energia energia = new Energia(20);
         Equipamiento equipamiento = new SinEquipamiento();
-        Casillero casillero = new Casillero(0);
         Senority senority = new Senority();
-        Gladiador gladiador = new Gladiador(energia, equipamiento, casillero, senority);
+        Gladiador gladiador = new Gladiador(energia, equipamiento, senority);
 
         //Act
         gladiador.recibirConsecuencia(asisteAUnBacanal);
 
         //Assert
-        Assertions.assertThrows(MovimientoException.class, () -> {
-            gladiador.avanzar(1);
-        });
+        Assertions.assertThrows(MovimientoException.class, gladiador::avanzar);
     }
 }

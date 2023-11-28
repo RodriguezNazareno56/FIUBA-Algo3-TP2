@@ -1,7 +1,6 @@
 package edu.fiuba.algo3.modelo.consecuencias;
 
 
-import edu.fiuba.algo3.modelo.casilleros.Casillero;
 import edu.fiuba.algo3.modelo.equipamientos.Equipamiento;
 import edu.fiuba.algo3.modelo.equipamientos.SinEquipamiento;
 import edu.fiuba.algo3.modelo.gladiador.Energia;
@@ -33,9 +32,8 @@ public class ComidaTest {
         // Arrange
         Energia energia = new Energia(20);
         Equipamiento equipamiento = new SinEquipamiento();
-        Casillero casillero = new Casillero(0);
         Senority senority = new Senority();
-        Gladiador gladiador = new Gladiador(energia, equipamiento, casillero, senority);
+        Gladiador gladiador = new Gladiador(energia, equipamiento, senority);
         Comida comida = new Comida();
         Energia energiaEsperada = new Energia(35);
 
@@ -51,9 +49,8 @@ public class ComidaTest {
         // Arrange
         Energia energia = new Energia(-10);
         Equipamiento equipamiento = new SinEquipamiento();
-        Casillero casillero = new Casillero(0);
         Senority senority = new Senority();
-        Gladiador gladiador = new Gladiador(energia, equipamiento, casillero, senority);
+        Gladiador gladiador = new Gladiador(energia, equipamiento, senority);
         Comida comida = new Comida();
         Energia energiaEsperada = new Energia(5); // -10 + 15
 

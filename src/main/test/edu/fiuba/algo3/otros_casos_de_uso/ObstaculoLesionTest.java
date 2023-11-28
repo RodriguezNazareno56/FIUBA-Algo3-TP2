@@ -1,6 +1,5 @@
 package edu.fiuba.algo3.otros_casos_de_uso;
 
-import edu.fiuba.algo3.modelo.casilleros.Casillero;
 import edu.fiuba.algo3.modelo.consecuencias.Consecuencia;
 import edu.fiuba.algo3.modelo.consecuencias.Lesion;
 import edu.fiuba.algo3.modelo.equipamientos.Equipamiento;
@@ -22,16 +21,13 @@ public class ObstaculoLesionTest {
         Consecuencia lesion = new Lesion();
         Energia energia = new Energia(20);
         Equipamiento equipamiento = new SinEquipamiento();
-        Casillero casillero = new Casillero(0);
         Senority senority = new Senority();
-        Gladiador gladiador = new Gladiador(energia, equipamiento, casillero, senority);
+        Gladiador gladiador = new Gladiador(energia, equipamiento, senority);
 
         //Act
         gladiador.recibirConsecuencia(lesion);
 
         //Assert
-        Assertions.assertThrows(MovimientoPausadoExeption.class, () -> {
-            gladiador.avanzar(1);
-        });
+        Assertions.assertThrows(MovimientoPausadoExeption.class, gladiador::avanzar);
     }
 }
