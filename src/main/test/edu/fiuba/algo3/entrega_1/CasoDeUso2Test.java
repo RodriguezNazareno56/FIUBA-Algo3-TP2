@@ -3,6 +3,7 @@ package edu.fiuba.algo3.entrega_1;
 import edu.fiuba.algo3.modelo.MovimientoException;
 import edu.fiuba.algo3.modelo.camino.Camino;
 import edu.fiuba.algo3.modelo.celda.Celda;
+import edu.fiuba.algo3.modelo.celda.Coordenada;
 import edu.fiuba.algo3.modelo.celda.ICelda;
 import edu.fiuba.algo3.modelo.equipamientos.Equipamiento;
 import edu.fiuba.algo3.modelo.equipamientos.SinEquipamiento;
@@ -26,7 +27,7 @@ public class CasoDeUso2Test {
     public void setUp() {
         List<ICelda> celdas = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
-            celdas.add(new Celda());
+            celdas.add(new Celda(new Coordenada(i,i), new ArrayList<>()));
         }
         Camino camino = new Camino(celdas);
 

@@ -2,6 +2,7 @@ package edu.fiuba.algo3.entrega_1;
 
 import edu.fiuba.algo3.modelo.camino.Camino;
 import edu.fiuba.algo3.modelo.celda.Celda;
+import edu.fiuba.algo3.modelo.celda.Coordenada;
 import edu.fiuba.algo3.modelo.celda.ICelda;
 import edu.fiuba.algo3.modelo.consecuencias.Triunfo;
 import edu.fiuba.algo3.modelo.equipamientos.SinEquipamiento;
@@ -33,12 +34,12 @@ public class CasoDeUso11Test {
     public void setUp() {
         this.celdas = new ArrayList<>();
         for (int i = 0; i < 9; i++) {
-            celdas.add(new Celda(i));
+            celdas.add(new Celda(new Coordenada(i,i), new ArrayList<>()));
         }
         List<Consecuencia> consecuencias = new ArrayList<>();
         Consecuencia triunfo = new Triunfo();
         consecuencias.add(triunfo);
-        celdas.add(new Celda(consecuencias));
+        celdas.add(new Celda(new Coordenada(9,9), consecuencias));
         Camino camino = new Camino(celdas);
 
         Energia energia = new Energia(20);
