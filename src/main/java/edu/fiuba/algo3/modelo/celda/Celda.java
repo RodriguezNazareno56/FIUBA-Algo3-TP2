@@ -8,29 +8,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Celda implements ICelda {
-    protected int x;
-    protected int y;
-    protected List<Consecuencia> consecuencias;
 
-    public Celda() {
-        consecuencias = new ArrayList<>();
-    }
+    private Coordenada coordenada;
+    private List<Consecuencia> consecuencias;
 
-    public Celda(int x) {
-        this.x = x;
-    }
-
-    public Celda(List<Consecuencia> consecuencias) {
+    public Celda(Coordenada coordenada, List<Consecuencia> consecuencias) {
+        this.coordenada = coordenada;
         this.consecuencias = consecuencias;
-        this.x = 10;
     }
 
     @Override
     public String toString() {
-        return "Instancia de Celda{" +
-                "x=" + x +
-                ", y=" + y +
-                ", consecuencias=" + consecuencias.toString() +
+        return "Celda{" +
+                "coordenada=" + coordenada +
+                ", consecuencias=" + consecuencias +
                 '}';
     }
 

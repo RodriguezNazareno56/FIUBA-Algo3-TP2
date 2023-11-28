@@ -2,6 +2,7 @@ package edu.fiuba.algo3.otros_casos_de_uso;
 
 import edu.fiuba.algo3.modelo.camino.Camino;
 import edu.fiuba.algo3.modelo.celda.Celda;
+import edu.fiuba.algo3.modelo.celda.Coordenada;
 import edu.fiuba.algo3.modelo.celda.ICelda;
 import edu.fiuba.algo3.modelo.equipamientos.Equipamiento;
 import edu.fiuba.algo3.modelo.equipamientos.SinEquipamiento;
@@ -25,21 +26,22 @@ public class GladiadorAvanza5CasillerosTest {
 
     @BeforeEach
     public void setUp() {
+        // Construyo un camino con 10 celdas
         this.celdas = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
-            celdas.add(new Celda());
+            celdas.add(new Celda(new Coordenada(i,i), new ArrayList<>()));
         }
         Camino camino = new Camino(celdas);
 
+        // Construyo un gladiador
         Energia energia = new Energia(20);
         Equipamiento equipamiento = new SinEquipamiento();
         Senority senority = new Senority();
         this.gladiador = new Gladiador(energia, equipamiento, senority);
 
-        List<Gladiador> gladiadores = new ArrayList<>();
-        gladiadores.add(this.gladiador);
-
-        this.mapa = new Mapa(10, 10, camino, gladiadores);
+        // construyo un Mapa con el camino y el gladiador
+        this.mapa = new Mapa(10, 10, camino);
+        this.mapa.setGladiador(gladiador);
     }
 
     @Test
