@@ -22,6 +22,7 @@ public class Bienvenida extends VBox {
         super();
         this.stage = stage;
 
+
         this.setAlignment(Pos.CENTER_LEFT);
         this.setPadding(new Insets(20));
         Image imagen = new Image("file:src/main/java/edu/fiuba/algo3/vista/imagenes/nuevaroma.png");

@@ -12,7 +12,7 @@ public class TextoNombreGladiadorEventHandler implements EventHandler<KeyEvent>{
 
     private TextField nombre;
 
-
+    private final int MAXIMO_CANTIDAD_DE_DIGITOS = 10;
     public TextoNombreGladiadorEventHandler(Label verificarNombre, TextField nombre ){
         this.verificarNombre = verificarNombre;
         this.nombre = nombre;
@@ -21,11 +21,10 @@ public class TextoNombreGladiadorEventHandler implements EventHandler<KeyEvent>{
     @Override
     public void handle(KeyEvent keyEvent) {
 
-        //voy a verificar que la letra ingresada sea del  abecedario
-        if( esNombreValido( nombre.getText() ) && esUnCodigoValido(keyEvent) && nombre.getText().length() < 10){
+        if( esNombreValido( nombre.getText() ) && esUnCodigoValido(keyEvent) && nombre.getText().length() < MAXIMO_CANTIDAD_DE_DIGITOS){
             this.verificarNombre.setText("");
         }else{
-            this.verificarNombre.setText("El nombre solo puede contener letras y numeros");
+            this.verificarNombre.setText("El nombre solo puede contener letras");
         }
     }
 

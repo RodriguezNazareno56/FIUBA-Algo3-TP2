@@ -3,6 +3,7 @@ package edu.fiuba.algo3;
 import edu.fiuba.algo3.vista.Bienvenida;
 import edu.fiuba.algo3.vista.Configuracion;
 import edu.fiuba.algo3.vista.ConfiguracionAvatares;
+import edu.fiuba.algo3.vista.EstadoJuego;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -16,6 +17,10 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) {
+        EstadoJuego estadoJuego = new EstadoJuego();
+        //la cantidad de jugadores lo debe establecer el usuario en configuracion
+        estadoJuego.setCantidadJugadores(5);
+
         var javaVersion = SystemInfo.javaVersion();
         var javafxVersion = SystemInfo.javafxVersion();
 
@@ -25,7 +30,7 @@ public class App extends Application {
         var scene = new Scene(new StackPane(label), 640, 480);
 
 
-        var configuracionAvatares = new Scene(new StackPane(new ConfiguracionAvatares(stage, scene, 5)), 640, 480);
+        var configuracionAvatares = new Scene(new StackPane(new ConfiguracionAvatares(stage, scene, estadoJuego)), 640, 480);
         var config = new Scene(new StackPane(new Configuracion(stage, configuracionAvatares)), 640, 480);
 
         //var config = new Scene(new StackPane(new Configuracion(stage, scene)), 640, 480);
