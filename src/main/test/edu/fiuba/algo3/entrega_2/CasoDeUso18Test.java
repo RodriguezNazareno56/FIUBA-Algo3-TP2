@@ -6,5 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class CasoDeUso18Test {
 
     @Test
-    public void verificarSistemaLogNecesarioEntrega3(){}
+    public void verificarSistemaLogNecesarioEntrega3() {
+        // TODO: falta implementar
+    }
 }
