@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.modelo;
 
+import edu.fiuba.algo3.data_acceso.MapaService;
+import edu.fiuba.algo3.data_acceso.data_mappers.JsonFormatoInvalidoException;
 import edu.fiuba.algo3.modelo.equipamientos.SinEquipamiento;
 import edu.fiuba.algo3.modelo.gladiador.Energia;
 import edu.fiuba.algo3.modelo.gladiador.Gladiador;
@@ -25,12 +27,37 @@ public class AlgoRoma {
 
     private boolean juegoEnCurso;
 
-    public AlgoRoma(){
+    private MapaService mapaService;
+
+    private Dado dado;
+
+    public AlgoRoma() {
         this.gladiadores = new ArrayList<>();
         this.gladiadoresEnEspera = new Stack<>();
         this.juegoEnCurso = false;
 
         //fabricar mapa con json
+    }
+
+    // TODO: el mapaService debe ser inyectado aca tambien?
+    public AlgoRoma(MapaService mapaService, Dado dado) {
+        this.gladiadores = new ArrayList<>();
+        this.gladiadoresEnEspera = new Stack<>();
+        this.juegoEnCurso = false;
+
+        this.mapaService = mapaService;
+        this.dado = dado;
+
+        //fabricar mapa con json
+        try {
+            cargarMapa();
+        } catch (JsonFormatoInvalidoException e) {
+            // TODO: hasta donde se propagan la exepciones o en que lugar las capturamos para visulizar un mensaje?
+        }
+    }
+
+    private void cargarMapa() throws JsonFormatoInvalidoException {
+        this.mapa = mapaService.cargarMapa();
     }
 
     public void agregarGladiador(String nombreGladiador){
@@ -58,9 +85,12 @@ public class AlgoRoma {
         gladiadoresEnEspera.addAll(gladiadores);
         notificarOrdenDeTurno();
         notificarFormaDeMapa();
+
+        // TODO: no se si aca esta bien. pero al mapa hay que cargarle los gladiadores
+        this.mapa.setGladiadores(gladiadores);
     }
 
-    public void jugarTurno() throws FinDelJuegoException {
+    public void jugarTurno() throws Exception {
         //pre: el juego debe estar inicializado
         //post: si el juego no esta inicializado se lanza una excepcion JuegoNoIniciadoException
         //post: se juega un turno del juego
@@ -91,10 +121,9 @@ public class AlgoRoma {
         }
 
     }
-    private int tirarDado(){
-        Random random = new Random();
 
-        return random.nextInt(6) + 1;
+    private int tirarDado(){
+        return this.dado.tirarDado();
     }
 
     public void setMapa(Mapa mapa){
@@ -128,11 +157,18 @@ public class AlgoRoma {
     private void notificarOrdenDeTurno(){
         // notificar a la vista el orden de los gladiadores
     }
-    private void notificarTurnoPerdido(Gladiador gladiador){
+    private void notificarTurnoPerdido(Gladiador gladiador) throws Exception {
         // notificar a la vista que el gladiador perdio el turno
+        // TODO: a finalidad de testear arrojo exepcion
+        throw new Exception();
     }
 
     private void notificarFormaDeMapa(){
         // notificar a la vista la forma del mapa
+    }
+
+    // TODO: trucho mal(?
+    public ArrayList<Gladiador> getGladiadores() {
+        return gladiadores;
     }
 }

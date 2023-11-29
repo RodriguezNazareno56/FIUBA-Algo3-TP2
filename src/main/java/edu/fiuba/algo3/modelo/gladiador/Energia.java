@@ -37,4 +37,11 @@ public class Energia {
     public int hashCode() {
         return Objects.hash(valor);
     }
+
+    @Override
+    public String toString() {
+        return "Energia{" +
+                "valor=" + valor +
+                '}';
+    }
 }

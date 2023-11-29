@@ -101,7 +101,7 @@ public class AlgoRomaTest {
 
 
     @Test
-    public void jugarMasDe30RondasLanzaFinDelJuegoException() throws FinDelJuegoException, MovimientoPausadoExeption, MovimientoException {
+    public void jugarMasDe30RondasLanzaFinDelJuegoException() throws Exception {
 
         AlgoRoma algoRoma = new AlgoRoma();
 
