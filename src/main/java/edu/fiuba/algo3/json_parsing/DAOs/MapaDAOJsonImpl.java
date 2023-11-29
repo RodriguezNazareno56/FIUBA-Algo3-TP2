@@ -31,12 +31,12 @@ public class MapaDAOJsonImpl implements MapaDAO {
         JSONObject jsonObjectMap = jsonObject.getJSONObject("mapa");
         // Deserializar el objeto mapa del JSON a la clase MapaDto
         ObjectMapper objectMapper = new ObjectMapper();
-        MapaDto mapa = null;
+        MapaDto mapaDto;
         try {
-            mapa = objectMapper.readValue(jsonObjectMap.toString(), MapaDto.class);
+            mapaDto = objectMapper.readValue(jsonObjectMap.toString(), MapaDto.class);
         } catch (JsonProcessingException e) {
             throw new JsonFormatoInvalidoException(e.getMessage());
         }
-        return mapa;
+        return mapaDto;
     }
 }
