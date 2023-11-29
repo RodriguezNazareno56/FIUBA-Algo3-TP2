@@ -1,10 +1,10 @@
 package edu.fiuba.algo3.entrega_2;
 
-import edu.fiuba.algo3.json_parsing.DAOs.MapaDAOJsonImpl;
-import edu.fiuba.algo3.json_parsing.data_mappers.JsonFormatoInvalidoException;
-import edu.fiuba.algo3.json_parsing.data_mappers.MapaMapper;
-import edu.fiuba.algo3.json_parsing.repositories.MapaRepository;
-import edu.fiuba.algo3.json_parsing.repositories.MapaRepositoryImpl;
+import edu.fiuba.algo3.data_acceso.DAOs.MapaDAOJsonImpl;
+import edu.fiuba.algo3.data_acceso.data_mappers.JsonFormatoInvalidoException;
+import edu.fiuba.algo3.data_acceso.data_mappers.MapaMapper;
+import edu.fiuba.algo3.data_acceso.repositories.MapaRepository;
+import edu.fiuba.algo3.data_acceso.repositories.MapaRepositoryImpl;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

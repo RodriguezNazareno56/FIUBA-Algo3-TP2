@@ -1,9 +1,9 @@
-package edu.fiuba.algo3.json_parsing.DAOs;
+package edu.fiuba.algo3.data_acceso.DAOs;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import edu.fiuba.algo3.json_parsing.DTOs.CaminoDto;
-import edu.fiuba.algo3.json_parsing.data_mappers.JsonFormatoInvalidoException;
+import edu.fiuba.algo3.data_acceso.DTOs.CaminoDto;
+import edu.fiuba.algo3.data_acceso.data_mappers.JsonFormatoInvalidoException;
 import org.json.JSONObject;
 
 import java.io.IOException;

@@ -1,7 +1,7 @@
-package edu.fiuba.algo3.json_parsing.data_mappers;
+package edu.fiuba.algo3.data_acceso.data_mappers;
 
-import edu.fiuba.algo3.json_parsing.DTOs.CaminoDto;
-import edu.fiuba.algo3.json_parsing.DTOs.CeldaDto;
+import edu.fiuba.algo3.data_acceso.DTOs.CaminoDto;
+import edu.fiuba.algo3.data_acceso.DTOs.CeldaDto;
 import edu.fiuba.algo3.modelo.camino.Camino;
 import edu.fiuba.algo3.modelo.celda.ICelda;
 

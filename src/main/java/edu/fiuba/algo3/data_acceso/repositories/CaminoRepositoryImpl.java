@@ -1,9 +1,9 @@
-package edu.fiuba.algo3.json_parsing.repositories;
+package edu.fiuba.algo3.data_acceso.repositories;
 
-import edu.fiuba.algo3.json_parsing.DTOs.CaminoDto;
-import edu.fiuba.algo3.json_parsing.DAOs.CaminoDAO;
-import edu.fiuba.algo3.json_parsing.data_mappers.CaminoMapper;
-import edu.fiuba.algo3.json_parsing.data_mappers.JsonFormatoInvalidoException;
+import edu.fiuba.algo3.data_acceso.DTOs.CaminoDto;
+import edu.fiuba.algo3.data_acceso.DAOs.CaminoDAO;
+import edu.fiuba.algo3.data_acceso.data_mappers.CaminoMapper;
+import edu.fiuba.algo3.data_acceso.data_mappers.JsonFormatoInvalidoException;
 import edu.fiuba.algo3.modelo.camino.Camino;
 
 public class CaminoRepositoryImpl implements CaminoRepository {

@@ -1,8 +1,8 @@
-package edu.fiuba.algo3.json_parsing;
+package edu.fiuba.algo3.data_acceso;
 
-import edu.fiuba.algo3.json_parsing.data_mappers.JsonFormatoInvalidoException;
-import edu.fiuba.algo3.json_parsing.repositories.CaminoRepository;
-import edu.fiuba.algo3.json_parsing.repositories.MapaRepository;
+import edu.fiuba.algo3.data_acceso.data_mappers.JsonFormatoInvalidoException;
+import edu.fiuba.algo3.data_acceso.repositories.CaminoRepository;
+import edu.fiuba.algo3.data_acceso.repositories.MapaRepository;
 import edu.fiuba.algo3.modelo.camino.Camino;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
 

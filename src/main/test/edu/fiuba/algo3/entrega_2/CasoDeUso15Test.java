@@ -1,10 +1,10 @@
 package edu.fiuba.algo3.entrega_2;
 
-import edu.fiuba.algo3.json_parsing.DAOs.CaminoDAOJsonImpl;
-import edu.fiuba.algo3.json_parsing.data_mappers.CaminoMapper;
-import edu.fiuba.algo3.json_parsing.data_mappers.CeldaMapper;
-import edu.fiuba.algo3.json_parsing.repositories.CaminoRepository;
-import edu.fiuba.algo3.json_parsing.repositories.CaminoRepositoryImpl;
+import edu.fiuba.algo3.data_acceso.DAOs.CaminoDAOJsonImpl;
+import edu.fiuba.algo3.data_acceso.data_mappers.CaminoMapper;
+import edu.fiuba.algo3.data_acceso.data_mappers.CeldaMapper;
+import edu.fiuba.algo3.data_acceso.repositories.CaminoRepository;
+import edu.fiuba.algo3.data_acceso.repositories.CaminoRepositoryImpl;
 import edu.fiuba.algo3.modelo.MovimientoPausadoExeption;
 import edu.fiuba.algo3.modelo.camino.Camino;
 import edu.fiuba.algo3.modelo.celda.ICelda;
