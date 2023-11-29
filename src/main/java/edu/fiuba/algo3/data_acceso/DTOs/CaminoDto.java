@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.json_parsing.DTOs;
+package edu.fiuba.algo3.data_acceso.DTOs;
 
 import java.util.Arrays;
 import java.util.List;

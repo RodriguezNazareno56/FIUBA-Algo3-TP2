@@ -1,6 +1,6 @@
-package edu.fiuba.algo3.json_parsing.data_mappers;
+package edu.fiuba.algo3.data_acceso.data_mappers;
 
-import edu.fiuba.algo3.json_parsing.DTOs.MapaDto;
+import edu.fiuba.algo3.data_acceso.DTOs.MapaDto;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
 
 public class MapaMapper implements Mapper<Mapa, MapaDto>{

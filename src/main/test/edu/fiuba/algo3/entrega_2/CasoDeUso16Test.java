@@ -1,19 +1,17 @@
 package edu.fiuba.algo3.entrega_2;
 
-import edu.fiuba.algo3.json_parsing.DAOs.CaminoDAOJsonImpl;
-import edu.fiuba.algo3.json_parsing.DAOs.MapaDAOJsonImpl;
-import edu.fiuba.algo3.json_parsing.MapaService;
-import edu.fiuba.algo3.json_parsing.data_mappers.CaminoMapper;
-import edu.fiuba.algo3.json_parsing.data_mappers.CeldaMapper;
-import edu.fiuba.algo3.json_parsing.data_mappers.MapaMapper;
-import edu.fiuba.algo3.json_parsing.repositories.CaminoRepository;
-import edu.fiuba.algo3.json_parsing.repositories.CaminoRepositoryImpl;
-import edu.fiuba.algo3.json_parsing.repositories.MapaRepository;
-import edu.fiuba.algo3.json_parsing.repositories.MapaRepositoryImpl;
+import edu.fiuba.algo3.data_acceso.DAOs.CaminoDAOJsonImpl;
+import edu.fiuba.algo3.data_acceso.DAOs.MapaDAOJsonImpl;
+import edu.fiuba.algo3.data_acceso.MapaService;
+import edu.fiuba.algo3.data_acceso.data_mappers.CaminoMapper;
+import edu.fiuba.algo3.data_acceso.data_mappers.CeldaMapper;
+import edu.fiuba.algo3.data_acceso.data_mappers.MapaMapper;
+import edu.fiuba.algo3.data_acceso.repositories.CaminoRepository;
+import edu.fiuba.algo3.data_acceso.repositories.CaminoRepositoryImpl;
+import edu.fiuba.algo3.data_acceso.repositories.MapaRepository;
+import edu.fiuba.algo3.data_acceso.repositories.MapaRepositoryImpl;
 import edu.fiuba.algo3.modelo.MovimientoPausadoExeption;
-import edu.fiuba.algo3.modelo.camino.Camino;
 import edu.fiuba.algo3.modelo.celda.ICelda;
-import edu.fiuba.algo3.modelo.equipamientos.Casco;
 import edu.fiuba.algo3.modelo.equipamientos.Equipamiento;
 import edu.fiuba.algo3.modelo.equipamientos.SinEquipamiento;
 import edu.fiuba.algo3.modelo.gladiador.Energia;
@@ -24,10 +22,8 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

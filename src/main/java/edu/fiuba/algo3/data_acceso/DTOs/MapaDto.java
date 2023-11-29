@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.json_parsing.DTOs;
+package edu.fiuba.algo3.data_acceso.DTOs;
 
 public class MapaDto {
     private int ancho;

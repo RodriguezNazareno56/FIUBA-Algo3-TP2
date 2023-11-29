@@ -1,9 +1,9 @@
-package edu.fiuba.algo3.json_parsing.repositories;
+package edu.fiuba.algo3.data_acceso.repositories;
 
-import edu.fiuba.algo3.json_parsing.DTOs.MapaDto;
-import edu.fiuba.algo3.json_parsing.DAOs.MapaDAO;
-import edu.fiuba.algo3.json_parsing.data_mappers.JsonFormatoInvalidoException;
-import edu.fiuba.algo3.json_parsing.data_mappers.MapaMapper;
+import edu.fiuba.algo3.data_acceso.DTOs.MapaDto;
+import edu.fiuba.algo3.data_acceso.DAOs.MapaDAO;
+import edu.fiuba.algo3.data_acceso.data_mappers.JsonFormatoInvalidoException;
+import edu.fiuba.algo3.data_acceso.data_mappers.MapaMapper;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
 
 public class MapaRepositoryImpl implements MapaRepository {
