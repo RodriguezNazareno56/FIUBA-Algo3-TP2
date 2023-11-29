@@ -34,18 +34,24 @@ public class AlgoRoma {
     }
 
     public void agregarGladiador(String nombreGladiador){
-        if( gladiadores.size() <= MAX_CANTIDAD_GLADIADORES && !juegoEnCurso){
+        if(juegoEnCurso){
+            //throw new Exception("El juego no esta inicializado");
+            throw new JuegoEnCursoException("No se pueden agregar gladiadores en un juego en curso");
+        }
+
+        if( gladiadores.size() < MAX_CANTIDAD_GLADIADORES){
             Gladiador gladiador = new Gladiador(new Energia(20), new SinEquipamiento(), new Senority());
             gladiador.setNombre(nombreGladiador);
             this.gladiadores.add(gladiador);
         }
         else{
-            //throw new Exception("No se pueden agregar mas gladiadores");
+            throw new MaximoGladiadoresException("No se pueden agregar mas gladiadores");
         }
 
     }
 
     public void inicializarJuego(){
+        //post: no se puede inicializar un juego con menos de dos gladiadores, se lanza una excepcion
         this.juegoEnCurso = true;
 
         Collections.shuffle(gladiadores);
@@ -55,17 +61,22 @@ public class AlgoRoma {
     }
 
     public void jugarTurno() throws FinDelJuegoException {
+        //pre: el juego debe estar inicializado
+        //post: si el juego no esta inicializado se lanza una excepcion JuegoNoIniciadoException
+        //post: se juega un turno del juego
+        //post: si se alcanzo el maximo de rondas se lanza una excepcion
         if( !juegoEnCurso ){
-            //throw new Exception("El juego no esta inicializado");
+            throw new JuegoNoIniciadoException("El juego no esta inicializado");
         }
         if( gladiadoresEnEspera.isEmpty()){
-            if( this.cantidadDeRondas < 30 ){
+            //la primera ronda se inicio en inicializarJuego
+            if( this.cantidadDeRondas < 29 ){
                 this.cantidadDeRondas++;
                 this.gladiadoresEnEspera.addAll(gladiadores);
             }
             else{
                 notificarMaximoDeRondasAlcanzado();
-                throw new FinDelJuegoException( "Fin del Juego: Se alcanzo el numero maximo de rondas");
+                throw new FinDelJuegoException( "Se alcanzo el numero maximo de rondas");
             }
         }
         Gladiador gladiador = gladiadoresEnEspera.pop();
@@ -84,6 +95,10 @@ public class AlgoRoma {
         Random random = new Random();
 
         return random.nextInt(6) + 1;
+    }
+
+    public void setMapa(Mapa mapa){
+        this.mapa = mapa;
     }
 
     public void jugarRonda() throws FinDelJuegoException {
