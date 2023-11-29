@@ -30,7 +30,7 @@ public class CaminoDAOJsonImpl implements CaminoDAO {
 
         // Deserializar el objeto camino del JSON a la clase CaminoDto
         ObjectMapper objectMapper = new ObjectMapper();
-        CaminoDto caminoDto = null;
+        CaminoDto caminoDto;
         try {
             caminoDto = objectMapper.readValue(jsonObjectCamino.toString(), CaminoDto.class);
         } catch (JsonProcessingException e) {
