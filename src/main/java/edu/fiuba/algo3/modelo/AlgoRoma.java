@@ -8,6 +8,7 @@ import edu.fiuba.algo3.modelo.mapa.Mapa;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Random;
 import java.util.Stack;
 
 public class AlgoRoma {
@@ -54,6 +55,9 @@ public class AlgoRoma {
     }
 
     public void jugarTurno() throws FinDelJuegoException {
+        if( !juegoEnCurso ){
+            //throw new Exception("El juego no esta inicializado");
+        }
         if( gladiadoresEnEspera.isEmpty()){
             if( this.cantidadDeRondas < 30 ){
                 this.cantidadDeRondas++;
@@ -77,8 +81,28 @@ public class AlgoRoma {
 
     }
     private int tirarDado(){
-        return (int) (Math.random() * 6) + 1;
+        Random random = new Random();
+
+        return random.nextInt(6) + 1;
     }
+
+    public void jugarRonda() throws FinDelJuegoException {
+
+        if( cantidadDeRondas == 30 ){
+
+            throw new FinDelJuegoException( "Fin del Juego: Se alcanzo el numero maximo de rondas");
+        }
+
+        cantidadDeRondas++;
+
+    }
+
+    public int getCantidadRondas() {
+        return cantidadDeRondas;
+    }
+
+
+
     private void notificarResultadoDado(Gladiador gladiador, int resultadoDado){
         // notificar a la vista el resultado del dado
     }
@@ -95,20 +119,5 @@ public class AlgoRoma {
 
     private void notificarFormaDeMapa(){
         // notificar a la vista la forma del mapa
-    }
-
-    public void jugarRonda() throws FinDelJuegoException {
-
-        if( cantidadDeRondas == 30 ){
-
-            throw new FinDelJuegoException( "Fin del Juego: Se alcanzo el numero maximo de rondas");
-        }
-
-        cantidadDeRondas++;
-
-    }
-
-    public int getCantidadRondas() {
-        return cantidadDeRondas;
     }
 }
