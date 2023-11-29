@@ -9,6 +9,7 @@ import edu.fiuba.algo3.modelo.MovimientoPausadoExeption;
 
 public class Gladiador {
 
+    private String nombre;
     private Energia energia;
     private Equipamiento equipamiento;
     private Senority senority;
@@ -82,5 +83,12 @@ public class Gladiador {
         if (equipamiento != equipamiento.incrementar()) {
             throw new TriunfoException("El jugador no posee el equipamiento requerido");
         }
+    }
+
+    public void setNombre(String nombreGladiador) {
+        this.nombre = nombreGladiador;
+    }
+    public String getNombre() {
+        return this.nombre;
     }
 }
