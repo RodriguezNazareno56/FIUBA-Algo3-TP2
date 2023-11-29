@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.modelo;
 
+import edu.fiuba.algo3.data_acceso.MapaService;
+import edu.fiuba.algo3.data_acceso.data_mappers.JsonFormatoInvalidoException;
 import edu.fiuba.algo3.modelo.gladiador.Gladiador;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
 import org.junit.jupiter.api.Assertions;
@@ -70,9 +72,14 @@ public class AlgoRomaTest {
     }
 
     @Test
-    public void agregarGladiadoresEnUnJuegoIniciadoLanzaJuegoEnCursoException(){
+    public void agregarGladiadoresEnUnJuegoIniciadoLanzaJuegoEnCursoException() throws JsonFormatoInvalidoException {
 
-        AlgoRoma algoRoma = new AlgoRoma();
+        MapaService mapaService = Mockito.mock(MapaService.class);
+        Mockito.when(mapaService.cargarMapa()).thenReturn(Mockito.mock(Mapa.class));
+
+        Dado dado = Mockito.mock(Dado.class);
+
+        AlgoRoma algoRoma = new AlgoRoma(mapaService, dado);
 
         algoRoma.agregarGladiador("Espartaco");
         algoRoma.agregarGladiador("Augusto");
@@ -101,13 +108,14 @@ public class AlgoRomaTest {
 
 
     @Test
-    public void jugarMasDe30RondasLanzaFinDelJuegoException() throws FinDelJuegoException, MovimientoPausadoExeption, MovimientoException {
+    public void jugarMasDe30RondasLanzaFinDelJuegoException() throws Exception {
 
-        AlgoRoma algoRoma = new AlgoRoma();
+        MapaService mapaService = Mockito.mock(MapaService.class);
+        Mockito.when(mapaService.cargarMapa()).thenReturn(Mockito.mock(Mapa.class));
 
-        Mapa mapa = Mockito.mock(Mapa.class);
+        Dado dado = Mockito.mock(Dado.class);
 
-        algoRoma.setMapa(mapa);
+        AlgoRoma algoRoma = new AlgoRoma(mapaService, dado);
 
         algoRoma.agregarGladiador("Espartaco");
         algoRoma.agregarGladiador("Augusto");
