@@ -87,6 +87,10 @@ public class Mapa {
         return posicionDeGladiadores.get(gladiador);
     }
 
+    public Camino getCamino(){
+        return this.camino;
+    }
+
     @Override
     public String toString() {
         return "Mapa{" + "\n" +

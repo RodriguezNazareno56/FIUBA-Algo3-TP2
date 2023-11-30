@@ -46,6 +46,10 @@ public class Camino {
         return celdas.get((celdas.size()-1)/2);
     }
 
+    public List<ICelda> celdas(){
+        return this.celdas;
+    }
+
     @Override
     public String toString() {
         return "Camino{" +

@@ -19,7 +19,7 @@ public class Bienvenida extends VBox {
     private Stage stage;
 
     public Bienvenida(Stage stage, Scene proximaEscena){
-        super();
+        super(30);
         this.stage = stage;
 
         this.setAlignment(Pos.CENTER_LEFT);
@@ -43,7 +43,13 @@ public class Bienvenida extends VBox {
         BotonProximaEscenaEventHandler proximaEscenaEventHandler = new BotonProximaEscenaEventHandler(this.stage, proximaEscena);
         empezar.setOnAction(proximaEscenaEventHandler);
 
-        this.getChildren().addAll(etiquetaJuego, empezar);
+        HBox hboxLabel = new HBox(10);
+        hboxLabel.getChildren().addAll(etiquetaJuego);
+
+        HBox hboxButton = new HBox(10);
+        hboxButton.getChildren().add(empezar);
+
+        this.getChildren().addAll(hboxLabel, hboxButton);
     }
 
 
