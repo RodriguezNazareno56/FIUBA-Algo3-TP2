@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.entrega_1;
 
-import edu.fiuba.algo3.modelo.gladiador.TriunfoException;
+import edu.fiuba.algo3.modelo.gladiador.TriunfoNoPosibleException;
 import edu.fiuba.algo3.modelo.gladiador.Energia;
 import edu.fiuba.algo3.modelo.equipamientos.Casco;
 import edu.fiuba.algo3.modelo.equipamientos.Equipamiento;
@@ -28,7 +28,7 @@ public class CasoDeUso8Test {
     }
 
     @Test
-    public void verificarQueSiPasan8TurnosElSeniorityDelGladiadorPasaDeNovatoASemiSeniorYVeSuEnergiaIncrementadaAlProximoTurno() throws MovimientoException, MovimientoPausadoExeption, TriunfoException {
+    public void verificarQueSiPasan8TurnosElSeniorityDelGladiadorPasaDeNovatoASemiSeniorYVeSuEnergiaIncrementadaAlProximoTurno() throws MovimientoException, MovimientoPausadoExeption, TriunfoNoPosibleException {
         // TODO: ver si podemos sacar ese .getEnergia()
         // Arrange
         for (int i = 1; i <= 8; i++) {

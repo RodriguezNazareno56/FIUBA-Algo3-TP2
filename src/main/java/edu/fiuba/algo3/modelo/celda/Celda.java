@@ -2,9 +2,8 @@ package edu.fiuba.algo3.modelo.celda;
 
 import edu.fiuba.algo3.modelo.consecuencias.Consecuencia;
 import edu.fiuba.algo3.modelo.gladiador.Gladiador;
-import edu.fiuba.algo3.modelo.gladiador.TriunfoException;
+import edu.fiuba.algo3.modelo.gladiador.TriunfoNoPosibleException;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.StringJoiner;
 
@@ -30,7 +29,7 @@ public class Celda implements ICelda {
     }
 
     @Override
-    public void afectarGladiadorConConsecuencia(Gladiador gladiador) throws TriunfoException {
+    public void afectarGladiadorConConsecuencia(Gladiador gladiador) throws TriunfoNoPosibleException {
         for (Consecuencia consecuencia : consecuencias) {
             consecuencia.afectarGladiador(gladiador);
         }

@@ -5,7 +5,7 @@ import edu.fiuba.algo3.modelo.MovimientoPausadoExeption;
 import edu.fiuba.algo3.modelo.camino.Camino;
 import edu.fiuba.algo3.modelo.celda.ICelda;
 import edu.fiuba.algo3.modelo.gladiador.Gladiador;
-import edu.fiuba.algo3.modelo.gladiador.TriunfoException;
+import edu.fiuba.algo3.modelo.gladiador.TriunfoNoPosibleException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -65,7 +65,7 @@ public class Mapa {
 
         try {
             celdaDestino.afectarGladiadorConConsecuencia(gladiador);
-        } catch (TriunfoException e) {
+        } catch (TriunfoNoPosibleException e) {
             this.retrocederGladiadorAMitadDeCamino(gladiador);
         }
     }
