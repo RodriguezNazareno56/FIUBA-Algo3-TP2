@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo.equipamientos;
 
 import edu.fiuba.algo3.modelo.consecuencias.FieraSalvaje;
+import edu.fiuba.algo3.modelo.constantes.FieraSalvajeConstantes;
 import edu.fiuba.algo3.modelo.gladiador.Energia;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -39,7 +40,7 @@ public class ArmaduraTest {
     public void disiparAtaqueDeUnaFieraRetornaUnaEnergiaConValor10ComoDanio() {
         // Arrange
         Armadura armadura = new Armadura();
-        int danioEsperado = 10;
+        int danioEsperado = FieraSalvajeConstantes.ATAQUE_CONTRA_EQUIPADO_ARMADURA;
 
         Energia energiaMock = Mockito.mock(Energia.class);
         Mockito.when(energiaMock.getValor()).thenReturn(danioEsperado);

@@ -18,10 +18,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class CasoDeUso5Test {
 
     private Gladiador gladiador;
+    private final int energiaInicialValor = 20;
 
     @BeforeEach
     public void setUp() {
-        Energia energia = new Energia(20);
+        Energia energia = new Energia(energiaInicialValor);
         Equipamiento equipamiento = new SinEquipamiento();
         Senority senority = new Senority();
         this.gladiador = new Gladiador(energia, equipamiento, senority, Mockito.mock(Logger.class));
@@ -33,7 +34,7 @@ public class CasoDeUso5Test {
         Consecuencia incrementoDeEquipo = new EquipamientoIncrementado();
         // Un gladiador sin equipamiento y con 20 puntos de vida. Recibira un primer premio y sera atacado por
         // una fiera, se espera que se defienda con el casco y tan solo sufra 15 puntos de danio
-        Energia energiaEsperada = new Energia(5);
+        Energia energiaEsperada = new Energia(energiaInicialValor - FieraSalvaje.ATAQUE_CONTRA_EQUIPADO_CASCO);
 
         //Act
         this.gladiador.recibirConsecuencia(incrementoDeEquipo);

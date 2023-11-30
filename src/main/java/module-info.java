@@ -17,4 +17,5 @@ module edu.fiuba.algo3 {
     exports edu.fiuba.algo3.data_acceso.DTOs;
     exports edu.fiuba.algo3.data_acceso.DAOs;
     exports edu.fiuba.algo3.data_acceso.data_mappers;
+    exports edu.fiuba.algo3.modelo.constantes;
 }

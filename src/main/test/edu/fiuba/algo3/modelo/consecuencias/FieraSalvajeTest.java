@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo.consecuencias;
 
+import edu.fiuba.algo3.modelo.constantes.FieraSalvajeConstantes;
 import edu.fiuba.algo3.modelo.equipamientos.*;
 import edu.fiuba.algo3.modelo.gladiador.Energia;
 import edu.fiuba.algo3.modelo.gladiador.Gladiador;
@@ -11,6 +12,7 @@ import org.slf4j.Logger;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.times;
+import static edu.fiuba.algo3.modelo.constantes.FieraSalvajeConstantes.*;
 
 public class FieraSalvajeTest {
 
@@ -46,7 +48,7 @@ public class FieraSalvajeTest {
         Energia danio = fieraSalvaje.atacarATravesDelEquipamiento(sinEquipamiento);
 
         // Assert
-        assertEquals(20, danio.getValor());
+        assertEquals(ATAQUE_CONTRA_EQUIPADO_SIN_EQUIPAMIENTO, danio.getValor());
         Mockito.verify(sinEquipamiento, times(1)).disiparAtaque(fieraSalvaje);
     }
 
@@ -61,7 +63,7 @@ public class FieraSalvajeTest {
         Energia danio = fieraSalvaje.atacarATravesDelEquipamiento(casco);
 
         // Assert
-        assertEquals(15, danio.getValor());
+        assertEquals(ATAQUE_CONTRA_EQUIPADO_CASCO, danio.getValor());
         Mockito.verify(casco, times(1)).disiparAtaque(fieraSalvaje);
     }
 
@@ -76,7 +78,7 @@ public class FieraSalvajeTest {
         Energia danio = fieraSalvaje.atacarATravesDelEquipamiento(armadura);
 
         // Assert
-        assertEquals(10, danio.getValor());
+        assertEquals(ATAQUE_CONTRA_EQUIPADO_ARMADURA, danio.getValor());
         Mockito.verify(armadura, times(1)).disiparAtaque(fieraSalvaje);
     }
 
@@ -91,7 +93,7 @@ public class FieraSalvajeTest {
         Energia danio = fieraSalvaje.atacarATravesDelEquipamiento(escudoYEspada);
 
         // Assert
-        assertEquals(2, danio.getValor());
+        assertEquals(ATAQUE_CONTRA_EQUIPADO_ESCUDO_Y_ESPADA, danio.getValor());
         Mockito.verify(escudoYEspada, times(1)).disiparAtaque(fieraSalvaje);
     }
 
@@ -106,7 +108,7 @@ public class FieraSalvajeTest {
         Energia danio = fieraSalvaje.atacarATravesDelEquipamiento(llave);
 
         // Assert
-        assertEquals(0, danio.getValor());
+        assertEquals(ATAQUE_CONTRA_EQUIPADO_LLAVE, danio.getValor());
         Mockito.verify(llave, times(1)).disiparAtaque(fieraSalvaje);
     }
 
@@ -119,7 +121,7 @@ public class FieraSalvajeTest {
         Equipamiento equipamiento = new SinEquipamiento();
         Senority senority = new Senority();
         Gladiador gladiador = new Gladiador(energia, equipamiento, senority, Mockito.mock(Logger.class));
-        Energia energiaEsperada = new Energia(0); //se le restan 20 puntos
+        Energia energiaEsperada = new Energia(energia.getValor() - ATAQUE_CONTRA_EQUIPADO_SIN_EQUIPAMIENTO); //se le restan 20 puntos
 
         //Act
         fieraSalvaje.afectarGladiador(gladiador);
@@ -135,7 +137,7 @@ public class FieraSalvajeTest {
         Equipamiento equipamiento = new Casco();
         Senority senority = new Senority();
         Gladiador gladiador = new Gladiador(energia, equipamiento, senority, Mockito.mock(Logger.class));
-        Energia energiaEsperada = new Energia(5);  //se le restan 15 puntos
+        Energia energiaEsperada = new Energia(energia.getValor() - ATAQUE_CONTRA_EQUIPADO_CASCO);  //se le restan 15 puntos
 
         //Act
         fieraSalvaje.afectarGladiador(gladiador);
@@ -151,7 +153,7 @@ public class FieraSalvajeTest {
         Equipamiento equipamiento = new Armadura();
         Senority senority = new Senority();
         Gladiador gladiador = new Gladiador(energia, equipamiento, senority, Mockito.mock(Logger.class));
-        Energia energiaEsperada = new Energia(10); //se le restan 10 puntos
+        Energia energiaEsperada = new Energia(energia.getValor() - ATAQUE_CONTRA_EQUIPADO_ARMADURA); //se le restan 10 puntos
 
         //Act
         fieraSalvaje.afectarGladiador(gladiador);
@@ -167,7 +169,7 @@ public class FieraSalvajeTest {
         Equipamiento equipamiento = new EscudoYEspada();
         Senority senority = new Senority();
         Gladiador gladiador = new Gladiador(energia, equipamiento, senority, Mockito.mock(Logger.class));
-        Energia energiaEsperada = new Energia(18); // se le restan 2 puntos
+        Energia energiaEsperada = new Energia(energia.getValor() - ATAQUE_CONTRA_EQUIPADO_ESCUDO_Y_ESPADA); // se le restan 2 puntos
 
         //Act
         fieraSalvaje.afectarGladiador(gladiador);
@@ -183,7 +185,7 @@ public class FieraSalvajeTest {
         Equipamiento equipamiento = new Llave();
         Senority senority = new Senority();
         Gladiador gladiador = new Gladiador(energia, equipamiento, senority, Mockito.mock(Logger.class));
-        Energia energiaEsperada = new Energia(20); // la energia queda igual
+        Energia energiaEsperada = new Energia(energia.getValor() - ATAQUE_CONTRA_EQUIPADO_LLAVE); // la energia queda igual
 
         //Act
         fieraSalvaje.afectarGladiador(gladiador);

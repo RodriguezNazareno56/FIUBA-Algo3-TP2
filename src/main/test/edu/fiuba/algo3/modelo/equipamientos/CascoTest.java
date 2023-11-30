@@ -40,7 +40,7 @@ public class CascoTest {
     public void disiparAtaqueDeUnaFieraRetornaUnaEnergiaConValor15ComoDanio() {
         // Arrange
         Casco casco = new Casco();
-        int danioEsperado = 15;
+        int danioEsperado = FieraSalvaje.ATAQUE_CONTRA_EQUIPADO_CASCO;
 
         Energia energiaMock = Mockito.mock(Energia.class);
         Mockito.when(energiaMock.getValor()).thenReturn(danioEsperado);

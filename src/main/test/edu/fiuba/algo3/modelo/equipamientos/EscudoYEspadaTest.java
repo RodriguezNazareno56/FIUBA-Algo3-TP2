@@ -39,7 +39,7 @@ public class EscudoYEspadaTest {
     public void disiparAtaqueDeUnaFieraRetornaUnaEnergiaConValor2ComoDanio() {
         // Arrange
         EscudoYEspada escudoYEspada = new EscudoYEspada();
-        int danioEsperado = 2;
+        int danioEsperado = FieraSalvaje.ATAQUE_CONTRA_EQUIPADO_ESCUDO_Y_ESPADA;
 
         Energia energiaMock = Mockito.mock(Energia.class);
         Mockito.when(energiaMock.getValor()).thenReturn(danioEsperado);
