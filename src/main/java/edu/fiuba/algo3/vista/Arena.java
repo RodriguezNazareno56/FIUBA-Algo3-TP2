@@ -3,6 +3,8 @@ package edu.fiuba.algo3.vista;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.control.ToolBar;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -10,6 +12,9 @@ import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 
 public class Arena extends BorderPane {
 
@@ -22,52 +27,57 @@ public class Arena extends BorderPane {
         double anchoImagenPerfil = 70;
         double cantidadFilasMapa = 20;
         double cantidadColumnasMapa = 10;
-
-        ToolBar toolBar = new ToolBar();
-        this.setBottom(toolBar);
+        double cantidadjJugadores = 6;
 
 
-        // COLUMNA : Perfiles de Jugadores
+        //Rutas de imagenes para perfiles
+        ArrayList rutasImagenesPerfiles = new ArrayList<String>();
+        rutasImagenesPerfiles.add("File:src/main/java/edu/fiuba/algo3/vista/Perfil_1.png");
+        rutasImagenesPerfiles.add("File:src/main/java/edu/fiuba/algo3/vista/Perfil_2.png");
+        rutasImagenesPerfiles.add("File:src/main/java/edu/fiuba/algo3/vista/Perfil_3.png");
+        rutasImagenesPerfiles.add("File:src/main/java/edu/fiuba/algo3/vista/Perfil_4.png");
+        rutasImagenesPerfiles.add("File:src/main/java/edu/fiuba/algo3/vista/Perfil_5.png");
+        rutasImagenesPerfiles.add("File:src/main/java/edu/fiuba/algo3/vista/Perfil_6.png");
+
+        //Nombres de los perfiles
+        ArrayList nombresPerfiles = new ArrayList<String>();
+        nombresPerfiles.add("PLAYER1");
+        nombresPerfiles.add("PLAYER2");
+        nombresPerfiles.add("PLAYER3");
+        nombresPerfiles.add("PLAYER4");
+        nombresPerfiles.add("PLAYER5");
+        nombresPerfiles.add("PLAYER6");
+
+
+        // COLUMNA : Contenedor para los perfiles de los Jugadores
         VBox columnaJugadoresIzquierda = new VBox();
         HBox panelInferior = new HBox();
 
 
-        Image imagen1 = new Image("File:src/main/java/edu/fiuba/algo3/vista/Perfil_1.png");
-        ImageView imagenPerfil1 = new ImageView(imagen1);
-        imagenPerfil1.setFitHeight(altoImagenPerfil);
-        imagenPerfil1.setFitWidth(anchoImagenPerfil);
+        for( int i=0 ; i < cantidadjJugadores ; i++){
 
-        Image imagen2 = new Image("File:src/main/java/edu/fiuba/algo3/vista/Perfil_2.png");
-        ImageView imagenPerfil2 = new ImageView(imagen2);
-        imagenPerfil2.setFitHeight(altoImagenPerfil);
-        imagenPerfil2.setFitWidth(anchoImagenPerfil);
+            Image imagen = new Image(String.valueOf(rutasImagenesPerfiles.get(i)));
+            ImageView imagenPerfil = new ImageView(imagen);
+            imagenPerfil.setFitHeight(altoImagenPerfil);
+            imagenPerfil.setFitWidth(anchoImagenPerfil);
 
-        Image imagen3 = new Image("File:src/main/java/edu/fiuba/algo3/vista/Perfil_3.png");
-        ImageView imagenPerfil3 = new ImageView(imagen3);
-        imagenPerfil3.setFitHeight(altoImagenPerfil);
-        imagenPerfil3.setFitWidth(anchoImagenPerfil);
+            columnaJugadoresIzquierda.getChildren().add(imagenPerfil);
 
-        Image imagen4 = new Image("File:src/main/java/edu/fiuba/algo3/vista/Perfil_4.png");
-        ImageView imagenPerfil4 = new ImageView(imagen4);
-        imagenPerfil4.setFitHeight(altoImagenPerfil);
-        imagenPerfil4.setFitWidth(anchoImagenPerfil);
+            Label nombrePerfil = new Label();
+            nombrePerfil.setText(nombresPerfiles.get(i).toString());
+            nombrePerfil.setTextFill(Color.WHITE);
 
-        Image imagen5 = new Image("File:src/main/java/edu/fiuba/algo3/vista/Perfil_5.png");
-        ImageView imagenPerfil5 = new ImageView(imagen5);
-        imagenPerfil5.setFitHeight(altoImagenPerfil);
-        imagenPerfil5.setFitWidth(anchoImagenPerfil);
+            columnaJugadoresIzquierda.getChildren().add(nombrePerfil);
 
-        Image imagen6 = new Image("File:src/main/java/edu/fiuba/algo3/vista/Perfil_6.png");
-        ImageView imagenPerfil6 = new ImageView(imagen6);
-        imagenPerfil6.setFitHeight(altoImagenPerfil);
-        imagenPerfil6.setFitWidth(anchoImagenPerfil);
 
-        columnaJugadoresIzquierda.getChildren().addAll(imagenPerfil1, imagenPerfil2, imagenPerfil3, imagenPerfil4, imagenPerfil5, imagenPerfil6);
-
+        }
 
         columnaJugadoresIzquierda.setSpacing(8);
         columnaJugadoresIzquierda.setPadding(new Insets(8));
         columnaJugadoresIzquierda.setStyle("-fx-background-color:#323232");
+        columnaJugadoresIzquierda.setAlignment(Pos.CENTER);
+
+
 
         // CREACION DEL MAPA ARENA
 
@@ -85,7 +95,7 @@ public class Arena extends BorderPane {
             }
         }
 
-
+        //CREACION DEL PANEL DE CONTROL
 
         for( int i = 0 ; i < 19 ; i++ ){
             panelInferior.getChildren().add(new Rectangle(60,60, Color.DARKGRAY));
