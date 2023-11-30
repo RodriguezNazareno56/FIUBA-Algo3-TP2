@@ -9,4 +9,9 @@ public class Triunfo implements Consecuencia {
     public void afectarGladiador(Gladiador gladiador) throws TriunfoException {
         gladiador.triunfar();
     }
+
+    @Override
+    public String toString() {
+        return "Lograr triunfo";
+    }
 }

@@ -8,4 +8,9 @@ public class Lesion implements Consecuencia {
     public void afectarGladiador(Gladiador gladiador) {
         gladiador.enojar();
     }
+
+    @Override
+    public String toString() {
+        return "Sufre una Lesion";
+    }
 }

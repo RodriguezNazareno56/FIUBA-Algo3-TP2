@@ -6,6 +6,7 @@ import edu.fiuba.algo3.modelo.gladiador.TriunfoException;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.StringJoiner;
 
 public class Celda implements ICelda {
 
@@ -19,10 +20,13 @@ public class Celda implements ICelda {
 
     @Override
     public String toString() {
-        return "\nCelda{" +
-                "coordenada=" + coordenada +
-                ", consecuencias=" + consecuencias +
-                '}';
+        StringJoiner consecuenciasString = new StringJoiner(", ");
+        for (Consecuencia consecuencia : consecuencias) {
+            consecuenciasString.add(consecuencia.toString());
+        }
+
+        return "Celda en " + coordenada +
+                " con consecuencias: " + consecuenciasString ;
     }
 
     @Override

@@ -39,4 +39,9 @@ public class FieraSalvaje implements Consecuencia, Enemigo {
     public Energia atacarContraEquipado(Llave llave) {
         return new Energia(0);
     }
+
+    @Override
+    public String toString() {
+        return "Ataque de fiera salvaje";
+    }
 }
