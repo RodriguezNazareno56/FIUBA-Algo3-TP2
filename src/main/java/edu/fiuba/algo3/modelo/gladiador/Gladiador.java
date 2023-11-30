@@ -6,9 +6,7 @@ import edu.fiuba.algo3.modelo.equipamientos.Equipamiento;
 import edu.fiuba.algo3.modelo.MovimientoException;
 import edu.fiuba.algo3.modelo.gladiador.senority.Senority;
 import edu.fiuba.algo3.modelo.MovimientoPausadoExeption;
-import edu.fiuba.algo3.modelo.mapa.Mapa;
 import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class Gladiador {
     private Logger logger;
@@ -93,9 +91,9 @@ public class Gladiador {
         this.estaHabilitadoParaMover = false;
     }
 
-    public void triunfar() throws TriunfoException {
+    public void triunfar() throws TriunfoNoPosibleException {
         if (equipamiento != equipamiento.incrementar()) {
-            throw new TriunfoException("El jugador no posee el equipamiento requerido");
+            throw new TriunfoNoPosibleException("El jugador no posee el equipamiento requerido");
         }
     }
 
