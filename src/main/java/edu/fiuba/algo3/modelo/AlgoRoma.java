@@ -70,6 +70,7 @@ public class AlgoRoma {
             Gladiador gladiador = new Gladiador(new Energia(20), new SinEquipamiento(), new Senority());
             gladiador.setNombre(nombreGladiador);
             this.gladiadores.add(gladiador);
+            System.out.println(gladiador.getNombre());
         }
         else{
             throw new MaximoGladiadoresException("No se pueden agregar mas gladiadores");

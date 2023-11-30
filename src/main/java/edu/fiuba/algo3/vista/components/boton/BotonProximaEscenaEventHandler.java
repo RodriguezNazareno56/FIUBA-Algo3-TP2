@@ -20,7 +20,7 @@ public class BotonProximaEscenaEventHandler implements EventHandler<ActionEvent>
     @Override
     public void handle(ActionEvent actionEvent) {
         stage.setScene(this.proximaEscena);
-        stage.setFullScreenExitHint("");
-        stage.setFullScreen(true);
+        stage.setWidth(1200);
+        stage.setHeight(600);
     }
 }
