@@ -19,4 +19,9 @@ public class Senority {
     public void aumentarEnergia(Energia energia) {
         this.estado.aumentarEnergia(energia);
     }
+
+    @Override
+    public String toString() {
+        return estado.toString();
+    }
 }

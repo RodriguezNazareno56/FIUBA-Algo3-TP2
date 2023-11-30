@@ -7,6 +7,7 @@ import edu.fiuba.algo3.modelo.gladiador.senority.Senority;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
+import org.slf4j.Logger;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.times;
@@ -117,7 +118,7 @@ public class FieraSalvajeTest {
         Energia energia = new Energia(20);
         Equipamiento equipamiento = new SinEquipamiento();
         Senority senority = new Senority();
-        Gladiador gladiador = new Gladiador(energia, equipamiento, senority);
+        Gladiador gladiador = new Gladiador(energia, equipamiento, senority, Mockito.mock(Logger.class));
         Energia energiaEsperada = new Energia(0); //se le restan 20 puntos
 
         //Act
@@ -133,7 +134,7 @@ public class FieraSalvajeTest {
         Energia energia = new Energia(20);
         Equipamiento equipamiento = new Casco();
         Senority senority = new Senority();
-        Gladiador gladiador = new Gladiador(energia, equipamiento, senority);
+        Gladiador gladiador = new Gladiador(energia, equipamiento, senority, Mockito.mock(Logger.class));
         Energia energiaEsperada = new Energia(5);  //se le restan 15 puntos
 
         //Act
@@ -149,7 +150,7 @@ public class FieraSalvajeTest {
         Energia energia = new Energia(20);
         Equipamiento equipamiento = new Armadura();
         Senority senority = new Senority();
-        Gladiador gladiador = new Gladiador(energia, equipamiento, senority);
+        Gladiador gladiador = new Gladiador(energia, equipamiento, senority, Mockito.mock(Logger.class));
         Energia energiaEsperada = new Energia(10); //se le restan 10 puntos
 
         //Act
@@ -165,7 +166,7 @@ public class FieraSalvajeTest {
         Energia energia = new Energia(20);
         Equipamiento equipamiento = new EscudoYEspada();
         Senority senority = new Senority();
-        Gladiador gladiador = new Gladiador(energia, equipamiento, senority);
+        Gladiador gladiador = new Gladiador(energia, equipamiento, senority, Mockito.mock(Logger.class));
         Energia energiaEsperada = new Energia(18); // se le restan 2 puntos
 
         //Act
@@ -181,7 +182,7 @@ public class FieraSalvajeTest {
         Energia energia = new Energia(20);
         Equipamiento equipamiento = new Llave();
         Senority senority = new Senority();
-        Gladiador gladiador = new Gladiador(energia, equipamiento, senority);
+        Gladiador gladiador = new Gladiador(energia, equipamiento, senority, Mockito.mock(Logger.class));
         Energia energiaEsperada = new Energia(20); // la energia queda igual
 
         //Act

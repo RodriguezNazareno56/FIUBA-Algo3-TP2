@@ -13,4 +13,9 @@ public class Llave extends Equipamiento {
     public Energia disiparAtaque(FieraSalvaje fieraSalvaje) {
         return fieraSalvaje.atacarContraEquipado(this);
     }
+
+    @Override
+    public String toString() {
+        return "Llave";
+    }
 }

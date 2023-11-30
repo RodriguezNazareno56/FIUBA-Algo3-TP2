@@ -11,10 +11,10 @@ public class Coordenada {
 
     @Override
     public String toString() {
-        return "Coordenada{" +
+        return "Coordenada (" +
                 "x=" + x +
                 ", y=" + y +
-                '}';
+                ')';
     }
 
     public int getX() {

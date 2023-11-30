@@ -6,6 +6,7 @@ import edu.fiuba.algo3.data_acceso.data_mappers.CeldaMapper;
 import edu.fiuba.algo3.data_acceso.data_mappers.JsonFormatoInvalidoException;
 import edu.fiuba.algo3.data_acceso.repositories.CaminoRepository;
 import edu.fiuba.algo3.data_acceso.repositories.CaminoRepositoryImpl;
+import edu.fiuba.algo3.modelo.Dado;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -23,7 +24,7 @@ public class CasoDeUso13Test {
     public void verificarFormatoValidoJsonObstaculosYPremios() throws IOException {
         CaminoRepository caminoRepository = new CaminoRepositoryImpl(
                 new CaminoDAOJsonImpl(jsonConCaminoInvalidoPath),
-                new CaminoMapper(new CeldaMapper()));
+                new CaminoMapper(new CeldaMapper(new Dado())));
         Assertions.assertThrows(JsonFormatoInvalidoException.class, caminoRepository::obtener);
     }
 }

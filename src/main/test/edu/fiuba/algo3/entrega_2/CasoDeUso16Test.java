@@ -10,6 +10,7 @@ import edu.fiuba.algo3.data_acceso.repositories.CaminoRepository;
 import edu.fiuba.algo3.data_acceso.repositories.CaminoRepositoryImpl;
 import edu.fiuba.algo3.data_acceso.repositories.MapaRepository;
 import edu.fiuba.algo3.data_acceso.repositories.MapaRepositoryImpl;
+import edu.fiuba.algo3.modelo.Dado;
 import edu.fiuba.algo3.modelo.MovimientoPausadoExeption;
 import edu.fiuba.algo3.modelo.celda.ICelda;
 import edu.fiuba.algo3.modelo.equipamientos.Equipamiento;
@@ -21,6 +22,8 @@ import edu.fiuba.algo3.modelo.mapa.Mapa;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
+import org.slf4j.Logger;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -37,15 +40,18 @@ public class CasoDeUso16Test {
         Energia energia = new Energia(20);
         Equipamiento equipamiento = new SinEquipamiento();
         Senority senority = new Senority();
-        this.gladiador = new Gladiador(energia, equipamiento, senority);
+        this.gladiador = new Gladiador(energia, equipamiento, senority, Mockito.mock(Logger.class));
     }
 
     @Test
     public void verificarLecturaYConversionUnidadesModeloDominioJsonMapa() throws Exception {
         // Arrange
+        Dado dadoMockParaJugarBacanal = Mockito.mock(Dado.class);
+        Mockito.when(dadoMockParaJugarBacanal.tirarDado()).thenReturn(1);
+
         CaminoRepository caminoRepository = new CaminoRepositoryImpl(
                 new CaminoDAOJsonImpl(json),
-                new CaminoMapper(new CeldaMapper()));
+                new CaminoMapper(new CeldaMapper(dadoMockParaJugarBacanal)));
         MapaRepository mapaRepository = new MapaRepositoryImpl(
                 new MapaDAOJsonImpl(json),
                 new MapaMapper());
@@ -77,8 +83,8 @@ public class CasoDeUso16Test {
         mapa.avanzarNPosicionesGladiador(gladiador,1);
         assertEquals(new Energia(20), gladiador.getEnergia());
 
-        // El json especifica, en la sexta celda un Bacanal
-        // TODO: por el momento el bacanal es inicializado con 1 trago por lo que pierde 4 puntos de energia
+        // El json especifica, en la sexta celda un Bacanal. El dado con el que se juega el bacanal esta mockeado y
+        // siempre retonar 1 por lo toma un solo trago y se pierde 4 puntos
         mapa.avanzarNPosicionesGladiador(gladiador,1);
         assertEquals(new Energia(16), gladiador.getEnergia());
 

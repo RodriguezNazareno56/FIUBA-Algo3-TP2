@@ -12,6 +12,8 @@ import edu.fiuba.algo3.modelo.gladiador.senority.Senority;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
+import org.slf4j.Logger;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,7 +39,7 @@ public class GladiadorAvanza5CasillerosTest {
         Energia energia = new Energia(20);
         Equipamiento equipamiento = new SinEquipamiento();
         Senority senority = new Senority();
-        this.gladiador = new Gladiador(energia, equipamiento, senority);
+        this.gladiador = new Gladiador(energia, equipamiento, senority, Mockito.mock(Logger.class));
 
         // construyo un Mapa con el camino y el gladiador
         this.mapa = new Mapa(10, 10, camino);

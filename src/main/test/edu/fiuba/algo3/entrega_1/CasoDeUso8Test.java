@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.entrega_1;
 
-import edu.fiuba.algo3.modelo.gladiador.TriunfoException;
+import edu.fiuba.algo3.modelo.gladiador.TriunfoNoPosibleException;
 import edu.fiuba.algo3.modelo.gladiador.Energia;
 import edu.fiuba.algo3.modelo.equipamientos.Casco;
 import edu.fiuba.algo3.modelo.equipamientos.Equipamiento;
@@ -10,6 +10,9 @@ import edu.fiuba.algo3.modelo.gladiador.senority.Senority;
 import edu.fiuba.algo3.modelo.MovimientoPausadoExeption;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
+import org.slf4j.Logger;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CasoDeUso8Test {
@@ -21,11 +24,11 @@ public class CasoDeUso8Test {
         Senority senority = new Senority();
         Energia energia = new Energia(20);
         Equipamiento equipamiento = new Casco();
-        this.gladiador = new Gladiador(energia, equipamiento, senority);
+        this.gladiador = new Gladiador(energia, equipamiento, senority, Mockito.mock(Logger.class));
     }
 
     @Test
-    public void verificarQueSiPasan8TurnosElSeniorityDelGladiadorPasaDeNovatoASemiSeniorYVeSuEnergiaIncrementadaAlProximoTurno() throws MovimientoException, MovimientoPausadoExeption, TriunfoException {
+    public void verificarQueSiPasan8TurnosElSeniorityDelGladiadorPasaDeNovatoASemiSeniorYVeSuEnergiaIncrementadaAlProximoTurno() throws MovimientoException, MovimientoPausadoExeption, TriunfoNoPosibleException {
         // TODO: ver si podemos sacar ese .getEnergia()
         // Arrange
         for (int i = 1; i <= 8; i++) {

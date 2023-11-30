@@ -5,13 +5,17 @@ import edu.fiuba.algo3.modelo.MovimientoPausadoExeption;
 import edu.fiuba.algo3.modelo.camino.Camino;
 import edu.fiuba.algo3.modelo.celda.ICelda;
 import edu.fiuba.algo3.modelo.gladiador.Gladiador;
-import edu.fiuba.algo3.modelo.gladiador.TriunfoException;
+import edu.fiuba.algo3.modelo.gladiador.TriunfoNoPosibleException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 public class Mapa {
+    private static final Logger logger = LoggerFactory.getLogger(Mapa.class);
+
     private int ancho;
     private int largo;
     private Camino camino;
@@ -51,6 +55,7 @@ public class Mapa {
 
         gladiador.avanzar();
         this.posicionDeGladiadores.put(gladiador, celdaDestino);
+        logger.info(gladiador + " avanza a " + celdaDestino.toString());
 //        try {
 //            gladiador.avanzar();
 //            this.posicionDeGladiadores.put(gladiador, celdaDestino);
@@ -60,7 +65,7 @@ public class Mapa {
 
         try {
             celdaDestino.afectarGladiadorConConsecuencia(gladiador);
-        } catch (TriunfoException e) {
+        } catch (TriunfoNoPosibleException e) {
             this.retrocederGladiadorAMitadDeCamino(gladiador);
         }
     }

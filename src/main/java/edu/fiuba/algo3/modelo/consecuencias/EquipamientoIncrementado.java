@@ -7,4 +7,9 @@ public class EquipamientoIncrementado implements Consecuencia {
     public void afectarGladiador(Gladiador gladiador) {
         gladiador.incrementarEquipamiento();
     }
+
+    @Override
+    public String toString() {
+        return "Equipamiento Incrementado";
+    }
 }

@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.data_acceso.data_mappers;
 
 import edu.fiuba.algo3.data_acceso.DTOs.CeldaDto;
+import edu.fiuba.algo3.modelo.Dado;
 import edu.fiuba.algo3.modelo.celda.*;
 import edu.fiuba.algo3.modelo.consecuencias.*;
 
@@ -8,6 +9,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CeldaMapper implements Mapper<ICelda, CeldaDto>{
+
+    private Dado dadoParaBacanal;
+
+    public CeldaMapper(Dado dadoParaBacanal) {
+        this.dadoParaBacanal = dadoParaBacanal;
+    }
 
     public ICelda convertirDesdeDto(CeldaDto celdaDto) throws JsonFormatoInvalidoException {
         List<Consecuencia> consecuencias = new ArrayList<>();
@@ -21,7 +28,7 @@ public class CeldaMapper implements Mapper<ICelda, CeldaDto>{
             case "Bacanal":
 //              TODO: La cantidad de tragos no debe ser definida en la inicializacion sino en el momento que el juegador
 //               arroja el dado y conoce cuantos tragos debe tomar.
-                consecuencias.add(new AsisteAUnBacanal(1));
+                consecuencias.add(new AsisteAUnBacanal(dadoParaBacanal));
                 break;
         }
         switch (celdaDto.getPremio()) {

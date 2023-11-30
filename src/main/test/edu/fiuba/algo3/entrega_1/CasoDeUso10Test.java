@@ -8,6 +8,9 @@ import edu.fiuba.algo3.modelo.gladiador.Gladiador;
 import edu.fiuba.algo3.modelo.gladiador.senority.Senority;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
+import org.slf4j.Logger;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CasoDeUso10Test {
@@ -19,7 +22,7 @@ public class CasoDeUso10Test {
         Senority senority = new Senority();
         Energia energia = new Energia(20);
         Equipamiento equipamiento = new Llave();
-        this.gladiador = new Gladiador(energia, equipamiento, senority);
+        this.gladiador = new Gladiador(energia, equipamiento, senority, Mockito.mock(Logger.class));
     }
 
     @Test

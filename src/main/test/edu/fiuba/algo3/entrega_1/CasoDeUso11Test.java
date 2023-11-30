@@ -5,8 +5,6 @@ import edu.fiuba.algo3.modelo.celda.Celda;
 import edu.fiuba.algo3.modelo.celda.Coordenada;
 import edu.fiuba.algo3.modelo.celda.ICelda;
 import edu.fiuba.algo3.modelo.consecuencias.Triunfo;
-import edu.fiuba.algo3.modelo.equipamientos.SinEquipamiento;
-import edu.fiuba.algo3.modelo.gladiador.TriunfoException;
 import edu.fiuba.algo3.modelo.consecuencias.Consecuencia;
 import edu.fiuba.algo3.modelo.gladiador.Energia;
 import edu.fiuba.algo3.modelo.equipamientos.Equipamiento;
@@ -15,9 +13,10 @@ import edu.fiuba.algo3.modelo.gladiador.Gladiador;
 import edu.fiuba.algo3.modelo.consecuencias.EquipamientoIncrementado;
 import edu.fiuba.algo3.modelo.gladiador.senority.Senority;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
+import org.slf4j.Logger;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,7 +47,7 @@ public class CasoDeUso11Test {
         Energia energia = new Energia(20);
         Equipamiento equipamiento = new Llave();
         Senority senority = new Senority();
-        this.gladiador = new Gladiador(energia, equipamiento, senority);
+        this.gladiador = new Gladiador(energia, equipamiento, senority, Mockito.mock(Logger.class));
 
         // Construyo un mapa con el camino y el gladiador
         this.mapa = new Mapa(10, 10, camino);

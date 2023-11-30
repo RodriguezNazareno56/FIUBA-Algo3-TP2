@@ -22,4 +22,9 @@ public class NovatoState extends SenorityState {
     public void aumentarEnergia(Energia energia){
         energia.aumentarEnergia(new Energia(0));
     }
+
+    @Override
+    public String toString() {
+        return "Novato";
+    }
 }

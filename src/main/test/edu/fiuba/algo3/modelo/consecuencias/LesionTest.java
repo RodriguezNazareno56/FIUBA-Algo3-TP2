@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.modelo.consecuencias;
 
-import edu.fiuba.algo3.modelo.gladiador.TriunfoException;
+import edu.fiuba.algo3.modelo.gladiador.TriunfoNoPosibleException;
 import edu.fiuba.algo3.modelo.MovimientoException;
 import edu.fiuba.algo3.modelo.equipamientos.Equipamiento;
 import edu.fiuba.algo3.modelo.equipamientos.SinEquipamiento;
@@ -10,6 +10,8 @@ import edu.fiuba.algo3.modelo.gladiador.senority.Senority;
 import edu.fiuba.algo3.modelo.MovimientoPausadoExeption;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
+import org.slf4j.Logger;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
@@ -33,13 +35,13 @@ public class LesionTest {
     }
 
     @Test
-    public void unaLesionAfectaAUnGladiadorImpidiendoleAvanzarUnTurno() throws TriunfoException, MovimientoPausadoExeption, MovimientoException {
+    public void unaLesionAfectaAUnGladiadorImpidiendoleAvanzarUnTurno() throws TriunfoNoPosibleException, MovimientoPausadoExeption, MovimientoException {
         //Arrange
         Consecuencia lesion = new Lesion();
         Energia energia = new Energia(20);
         Equipamiento equipamiento = new SinEquipamiento();
         Senority senority = new Senority();
-        Gladiador gladiador = new Gladiador(energia, equipamiento, senority);
+        Gladiador gladiador = new Gladiador(energia, equipamiento, senority, Mockito.mock(Logger.class));
 
         //Act
         lesion.afectarGladiador(gladiador);
