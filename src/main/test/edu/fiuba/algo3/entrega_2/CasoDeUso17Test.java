@@ -15,6 +15,7 @@ import edu.fiuba.algo3.modelo.Dado;
 import edu.fiuba.algo3.modelo.gladiador.Energia;
 import edu.fiuba.algo3.modelo.gladiador.Gladiador;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.slf4j.Logger;
@@ -26,22 +27,29 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CasoDeUso17Test {
 
-    Path json = Paths.get("src/main/test/edu/fiuba/algo3/entrega_2/Json_test_resources/CasoDeUso16.json");
+    Path json = Paths.get("src/main/test/edu/fiuba/algo3/entrega_2/Json_test_resources/CasoDeUso17.json");
+    private MapaService mapaService;
 
-    @Test
-    public void verificarCreacionJuegoAcordeJson() throws Exception {
-        // TODO: Basicamente se puede hacer lo mismo que en el casoDeUso18 pero desde AlgoRoma, osea iniciando el juego.
-        // Arrange
+    @BeforeEach
+    public void setUp() throws Exception {
+        // Mock de dado para jugar bacanal, siempre retorna 1
         Dado dadoMockParaJugarBacanal = Mockito.mock(Dado.class);
         Mockito.when(dadoMockParaJugarBacanal.tirarDado()).thenReturn(1);
 
+        // MapaService
         CaminoRepository caminoRepository = new CaminoRepositoryImpl(
                 new CaminoDAOJsonImpl(json),
                 new CaminoMapper(new CeldaMapper(dadoMockParaJugarBacanal)));
         MapaRepository mapaRepository = new MapaRepositoryImpl(
                 new MapaDAOJsonImpl(json),
                 new MapaMapper());
-        MapaService mapaService = new MapaService(caminoRepository, mapaRepository);
+        this.mapaService = new MapaService(caminoRepository, mapaRepository);
+    }
+
+    @Test
+    public void verificarCreacionJuegoAcordeJson() throws Exception {
+        // Misma estrategia que el casoDeUso17 pero esta vez instanciamos JuegoRoma
+        // Arrange
 
         // Mockeo el dado para que siempre se avance de a una posicion
         Dado dado = Mockito.mock(Dado.class);
@@ -51,13 +59,14 @@ public class CasoDeUso17Test {
         AlgoRoma algoRoma = new AlgoRoma(mapaService, dado, Mockito.mock(Logger.class));
         algoRoma.agregarGladiador("Mike Tyson");
 
+        // Act
         algoRoma.inicializarJuego();
 
-        // TODO: Como observo a mike tyson ahhhhhhhh (re trucho este get)
+        // Obtengo el gladiador para testear que sea afectado del modo esperado  TODO: posible refactor.
         Gladiador gladiador = null;
-        for (Gladiador gladiadorActual : algoRoma.getGladiadores()) {
-            if (gladiadorActual.getNombre().equals("Mike Tyson")) {
-                gladiador = gladiadorActual;
+        for (Gladiador g : algoRoma.getGladiadores()) {
+            if (g.getNombre().equals("Mike Tyson")) {
+                gladiador = g;
             }
         }
 
@@ -74,7 +83,6 @@ public class CasoDeUso17Test {
         // El json especifica, en la cuarta celda un Lesion
         algoRoma.jugarTurno();
         Assertions.assertThrows(Exception.class, algoRoma::jugarTurno);
-//        ICelda mitadDeCamino = mapa.getPosicionDeGladiador(gladiador);
 
         // El json especifica, en la quinta celda un Premio de comida.
         // Se espera que el gladiador que poseia 5 puntos de energia incremente en 15 llegando asi a 20 puntos.
@@ -94,9 +102,7 @@ public class CasoDeUso17Test {
         Assertions.assertThrows(Exception.class, gladiador::avanzar);
 
         // El json especifica, en la octaba la celda final. Esperamos que se comporte como tal y siendo que el gladiador
-        // no posee la llave, este sea retornado a mitad de casilleros.
-        // TODO: verificar que esta casilla es la final
-//        algoRoma.jugarTurno();
-//        assertEquals(mitadDeCamino, mapa.getPosicionDeGladiador(gladiador));
+        // no posee la llave, este sea retornado a mitad de casilleros y es posible continuar avanzando.
+        algoRoma.jugarTurno();
     }
 }

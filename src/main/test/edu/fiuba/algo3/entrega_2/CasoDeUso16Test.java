@@ -34,34 +34,48 @@ public class CasoDeUso16Test {
 
     Path json = Paths.get("src/main/test/edu/fiuba/algo3/entrega_2/Json_test_resources/CasoDeUso16.json");
     private Gladiador gladiador;
+    private MapaService mapaService;
 
     @BeforeEach
-    public void setUp() {
+    public void setUp() throws Exception {
         Energia energia = new Energia(20);
         Equipamiento equipamiento = new SinEquipamiento();
         Senority senority = new Senority();
         this.gladiador = new Gladiador(energia, equipamiento, senority, Mockito.mock(Logger.class));
-    }
 
-    @Test
-    public void verificarLecturaYConversionUnidadesModeloDominioJsonMapa() throws Exception {
-        // Arrange
+        // Mock de dado para jugar bacanal, siempre retorna 1
         Dado dadoMockParaJugarBacanal = Mockito.mock(Dado.class);
         Mockito.when(dadoMockParaJugarBacanal.tirarDado()).thenReturn(1);
 
+        // MapaService
         CaminoRepository caminoRepository = new CaminoRepositoryImpl(
                 new CaminoDAOJsonImpl(json),
                 new CaminoMapper(new CeldaMapper(dadoMockParaJugarBacanal)));
         MapaRepository mapaRepository = new MapaRepositoryImpl(
                 new MapaDAOJsonImpl(json),
                 new MapaMapper());
-        MapaService mapaService = new MapaService(caminoRepository, mapaRepository);
+        this.mapaService = new MapaService(caminoRepository, mapaRepository);
+    }
 
+    @Test
+    public void verificarLecturaYConversionUnidadesModeloDominioJsonMapa() throws Exception {
+        // Misma estrategia que el casoDeUso15 pero ahora recorremos desde el mapa y no desde el camino. Comprobamos
+        // tambien la correcta instanciacion de premios
+        // TODO: supuesto: consideramos que este test busca probar la lectura y conversion de todas las unidades
+        //  de modelo que finalmente constituyen un Mapa (camino, celdas, obstaculos y premios) y no tan solo
+        //  "mapa": {
+        //    "ancho": 10,
+        //    "largo": 18
+        //  },
+
+        // Arrange
         // cargo un mapa de acuerdo al json y le seteo un gladiador
         Mapa mapa = mapaService.cargarMapa();
         mapa.setGladiador(gladiador);
 
         // Assert
+        // avanzaremos al gladiador de a un posicion en el mapa y comprobaremos que las consecuencias experimentadas
+        // por el gladiador se corresponda con el obstaculo/premio presente en la celda.
 
         // El json especifica, en la segunda celda un premio de equipamiento.
         // El gladiador ha sido inicializado con  puntos de energia y sin equipamiento se espera que reciba un casco.

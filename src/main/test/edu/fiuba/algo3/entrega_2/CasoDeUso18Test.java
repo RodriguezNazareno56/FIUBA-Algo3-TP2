@@ -31,12 +31,10 @@ public class CasoDeUso18Test {
 
     @BeforeEach
     public void setUp() throws IOException {
-        Dado dadoMockParaJugarBacanal = Mockito.mock(Dado.class);
-        Mockito.when(dadoMockParaJugarBacanal.tirarDado()).thenReturn(1);
-
+        // MapaService
         CaminoRepository caminoRepository = new CaminoRepositoryImpl(
                 new CaminoDAOJsonImpl(json),
-                new CaminoMapper(new CeldaMapper(dadoMockParaJugarBacanal)));
+                new CaminoMapper(new CeldaMapper(new Dado())));
         MapaRepository mapaRepository = new MapaRepositoryImpl(
                 new MapaDAOJsonImpl(json),
                 new MapaMapper());
@@ -60,6 +58,7 @@ public class CasoDeUso18Test {
         algoRoma.inicializarJuego();
 
         // Verify
+        // this.logger.info("Juego inicilizado") al inicializar juego
         Mockito.verify(loggerMock, Mockito.times(1)).info(Mockito.anyString());
     }
 }

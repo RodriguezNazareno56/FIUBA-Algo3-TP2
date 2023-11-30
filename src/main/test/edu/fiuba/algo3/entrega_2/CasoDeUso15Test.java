@@ -53,16 +53,20 @@ public class CasoDeUso15Test {
 
         // Act
         Camino camino = caminoRepository.obtener();
-        List<ICelda> celdas = camino.getCeldas();
 
         // Assert
+        // Voy a pedirle las celdas al camino y recorre una a una comprobando que posee el obstaculo indicado por el json
+        List<ICelda> celdas = camino.getCeldas();
+
         // El json especifica, en la tercer celda un Lesion
         celdas.get(2).afectarGladiadorConConsecuencia(gladiador);
         Assertions.assertThrows(MovimientoPausadoExeption.class, gladiador::avanzar);
+
         // El json especifica, en la cuarta celda una Fiera. El gladiador ha sido inicializado con 20 puntos de energia
         // y con casco por lo que queda con 5 puntos de energia tras el ataque
         celdas.get(3).afectarGladiadorConConsecuencia(gladiador);
         assertEquals(new Energia(5), gladiador.getEnergia());
+
         // El json especifica, en la quinta celda un Bacanal. El dado con el que se juega el bacanal esta mockeado y
         // siempre retonar 1 por lo toma un solo trago y se pierde 4 puntos
         celdas.get(4).afectarGladiadorConConsecuencia(gladiador);
