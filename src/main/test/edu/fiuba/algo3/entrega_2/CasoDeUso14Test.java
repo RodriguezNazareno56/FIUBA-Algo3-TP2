@@ -1,10 +1,12 @@
 package edu.fiuba.algo3.entrega_2;
 
-import edu.fiuba.algo3.data_acceso.DAOs.MapaDAOJsonImpl;
+import edu.fiuba.algo3.data_acceso.DAOs.CaminoDAOJsonImpl;
+import edu.fiuba.algo3.data_acceso.data_mappers.CaminoMapper;
+import edu.fiuba.algo3.data_acceso.data_mappers.CeldaMapper;
 import edu.fiuba.algo3.data_acceso.data_mappers.JsonFormatoInvalidoException;
-import edu.fiuba.algo3.data_acceso.data_mappers.MapaMapper;
-import edu.fiuba.algo3.data_acceso.repositories.MapaRepository;
-import edu.fiuba.algo3.data_acceso.repositories.MapaRepositoryImpl;
+import edu.fiuba.algo3.data_acceso.repositories.CaminoRepository;
+import edu.fiuba.algo3.data_acceso.repositories.CaminoRepositoryImpl;
+import edu.fiuba.algo3.modelo.Dado;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -12,24 +14,32 @@ import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 public class CasoDeUso14Test {
 
-    Path jsonConMapaInvalidoPath = Paths.get("src/main/test/edu/fiuba/algo3/entrega_2/Json_test_resources/CasoDeUso14.json");
+    Path jsonConCaminoInvalidoPath = Paths.get("src/main/test/edu/fiuba/algo3/entrega_2/Json_test_resources/CasoDeUso13.json");
 
     @Test
-    public void verificarFormatoValidoJsonMapa() throws Exception {
-        // TODO: supuesto: consideramos JsonMapa a la parte del json que contiene el jsonObject mapa
-        //  "mapa": {
-        //    "ancho": 10,
-        //    "largo": 18
-        //  },
+    public void verificarFormatoValidoJsonObstaculosYPremios() throws IOException {
+        // TODO: supuesto: consideramos JsonObstaculosYPremios a la parte del json que contiene el camino
+        //  "camino": {
+        //    "celdas": [
+        //      {
+        //        "x": 1,
+        //        "y": 7,
+        //        "tipo": "Salida",
+        //        "obstaculo": "",
+        //        "premio": ""
+        //      },...
 
         // Arrange
-        // instancio un mapaRepository con un json con formato invalido
-        MapaRepository mapaRepository = new MapaRepositoryImpl(
-                new MapaDAOJsonImpl(jsonConMapaInvalidoPath),
-                new MapaMapper());
+        // instancio un caminoRepository con un json con formato invalido
+        CaminoRepository caminoRepository = new CaminoRepositoryImpl(
+                new CaminoDAOJsonImpl(jsonConCaminoInvalidoPath),
+                new CaminoMapper(new CeldaMapper(new Dado())));
+
         // Assert
-        Assertions.assertThrows(JsonFormatoInvalidoException.class, mapaRepository::obtener);
+        Assertions.assertThrows(JsonFormatoInvalidoException.class, caminoRepository::obtener);
     }
 }
