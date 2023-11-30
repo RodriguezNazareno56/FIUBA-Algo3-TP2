@@ -1,0 +1,52 @@
+{
+  "mapa": {
+    "ancho": 10,
+    "largo": 18
+  },
+  "camino": {
+    "celdas": [
+      {
+        "x": 1,
+        "y": 7,
+        "tipo": "Salida",
+        "obstaculo": "",
+        "premio": ""
+      },
+      {
+        "x": 2,
+        "y": 7,
+        "tipo": "Camino",
+        "obstaculo": "",
+        "premio": ""
+      },
+      {
+        "x": 3,
+        "y": 7,
+        "tipo": "Camino",
+        "obstaculo": "",
+        "premio": ""
+      },
+      {
+        "x": 3,
+        "y": 6,
+        "tipo": "Camino",
+        "obstaculo": "",
+        "premio": ""
+      },
+      {
+        "x": 3,
+        "y": 5,
+        "tipo": "Camino",
+        "obstaculo": "",
+        "premio": ""
+      },
+      {
+        "x": 3,
+        "y": 1,
+        "tipo": "Llegada",
+        "obstaculo": "",
+        "premio": ""
+      }
+    ]
+  }
+}
