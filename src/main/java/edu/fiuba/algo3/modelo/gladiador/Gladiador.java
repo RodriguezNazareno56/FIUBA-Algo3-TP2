@@ -37,12 +37,6 @@ public class Gladiador implements ObservableGladiador {
         return new Energia(this.energia.getValor());
     }
 
-    // TODO: se puede eliminar mirar issue #87
-    public Equipamiento obtenerEquipamiento() {
-        return equipamiento;
-    }
-
-
     public void avanzar() throws MovimientoException, MovimientoPausadoExeption {
         if (this.energia.isAgotada()) {
             logger.info(this + " se encuentra sin energia para moverse, para el siguiente turno se repondran 5 puntos");
