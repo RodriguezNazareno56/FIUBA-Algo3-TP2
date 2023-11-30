@@ -18,7 +18,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CasoDeUso14Test {
 
-    Path jsonConCaminoInvalidoPath = Paths.get("src/main/test/edu/fiuba/algo3/entrega_2/Json_test_resources/CasoDeUso13.json");
+    Path jsonConCaminoInvalidoPath = Paths.get("src/main/test/edu/fiuba/algo3/entrega_2/Json_test_resources/CasoDeUso14.json");
 
     @Test
     public void verificarFormatoValidoJsonObstaculosYPremios() throws IOException {

@@ -1,8 +1,7 @@
 {
   "mapa": {
     "ancho": 10,
-    "largo": 18,
-    "invalido" : "invalido"
+    "largo": 18
   },
   "camino": {
     "celdas": [
@@ -14,8 +13,11 @@
         "premio": ""
       },
       {
-        "x": 2,
-        "y": 7,
+        "INVALIDO": "Invalidizimo"
+      },
+      {
+        "x": 17,
+        "y": 1,
         "tipo": "Llegada",
         "obstaculo": "",
         "premio": ""

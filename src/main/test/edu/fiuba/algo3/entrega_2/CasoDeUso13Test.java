@@ -13,7 +13,7 @@ import java.nio.file.Paths;
 
 public class CasoDeUso13Test {
 
-    Path jsonConMapaInvalidoPath = Paths.get("src/main/test/edu/fiuba/algo3/entrega_2/Json_test_resources/CasoDeUso14.json");
+    Path jsonConMapaInvalidoPath = Paths.get("src/main/test/edu/fiuba/algo3/entrega_2/Json_test_resources/CasoDeUso13.json");
 
     @Test
     public void verificarFormatoValidoJsonMapa() throws Exception {
