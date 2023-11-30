@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo.consecuencias;
 
 
+import edu.fiuba.algo3.modelo.constantes.ComidaConstantes;
 import edu.fiuba.algo3.modelo.equipamientos.Equipamiento;
 import edu.fiuba.algo3.modelo.equipamientos.SinEquipamiento;
 import edu.fiuba.algo3.modelo.gladiador.Energia;
@@ -31,12 +32,13 @@ public class ComidaTest {
     @Test
     public void unGladiadorEsAfectadoPorComidaYSuEnergiaSeIncrementa() {
         // Arrange
-        Energia energia = new Energia(20);
+        int energiaInicialValor = 20;
+        Energia energia = new Energia(energiaInicialValor);
         Equipamiento equipamiento = new SinEquipamiento();
         Senority senority = new Senority();
         Gladiador gladiador = new Gladiador(energia, equipamiento, senority, Mockito.mock(Logger.class));
         Comida comida = new Comida();
-        Energia energiaEsperada = new Energia(35);
+        Energia energiaEsperada = new Energia(energiaInicialValor + ComidaConstantes.VALOR_DE_RECOMPOSICION);
 
         //Act
         comida.afectarGladiador(gladiador);
@@ -48,12 +50,13 @@ public class ComidaTest {
     @Test
     public void unGladiadorConEnergiaNegativaEsAfectadoPorComidaYSuEnergiaSeIncrementa() {
         // Arrange
-        Energia energia = new Energia(-10);
+        int energiaInicialValor = -10;
+        Energia energia = new Energia(energiaInicialValor);
         Equipamiento equipamiento = new SinEquipamiento();
         Senority senority = new Senority();
         Gladiador gladiador = new Gladiador(energia, equipamiento, senority, Mockito.mock(Logger.class));
         Comida comida = new Comida();
-        Energia energiaEsperada = new Energia(5); // -10 + 15
+        Energia energiaEsperada = new Energia(energiaInicialValor + ComidaConstantes.VALOR_DE_RECOMPOSICION);
 
         //Act
         comida.afectarGladiador(gladiador);

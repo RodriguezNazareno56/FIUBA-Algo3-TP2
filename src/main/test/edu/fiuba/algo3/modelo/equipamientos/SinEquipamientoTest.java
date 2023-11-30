@@ -39,7 +39,7 @@ public class SinEquipamientoTest {
     public void disiparAtaqueDeUnaFieraRetornaUnaEnergiaConValor0ComoDanio() {
         // Arrange
         SinEquipamiento sinEquipamiento = new SinEquipamiento();
-        int danioEsperado = 20;
+        int danioEsperado = FieraSalvaje.ATAQUE_CONTRA_EQUIPADO_SIN_EQUIPAMIENTO;
 
         Energia energiaMock = Mockito.mock(Energia.class);
         Mockito.when(energiaMock.getValor()).thenReturn(danioEsperado);

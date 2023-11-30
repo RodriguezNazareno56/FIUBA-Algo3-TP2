@@ -39,7 +39,7 @@ public class LlaveTest {
     public void disiparAtaqueDeUnaFieraRetornaUnaEnergiaConValor0ComoDanio() {
         // Arrange
         Llave llave = new Llave();
-        int danioEsperado = 0;
+        int danioEsperado = FieraSalvaje.ATAQUE_CONTRA_EQUIPADO_LLAVE;
 
         Energia energiaMock = Mockito.mock(Energia.class);
         Mockito.when(energiaMock.getValor()).thenReturn(danioEsperado);
