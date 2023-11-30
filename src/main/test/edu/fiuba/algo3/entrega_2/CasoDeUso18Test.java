@@ -5,6 +5,7 @@ import edu.fiuba.algo3.data_acceso.DAOs.MapaDAOJsonImpl;
 import edu.fiuba.algo3.data_acceso.MapaService;
 import edu.fiuba.algo3.data_acceso.data_mappers.CaminoMapper;
 import edu.fiuba.algo3.data_acceso.data_mappers.CeldaMapper;
+import edu.fiuba.algo3.data_acceso.data_mappers.JsonFormatoInvalidoException;
 import edu.fiuba.algo3.data_acceso.data_mappers.MapaMapper;
 import edu.fiuba.algo3.data_acceso.repositories.CaminoRepository;
 import edu.fiuba.algo3.data_acceso.repositories.CaminoRepositoryImpl;
@@ -12,6 +13,7 @@ import edu.fiuba.algo3.data_acceso.repositories.MapaRepository;
 import edu.fiuba.algo3.data_acceso.repositories.MapaRepositoryImpl;
 import edu.fiuba.algo3.modelo.AlgoRoma;
 import edu.fiuba.algo3.modelo.Dado;
+import edu.fiuba.algo3.modelo.mapa.Mapa;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -30,28 +32,16 @@ public class CasoDeUso18Test {
     AlgoRoma algoRoma;
 
     @BeforeEach
-    public void setUp() throws IOException {
-        Dado dadoMockParaJugarBacanal = Mockito.mock(Dado.class);
-        Mockito.when(dadoMockParaJugarBacanal.tirarDado()).thenReturn(1);
-
-        CaminoRepository caminoRepository = new CaminoRepositoryImpl(
-                new CaminoDAOJsonImpl(json),
-                new CaminoMapper(new CeldaMapper(dadoMockParaJugarBacanal)));
-        MapaRepository mapaRepository = new MapaRepositoryImpl(
-                new MapaDAOJsonImpl(json),
-                new MapaMapper());
-        MapaService mapaService = new MapaService(caminoRepository, mapaRepository);
-
-        // Mockeo el dado para que siempre se avance de a una posicion
-        Dado dado = Mockito.mock(Dado.class);
-        Mockito.when(dado.tirarDado()).thenReturn(1);
-
+    public void setUp() throws Exception {
         // Mockeo el logger
         this.loggerMock = Mockito.mock(Logger.class);
 
-        // Creo un algo roma y le agrego un gladiador
-        this.algoRoma = new AlgoRoma(mapaService, dado, loggerMock);
-        algoRoma.agregarGladiador("Mike Tyson");
+        // Mockeo el mapaService
+        MapaService mapaServiceMock = Mockito.mock(MapaService.class);
+        Mockito.when(mapaServiceMock.cargarMapa()).thenReturn(Mockito.mock(Mapa.class));
+
+        // Instancio AlgoRoma
+        this.algoRoma = new AlgoRoma(mapaServiceMock, Mockito.mock(Dado.class), loggerMock);
     }
 
     @Test
@@ -60,6 +50,7 @@ public class CasoDeUso18Test {
         algoRoma.inicializarJuego();
 
         // Verify
+        // this.logger.info("Juego inicilizado") al inicializar juego
         Mockito.verify(loggerMock, Mockito.times(1)).info(Mockito.anyString());
     }
 }

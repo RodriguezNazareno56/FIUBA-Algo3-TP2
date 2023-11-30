@@ -17,10 +17,19 @@ public class CasoDeUso14Test {
     Path jsonConMapaInvalidoPath = Paths.get("src/main/test/edu/fiuba/algo3/entrega_2/Json_test_resources/CasoDeUso14.json");
 
     @Test
-    public void verificarFormatoValidoJsonMapa() throws IOException {
+    public void verificarFormatoValidoJsonMapa() throws Exception {
+        // TODO: supuesto: consideramos JsonMapa a la parte del json que contiene el jsonObject mapa
+        //  "mapa": {
+        //    "ancho": 10,
+        //    "largo": 18
+        //  },
+
+        // Arrange
+        // instancio un mapaRepository con un json con formato invalido
         MapaRepository mapaRepository = new MapaRepositoryImpl(
                 new MapaDAOJsonImpl(jsonConMapaInvalidoPath),
                 new MapaMapper());
+        // Assert
         Assertions.assertThrows(JsonFormatoInvalidoException.class, mapaRepository::obtener);
     }
 }

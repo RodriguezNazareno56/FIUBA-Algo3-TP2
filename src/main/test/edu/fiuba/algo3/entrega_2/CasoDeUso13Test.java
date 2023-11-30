@@ -22,9 +22,24 @@ public class CasoDeUso13Test {
 
     @Test
     public void verificarFormatoValidoJsonObstaculosYPremios() throws IOException {
+        // TODO: supuesto: consideramos JsonObstaculosYPremios a la parte del json que contiene el camino
+        //  "camino": {
+        //    "celdas": [
+        //      {
+        //        "x": 1,
+        //        "y": 7,
+        //        "tipo": "Salida",
+        //        "obstaculo": "",
+        //        "premio": ""
+        //      },...
+
+        // Arrange
+        // instancio un caminoRepository con un json con formato invalido
         CaminoRepository caminoRepository = new CaminoRepositoryImpl(
                 new CaminoDAOJsonImpl(jsonConCaminoInvalidoPath),
                 new CaminoMapper(new CeldaMapper(new Dado())));
+
+        // Assert
         Assertions.assertThrows(JsonFormatoInvalidoException.class, caminoRepository::obtener);
     }
 }
