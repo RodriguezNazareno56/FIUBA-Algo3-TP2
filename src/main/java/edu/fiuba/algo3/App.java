@@ -30,6 +30,7 @@ import org.slf4j.event.EventRecordingLogger;
 
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 
 /**
@@ -42,14 +43,15 @@ public class App extends Application {
         var javaVersion = SystemInfo.javaVersion();
         var javafxVersion = SystemInfo.javafxVersion();
 
-        CaminoDAO caminoDAO = new CaminoDAOJsonImpl(Paths.get("src/main/resources/mapa.json"));
+        Path jsonPath = Paths.get("src/main/resources/mapa.json");
+        CaminoDAO caminoDAO = new CaminoDAOJsonImpl(jsonPath);
         Dado dadoParaBacanal = new Dado();
         CeldaMapper celdaMapper = new CeldaMapper(dadoParaBacanal);
         CaminoMapper caminoMapper = new CaminoMapper(celdaMapper);
 
         CaminoRepository caminoRepository = new CaminoRepositoryImpl(caminoDAO, caminoMapper);
 
-        MapaDAO mapaDAO = new MapaDAOJsonImpl(Paths.get("src/main/resources/mapa.json"));
+        MapaDAO mapaDAO = new MapaDAOJsonImpl(jsonPath);
         MapaMapper mapaMapper = new MapaMapper();
 
         MapaRepository mapaRepository = new MapaRepositoryImpl(mapaDAO,mapaMapper);
