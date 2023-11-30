@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo.celda;
 
+import edu.fiuba.algo3.modelo.FinDelJuegoException;
 import edu.fiuba.algo3.modelo.consecuencias.Consecuencia;
 import edu.fiuba.algo3.modelo.gladiador.Gladiador;
 import edu.fiuba.algo3.modelo.gladiador.exepciones.TriunfoNoPosibleException;
@@ -29,7 +30,7 @@ public class Celda implements ICelda {
     }
 
     @Override
-    public void afectarGladiadorConConsecuencia(Gladiador gladiador) throws TriunfoNoPosibleException {
+    public void afectarGladiadorConConsecuencia(Gladiador gladiador) throws TriunfoNoPosibleException, FinDelJuegoException {
         for (Consecuencia consecuencia : consecuencias) {
             consecuencia.afectarGladiador(gladiador);
         }

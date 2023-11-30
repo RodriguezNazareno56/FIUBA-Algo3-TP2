@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo.consecuencias;
 
+import edu.fiuba.algo3.modelo.FinDelJuegoException;
 import edu.fiuba.algo3.modelo.gladiador.exepciones.TriunfoNoPosibleException;
 import edu.fiuba.algo3.modelo.gladiador.exepciones.MovimientoException;
 import edu.fiuba.algo3.modelo.equipamientos.Equipamiento;
@@ -35,7 +36,7 @@ public class LesionTest {
     }
 
     @Test
-    public void unaLesionAfectaAUnGladiadorImpidiendoleAvanzarUnTurno() throws TriunfoNoPosibleException, MovimientoPausadoExeption, MovimientoException {
+    public void unaLesionAfectaAUnGladiadorImpidiendoleAvanzarUnTurno() throws TriunfoNoPosibleException, FinDelJuegoException {
         //Arrange
         Consecuencia lesion = new Lesion();
         Energia energia = new Energia(20);

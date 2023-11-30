@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.entrega_1;
 
+import edu.fiuba.algo3.modelo.FinDelJuegoException;
 import edu.fiuba.algo3.modelo.gladiador.exepciones.MovimientoException;
 import edu.fiuba.algo3.modelo.gladiador.exepciones.MovimientoPausadoExeption;
 import edu.fiuba.algo3.modelo.camino.Camino;
@@ -59,7 +60,7 @@ public class CasoDeUso9Test {
     }
 
     @Test
-    public void verificarQueSiLlegaALaMetaSinLaLlaveEnElEquipamientoRetrocedeALaMitadDeLasCasillas() throws MovimientoPausadoExeption, MovimientoException {
+    public void verificarQueSiLlegaALaMetaSinLaLlaveEnElEquipamientoRetrocedeALaMitadDeLasCasillas() throws MovimientoPausadoExeption, MovimientoException, FinDelJuegoException {
         // Act
         mapa.avanzarNPosicionesGladiador(gladiador,cantidadDeCasillero);
 

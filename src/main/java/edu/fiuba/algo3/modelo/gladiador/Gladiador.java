@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo.gladiador;
 
+import edu.fiuba.algo3.modelo.FinDelJuegoException;
 import edu.fiuba.algo3.modelo.consecuencias.Consecuencia;
 import edu.fiuba.algo3.modelo.consecuencias.Enemigo;
 import edu.fiuba.algo3.modelo.equipamientos.Equipamiento;
@@ -96,7 +97,7 @@ public class Gladiador implements ObservableGladiador {
         this.estaHabilitadoParaMover = false;
     }
 
-    public void triunfar() throws TriunfoNoPosibleException {
+    public void triunfar() throws TriunfoNoPosibleException, FinDelJuegoException {
         if (equipamiento != equipamiento.incrementar()) {
             throw new TriunfoNoPosibleException("El jugador no posee el equipamiento requerido");
         }
@@ -117,8 +118,10 @@ public class Gladiador implements ObservableGladiador {
     }
 
     @Override
-    public void notificarTriunfoObservadores() {
-        this.observadores.forEach(observadores -> observadores.notificarTriunfo(this));
+    public void notificarTriunfoObservadores() throws FinDelJuegoException {
+        for (ObservadorGladiador observador : this.observadores) {
+            observador.notificarTriunfo(this);
+        }
     }
 
     @Override

@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo.celda;
 
+import edu.fiuba.algo3.modelo.FinDelJuegoException;
 import edu.fiuba.algo3.modelo.consecuencias.Consecuencia;
 import edu.fiuba.algo3.modelo.gladiador.Gladiador;
 import edu.fiuba.algo3.modelo.gladiador.exepciones.TriunfoNoPosibleException;
@@ -12,7 +13,7 @@ import java.util.List;
 public class CeldaTest {
 
     @Test
-    public void afectarGladiadorConConsecuenciaCuandoCeldaTieneUnaSolaConsecuencia() throws TriunfoNoPosibleException {
+    public void afectarGladiadorConConsecuenciaCuandoCeldaTieneUnaSolaConsecuencia() throws TriunfoNoPosibleException, FinDelJuegoException {
         // Arrange
         Gladiador gladiador = Mockito.mock(Gladiador.class);
         Coordenada coordenada = Mockito.mock(Coordenada.class);
@@ -31,7 +32,7 @@ public class CeldaTest {
     }
 
     @Test
-    public void afectarGladiadorConConsecuenciaCuandoCeldaTieneMasDeUnaConsecuencia() throws TriunfoNoPosibleException {
+    public void afectarGladiadorConConsecuenciaCuandoCeldaTieneMasDeUnaConsecuencia() throws TriunfoNoPosibleException, FinDelJuegoException {
         // Arrange
         Gladiador gladiador = Mockito.mock(Gladiador.class);
         Coordenada coordenada = Mockito.mock(Coordenada.class);

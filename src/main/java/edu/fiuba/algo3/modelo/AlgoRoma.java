@@ -191,8 +191,9 @@ public class AlgoRoma implements ObservadorGladiador {
 
 
     @Override
-    public void notificarTriunfo(Gladiador gladiador) {
+    public void notificarTriunfo(Gladiador gladiador) throws FinDelJuegoException {
         this.logger.info(gladiador + " ha triunfado!!!");
         this.juegoEnCurso = false;
+        throw new FinDelJuegoException(gladiador + " ha triunfado !!");
     }
 }

@@ -12,6 +12,7 @@ import edu.fiuba.algo3.data_acceso.repositories.MapaRepository;
 import edu.fiuba.algo3.data_acceso.repositories.MapaRepositoryImpl;
 import edu.fiuba.algo3.modelo.AlgoRoma;
 import edu.fiuba.algo3.modelo.Dado;
+import edu.fiuba.algo3.modelo.FinDelJuegoException;
 import edu.fiuba.algo3.modelo.JuegoNoIniciadoException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -53,10 +54,10 @@ public class CasoDeUso19Test {
         algoRoma.inicializarJuego();
 
         // Act
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 4; i++) {
             algoRoma.jugarTurno();
         }
         // Assert
-        Assertions.assertThrows(JuegoNoIniciadoException.class, algoRoma::jugarTurno);
+        Assertions.assertThrows(FinDelJuegoException.class, algoRoma::jugarTurno);
     }
 }
