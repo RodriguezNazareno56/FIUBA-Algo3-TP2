@@ -6,6 +6,8 @@ import edu.fiuba.algo3.modelo.gladiador.Energia;
 import edu.fiuba.algo3.modelo.gladiador.Gladiador;
 import edu.fiuba.algo3.modelo.gladiador.senority.Senority;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
+import org.slf4j.Logger;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
@@ -34,7 +36,7 @@ public class AsisteAUnBacanalTest {
         Energia energia = new Energia(20);
         Equipamiento equipamiento = new SinEquipamiento();
         Senority senority = new Senority();
-        Gladiador gladiador = new Gladiador(energia, equipamiento, senority);
+        Gladiador gladiador = new Gladiador(energia, equipamiento, senority, Mockito.mock(Logger.class));
 
         AsisteAUnBacanal bacanal = new AsisteAUnBacanal(1);
         Energia energiaEsperada = new Energia(16); // se le restan 4 * cantidadTragos
@@ -52,7 +54,7 @@ public class AsisteAUnBacanalTest {
         Energia energia = new Energia(20);
         Equipamiento equipamiento = new SinEquipamiento();
         Senority senority = new Senority();
-        Gladiador gladiador = new Gladiador(energia, equipamiento, senority);
+        Gladiador gladiador = new Gladiador(energia, equipamiento, senority, Mockito.mock(Logger.class));
 
         AsisteAUnBacanal bacanal = new AsisteAUnBacanal(2);
         Energia energiaEsperada = new Energia(12); // se le restan 4 * cantidadTragos
@@ -70,7 +72,7 @@ public class AsisteAUnBacanalTest {
         Energia energia = new Energia(20);
         Equipamiento equipamiento = new SinEquipamiento();
         Senority senority = new Senority();
-        Gladiador gladiador = new Gladiador(energia, equipamiento, senority);
+        Gladiador gladiador = new Gladiador(energia, equipamiento, senority, Mockito.mock(Logger.class));
 
         AsisteAUnBacanal bacanal = new AsisteAUnBacanal(3);
         Energia energiaEsperada = new Energia(8); // se le restan 4 * cantidadTragos
@@ -88,7 +90,7 @@ public class AsisteAUnBacanalTest {
         Energia energia = new Energia(20);
         Equipamiento equipamiento = new SinEquipamiento();
         Senority senority = new Senority();
-        Gladiador gladiador = new Gladiador(energia, equipamiento, senority);
+        Gladiador gladiador = new Gladiador(energia, equipamiento, senority, Mockito.mock(Logger.class));
 
         AsisteAUnBacanal bacanal = new AsisteAUnBacanal(4);
         Energia energiaEsperada = new Energia(4); // se le restan 4 * cantidadTragos
@@ -106,7 +108,7 @@ public class AsisteAUnBacanalTest {
         Energia energia = new Energia(20);
         Equipamiento equipamiento = new SinEquipamiento();
         Senority senority = new Senority();
-        Gladiador gladiador = new Gladiador(energia, equipamiento, senority);
+        Gladiador gladiador = new Gladiador(energia, equipamiento, senority, Mockito.mock(Logger.class));
 
         AsisteAUnBacanal bacanal = new AsisteAUnBacanal(5);
         Energia energiaEsperada = new Energia(0); // se le restan 4 * cantidadTragos
@@ -124,7 +126,7 @@ public class AsisteAUnBacanalTest {
         Energia energia = new Energia(20);
         Equipamiento equipamiento = new SinEquipamiento();
         Senority senority = new Senority();
-        Gladiador gladiador = new Gladiador(energia, equipamiento, senority);
+        Gladiador gladiador = new Gladiador(energia, equipamiento, senority, Mockito.mock(Logger.class));
 
         AsisteAUnBacanal bacanal = new AsisteAUnBacanal(6);
         Energia energiaEsperada = new Energia(-4); // se le restan 4 * cantidadTragos

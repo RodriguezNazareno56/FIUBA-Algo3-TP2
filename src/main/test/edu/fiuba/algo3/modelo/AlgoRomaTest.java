@@ -12,6 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.mockito.ArgumentMatchers;
 import org.mockito.Mockito;
+import org.slf4j.Logger;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.times;
@@ -79,7 +80,7 @@ public class AlgoRomaTest {
 
         Dado dado = Mockito.mock(Dado.class);
 
-        AlgoRoma algoRoma = new AlgoRoma(mapaService, dado);
+        AlgoRoma algoRoma = new AlgoRoma(mapaService, dado, Mockito.mock(Logger.class));
 
         algoRoma.agregarGladiador("Espartaco");
         algoRoma.agregarGladiador("Augusto");
@@ -115,7 +116,7 @@ public class AlgoRomaTest {
 
         Dado dado = Mockito.mock(Dado.class);
 
-        AlgoRoma algoRoma = new AlgoRoma(mapaService, dado);
+        AlgoRoma algoRoma = new AlgoRoma(mapaService, dado, Mockito.mock(Logger.class));
 
         algoRoma.agregarGladiador("Espartaco");
         algoRoma.agregarGladiador("Augusto");

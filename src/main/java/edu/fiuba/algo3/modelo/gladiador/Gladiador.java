@@ -11,7 +11,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class Gladiador {
-    private static final Logger logger = LoggerFactory.getLogger(Mapa.class);
+    private Logger logger;
 
     private String nombre;
     private Energia energia;
@@ -20,10 +20,11 @@ public class Gladiador {
 
     private boolean estaHabilitadoParaMover;
 
-    public Gladiador(Energia energia, Equipamiento equipamiento, Senority senority) {
+    public Gladiador(Energia energia, Equipamiento equipamiento, Senority senority, Logger logger) {
         this.energia = energia;
         this.equipamiento = equipamiento;
         this.senority = senority;
+        this.logger = logger;
         this.estaHabilitadoParaMover = true;
     }
 
