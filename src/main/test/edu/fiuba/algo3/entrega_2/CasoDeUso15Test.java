@@ -5,6 +5,7 @@ import edu.fiuba.algo3.data_acceso.data_mappers.CaminoMapper;
 import edu.fiuba.algo3.data_acceso.data_mappers.CeldaMapper;
 import edu.fiuba.algo3.data_acceso.repositories.CaminoRepository;
 import edu.fiuba.algo3.data_acceso.repositories.CaminoRepositoryImpl;
+import edu.fiuba.algo3.modelo.Dado;
 import edu.fiuba.algo3.modelo.MovimientoPausadoExeption;
 import edu.fiuba.algo3.modelo.camino.Camino;
 import edu.fiuba.algo3.modelo.celda.ICelda;
@@ -43,9 +44,12 @@ public class CasoDeUso15Test {
         // TODO: como supuesto consideramos Enemigos a los obstaculos. Comprobaremos que se hayan creado
         //  correctamente una Lesion, una FieraSalvaje y un Bacanal
         // Arrange
+        Dado dadoMockParaJugarBacanal = Mockito.mock(Dado.class);
+        Mockito.when(dadoMockParaJugarBacanal.tirarDado()).thenReturn(1);
+
         CaminoRepository caminoRepository = new CaminoRepositoryImpl(
                 new CaminoDAOJsonImpl(json),
-                new CaminoMapper(new CeldaMapper()));
+                new CaminoMapper(new CeldaMapper(dadoMockParaJugarBacanal)));
 
         // Act
         Camino camino = caminoRepository.obtener();
@@ -59,8 +63,8 @@ public class CasoDeUso15Test {
         // y con casco por lo que queda con 5 puntos de energia tras el ataque
         celdas.get(3).afectarGladiadorConConsecuencia(gladiador);
         assertEquals(new Energia(5), gladiador.getEnergia());
-        // El json especifica, en la quinta celda un Bacanal
-        // TODO: por el momento el bacanal es inicializado con 1 trago por lo que pierde 4 puntos de energia
+        // El json especifica, en la quinta celda un Bacanal. El dado con el que se juega el bacanal esta mockeado y
+        // siempre retonar 1 por lo toma un solo trago y se pierde 4 puntos
         celdas.get(4).afectarGladiadorConConsecuencia(gladiador);
         assertEquals(new Energia(1), gladiador.getEnergia());
     }

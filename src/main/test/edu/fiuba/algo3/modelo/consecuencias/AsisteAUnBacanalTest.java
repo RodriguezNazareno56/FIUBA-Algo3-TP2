@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo.consecuencias;
 
+import edu.fiuba.algo3.modelo.Dado;
 import edu.fiuba.algo3.modelo.equipamientos.Equipamiento;
 import edu.fiuba.algo3.modelo.equipamientos.SinEquipamiento;
 import edu.fiuba.algo3.modelo.gladiador.Energia;
@@ -19,7 +20,9 @@ public class AsisteAUnBacanalTest {
     public void afectarGladiador() throws Exception {
         //Arrange
         int cantiadDeTragos = 6;
-        Consecuencia asisteAUnBacanal = new AsisteAUnBacanal(cantiadDeTragos);
+        Dado dadoMock = Mockito.mock(Dado.class);
+        Mockito.when(dadoMock.tirarDado()).thenReturn(cantiadDeTragos);
+        Consecuencia asisteAUnBacanal = new AsisteAUnBacanal(dadoMock);
         Gladiador gladiadorMock = mock(Gladiador.class);
 
         //Act
@@ -38,7 +41,9 @@ public class AsisteAUnBacanalTest {
         Senority senority = new Senority();
         Gladiador gladiador = new Gladiador(energia, equipamiento, senority, Mockito.mock(Logger.class));
 
-        AsisteAUnBacanal bacanal = new AsisteAUnBacanal(1);
+        Dado dadoMock = Mockito.mock(Dado.class);
+        Mockito.when(dadoMock.tirarDado()).thenReturn(1);
+        AsisteAUnBacanal bacanal = new AsisteAUnBacanal(dadoMock);
         Energia energiaEsperada = new Energia(16); // se le restan 4 * cantidadTragos
 
         //Act
@@ -56,7 +61,9 @@ public class AsisteAUnBacanalTest {
         Senority senority = new Senority();
         Gladiador gladiador = new Gladiador(energia, equipamiento, senority, Mockito.mock(Logger.class));
 
-        AsisteAUnBacanal bacanal = new AsisteAUnBacanal(2);
+        Dado dadoMock = Mockito.mock(Dado.class);
+        Mockito.when(dadoMock.tirarDado()).thenReturn(2);
+        AsisteAUnBacanal bacanal = new AsisteAUnBacanal(dadoMock);
         Energia energiaEsperada = new Energia(12); // se le restan 4 * cantidadTragos
 
         //Act
@@ -74,7 +81,9 @@ public class AsisteAUnBacanalTest {
         Senority senority = new Senority();
         Gladiador gladiador = new Gladiador(energia, equipamiento, senority, Mockito.mock(Logger.class));
 
-        AsisteAUnBacanal bacanal = new AsisteAUnBacanal(3);
+        Dado dadoMock = Mockito.mock(Dado.class);
+        Mockito.when(dadoMock.tirarDado()).thenReturn(3);
+        AsisteAUnBacanal bacanal = new AsisteAUnBacanal(dadoMock);
         Energia energiaEsperada = new Energia(8); // se le restan 4 * cantidadTragos
 
         //Act
@@ -92,7 +101,9 @@ public class AsisteAUnBacanalTest {
         Senority senority = new Senority();
         Gladiador gladiador = new Gladiador(energia, equipamiento, senority, Mockito.mock(Logger.class));
 
-        AsisteAUnBacanal bacanal = new AsisteAUnBacanal(4);
+        Dado dadoMock = Mockito.mock(Dado.class);
+        Mockito.when(dadoMock.tirarDado()).thenReturn(4);
+        AsisteAUnBacanal bacanal = new AsisteAUnBacanal(dadoMock);
         Energia energiaEsperada = new Energia(4); // se le restan 4 * cantidadTragos
 
         //Act
@@ -110,7 +121,9 @@ public class AsisteAUnBacanalTest {
         Senority senority = new Senority();
         Gladiador gladiador = new Gladiador(energia, equipamiento, senority, Mockito.mock(Logger.class));
 
-        AsisteAUnBacanal bacanal = new AsisteAUnBacanal(5);
+        Dado dadoMock = Mockito.mock(Dado.class);
+        Mockito.when(dadoMock.tirarDado()).thenReturn(5);
+        AsisteAUnBacanal bacanal = new AsisteAUnBacanal(dadoMock);
         Energia energiaEsperada = new Energia(0); // se le restan 4 * cantidadTragos
 
         //Act
@@ -128,7 +141,9 @@ public class AsisteAUnBacanalTest {
         Senority senority = new Senority();
         Gladiador gladiador = new Gladiador(energia, equipamiento, senority, Mockito.mock(Logger.class));
 
-        AsisteAUnBacanal bacanal = new AsisteAUnBacanal(6);
+        Dado dadoMock = Mockito.mock(Dado.class);
+        Mockito.when(dadoMock.tirarDado()).thenReturn(6);
+        AsisteAUnBacanal bacanal = new AsisteAUnBacanal(dadoMock);
         Energia energiaEsperada = new Energia(-4); // se le restan 4 * cantidadTragos
 
         //Act

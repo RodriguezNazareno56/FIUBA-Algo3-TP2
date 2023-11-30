@@ -31,9 +31,12 @@ public class CasoDeUso18Test {
 
     @BeforeEach
     public void setUp() throws IOException {
+        Dado dadoMockParaJugarBacanal = Mockito.mock(Dado.class);
+        Mockito.when(dadoMockParaJugarBacanal.tirarDado()).thenReturn(1);
+
         CaminoRepository caminoRepository = new CaminoRepositoryImpl(
                 new CaminoDAOJsonImpl(json),
-                new CaminoMapper(new CeldaMapper()));
+                new CaminoMapper(new CeldaMapper(dadoMockParaJugarBacanal)));
         MapaRepository mapaRepository = new MapaRepositoryImpl(
                 new MapaDAOJsonImpl(json),
                 new MapaMapper());
