@@ -44,19 +44,21 @@ public class CasoDeUso19Test {
 
         // Creo un algo roma y le agrego un gladiador
         this.algoRoma = new AlgoRoma(mapaService, dado, LoggerFactory.getLogger(AlgoRoma.class));
-        algoRoma.agregarGladiador("Mike Tyson");
     }
 
     @Test
     public void simularVerificarQueElJugadorGanaUnaPartida() throws Exception {
-        //TODO: falta implementar
         // Arrange
+        algoRoma.agregarGladiador("Mike Tyson");
+        algoRoma.agregarGladiador("Rocky Balboa");
         algoRoma.inicializarJuego();
 
         // Act
-        for (int i = 0; i < 4; i++) {
+        // Los jugadores llegan hasta la anteultima casilla con equipamiento llave
+        for (int i = 0; i < 8; i++) {
             algoRoma.jugarTurno();
         }
+
         // Assert
         Assertions.assertThrows(FinDelJuegoException.class, algoRoma::jugarTurno);
     }

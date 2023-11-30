@@ -114,6 +114,7 @@ public class AlgoRoma implements ObservadorGladiador {
             }
             else{
                 notificarMaximoDeRondasAlcanzado();
+                logger.info("Se alcanzo el numero maximo de rondas");
                 throw new FinDelJuegoException( "Se alcanzo el numero maximo de rondas");
             }
         }
