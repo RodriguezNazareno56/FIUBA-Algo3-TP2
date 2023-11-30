@@ -101,8 +101,12 @@ public class CasoDeUso17Test {
         assertEquals(new Energia(16+15), gladiador.getEnergia());
         Assertions.assertThrows(Exception.class, gladiador::avanzar);
 
-        // El json especifica, en la octaba la celda final. Esperamos que se comporte como tal y siendo que el gladiador
-        // no posee la llave, este sea retornado a mitad de casilleros y es posible continuar avanzando.
+        // El json especifica, en la octava la celda final. Esperamos que se comporte como tal y siendo que el gladiador
+        // no posee la llave, este sea retornado a mitad del camino (cuarta celda).
         algoRoma.jugarTurno();
+        // El json especifica, en la quinta celda un Premio de comida.
+        // Se espera que el gladiador que poseia 31 puntos de energia incremente en 15 llegando asi a 31 puntos.
+        algoRoma.jugarTurno();
+        assertEquals(new Energia(31+15), gladiador.getEnergia());
     }
 }
