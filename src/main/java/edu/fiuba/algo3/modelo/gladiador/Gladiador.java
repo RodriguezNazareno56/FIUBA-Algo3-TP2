@@ -6,8 +6,12 @@ import edu.fiuba.algo3.modelo.equipamientos.Equipamiento;
 import edu.fiuba.algo3.modelo.MovimientoException;
 import edu.fiuba.algo3.modelo.gladiador.senority.Senority;
 import edu.fiuba.algo3.modelo.MovimientoPausadoExeption;
+import edu.fiuba.algo3.modelo.mapa.Mapa;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class Gladiador {
+    private static final Logger logger = LoggerFactory.getLogger(Mapa.class);
 
     private String nombre;
     private Energia energia;
@@ -61,10 +65,13 @@ public class Gladiador {
 
     public void incrementarEquipamiento() {
         this.equipamiento = this.equipamiento.incrementar();
+        logger.info(this + " incrementa equipamiento a: " + this.equipamiento.toString());
     }
 
     public void recibirAtaque(Enemigo enemigo) {
-        this.energia.disminuirEnergia(this.defenderse(enemigo));
+        Energia danioTrasDefenderse = this.defenderse(enemigo);
+        this.energia.disminuirEnergia(danioTrasDefenderse);
+        logger.info(this + " recibe el ataque de " + enemigo + " disminuye su energia en " + danioTrasDefenderse);
     }
 
     private Energia defenderse(Enemigo enemigo) {
@@ -88,7 +95,13 @@ public class Gladiador {
     public void setNombre(String nombreGladiador) {
         this.nombre = nombreGladiador;
     }
+
     public String getNombre() {
         return this.nombre;
+    }
+
+    @Override
+    public String toString() {
+        return "Gladiador " + nombre;
     }
 }

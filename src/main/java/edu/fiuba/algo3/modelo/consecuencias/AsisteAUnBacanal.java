@@ -19,4 +19,9 @@ public class AsisteAUnBacanal implements Consecuencia{
     private int cantidadDeEnergiaPorCopasDeVino(){
         return CANTIDAD_DE_PUNTOS * this.cantiadadDeTragos;
     }
+
+    @Override
+    public String toString() {
+        return "Asiste a un Bacanal";
+    }
 }
