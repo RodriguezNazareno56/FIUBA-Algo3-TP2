@@ -40,6 +40,6 @@ public class Energia {
 
     @Override
     public String toString() {
-        return "" + valor;
+        return "" + valor + " puntos";
     }
 }

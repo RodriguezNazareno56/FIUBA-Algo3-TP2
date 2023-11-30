@@ -40,9 +40,12 @@ public class Gladiador {
 
     public void avanzar() throws MovimientoException, MovimientoPausadoExeption {
         if (this.energia.isAgotada()) {
+            logger.info(this + " se encuentra sin energia para moverse, para el siguiente turno se repondran 5 puntos");
+            this.energia.aumentarEnergia(new Energia(5));
             throw new MovimientoException("El gladiador no se puede mover sin energia");
         }
         if(!this.estaHabilitadoParaMover) {
+            logger.info(this + " se encuentra se encuentra lesionado, podra moverse en el proximo turno");
             this.estaHabilitadoParaMover = true;
             throw new MovimientoPausadoExeption("El gladiador esta pausado para mover en este turno");
         }
@@ -57,10 +60,12 @@ public class Gladiador {
 
     public void comer(Energia energia) {
         this.energia.aumentarEnergia(energia);
+        logger.info(this + " come incrementando su energia en " + energia + " quedando en " + this.energia);
     }
 
     public void tomarCopasDeVino(Energia energia){
         this.energia.disminuirEnergia(energia);
+        logger.info(this + " se emborracha perdiendo energia en " + energia + " quedando en " + this.energia);
     }
 
     public void incrementarEquipamiento() {
@@ -71,7 +76,7 @@ public class Gladiador {
     public void recibirAtaque(Enemigo enemigo) {
         Energia danioTrasDefenderse = this.defenderse(enemigo);
         this.energia.disminuirEnergia(danioTrasDefenderse);
-        logger.info(this + " recibe el ataque de " + enemigo + " disminuye su energia en " + danioTrasDefenderse);
+        logger.info(this + " recibe el ataque de " + enemigo + " disminuye su energia en " + danioTrasDefenderse + " quedando con " + energia);
     }
 
     private Energia defenderse(Enemigo enemigo) {
@@ -80,6 +85,7 @@ public class Gladiador {
 
     public void enojar() {
         this.pausarMovimiento();
+        logger.info(this + " sufre una lesion. No podra moverse en el siguiente turno");
     }
 
     public void pausarMovimiento(){
