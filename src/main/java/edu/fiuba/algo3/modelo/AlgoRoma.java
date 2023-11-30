@@ -7,6 +7,7 @@ import edu.fiuba.algo3.modelo.gladiador.Energia;
 import edu.fiuba.algo3.modelo.gladiador.Gladiador;
 import edu.fiuba.algo3.modelo.gladiador.senority.Senority;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
+import org.slf4j.Logger;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -14,6 +15,8 @@ import java.util.Random;
 import java.util.Stack;
 
 public class AlgoRoma {
+
+    private Logger logger;
 
     private int cantidadDeRondas = 0;
 
@@ -40,7 +43,9 @@ public class AlgoRoma {
     }
 
     // TODO: el mapaService debe ser inyectado aca tambien?
-    public AlgoRoma(MapaService mapaService, Dado dado) {
+    public AlgoRoma(MapaService mapaService, Dado dado, Logger logger) {
+        this.logger = logger;
+
         this.gladiadores = new ArrayList<>();
         this.gladiadoresEnEspera = new Stack<>();
         this.juegoEnCurso = false;
@@ -67,7 +72,7 @@ public class AlgoRoma {
         }
 
         if( gladiadores.size() < MAX_CANTIDAD_GLADIADORES){
-            Gladiador gladiador = new Gladiador(new Energia(20), new SinEquipamiento(), new Senority());
+            Gladiador gladiador = new Gladiador(new Energia(20), new SinEquipamiento(), new Senority(), this.logger);
             gladiador.setNombre(nombreGladiador);
             this.gladiadores.add(gladiador);
         }
@@ -88,6 +93,7 @@ public class AlgoRoma {
 
         // TODO: no se si aca esta bien. pero al mapa hay que cargarle los gladiadores
         this.mapa.setGladiadores(gladiadores);
+        this.logger.info("Juego inicilizado");
     }
 
     public void jugarTurno() throws Exception {

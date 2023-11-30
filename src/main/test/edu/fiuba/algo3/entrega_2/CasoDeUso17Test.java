@@ -24,6 +24,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
+import org.slf4j.Logger;
 
 import java.io.IOException;
 import java.nio.file.Path;
@@ -52,7 +53,7 @@ public class CasoDeUso17Test {
         Mockito.when(dado.tirarDado()).thenReturn(1);
 
         // Creo un algo roma y le agrego un gladiador
-        AlgoRoma algoRoma = new AlgoRoma(mapaService, dado);
+        AlgoRoma algoRoma = new AlgoRoma(mapaService, dado, Mockito.mock(Logger.class));
         algoRoma.agregarGladiador("Mike Tyson");
 
         algoRoma.inicializarJuego();
