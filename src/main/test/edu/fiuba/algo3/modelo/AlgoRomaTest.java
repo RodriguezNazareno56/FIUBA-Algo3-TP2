@@ -2,70 +2,69 @@ package edu.fiuba.algo3.modelo;
 
 import edu.fiuba.algo3.data_acceso.MapaService;
 import edu.fiuba.algo3.data_acceso.data_mappers.JsonFormatoInvalidoException;
-import edu.fiuba.algo3.modelo.gladiador.Gladiador;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
-import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import org.mockito.ArgumentMatchers;
 import org.mockito.Mockito;
 import org.slf4j.Logger;
 
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
-
 public class AlgoRomaTest {
 
-    @Test
-    public void seJuegan20RondasEntoncesLaCantidadDeRondasEs20EnAlgoRoma(){
+    AlgoRoma algoRoma;
 
-        AlgoRoma algoRoma = new AlgoRoma();
+    @BeforeEach
+    public void setUp() throws Exception {
+        MapaService mapaService = Mockito.mock(MapaService.class);
+        Mockito.when(mapaService.cargarMapa()).thenReturn(Mockito.mock(Mapa.class));
+
+        Dado dado = Mockito.mock(Dado.class);
+
+        this.algoRoma = new AlgoRoma(mapaService, dado, Mockito.mock(Logger.class));
+
+        algoRoma.agregarGladiador("Espartaco");
+        algoRoma.agregarGladiador("Augusto");
+    }
+
+    @Test
+    public void seJuegan20RondasEntoncesLaCantidadDeRondasEs20EnAlgoRoma() throws Exception {
+        // Arrange
+        algoRoma.inicializarJuego();
         int cantidadRondasEsperadas = 20 ;
 
-        for( int i=0 ; i < 20 ; i++ ) {
-
-            try {
-                algoRoma.jugarRonda();
-            } catch (FinDelJuegoException e){
-                throw new RuntimeException(e);
-            }
+        // Considerando que hay 2 jugadores, se deben jugar 40 turnos para completar 19 rondas jugadas.
+        // La siguiente es la 20
+        for( int i=0 ; i < 41 ; i++ ) {
+            algoRoma.jugarTurno();
         }
-
+        // Assert
         assertEquals( cantidadRondasEsperadas, algoRoma.getCantidadRondas()  );
 
     }
 
     @Test
-    public void seJueganMasDe30RondasSeLanzaExceptionFinDelJuego(){
+    public void seJueganMasDe30RondasSeLanzaExceptionFinDelJuego() throws Exception {
+        // Arrange
+        algoRoma.inicializarJuego();
 
-        AlgoRoma algoRoma = new AlgoRoma();
-
-        for( int i=0 ; i < 30 ; i++ ) {
-
-            try {
-                algoRoma.jugarRonda();
-            } catch (FinDelJuegoException e){
-                throw new RuntimeException(e);
-            }
+        // Considerando que hay 2 jugadores, se deben jugar 60 turnos
+        for( int i=0 ; i < 60 ; i++ ) {
+            algoRoma.jugarTurno();
         }
-
-        assertThrows(FinDelJuegoException.class, algoRoma::jugarRonda);
+        // Assert
+        assertThrows(FinDelJuegoException.class, algoRoma::jugarTurno);
     }
 
     @Test
     public void seAgreganMasDe6JugadoresSeLanzaMaximoGladiadoresException(){
-
-        AlgoRoma algoRoma = new AlgoRoma();
-
-        for( int i=1 ; i <= 6 ; i++ ) {
-
+        // Considerando que en el setUp ya se han agregado 2. Agrego 4 mas
+        for( int i=1 ; i <= 4 ; i++ ) {
             algoRoma.agregarGladiador("Espartaco");
         }
-
+        // Assert
         assertThrows(MaximoGladiadoresException.class,
                 ()->{
                     algoRoma.agregarGladiador("Espartaco");
@@ -74,19 +73,10 @@ public class AlgoRomaTest {
 
     @Test
     public void agregarGladiadoresEnUnJuegoIniciadoLanzaJuegoEnCursoException() throws JsonFormatoInvalidoException {
-
-        MapaService mapaService = Mockito.mock(MapaService.class);
-        Mockito.when(mapaService.cargarMapa()).thenReturn(Mockito.mock(Mapa.class));
-
-        Dado dado = Mockito.mock(Dado.class);
-
-        AlgoRoma algoRoma = new AlgoRoma(mapaService, dado, Mockito.mock(Logger.class));
-
-        algoRoma.agregarGladiador("Espartaco");
-        algoRoma.agregarGladiador("Augusto");
-
+        // Arrange
         algoRoma.inicializarJuego();
 
+        // Assert
         assertThrows(JuegoEnCursoException.class,
                 ()->{
                     algoRoma.agregarGladiador("Aurelio");
@@ -95,13 +85,7 @@ public class AlgoRomaTest {
 
     @Test
     public void jugarTurnoSinInicializarLanzaJuegoNoIniciadoException(){
-
-        AlgoRoma algoRoma = new AlgoRoma();
-
-        algoRoma.agregarGladiador("Espartaco");
-        algoRoma.agregarGladiador("Augusto");
-
-
+        // Assert
         assertThrows(JuegoNoIniciadoException.class,
                 algoRoma::jugarTurno);
     }
@@ -110,17 +94,7 @@ public class AlgoRomaTest {
 
     @Test
     public void jugarMasDe30RondasLanzaFinDelJuegoException() throws Exception {
-
-        MapaService mapaService = Mockito.mock(MapaService.class);
-        Mockito.when(mapaService.cargarMapa()).thenReturn(Mockito.mock(Mapa.class));
-
-        Dado dado = Mockito.mock(Dado.class);
-
-        AlgoRoma algoRoma = new AlgoRoma(mapaService, dado, Mockito.mock(Logger.class));
-
-        algoRoma.agregarGladiador("Espartaco");
-        algoRoma.agregarGladiador("Augusto");
-
+        // Arrange
         algoRoma.inicializarJuego();
 
         for( int i=1 ; i <= 60 ; i++ ) {
@@ -128,12 +102,9 @@ public class AlgoRomaTest {
 
         }
 
+        // Assert
         assertThrows(FinDelJuegoException.class,
                 algoRoma::jugarTurno);
-
-        //voy a verificar que avanzar se llamo una vez en el mockito de mapa
-
-        //verify(mapa, times(1)).avanzarNPosicionesGladiador(ArgumentMatchers.any(Gladiador.class), ArgumentMatchers.anyInt());
     }
 
 }

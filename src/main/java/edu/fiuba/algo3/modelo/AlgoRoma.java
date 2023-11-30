@@ -16,13 +16,13 @@ import java.util.Stack;
 
 public class AlgoRoma implements ObservadorGladiador {
 
-    private Logger logger;
+    private final Logger logger;
 
     private int cantidadDeRondas = 0;
 
-    private ArrayList<Gladiador> gladiadores;
+    private final ArrayList<Gladiador> gladiadores;
 
-    private Stack<Gladiador> gladiadoresEnEspera;
+    private final Stack<Gladiador> gladiadoresEnEspera;
 
     private Mapa mapa;
 
@@ -30,17 +30,9 @@ public class AlgoRoma implements ObservadorGladiador {
 
     private boolean juegoEnCurso;
 
-    private MapaService mapaService;
+    private final MapaService mapaService;
 
-    private Dado dado;
-
-    public AlgoRoma() {
-        this.gladiadores = new ArrayList<>();
-        this.gladiadoresEnEspera = new Stack<>();
-        this.juegoEnCurso = false;
-
-        //fabricar mapa con json
-    }
+    private final Dado dado;
 
     // TODO: el mapaService debe ser inyectado aca tambien?
     public AlgoRoma(MapaService mapaService, Dado dado, Logger logger) {
@@ -67,7 +59,6 @@ public class AlgoRoma implements ObservadorGladiador {
 
     public void agregarGladiador(String nombreGladiador){
         if(juegoEnCurso){
-            //throw new Exception("El juego no esta inicializado");
             throw new JuegoEnCursoException("No se pueden agregar gladiadores en un juego en curso");
         }
 
@@ -131,8 +122,6 @@ public class AlgoRoma implements ObservadorGladiador {
 
     }
 
-
-
     private int tirarDado(){
         return this.dado.tirarDado();
     }
@@ -141,22 +130,9 @@ public class AlgoRoma implements ObservadorGladiador {
         this.mapa = mapa;
     }
 
-    public void jugarRonda() throws FinDelJuegoException {
-
-        if( cantidadDeRondas == 30 ){
-
-            throw new FinDelJuegoException( "Fin del Juego: Se alcanzo el numero maximo de rondas");
-        }
-
-        cantidadDeRondas++;
-
-    }
-
     public int getCantidadRondas() {
         return cantidadDeRondas;
     }
-
-
 
     private void notificarResultadoDado(Gladiador gladiador, int resultadoDado){
         // notificar a la vista el resultado del dado
