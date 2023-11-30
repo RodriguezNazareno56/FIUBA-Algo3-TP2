@@ -107,6 +107,6 @@ public class Gladiador {
 
     @Override
     public String toString() {
-        return "Gladiador " + nombre;
+        return "Gladiador " + senority + " " + nombre;
     }
 }

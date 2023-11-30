@@ -22,4 +22,9 @@ public class SemiSeniorState extends SenorityState {
     public void aumentarEnergia(Energia energia){
         energia.aumentarEnergia(new Energia(5));
     }
+
+    @Override
+    public String toString() {
+        return "SemiSenior";
+    }
 }
