@@ -57,12 +57,6 @@ public class Mapa {
         gladiador.avanzar();
         this.posicionDeGladiadores.put(gladiador, celdaDestino);
         logger.info(gladiador + " avanza a " + celdaDestino.toString());
-//        try {
-//            gladiador.avanzar();
-//            this.posicionDeGladiadores.put(gladiador, celdaDestino);
-//        } catch (MovimientoPausadoExeption | MovimientoException e) {
-//            throw new RuntimeException(e);
-//        }
 
         try {
             celdaDestino.afectarGladiadorConConsecuencia(gladiador);
