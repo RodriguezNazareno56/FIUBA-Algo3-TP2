@@ -3,9 +3,10 @@ package edu.fiuba.algo3.modelo.gladiador;
 import edu.fiuba.algo3.modelo.consecuencias.Consecuencia;
 import edu.fiuba.algo3.modelo.consecuencias.Enemigo;
 import edu.fiuba.algo3.modelo.equipamientos.Equipamiento;
-import edu.fiuba.algo3.modelo.MovimientoException;
+import edu.fiuba.algo3.modelo.gladiador.exepciones.MovimientoException;
+import edu.fiuba.algo3.modelo.gladiador.exepciones.MovimientoPausadoExeption;
+import edu.fiuba.algo3.modelo.gladiador.exepciones.TriunfoNoPosibleException;
 import edu.fiuba.algo3.modelo.gladiador.senority.Senority;
-import edu.fiuba.algo3.modelo.MovimientoPausadoExeption;
 import org.slf4j.Logger;
 
 import java.util.ArrayList;

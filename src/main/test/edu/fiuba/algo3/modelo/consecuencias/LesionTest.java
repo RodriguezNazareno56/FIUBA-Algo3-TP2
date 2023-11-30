@@ -1,13 +1,13 @@
 package edu.fiuba.algo3.modelo.consecuencias;
 
-import edu.fiuba.algo3.modelo.gladiador.TriunfoNoPosibleException;
-import edu.fiuba.algo3.modelo.MovimientoException;
+import edu.fiuba.algo3.modelo.gladiador.exepciones.TriunfoNoPosibleException;
+import edu.fiuba.algo3.modelo.gladiador.exepciones.MovimientoException;
 import edu.fiuba.algo3.modelo.equipamientos.Equipamiento;
 import edu.fiuba.algo3.modelo.equipamientos.SinEquipamiento;
 import edu.fiuba.algo3.modelo.gladiador.Energia;
 import edu.fiuba.algo3.modelo.gladiador.Gladiador;
 import edu.fiuba.algo3.modelo.gladiador.senority.Senority;
-import edu.fiuba.algo3.modelo.MovimientoPausadoExeption;
+import edu.fiuba.algo3.modelo.gladiador.exepciones.MovimientoPausadoExeption;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
