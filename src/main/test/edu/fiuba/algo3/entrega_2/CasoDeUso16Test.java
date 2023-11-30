@@ -11,7 +11,7 @@ import edu.fiuba.algo3.data_acceso.repositories.CaminoRepositoryImpl;
 import edu.fiuba.algo3.data_acceso.repositories.MapaRepository;
 import edu.fiuba.algo3.data_acceso.repositories.MapaRepositoryImpl;
 import edu.fiuba.algo3.modelo.Dado;
-import edu.fiuba.algo3.modelo.MovimientoPausadoExeption;
+import edu.fiuba.algo3.modelo.gladiador.exepciones.MovimientoPausadoExeption;
 import edu.fiuba.algo3.modelo.celda.ICelda;
 import edu.fiuba.algo3.modelo.equipamientos.Equipamiento;
 import edu.fiuba.algo3.modelo.equipamientos.SinEquipamiento;

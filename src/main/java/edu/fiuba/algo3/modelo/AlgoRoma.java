@@ -3,16 +3,15 @@ package edu.fiuba.algo3.modelo;
 import edu.fiuba.algo3.data_acceso.MapaService;
 import edu.fiuba.algo3.data_acceso.data_mappers.JsonFormatoInvalidoException;
 import edu.fiuba.algo3.modelo.equipamientos.SinEquipamiento;
-import edu.fiuba.algo3.modelo.gladiador.Energia;
-import edu.fiuba.algo3.modelo.gladiador.Gladiador;
-import edu.fiuba.algo3.modelo.gladiador.ObservadorGladiador;
+import edu.fiuba.algo3.modelo.gladiador.*;
+import edu.fiuba.algo3.modelo.gladiador.exepciones.MovimientoException;
+import edu.fiuba.algo3.modelo.gladiador.exepciones.MovimientoPausadoExeption;
 import edu.fiuba.algo3.modelo.gladiador.senority.Senority;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
 import org.slf4j.Logger;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Random;
 import java.util.Stack;
 
 public class AlgoRoma implements ObservadorGladiador {
@@ -178,7 +177,6 @@ public class AlgoRoma implements ObservadorGladiador {
         // notificar a la vista la forma del mapa
     }
 
-    // TODO: trucho mal(?
     public ArrayList<Gladiador> getGladiadores() {
         return gladiadores;
     }

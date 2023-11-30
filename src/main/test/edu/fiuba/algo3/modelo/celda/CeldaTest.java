@@ -2,7 +2,7 @@ package edu.fiuba.algo3.modelo.celda;
 
 import edu.fiuba.algo3.modelo.consecuencias.Consecuencia;
 import edu.fiuba.algo3.modelo.gladiador.Gladiador;
-import edu.fiuba.algo3.modelo.gladiador.TriunfoNoPosibleException;
+import edu.fiuba.algo3.modelo.gladiador.exepciones.TriunfoNoPosibleException;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 

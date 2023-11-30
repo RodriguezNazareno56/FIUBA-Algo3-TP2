@@ -6,7 +6,7 @@ import edu.fiuba.algo3.data_acceso.data_mappers.CeldaMapper;
 import edu.fiuba.algo3.data_acceso.repositories.CaminoRepository;
 import edu.fiuba.algo3.data_acceso.repositories.CaminoRepositoryImpl;
 import edu.fiuba.algo3.modelo.Dado;
-import edu.fiuba.algo3.modelo.MovimientoPausadoExeption;
+import edu.fiuba.algo3.modelo.gladiador.exepciones.MovimientoPausadoExeption;
 import edu.fiuba.algo3.modelo.camino.Camino;
 import edu.fiuba.algo3.modelo.celda.ICelda;
 import edu.fiuba.algo3.modelo.equipamientos.Casco;
