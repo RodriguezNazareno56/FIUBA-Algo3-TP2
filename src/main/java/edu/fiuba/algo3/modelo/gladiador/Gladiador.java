@@ -8,13 +8,16 @@ import edu.fiuba.algo3.modelo.gladiador.senority.Senority;
 import edu.fiuba.algo3.modelo.MovimientoPausadoExeption;
 import org.slf4j.Logger;
 
-public class Gladiador {
+import java.util.ArrayList;
+
+public class Gladiador implements ObservableGladiador {
     private Logger logger;
 
     private String nombre;
     private Energia energia;
     private Equipamiento equipamiento;
     private Senority senority;
+    private ArrayList<ObservadorGladiador> observadores;
 
     private boolean estaHabilitadoParaMover;
 
@@ -24,6 +27,7 @@ public class Gladiador {
         this.senority = senority;
         this.logger = logger;
         this.estaHabilitadoParaMover = true;
+        this.observadores = new ArrayList<ObservadorGladiador>();
     }
 
     public Energia getEnergia() {
@@ -95,6 +99,7 @@ public class Gladiador {
         if (equipamiento != equipamiento.incrementar()) {
             throw new TriunfoNoPosibleException("El jugador no posee el equipamiento requerido");
         }
+        this.notificarTriunfoObservadores();
     }
 
     public void setNombre(String nombreGladiador) {
@@ -108,5 +113,15 @@ public class Gladiador {
     @Override
     public String toString() {
         return "Gladiador " + senority + " " + nombre;
+    }
+
+    @Override
+    public void notificarTriunfoObservadores() {
+        this.observadores.forEach(observadores -> observadores.notificarTriunfo(this));
+    }
+
+    @Override
+    public void subscribir(ObservadorGladiador observadorGladiador) {
+        this.observadores.add(observadorGladiador);
     }
 }

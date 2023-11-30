@@ -5,6 +5,7 @@ import edu.fiuba.algo3.data_acceso.data_mappers.JsonFormatoInvalidoException;
 import edu.fiuba.algo3.modelo.equipamientos.SinEquipamiento;
 import edu.fiuba.algo3.modelo.gladiador.Energia;
 import edu.fiuba.algo3.modelo.gladiador.Gladiador;
+import edu.fiuba.algo3.modelo.gladiador.ObservadorGladiador;
 import edu.fiuba.algo3.modelo.gladiador.senority.Senority;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
 import org.slf4j.Logger;
@@ -14,7 +15,7 @@ import java.util.Collections;
 import java.util.Random;
 import java.util.Stack;
 
-public class AlgoRoma {
+public class AlgoRoma implements ObservadorGladiador {
 
     private Logger logger;
 
@@ -74,6 +75,7 @@ public class AlgoRoma {
         if( gladiadores.size() < MAX_CANTIDAD_GLADIADORES){
             Gladiador gladiador = new Gladiador(new Energia(20), new SinEquipamiento(), new Senority(), this.logger);
             gladiador.setNombre(nombreGladiador);
+            gladiador.subscribir(this);
             this.gladiadores.add(gladiador);
             System.out.println(gladiador.getNombre());
         }
@@ -190,4 +192,9 @@ public class AlgoRoma {
     }
 
 
+    @Override
+    public void notificarTriunfo(Gladiador gladiador) {
+        this.logger.info(gladiador + " ha triunfado!!!");
+        this.juegoEnCurso = false;
+    }
 }
