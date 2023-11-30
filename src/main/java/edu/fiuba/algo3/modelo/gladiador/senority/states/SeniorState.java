@@ -20,5 +20,8 @@ public class SeniorState extends SenorityState {
         energia.aumentarEnergia(new Energia(10));
     }
 
-
+    @Override
+    public String toString() {
+        return "Senior";
+    }
 }
