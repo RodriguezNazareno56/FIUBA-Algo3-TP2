@@ -24,6 +24,9 @@ import javafx.scene.chart.PieChart;
 import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.slf4j.event.EventRecordingLogger;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -40,7 +43,8 @@ public class App extends Application {
         var javafxVersion = SystemInfo.javafxVersion();
 
         CaminoDAO caminoDAO = new CaminoDAOJsonImpl(Paths.get("src/main/resources/mapa.json"));
-        CeldaMapper celdaMapper = new CeldaMapper();
+        Dado dadoParaBacanal = new Dado();
+        CeldaMapper celdaMapper = new CeldaMapper(dadoParaBacanal);
         CaminoMapper caminoMapper = new CaminoMapper(celdaMapper);
 
         CaminoRepository caminoRepository = new CaminoRepositoryImpl(caminoDAO, caminoMapper);
@@ -54,7 +58,8 @@ public class App extends Application {
         Dado dado = new Dado();
 
         StackPane root = new StackPane();
-        AlgoRoma algoRoma = new AlgoRoma(mapaService, dado);
+
+        AlgoRoma algoRoma = new AlgoRoma(mapaService, dado, LoggerFactory.getLogger("App"));
 
         var arena = new Arena(algoRoma);
         var arenaScene = new Scene(new StackPane(arena), 640, 480);
