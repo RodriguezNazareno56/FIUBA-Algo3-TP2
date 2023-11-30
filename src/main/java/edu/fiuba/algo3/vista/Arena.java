@@ -11,6 +11,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
 import java.lang.reflect.Array;
@@ -97,14 +99,46 @@ public class Arena extends BorderPane {
 
         //CREACION DEL PANEL DE CONTROL
 
-        for( int i = 0 ; i < 19 ; i++ ){
-            panelInferior.getChildren().add(new Rectangle(60,60, Color.DARKGRAY));
-        }
+        //Cuadro de Energia
+        VBox cuadroEnergia = new VBox();
 
-        panelInferior.setSpacing(8);
+        Label tituloEnergia = new Label();
+        tituloEnergia.setText("ENERGIA");
+        tituloEnergia.setFont(Font.font("Tahoma", FontWeight.BOLD, 14 ));
+        tituloEnergia.setTextFill(Color.WHITE);
+
+        Label cantidadEnergia = new Label();
+        cantidadEnergia.setText("20");
+        cantidadEnergia.setFont(Font.font("Tahoma", FontWeight.BOLD, 18 ));
+        cantidadEnergia.setTextFill(Color.WHITE);
+
+        cuadroEnergia.getChildren().addAll(tituloEnergia, cantidadEnergia);
+        cuadroEnergia.setAlignment(Pos.CENTER);
+
+        //Cuadro EQUIPAMIENTO
+
+        VBox cuadroEquipamiento = new VBox();
+
+        Label tituloEquipamiento = new Label();
+        tituloEquipamiento.setText("EQUIPAMIENTO");
+        tituloEquipamiento.setFont(Font.font("Tahoma", FontWeight.BOLD, 14 ));
+        tituloEquipamiento.setTextFill(Color.WHITE);
+
+        Label tipoEquipamiento = new Label();
+        tipoEquipamiento.setText("CASCO");
+        tipoEquipamiento.setFont(Font.font("Tahoma", FontWeight.BOLD, 14 ));
+        tipoEquipamiento.setTextFill(Color.WHITE);
+
+        cuadroEquipamiento.getChildren().addAll(tituloEquipamiento, tipoEquipamiento);
+        cuadroEquipamiento.setAlignment(Pos.CENTER);
+
+
+
+        panelInferior.getChildren().addAll(cuadroEnergia, cuadroEquipamiento);
+        panelInferior.setSpacing(15);
         panelInferior.setPadding(new Insets(8));
         panelInferior.setStyle("-fx-background-color:#323232");
-
+        panelInferior.setAlignment(Pos.CENTER);
 
         this.setCenter(mapaArena);
         this.setMargin(mapaArena, new Insets( 10,10,10,10 ));
