@@ -53,7 +53,7 @@ public class CasoDeUso20Test {
         algoRoma.inicializarJuego();
 
         // Act
-        // Los jugadores llegan hasta la anteultima casilla con equipamiento llave
+        // Los jugadores juegan en un mapa sin incrementos de equipamientos hasta que se agotan los turnos y pierden.
         for (int i = 0; i < 60; i++) {
             algoRoma.jugarTurno();
         }
