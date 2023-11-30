@@ -5,6 +5,7 @@ import edu.fiuba.algo3.vista.components.boton.BotonProximaEscenaEventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -17,14 +18,12 @@ import javafx.stage.Stage;
 
 public class Jugador extends VBox {
     private Stage stage;
-    private AlgoRoma algoRoma;
 
     public Jugador(Stage stage, Scene proximaEscena, AlgoRoma algoRoma) {
-        super();
+        super(30);
         this.stage = stage;
-        this.algoRoma = algoRoma;
 
-        this.setAlignment(Pos.CENTER_LEFT);
+        this.setAlignment(Pos.TOP_CENTER);
         this.setPadding(new Insets(20));
         Image imagen = new Image("file:src/main/java/edu/fiuba/algo3/vista/imagenes/nuevaroma.png");
         BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
@@ -41,6 +40,7 @@ public class Jugador extends VBox {
 
 
         TextField textField = new TextField();
+        textField.setMaxWidth(240);
         Label resultadoLabel = new Label("Texto ingresado: ");
         textField.textProperty().addListener((observable, oldValue, newValue) -> {
             resultadoLabel.setText("Texto ingresado: " + newValue);
@@ -49,21 +49,41 @@ public class Jugador extends VBox {
 
         Label etiquetaJuego = new Label();
         etiquetaJuego.setFont(Font.font("Helvetica", FontWeight.BOLD, 42));
-
-        etiquetaJuego.setText("UNIRSE A LA PARTIDA");
+        etiquetaJuego.setText("ALIAS DEL GLADIADOR");
         etiquetaJuego.setTextFill(Color.web("#FFFFFF"));
-        for(int i=0;i<5;i++){
-            unirse.setOnAction(e->{
-                var nombre = textField.getText().trim();
+
+        unirse.setOnAction(e->{
+            var nombre = textField.getText().trim();
+            if(nombre.length() <=3){
+                this.alert();
+                return;
+            }
+            if(algoRoma.cantidadDeGladiadores()>=6){
+                unirse.setDisable(true);
+            }
+            else {
                 algoRoma.agregarGladiador(nombre);
                 textField.clear();
-            });
-        }
+            }
+        });
+
 
         BotonProximaEscenaEventHandler proximaEscenaEventHandler = new BotonProximaEscenaEventHandler(this.stage, proximaEscena);
-        empezar.setOnAction(proximaEscenaEventHandler);
+        empezar.setOnAction(e -> {
+            if(algoRoma.cantidadDeGladiadores()>=2 && algoRoma.cantidadDeGladiadores()<=6){
+                empezar.setOnAction(proximaEscenaEventHandler);
+            }
+        });
 
         this.getChildren().addAll(etiquetaJuego, textField, unirse,empezar);
 
+    }
+
+    private void alert(){
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Error de validación");
+        alert.setHeaderText(null);
+        alert.setContentText("EL nombre debe contener por lo menos cuatro caracteres");
+        alert.showAndWait();
     }
 }

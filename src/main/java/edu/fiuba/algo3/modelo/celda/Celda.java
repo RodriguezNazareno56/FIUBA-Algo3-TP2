@@ -31,4 +31,9 @@ public class Celda implements ICelda {
             consecuencia.afectarGladiador(gladiador);
         }
     }
+
+    @Override
+    public Coordenada getCoordenada() {
+        return this.coordenada;
+    }
 }

@@ -123,6 +123,8 @@ public class AlgoRoma {
 
     }
 
+
+
     private int tirarDado(){
         return this.dado.tirarDado();
     }
@@ -172,4 +174,14 @@ public class AlgoRoma {
     public ArrayList<Gladiador> getGladiadores() {
         return gladiadores;
     }
+
+    public Mapa getMapa(){
+        return this.mapa;
+    }
+
+    public int cantidadDeGladiadores(){
+        return this.gladiadores.size();
+    }
+
+
 }
