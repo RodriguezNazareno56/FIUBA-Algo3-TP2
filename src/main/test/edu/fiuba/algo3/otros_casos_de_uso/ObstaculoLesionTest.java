@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.otros_casos_de_uso;
 
-import edu.fiuba.algo3.modelo.consecuencias.Consecuencia;
+import edu.fiuba.algo3.modelo.consecuencias.IConsecuencia;
 import edu.fiuba.algo3.modelo.consecuencias.Lesion;
 import edu.fiuba.algo3.modelo.equipamientos.Equipamiento;
 import edu.fiuba.algo3.modelo.equipamientos.SinEquipamiento;
@@ -20,7 +20,7 @@ public class ObstaculoLesionTest {
     @Test
     public void verificarQueSiRecibeUnObstaculoLesionYSeEncuentraEnELTurnoSiguienteNoSePuedeMover() throws Exception {
         //Arrange
-        Consecuencia lesion = new Lesion();
+        IConsecuencia lesion = new Lesion();
         Energia energia = new Energia(20);
         Equipamiento equipamiento = new SinEquipamiento();
         Senority senority = new Senority();

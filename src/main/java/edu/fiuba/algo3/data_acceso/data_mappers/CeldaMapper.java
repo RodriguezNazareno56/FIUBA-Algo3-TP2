@@ -17,7 +17,7 @@ public class CeldaMapper implements Mapper<ICelda, CeldaDto>{
     }
 
     public ICelda convertirDesdeDto(CeldaDto celdaDto) throws JsonFormatoInvalidoException {
-        List<Consecuencia> consecuencias = new ArrayList<>();
+        List<IConsecuencia> consecuencias = new ArrayList<>();
         switch (celdaDto.getObstaculo()) {
             case "Lesion":
                 consecuencias.add(new Lesion());
@@ -26,8 +26,6 @@ public class CeldaMapper implements Mapper<ICelda, CeldaDto>{
                 consecuencias.add(new FieraSalvaje());
                 break;
             case "Bacanal":
-//              TODO: La cantidad de tragos no debe ser definida en la inicializacion sino en el momento que el juegador
-//               arroja el dado y conoce cuantos tragos debe tomar.
                 consecuencias.add(new AsisteAUnBacanal(dadoParaBacanal));
                 break;
         }

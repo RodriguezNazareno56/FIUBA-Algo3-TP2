@@ -7,7 +7,7 @@ import edu.fiuba.algo3.modelo.camino.Camino;
 import edu.fiuba.algo3.modelo.celda.Celda;
 import edu.fiuba.algo3.modelo.celda.Coordenada;
 import edu.fiuba.algo3.modelo.celda.ICelda;
-import edu.fiuba.algo3.modelo.consecuencias.Consecuencia;
+import edu.fiuba.algo3.modelo.consecuencias.IConsecuencia;
 import edu.fiuba.algo3.modelo.consecuencias.Triunfo;
 import edu.fiuba.algo3.modelo.equipamientos.Equipamiento;
 import edu.fiuba.algo3.modelo.equipamientos.SinEquipamiento;
@@ -41,8 +41,8 @@ public class CasoDeUso9Test {
             cantidadDeCasillero++;
         }
         // Celda final con consecuencia Triunfo
-        List<Consecuencia> consecuencias = new ArrayList<>();
-        Consecuencia triunfo = new Triunfo();
+        List<IConsecuencia> consecuencias = new ArrayList<>();
+        IConsecuencia triunfo = new Triunfo();
         consecuencias.add(triunfo);
         celdas.add(new Celda(new Coordenada(9,9), consecuencias));
         cantidadDeCasillero++;

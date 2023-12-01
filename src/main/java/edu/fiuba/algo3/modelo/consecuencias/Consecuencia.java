@@ -1,10 +1,18 @@
 package edu.fiuba.algo3.modelo.consecuencias;
 
-import edu.fiuba.algo3.modelo.FinDelJuegoException;
-import edu.fiuba.algo3.modelo.gladiador.Gladiador;
-import edu.fiuba.algo3.modelo.gladiador.exepciones.TriunfoNoPosibleException;
+public abstract class Consecuencia implements IConsecuencia {
 
-public interface Consecuencia {
+    // Dos consecuencias son iguales cuando son del mismo tipo
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Consecuencia that = (Consecuencia) o;
+        return getClass().equals(that.getClass());
+    }
 
-    void afectarGladiador(Gladiador gladiador) throws TriunfoNoPosibleException, FinDelJuegoException;
+    @Override
+    public int hashCode() {
+        return getClass().hashCode();
+    }
 }

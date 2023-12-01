@@ -4,7 +4,7 @@ import edu.fiuba.algo3.modelo.Dado;
 import edu.fiuba.algo3.modelo.gladiador.Energia;
 import edu.fiuba.algo3.modelo.gladiador.Gladiador;
 
-public class AsisteAUnBacanal implements Consecuencia{
+public class AsisteAUnBacanal extends Consecuencia {
 
     private final Dado dado;
     final int CANTIDAD_DE_PUNTOS = 4;

@@ -5,7 +5,7 @@ import edu.fiuba.algo3.modelo.equipamientos.*;
 import edu.fiuba.algo3.modelo.gladiador.Energia;
 import edu.fiuba.algo3.modelo.gladiador.Gladiador;
 
-public class FieraSalvaje implements Consecuencia, Enemigo, FieraSalvajeConstantes {
+public class FieraSalvaje extends Consecuencia implements Enemigo, FieraSalvajeConstantes {
     @Override
     public void afectarGladiador(Gladiador gladiador) {
         gladiador.recibirAtaque(this);

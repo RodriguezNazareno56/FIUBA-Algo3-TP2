@@ -2,7 +2,6 @@ package edu.fiuba.algo3.modelo.consecuencias;
 
 import edu.fiuba.algo3.modelo.FinDelJuegoException;
 import edu.fiuba.algo3.modelo.gladiador.exepciones.TriunfoNoPosibleException;
-import edu.fiuba.algo3.modelo.gladiador.exepciones.MovimientoException;
 import edu.fiuba.algo3.modelo.equipamientos.Equipamiento;
 import edu.fiuba.algo3.modelo.equipamientos.SinEquipamiento;
 import edu.fiuba.algo3.modelo.gladiador.Energia;
@@ -22,7 +21,7 @@ public class LesionTest {
     @Test
     public void afectarGladiador() throws Exception {
         //Arrange
-        Consecuencia lesion = new Lesion();
+        IConsecuencia lesion = new Lesion();
         Gladiador gladiadorMock = mock(Gladiador.class);
         doThrow(new MovimientoPausadoExeption("El gladiador esta pausado para mover en este turno"))
                 .when(gladiadorMock)
@@ -38,7 +37,7 @@ public class LesionTest {
     @Test
     public void unaLesionAfectaAUnGladiadorImpidiendoleAvanzarUnTurno() throws TriunfoNoPosibleException, FinDelJuegoException {
         //Arrange
-        Consecuencia lesion = new Lesion();
+        IConsecuencia lesion = new Lesion();
         Energia energia = new Energia(20);
         Equipamiento equipamiento = new SinEquipamiento();
         Senority senority = new Senority();

@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.modelo.gladiador;
 
 import edu.fiuba.algo3.modelo.FinDelJuegoException;
-import edu.fiuba.algo3.modelo.consecuencias.Consecuencia;
+import edu.fiuba.algo3.modelo.consecuencias.IConsecuencia;
 import edu.fiuba.algo3.modelo.consecuencias.Enemigo;
 import edu.fiuba.algo3.modelo.equipamientos.Equipamiento;
 import edu.fiuba.algo3.modelo.gladiador.exepciones.MovimientoException;
@@ -53,7 +53,7 @@ public class Gladiador implements ObservableGladiador {
         this.senority.aumentarExperiencia();
     }
 
-    public void recibirConsecuencia(Consecuencia consecuencia) throws Exception {
+    public void recibirConsecuencia(IConsecuencia consecuencia) throws Exception {
         consecuencia.afectarGladiador(this);
     }
 

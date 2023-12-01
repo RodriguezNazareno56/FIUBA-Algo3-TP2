@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.entrega_1;
 
-import edu.fiuba.algo3.modelo.consecuencias.Consecuencia;
+import edu.fiuba.algo3.modelo.consecuencias.IConsecuencia;
 import edu.fiuba.algo3.modelo.consecuencias.EquipamientoIncrementado;
 import edu.fiuba.algo3.modelo.consecuencias.FieraSalvaje;
 import edu.fiuba.algo3.modelo.equipamientos.Equipamiento;
@@ -31,7 +31,7 @@ public class CasoDeUso5Test {
     @Test
     public void verificarQueSiRecibeUnPremioPorPrimeraVezObtieneUnCasco() throws Exception {
         //Arrange
-        Consecuencia incrementoDeEquipo = new EquipamientoIncrementado();
+        IConsecuencia incrementoDeEquipo = new EquipamientoIncrementado();
         // Un gladiador sin equipamiento y con 20 puntos de vida. Recibira un primer premio y sera atacado por
         // una fiera, se espera que se defienda con el casco y tan solo sufra 15 puntos de danio
         Energia energiaEsperada = new Energia(energiaInicialValor - FieraSalvaje.ATAQUE_CONTRA_EQUIPADO_CASCO);

@@ -4,7 +4,7 @@ import edu.fiuba.algo3.modelo.FinDelJuegoException;
 import edu.fiuba.algo3.modelo.gladiador.Gladiador;
 import edu.fiuba.algo3.modelo.gladiador.exepciones.TriunfoNoPosibleException;
 
-public class Triunfo implements Consecuencia {
+public class Triunfo extends Consecuencia {
     @Override
     public void afectarGladiador(Gladiador gladiador) throws TriunfoNoPosibleException, FinDelJuegoException {
         gladiador.triunfar();

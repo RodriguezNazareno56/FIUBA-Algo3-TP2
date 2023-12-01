@@ -13,6 +13,7 @@ import org.slf4j.LoggerFactory;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Objects;
 
 public class Mapa {
     private static final Logger logger = LoggerFactory.getLogger(Mapa.class);
@@ -93,5 +94,21 @@ public class Mapa {
                 ", largo=" + largo + "\n" +
                 ", camino=" + camino +
                 '}';
+    }
+
+    // Dos Mapas son iguales cuando tiene el mismo ancho, largo y mismo camino
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Mapa mapa = (Mapa) o;
+        return ancho == mapa.ancho &&
+                largo == mapa.largo &&
+                Objects.equals(camino, mapa.camino);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(ancho, largo, camino);
     }
 }

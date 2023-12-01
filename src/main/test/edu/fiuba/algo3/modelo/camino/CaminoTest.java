@@ -1,7 +1,10 @@
 package edu.fiuba.algo3.modelo.camino;
 
 import edu.fiuba.algo3.modelo.celda.Celda;
+import edu.fiuba.algo3.modelo.celda.Coordenada;
 import edu.fiuba.algo3.modelo.celda.ICelda;
+import edu.fiuba.algo3.modelo.consecuencias.FieraSalvaje;
+import edu.fiuba.algo3.modelo.consecuencias.IConsecuencia;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -69,5 +72,26 @@ public class CaminoTest {
         // La mitad del camino es la CeldaCamino
         ICelda celdaResultado = this.camino.getMitadDeCamino();
         assertEquals(this.celdaCamino, celdaResultado);
+    }
+
+    @Test
+    public void testEqualsDosCaminoSonIgualesCuandoTieneLasMismasCeldas() {
+        Coordenada coordenadaCelda1 = new Coordenada(1, 2);
+        List<IConsecuencia> consecuenciasCelda1 = new ArrayList<>();
+        consecuenciasCelda1.add(new FieraSalvaje());
+        ICelda celda1 = new Celda(coordenadaCelda1, consecuenciasCelda1);
+        List<ICelda> celdas1= new ArrayList<>();
+        celdas1.add(celda1);
+        Camino camino1 = new Camino(celdas1);
+
+        Coordenada coordenadaCelda2 = new Coordenada(1, 2);
+        List<IConsecuencia> consecuenciasCelda2 = new ArrayList<>();
+        consecuenciasCelda2.add(new FieraSalvaje());
+        ICelda celda2 = new Celda(coordenadaCelda2, consecuenciasCelda2);
+        List<ICelda> celdas2= new ArrayList<>();
+        celdas2.add(celda2);
+        Camino camino2 = new Camino(celdas2);
+
+        assertEquals(camino1, camino2);
     }
 }
