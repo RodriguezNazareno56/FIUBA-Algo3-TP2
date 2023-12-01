@@ -81,7 +81,7 @@ public class Arena extends BorderPane {
 
         algoRoma.getMapa()
                 .getCamino()
-                .celdas()
+                .getCeldas()
                 .forEach(celda -> mapaArena.add(new Rectangle(40 , 40, Color.CHOCOLATE) , celda.getCoordenada().getX() , celda.getCoordenada().getY() ));
 
 
