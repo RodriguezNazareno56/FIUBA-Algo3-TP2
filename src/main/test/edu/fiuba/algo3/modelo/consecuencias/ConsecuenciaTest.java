@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class ConsecuenciaTest {
+public class ConsecuenciaTest {
 
     @Test
     public void testEqualsDosConsecuenciasSonIgualesCuandoSonDelMismoTipo() {
