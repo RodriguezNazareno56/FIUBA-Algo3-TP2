@@ -40,7 +40,7 @@ public class EquipamientoIncrementadoTest {
         Equipamiento equipamiento = new SinEquipamiento();
         Senority senority = new Senority();
         Gladiador gladiador = new Gladiador(energiaInicial, equipamiento, senority, Mockito.mock(Logger.class));
-        Consecuencia fieraSalvaje = new FieraSalvaje();
+        IConsecuencia fieraSalvaje = new FieraSalvaje();
 
         EquipamientoIncrementado equipamientoIncrementado = new EquipamientoIncrementado();
         Energia energiaEsperada = new Energia(5); //ataque de fiera salvaje le resta 15 puntos con Casco
@@ -60,7 +60,7 @@ public class EquipamientoIncrementadoTest {
         Equipamiento equipamiento = new Casco();
         Senority senority = new Senority();
         Gladiador gladiador = new Gladiador(energia, equipamiento, senority, Mockito.mock(Logger.class));
-        Consecuencia fieraSalvaje = new FieraSalvaje();
+        IConsecuencia fieraSalvaje = new FieraSalvaje();
 
         EquipamientoIncrementado equipamientoIncrementado = new EquipamientoIncrementado();
         Energia energiaEsperada = new Energia(10); //ataque de fiera salvaje le resta 10 puntos con Armadura
@@ -80,7 +80,7 @@ public class EquipamientoIncrementadoTest {
         Equipamiento equipamiento = new Armadura();
         Senority senority = new Senority();
         Gladiador gladiador = new Gladiador(energia, equipamiento, senority, Mockito.mock(Logger.class));
-        Consecuencia fieraSalvaje = new FieraSalvaje();
+        IConsecuencia fieraSalvaje = new FieraSalvaje();
 
         EquipamientoIncrementado equipamientoIncrementado = new EquipamientoIncrementado();
         Energia energiaEsperada = new Energia(18); //ataque de fiera salvaje le resta 2 puntos con Escudo y Espada
@@ -100,7 +100,7 @@ public class EquipamientoIncrementadoTest {
         Equipamiento equipamiento = new EscudoYEspada();
         Senority senority = new Senority();
         Gladiador gladiador = new Gladiador(energia, equipamiento, senority, Mockito.mock(Logger.class));
-        Consecuencia fieraSalvaje = new FieraSalvaje();
+        IConsecuencia fieraSalvaje = new FieraSalvaje();
 
         EquipamientoIncrementado equipamientoIncrementado = new EquipamientoIncrementado();
         Energia energiaEsperada = new Energia(20); //ataque de fiera salvaje no resta energia con Llave
@@ -122,7 +122,7 @@ public class EquipamientoIncrementadoTest {
         Equipamiento equipamiento = new Llave();
         Senority senority = new Senority();
         Gladiador gladiador = new Gladiador(energia, equipamiento, senority, Mockito.mock(Logger.class));
-        Consecuencia fieraSalvaje = new FieraSalvaje();
+        IConsecuencia fieraSalvaje = new FieraSalvaje();
 
         EquipamientoIncrementado equipamientoIncrementado = new EquipamientoIncrementado();
         Energia energiaEsperada = new Energia(20); //ataque de fiera salvaje no resta energia con Llave

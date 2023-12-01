@@ -5,7 +5,7 @@ import edu.fiuba.algo3.modelo.celda.Celda;
 import edu.fiuba.algo3.modelo.celda.Coordenada;
 import edu.fiuba.algo3.modelo.celda.ICelda;
 import edu.fiuba.algo3.modelo.consecuencias.Triunfo;
-import edu.fiuba.algo3.modelo.consecuencias.Consecuencia;
+import edu.fiuba.algo3.modelo.consecuencias.IConsecuencia;
 import edu.fiuba.algo3.modelo.gladiador.Energia;
 import edu.fiuba.algo3.modelo.equipamientos.Equipamiento;
 import edu.fiuba.algo3.modelo.equipamientos.Llave;
@@ -37,8 +37,8 @@ public class CasoDeUso11Test {
             celdas.add(new Celda(new Coordenada(i,i), new ArrayList<>()));
         }
         // Celda final con consecuencia Triunfo
-        List<Consecuencia> consecuencias = new ArrayList<>();
-        Consecuencia triunfo = new Triunfo();
+        List<IConsecuencia> consecuencias = new ArrayList<>();
+        IConsecuencia triunfo = new Triunfo();
         consecuencias.add(triunfo);
         celdas.add(new Celda(new Coordenada(9,9), consecuencias));
         Camino camino = new Camino(celdas);
@@ -57,7 +57,7 @@ public class CasoDeUso11Test {
     @Test
     public void verificarQueSiElGladiadorTieneLaLlaveYRecibeOtroPremioNoCambiaNada() throws Exception {
         // Arrange
-        Consecuencia equipamientoIncrementado = new EquipamientoIncrementado();
+        IConsecuencia equipamientoIncrementado = new EquipamientoIncrementado();
 
         // Act
         this.gladiador.recibirConsecuencia(equipamientoIncrementado);

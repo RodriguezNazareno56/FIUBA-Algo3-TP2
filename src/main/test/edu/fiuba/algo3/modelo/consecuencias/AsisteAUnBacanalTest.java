@@ -22,7 +22,7 @@ public class AsisteAUnBacanalTest {
         int cantiadDeTragos = 6;
         Dado dadoMock = Mockito.mock(Dado.class);
         Mockito.when(dadoMock.tirarDado()).thenReturn(cantiadDeTragos);
-        Consecuencia asisteAUnBacanal = new AsisteAUnBacanal(dadoMock);
+        IConsecuencia asisteAUnBacanal = new AsisteAUnBacanal(dadoMock);
         Gladiador gladiadorMock = mock(Gladiador.class);
 
         //Act

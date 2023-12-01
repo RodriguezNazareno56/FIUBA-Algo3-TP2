@@ -20,29 +20,43 @@
 				"premio": "Equipamiento"
 			},
 			{
-				"x": 2,
-				"y": 6,
+				"x": 3,
+				"y": 7,
+				"tipo": "Camino",
+				"obstaculo": "",
+				"premio": "Comida"
+			},
+			{
+				"x": 4,
+				"y": 7,
 				"tipo": "Camino",
 				"obstaculo": "Lesion",
 				"premio": ""
 			},
 			{
-				"x": 2,
-				"y": 5,
+				"x": 5,
+				"y": 7,
 				"tipo": "Camino",
 				"obstaculo": "Fiera",
 				"premio": ""
 			},
 			{
-				"x": 2,
-				"y": 4,
+				"x": 6,
+				"y": 7,
 				"tipo": "Camino",
 				"obstaculo": "Bacanal",
 				"premio": ""
 			},
 			{
-				"x": 2,
-				"y": 5,
+				"x": 7,
+				"y": 7,
+				"tipo": "Camino",
+				"obstaculo": "Lesion",
+				"premio": "Comida"
+			},
+			{
+				"x": 8,
+				"y": 7,
 				"tipo": "Llegada",
 				"obstaculo": "",
 				"premio": ""

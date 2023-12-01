@@ -3,6 +3,7 @@ package edu.fiuba.algo3.modelo.camino;
 import edu.fiuba.algo3.modelo.celda.ICelda;
 
 import java.util.List;
+import java.util.Objects;
 
 public class Camino {
     private List<ICelda> celdas;
@@ -60,5 +61,19 @@ public class Camino {
     // TODO: con motivo de testear
     public List<ICelda> getCeldas() {
         return this.celdas;
+    }
+
+    // Dos Caminos son iguales cuando tienen las mismas celdas
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Camino camino = (Camino) o;
+        return Objects.equals(celdas, camino.celdas);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(celdas);
     }
 }
