@@ -7,7 +7,10 @@ import edu.fiuba.algo3.modelo.mapa.Mapa;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
+import org.mockito.verification.VerificationMode;
 import org.slf4j.Logger;
+
+
 
 public class CasoDeUso18Test {
 
@@ -34,6 +37,7 @@ public class CasoDeUso18Test {
 
         // Verify
         // this.logger.info("Juego inicilizado") al inicializar juego
-        Mockito.verify(loggerMock, Mockito.times(1)).info(Mockito.anyString());
+        VerificationMode callJustOnce = Mockito.times(1);
+        Mockito.verify(loggerMock, callJustOnce).info("Juego inicilizado");
     }
 }

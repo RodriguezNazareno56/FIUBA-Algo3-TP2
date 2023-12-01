@@ -43,6 +43,7 @@ public class CasoDeUso17Test {
         MapaRepository mapaRepository = new MapaRepositoryImpl(
                 new MapaDAOJsonImpl(json),
                 new MapaMapper());
+
         this.mapaService = new MapaService(caminoRepository, mapaRepository);
     }
 
@@ -56,7 +57,8 @@ public class CasoDeUso17Test {
         Mockito.when(dado.tirarDado()).thenReturn(1);
 
         // Creo un algo roma y le agrego un gladiador
-        AlgoRoma algoRoma = new AlgoRoma(mapaService, dado, Mockito.mock(Logger.class));
+        Logger loggerMock = Mockito.mock(Logger.class);
+        AlgoRoma algoRoma = new AlgoRoma(mapaService, dado, loggerMock);
         algoRoma.agregarGladiador("Mike Tyson");
 
         // Act
