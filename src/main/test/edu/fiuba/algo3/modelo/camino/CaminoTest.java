@@ -75,7 +75,7 @@ public class CaminoTest {
     }
 
     @Test
-    void testEqualsDosCaminoSonIgualesCuandoTieneLasMismasCeldas() {
+    public void testEqualsDosCaminoSonIgualesCuandoTieneLasMismasCeldas() {
         Coordenada coordenadaCelda1 = new Coordenada(1, 2);
         List<IConsecuencia> consecuenciasCelda1 = new ArrayList<>();
         consecuenciasCelda1.add(new FieraSalvaje());

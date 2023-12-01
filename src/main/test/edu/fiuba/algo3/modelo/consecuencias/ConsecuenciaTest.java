@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class ConsecuenciaTest {
 
     @Test
-    void testEqualsDosConsecuenciasSonIgualesCuandoSonDelMismoTipo() {
+    public void testEqualsDosConsecuenciasSonIgualesCuandoSonDelMismoTipo() {
         FieraSalvaje fieraSalvaje1 = new FieraSalvaje();
         FieraSalvaje fieraSalvaje2 = new FieraSalvaje();
 
@@ -15,7 +15,7 @@ class ConsecuenciaTest {
     }
 
     @Test
-    void testEqualsDosConsecuenciasNoSonIgualesCuandoNoSonDelMismoTipo() {
+    public void testEqualsDosConsecuenciasNoSonIgualesCuandoNoSonDelMismoTipo() {
         FieraSalvaje fieraSalvaje = new FieraSalvaje();
         Comida comida = new Comida();
 
