@@ -18,10 +18,12 @@ import javafx.stage.Stage;
 
 public class Jugador extends VBox {
     private Stage stage;
+    private AlgoRoma algoRoma;
 
     public Jugador(Stage stage, Scene proximaEscena, AlgoRoma algoRoma) {
         super(30);
         this.stage = stage;
+        this.algoRoma = algoRoma;
 
         this.setAlignment(Pos.TOP_CENTER);
         this.setPadding(new Insets(20));

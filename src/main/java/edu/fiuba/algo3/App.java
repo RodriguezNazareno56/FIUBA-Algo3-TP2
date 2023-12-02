@@ -59,23 +59,37 @@ public class App extends Application {
         MapaService mapaService = new MapaService(caminoRepository, mapaRepository);
         Dado dado = new Dado();
 
-        StackPane root = new StackPane();
-
         AlgoRoma algoRoma = new AlgoRoma(mapaService, dado, LoggerFactory.getLogger("App"));
 
+        /*
+        StackPane root = new StackPane();
         var arena = new Arena(algoRoma);
         var arenaScene = new Scene(new StackPane(arena), 640, 480);
-
         var jugador = new Scene(new StackPane(new Jugador(stage, arenaScene, algoRoma)), 640, 480);
-
         root.getChildren().add(new Bienvenida(stage, jugador));
-
         var escens = new Scene(root,640, 480);
-
         stage.setScene(escens);
         stage.setWidth(1200);
         stage.setHeight(600);
         stage.show();
+        */
+
+        Arena arena = new Arena(algoRoma);
+        Scene escenaArena = new Scene( arena, 640, 480 );
+
+        Jugador jugador = new Jugador(stage, escenaArena, algoRoma );
+        Scene escenaJugador = new Scene(jugador, 640, 480);
+
+        Bienvenida bienvenida = new Bienvenida(stage, escenaJugador);
+        Scene escenaBienvenida = new Scene(bienvenida, 640, 480);
+
+
+        stage.setScene(escenaBienvenida);
+        stage.setWidth(1200);
+        stage.setHeight(600);
+        stage.show();
+
+
     }
 
     public static void main(String[] args) {
