@@ -3,12 +3,15 @@ package edu.fiuba.algo3.vista.arena;
 import edu.fiuba.algo3.modelo.AlgoRoma;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.control.Label;
 import javafx.scene.control.ToolBar;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,56 +23,56 @@ public class Arena extends BorderPane {
         super();
 
 
-        double altoImagenPerfil = 70 ;
-        double anchoImagenPerfil = 70;
+        double altoImagenPerfil = 60 ;
+        double anchoImagenPerfil = 60;
         double cantidadFilasMapa = 20;
         double cantidadColumnasMapa = 10;
+
+        double cantidadGladiadores = algoRoma.getGladiadores().size();
 
         ToolBar toolBar = new ToolBar();
         this.setBottom(toolBar);
 
 
-        // COLUMNA : Perfiles de Jugadores
-        VBox columnaJugadoresIzquierda = new VBox();
+        ArrayList imgPerfilGladiador = new ArrayList<String>();
+        imgPerfilGladiador.add("File:src/main/java/edu/fiuba/algo3/vista/imagenes/PerfilGladiador1.png");
+        imgPerfilGladiador.add("File:src/main/java/edu/fiuba/algo3/vista/imagenes/PerfilGladiador2.png");
+        imgPerfilGladiador.add("File:src/main/java/edu/fiuba/algo3/vista/imagenes/PerfilGladiador3.png");
+        imgPerfilGladiador.add("File:src/main/java/edu/fiuba/algo3/vista/imagenes/PerfilGladiador4.png");
+        imgPerfilGladiador.add("File:src/main/java/edu/fiuba/algo3/vista/imagenes/PerfilGladiador5.png");
+        imgPerfilGladiador.add("File:src/main/java/edu/fiuba/algo3/vista/imagenes/PerfilGladiador6.png");
+
+
+        VBox contenedorPerfilGladiadores = new VBox();
         HBox panelInferior = new HBox();
-        Image imagen1 = new Image("File:src/main/java/edu/fiuba/algo3/vista/imagenes/Perfil_1.png");
-        ImageView imagenPerfil1 = new ImageView(imagen1);
-        imagenPerfil1.setFitHeight(altoImagenPerfil);
-        imagenPerfil1.setFitWidth(anchoImagenPerfil);
-
-        Image imagen2 = new Image("File:src/main/java/edu/fiuba/algo3/vista/imagenes/Perfil_2.png");
-        ImageView imagenPerfil2 = new ImageView(imagen2);
-        imagenPerfil2.setFitHeight(altoImagenPerfil);
-        imagenPerfil2.setFitWidth(anchoImagenPerfil);
-
-        Image imagen3 = new Image("File:src/main/java/edu/fiuba/algo3/vista/imagenes/Perfil_3.png");
-        ImageView imagenPerfil3 = new ImageView(imagen3);
-        imagenPerfil3.setFitHeight(altoImagenPerfil);
-        imagenPerfil3.setFitWidth(anchoImagenPerfil);
-
-        Image imagen4 = new Image("File:src/main/java/edu/fiuba/algo3/vista/imagenes/Perfil_4.png");
-        ImageView imagenPerfil4 = new ImageView(imagen4);
-        imagenPerfil4.setFitHeight(altoImagenPerfil);
-        imagenPerfil4.setFitWidth(anchoImagenPerfil);
-
-        Image imagen5 = new Image("File:src/main/java/edu/fiuba/algo3/vista/imagenes/Perfil_5.png");
-        ImageView imagenPerfil5 = new ImageView(imagen5);
-        imagenPerfil5.setFitHeight(altoImagenPerfil);
-        imagenPerfil5.setFitWidth(anchoImagenPerfil);
-
-        Image imagen6 = new Image("File:src/main/java/edu/fiuba/algo3/vista/imagenes/Perfil_6.png");
-        ImageView imagenPerfil6 = new ImageView(imagen6);
-        imagenPerfil6.setFitHeight(altoImagenPerfil);
-        imagenPerfil6.setFitWidth(anchoImagenPerfil);
 
 
 
-        columnaJugadoresIzquierda.getChildren().addAll(imagenPerfil1, imagenPerfil2, imagenPerfil3, imagenPerfil4, imagenPerfil5, imagenPerfil6);
+
+        for( int i = 0 ; i < cantidadGladiadores ; i++ ){
+
+            Image imagen = new Image(String.valueOf(imgPerfilGladiador.get(i)));
+            ImageView imagenPerfilGladiador = new ImageView(imagen);
+            imagenPerfilGladiador.setFitHeight(altoImagenPerfil);
+            imagenPerfilGladiador.setFitWidth(anchoImagenPerfil);
+
+            Label nombreGladiador = new Label();
+            nombreGladiador.setText("Gladiador");
+            nombreGladiador.setFont(Font.font("Helvetica", FontWeight.BOLD, 12));
+            nombreGladiador.setTextFill(Color.WHITE);
+
+            contenedorPerfilGladiadores.getChildren().add(imagenPerfilGladiador);
+            contenedorPerfilGladiadores.getChildren().add(nombreGladiador);
+            contenedorPerfilGladiadores.setAlignment(Pos.CENTER);
+
+        }
+
+        contenedorPerfilGladiadores.setSpacing(8);
+        contenedorPerfilGladiadores.setPadding(new Insets(8));
+        contenedorPerfilGladiadores.setStyle("-fx-background-color:#323232");
 
 
-        columnaJugadoresIzquierda.setSpacing(8);
-        columnaJugadoresIzquierda.setPadding(new Insets(8));
-        columnaJugadoresIzquierda.setStyle("-fx-background-color:#323232");
+
 
         // CREACION DEL MAPA ARENA
 
@@ -96,8 +99,8 @@ public class Arena extends BorderPane {
 
         this.setCenter(mapaArena);
         this.setMargin(mapaArena, new Insets( 10,10,10,10 ));
-        this.setLeft(columnaJugadoresIzquierda);
-        this.setMargin(columnaJugadoresIzquierda, new Insets( 10,10,10,10 ));
+        this.setLeft(contenedorPerfilGladiadores);
+        this.setMargin(contenedorPerfilGladiadores, new Insets( 10,10,10,10 ));
         this.setBottom(panelInferior);
         this.setMargin(panelInferior, new Insets( 10,10,10,10 ));
 
