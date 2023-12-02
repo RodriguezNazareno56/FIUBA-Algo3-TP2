@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.vista;
 
+import edu.fiuba.algo3.modelo.AlgoRoma;
 import edu.fiuba.algo3.vista.components.boton.BotonProximaEscenaEventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;

@@ -10,26 +10,19 @@ import edu.fiuba.algo3.data_acceso.data_mappers.CeldaMapper;
 import edu.fiuba.algo3.data_acceso.data_mappers.MapaMapper;
 import edu.fiuba.algo3.data_acceso.repositories.CaminoRepository;
 import edu.fiuba.algo3.data_acceso.repositories.CaminoRepositoryImpl;
-import edu.fiuba.algo3.data_acceso.repositories.MapaRepositoryImpl;
 import edu.fiuba.algo3.data_acceso.repositories.MapaRepository;
+import edu.fiuba.algo3.data_acceso.repositories.MapaRepositoryImpl;
 import edu.fiuba.algo3.modelo.AlgoRoma;
 import edu.fiuba.algo3.modelo.Dado;
 import edu.fiuba.algo3.vista.Bienvenida;
-import edu.fiuba.algo3.vista.Configuracion;
 import edu.fiuba.algo3.vista.Jugador.Jugador;
-import edu.fiuba.algo3.vista.arena.Arena;
+import edu.fiuba.algo3.vista.mapa.MapaVista;
 import javafx.application.Application;
 import javafx.scene.Scene;
-import javafx.scene.chart.PieChart;
-import javafx.scene.control.Label;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
-import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.slf4j.event.EventRecordingLogger;
 
 import java.io.IOException;
-import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
@@ -74,8 +67,8 @@ public class App extends Application {
         stage.show();
         */
 
-        Arena arena = new Arena(algoRoma);
-        Scene escenaArena = new Scene( arena, 640, 480 );
+        MapaVista mapaVista = new MapaVista(algoRoma);
+        Scene escenaArena = new Scene( mapaVista, 640, 480 );
 
         Jugador jugador = new Jugador(stage, escenaArena, algoRoma );
         Scene escenaJugador = new Scene(jugador, 640, 480);

@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Stack;
 
-public class AlgoRoma implements ObservadorGladiador {
+public class AlgoRoma implements ObservadorGladiador, Observable{
 
     private final Logger logger;
 
@@ -34,6 +34,8 @@ public class AlgoRoma implements ObservadorGladiador {
 
     private final Dado dado;
 
+    private final ArrayList<Observador> observadores;
+
     // TODO: el mapaService debe ser inyectado aca tambien?
     public AlgoRoma(MapaService mapaService, Dado dado, Logger logger) {
         this.logger = logger;
@@ -44,6 +46,8 @@ public class AlgoRoma implements ObservadorGladiador {
 
         this.mapaService = mapaService;
         this.dado = dado;
+
+        this.observadores = new ArrayList<Observador>();
 
         //fabricar mapa con json
         try {
@@ -68,6 +72,8 @@ public class AlgoRoma implements ObservadorGladiador {
             gladiador.subscribir(this);
             this.gladiadores.add(gladiador);
             System.out.println(gladiador.getNombre());
+
+
         }
         else{
             throw new MaximoGladiadoresException("No se pueden agregar mas gladiadores");
@@ -173,4 +179,25 @@ public class AlgoRoma implements ObservadorGladiador {
         this.juegoEnCurso = false;
         throw new FinDelJuegoException(gladiador + " ha triunfado !!");
     }
+
+
+
+    @Override
+    public void agregarObservador(Observador observador){
+
+        this.observadores.add(observador);
+
+    }
+    public void notificarAObservadores(){
+
+        observadores.stream().forEach(observador -> {
+            observador.actualizar();
+        });
+
+    }
+
+
+
+
+
 }

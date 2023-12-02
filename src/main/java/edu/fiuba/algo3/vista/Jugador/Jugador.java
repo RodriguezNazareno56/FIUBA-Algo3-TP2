@@ -18,12 +18,10 @@ import javafx.stage.Stage;
 
 public class Jugador extends VBox {
     private Stage stage;
-    private AlgoRoma algoRoma;
 
     public Jugador(Stage stage, Scene proximaEscena, AlgoRoma algoRoma) {
         super(30);
         this.stage = stage;
-        this.algoRoma = algoRoma;
 
         this.setAlignment(Pos.TOP_CENTER);
         this.setPadding(new Insets(20));
@@ -66,13 +64,16 @@ public class Jugador extends VBox {
             else {
                 algoRoma.agregarGladiador(nombre);
                 textField.clear();
+
             }
         });
+
 
 
         BotonProximaEscenaEventHandler proximaEscenaEventHandler = new BotonProximaEscenaEventHandler(this.stage, proximaEscena);
         empezar.setOnAction(e -> {
             if(algoRoma.cantidadDeGladiadores()>=2 && algoRoma.cantidadDeGladiadores()<=6){
+                algoRoma.notificarAObservadores();
                 empezar.setOnAction(proximaEscenaEventHandler);
             }
         });
@@ -88,4 +89,6 @@ public class Jugador extends VBox {
         alert.setContentText("EL nombre debe contener por lo menos cuatro caracteres");
         alert.showAndWait();
     }
+
+
 }

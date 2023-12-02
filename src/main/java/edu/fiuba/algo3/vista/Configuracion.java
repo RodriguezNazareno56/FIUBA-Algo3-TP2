@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.vista;
 
+import edu.fiuba.algo3.modelo.AlgoRoma;
 import edu.fiuba.algo3.vista.components.boton.BotonProximaEscenaEventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -21,6 +22,7 @@ public class Configuracion extends VBox {
     public Configuracion(Stage stage, Scene proximaEscena){
         super();
         this.stage = stage;
+
 
         this.setAlignment(Pos.CENTER_LEFT);
         this.setPadding(new Insets(20));
@@ -46,8 +48,11 @@ public class Configuracion extends VBox {
         etiquetaJuego.setText("CONFIGURACION");
         etiquetaJuego.setTextFill(Color.web("#FFFFFF"));
 
-        BotonProximaEscenaEventHandler proximaEscenaEventHandler = new BotonProximaEscenaEventHandler(this.stage, proximaEscena);
+        /*
+        BotonProximaEscenaEventHandler proximaEscenaEventHandler = new BotonProximaEscenaEventHandler(this.stage, proximaEscena, algoRoma);
         enviar.setOnAction(proximaEscenaEventHandler);
+        */
+
 
         this.getChildren().addAll(etiquetaJuego,textField, enviar);
 
