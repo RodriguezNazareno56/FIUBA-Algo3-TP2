@@ -1,6 +1,5 @@
-package edu.fiuba.algo3.Controladores.dado;
+package edu.fiuba.algo3.controladores.dado;
 
-import edu.fiuba.algo3.Controladores.observers.ObservadorDado;
 import edu.fiuba.algo3.modelo.AlgoRoma;
 import edu.fiuba.algo3.vista.Animacion;
 import edu.fiuba.algo3.vista.dado.AnimacionDado;
@@ -11,9 +10,6 @@ import javafx.event.EventHandler;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.util.Duration;
-
-import java.net.URL;
-import java.util.Random;
 
 public class DadoHandler implements EventHandler<ActionEvent> {
 

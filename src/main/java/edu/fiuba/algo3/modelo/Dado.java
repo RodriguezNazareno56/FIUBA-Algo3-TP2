@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.modelo;
 
-import edu.fiuba.algo3.Controladores.observers.ObservableDado;
-import edu.fiuba.algo3.Controladores.observers.ObservadorDado;
+import edu.fiuba.algo3.controladores.observers.ObservableDado;
+import edu.fiuba.algo3.controladores.observers.ObservadorDado;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

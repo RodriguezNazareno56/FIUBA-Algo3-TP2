@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.vista.dado;
 
-import edu.fiuba.algo3.Controladores.dado.DadoHandler;
-import edu.fiuba.algo3.Controladores.observers.ObservadorDado;
+import edu.fiuba.algo3.controladores.dado.DadoHandler;
+import edu.fiuba.algo3.controladores.observers.ObservadorDado;
 import edu.fiuba.algo3.modelo.AlgoRoma;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;

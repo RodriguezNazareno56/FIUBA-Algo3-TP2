@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.Controladores.observers;
+package edu.fiuba.algo3.controladores.observers;
 
 public interface ObservableDado {
     void notificarObservadores(int valorDelDado);
