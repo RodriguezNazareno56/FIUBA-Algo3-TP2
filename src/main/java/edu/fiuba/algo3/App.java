@@ -14,23 +14,16 @@ import edu.fiuba.algo3.data_acceso.repositories.MapaRepositoryImpl;
 import edu.fiuba.algo3.data_acceso.repositories.MapaRepository;
 import edu.fiuba.algo3.modelo.AlgoRoma;
 import edu.fiuba.algo3.modelo.Dado;
-import edu.fiuba.algo3.vista.Bienvenida;
-import edu.fiuba.algo3.vista.Configuracion;
-import edu.fiuba.algo3.vista.Jugador.Jugador;
-import edu.fiuba.algo3.vista.arena.Arena;
+import edu.fiuba.algo3.vista.BienvenidaPantalla;
+import edu.fiuba.algo3.vista.Jugador.AgregarJugadorPantalla;
 import edu.fiuba.algo3.vista.dado.DadoButton;
+import edu.fiuba.algo3.vista.mapa.MapaVista;
 import javafx.application.Application;
 import javafx.scene.Scene;
-import javafx.scene.chart.PieChart;
-import javafx.scene.control.Label;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
-import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.slf4j.event.EventRecordingLogger;
 
 import java.io.IOException;
-import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
@@ -54,26 +47,41 @@ public class App extends Application {
 
         MapaDAO mapaDAO = new MapaDAOJsonImpl(jsonPath);
         MapaMapper mapaMapper = new MapaMapper();
-
         MapaRepository mapaRepository = new MapaRepositoryImpl(mapaDAO,mapaMapper);
 
         MapaService mapaService = new MapaService(caminoRepository, mapaRepository);
-        Dado dado = new Dado();
 
-        StackPane root = new StackPane();
+        Dado dado = new Dado();
 
         AlgoRoma algoRoma = new AlgoRoma(mapaService, dado, LoggerFactory.getLogger("App"));
 
-        var arena = new Arena(algoRoma, dado);
+        /*
+        StackPane root = new StackPane();
+        var arena = new Arena(algoRoma);
         var arenaScene = new Scene(new StackPane(arena), 640, 480);
-
         var jugador = new Scene(new StackPane(new Jugador(stage, arenaScene, algoRoma)), 640, 480);
-
         root.getChildren().add(new Bienvenida(stage, jugador));
-
         var escens = new Scene(root,640, 480);
-
         stage.setScene(escens);
+        stage.setWidth(1200);
+        stage.setHeight(600);
+        stage.show();
+        */
+
+        DadoButton dadoButton = new DadoButton(algoRoma);
+        dado.agregarObservador(dadoButton);
+
+        MapaVista mapaVista = new MapaVista(algoRoma, dadoButton);
+        Scene escenaArena = new Scene( mapaVista, 640, 480 );
+
+        AgregarJugadorPantalla agregarJugadorPantalla = new AgregarJugadorPantalla(stage, escenaArena, algoRoma );
+        Scene escenaJugador = new Scene(agregarJugadorPantalla, 640, 480);
+
+        BienvenidaPantalla bienvenidaPantalla = new BienvenidaPantalla(stage, escenaJugador);
+        Scene escenaBienvenida = new Scene(bienvenidaPantalla, 640, 480);
+
+
+        stage.setScene(escenaBienvenida);
         stage.setWidth(1200);
         stage.setHeight(600);
         stage.show();

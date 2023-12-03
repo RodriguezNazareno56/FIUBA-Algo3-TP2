@@ -7,8 +7,6 @@ import edu.fiuba.algo3.vista.dado.DadoButton;
 import javafx.animation.*;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.util.Duration;
 
 public class DadoHandler implements EventHandler<ActionEvent> {
@@ -17,10 +15,18 @@ public class DadoHandler implements EventHandler<ActionEvent> {
     private Animacion animacion;
     private AlgoRoma algoRoma; // TODO: creo que deberia llegar por el constructor
 
+    // TODO: eliminar
     public DadoHandler(DadoButton dado) {
         super();
         this.dado = dado;
         this.animacion = new AnimacionDado();
+    }
+
+    public DadoHandler(DadoButton dado, AlgoRoma algoRoma) {
+        super();
+        this.dado = dado;
+        this.animacion = new AnimacionDado();
+        this.algoRoma = algoRoma;
     }
 
     public void setAlgoRoma(AlgoRoma algoRoma) {
@@ -35,23 +41,17 @@ public class DadoHandler implements EventHandler<ActionEvent> {
         Timeline timeline = new Timeline(
                 new KeyFrame(Duration.seconds(1), event -> {
                     // Aquí va la lógica después de la animación
-                    // TODO: algoRoma.jugarTurno()
-                    if (algoRoma != null) {
-                        try {
-                            algoRoma.jugarTurno();
-                        } catch (Exception ignored) {}
-                    } else {
-                        obtenerValorDelDado(); // TODO: eliminar
+                    try {
+                        algoRoma.jugarTurno();
+                    } catch (Exception ignored) {
+                        // TODO: no se si lo correcto es siempre ignorar. Por ejemplo al finalizar el juego deberia
+                        //  impedir seguir tirando el dado. Para esto es necesario que jugarTurno devuelva las exepciones
+                        //  especificas y no un simple Exception. De igual modo el fin de la partida puede se tratado de
+                        //  otro modo.
                     }
                     dado.setDisable(false); // Reactiva el botón después de la animación
                 })
         );
         timeline.play();
-    }
-
-    private void obtenerValorDelDado() {
-        Image imageResult = new Image("file:src/main/resources/edu/fiuba/algo3/vista/dado/dado_1.png");
-        ImageView dadoImageView = new ImageView(imageResult);
-        this.dado.setGraphic(dadoImageView);
     }
 }

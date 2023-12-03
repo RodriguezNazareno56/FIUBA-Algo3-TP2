@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.modelo;
 
+import edu.fiuba.algo3.controladores.observers.Observable;
+import edu.fiuba.algo3.controladores.observers.Observador;
 import edu.fiuba.algo3.data_acceso.MapaService;
 import edu.fiuba.algo3.data_acceso.data_mappers.JsonFormatoInvalidoException;
 import edu.fiuba.algo3.modelo.equipamientos.SinEquipamiento;
@@ -14,7 +16,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Stack;
 
-public class AlgoRoma implements ObservadorGladiador {
+public class AlgoRoma implements ObservadorGladiador, Observable {
 
     private final Logger logger;
 
@@ -34,6 +36,8 @@ public class AlgoRoma implements ObservadorGladiador {
 
     private final Dado dado;
 
+    private final ArrayList<Observador> observadores;
+
     // TODO: el mapaService debe ser inyectado aca tambien?
     public AlgoRoma(MapaService mapaService, Dado dado, Logger logger) {
         this.logger = logger;
@@ -44,6 +48,8 @@ public class AlgoRoma implements ObservadorGladiador {
 
         this.mapaService = mapaService;
         this.dado = dado;
+
+        this.observadores = new ArrayList<>();
 
         //fabricar mapa con json
         try {
@@ -173,5 +179,16 @@ public class AlgoRoma implements ObservadorGladiador {
         this.logger.info(gladiador + " ha triunfado!!!");
         this.juegoEnCurso = false;
         throw new FinDelJuegoException(gladiador + " ha triunfado !!");
+    }
+
+    @Override
+    public void agregarObservador(Observador observador) {
+        this.observadores.add(observador);
+    }
+
+    public void notificarAObservadores() {
+        for (Observador observador : observadores) {
+            observador.actualizar();
+        }
     }
 }

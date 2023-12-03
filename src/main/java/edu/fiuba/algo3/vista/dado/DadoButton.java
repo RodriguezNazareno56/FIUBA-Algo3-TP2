@@ -13,7 +13,9 @@ public class DadoButton extends Button implements ObservadorDado {
 
     private final DadoHandler dadoHandler;
 
-    public DadoButton() {
+    public DadoButton(AlgoRoma algoRoma) {
+//        this.setWidth(50);
+//        this.setHeight(50);
         this.setStyle("-fx-background-color:transparent ; " +
                 "-fx-background-radius:0; " +
                 "-fx-border-color:transparent; " +
@@ -23,7 +25,7 @@ public class DadoButton extends Button implements ObservadorDado {
         ImageView dadoImageView = new ImageView(url.toExternalForm());
         this.setGraphic(dadoImageView);
 
-        dadoHandler = new DadoHandler(this);
+        dadoHandler = new DadoHandler(this, algoRoma);
         this.setOnAction(dadoHandler);
     }
 
