@@ -18,6 +18,7 @@ import edu.fiuba.algo3.vista.Bienvenida;
 import edu.fiuba.algo3.vista.Configuracion;
 import edu.fiuba.algo3.vista.Jugador.Jugador;
 import edu.fiuba.algo3.vista.arena.Arena;
+import edu.fiuba.algo3.vista.dado.DadoButton;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.chart.PieChart;
@@ -63,7 +64,7 @@ public class App extends Application {
 
         AlgoRoma algoRoma = new AlgoRoma(mapaService, dado, LoggerFactory.getLogger("App"));
 
-        var arena = new Arena(algoRoma);
+        var arena = new Arena(algoRoma, dado);
         var arenaScene = new Scene(new StackPane(arena), 640, 480);
 
         var jugador = new Scene(new StackPane(new Jugador(stage, arenaScene, algoRoma)), 640, 480);

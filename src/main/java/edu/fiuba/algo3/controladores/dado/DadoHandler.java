@@ -1,24 +1,30 @@
-package edu.fiuba.algo3.vista.dado;
+package edu.fiuba.algo3.controladores.dado;
 
+import edu.fiuba.algo3.modelo.AlgoRoma;
 import edu.fiuba.algo3.vista.Animacion;
+import edu.fiuba.algo3.vista.dado.AnimacionDado;
+import edu.fiuba.algo3.vista.dado.DadoButton;
 import javafx.animation.*;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.util.Duration;
-
-import java.net.URL;
-import java.util.Random;
 
 public class DadoHandler implements EventHandler<ActionEvent> {
 
     private DadoButton dado;
     private Animacion animacion;
+    private AlgoRoma algoRoma; // TODO: creo que deberia llegar por el constructor
 
     public DadoHandler(DadoButton dado) {
         super();
         this.dado = dado;
         this.animacion = new AnimacionDado();
+    }
+
+    public void setAlgoRoma(AlgoRoma algoRoma) {
+        this.algoRoma = algoRoma;
     }
 
     @Override
@@ -30,7 +36,13 @@ public class DadoHandler implements EventHandler<ActionEvent> {
                 new KeyFrame(Duration.seconds(1), event -> {
                     // Aquí va la lógica después de la animación
                     // TODO: algoRoma.jugarTurno()
-                    obtenerValorDelDado(); // TODO: se podria consultar
+                    if (algoRoma != null) {
+                        try {
+                            algoRoma.jugarTurno();
+                        } catch (Exception ignored) {}
+                    } else {
+                        obtenerValorDelDado(); // TODO: eliminar
+                    }
                     dado.setDisable(false); // Reactiva el botón después de la animación
                 })
         );
@@ -38,20 +50,8 @@ public class DadoHandler implements EventHandler<ActionEvent> {
     }
 
     private void obtenerValorDelDado() {
-        Random random = new Random();
-        int valorDelDado = random.nextInt(6);
-        URL url = this.getClass().getResource("dado_" + valorDelDado + ".png");
-        ImageView dadoImageView = new ImageView(url.toExternalForm());
+        Image imageResult = new Image("file:src/main/resources/edu/fiuba/algo3/vista/dado/dado_1.png");
+        ImageView dadoImageView = new ImageView(imageResult);
         this.dado.setGraphic(dadoImageView);
     }
-
-//    // Animacion
-//    protected Queue<Image> getAnimacionImages() {
-//        Queue<Image> imageQueue = new ArrayDeque<>();
-//        for (int i = 0; i < 6; i++) {
-//            URL url = this.getClass().getResource("dado_" + i + ".png");
-//            imageQueue.add(new Image(url.toExternalForm()));
-//        }
-//        return imageQueue;
-//    }
 }

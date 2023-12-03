@@ -95,7 +95,8 @@ public class AlgoRoma implements ObservadorGladiador {
         //post: se juega un turno del juego
         //post: si se alcanzo el maximo de rondas se lanza una excepcion
         if( !juegoEnCurso ){
-            throw new JuegoNoIniciadoException("El juego no esta inicializado");
+//            throw new JuegoNoIniciadoException("El juego no esta inicializado");
+            this.inicializarJuego();
         }
         if( gladiadoresEnEspera.isEmpty()){
             //la primera ronda se inicio en inicializarJuego

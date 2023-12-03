@@ -64,6 +64,7 @@ public class Jugador extends VBox {
             else {
                 algoRoma.agregarGladiador(nombre);
                 textField.clear();
+                textField.requestFocus();
             }
         });
 
