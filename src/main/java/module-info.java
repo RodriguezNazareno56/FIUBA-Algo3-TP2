@@ -19,4 +19,9 @@ module edu.fiuba.algo3 {
     exports edu.fiuba.algo3.data_acceso.data_mappers;
     exports edu.fiuba.algo3.modelo.constantes;
     exports edu.fiuba.algo3.modelo.gladiador.exepciones;
+
+    exports edu.fiuba.algo3.vista.equipamientos;
+    exports edu.fiuba.algo3.vista;
+    exports edu.fiuba.algo3.vista.dado;
+    exports edu.fiuba.algo3.vista.gladiador;
 }
