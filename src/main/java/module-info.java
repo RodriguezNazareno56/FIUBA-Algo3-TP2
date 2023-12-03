@@ -21,4 +21,5 @@ module edu.fiuba.algo3 {
     exports edu.fiuba.algo3.modelo.gladiador.exepciones;
 
     exports edu.fiuba.algo3.vista.equipamientos;
+    exports edu.fiuba.algo3.vista;
 }
