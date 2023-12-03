@@ -18,7 +18,7 @@ public class AnimacionDado extends Animacion {
     // Animacion
     protected Queue<Image> getAnimacionImages() {
         Queue<Image> imageQueue = new ArrayDeque<>();
-        for (int i = 0; i < 6; i++) {
+        for (int i = 1; i <= 6; i++) {
             URL url = this.getClass().getResource("dado_" + i + ".png");
             imageQueue.add(new Image(url.toExternalForm()));
         }

@@ -1,6 +1,8 @@
 package edu.fiuba.algo3.vista.arena;
 
 import edu.fiuba.algo3.modelo.AlgoRoma;
+import edu.fiuba.algo3.modelo.Dado;
+import edu.fiuba.algo3.vista.dado.DadoButton;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.ToolBar;
@@ -16,7 +18,7 @@ import java.util.stream.Collectors;
 
 public class Arena extends BorderPane {
 
-    public Arena(AlgoRoma algoRoma){
+    public Arena(AlgoRoma algoRoma, Dado dado){
         super();
 
 
@@ -31,7 +33,6 @@ public class Arena extends BorderPane {
 
         // COLUMNA : Perfiles de Jugadores
         VBox columnaJugadoresIzquierda = new VBox();
-        HBox panelInferior = new HBox();
         Image imagen1 = new Image("File:src/main/java/edu/fiuba/algo3/vista/imagenes/Perfil_1.png");
         ImageView imagenPerfil1 = new ImageView(imagen1);
         imagenPerfil1.setFitHeight(altoImagenPerfil);
@@ -84,14 +85,19 @@ public class Arena extends BorderPane {
                 .getCeldas()
                 .forEach(celda -> mapaArena.add(new Rectangle(40 , 40, Color.CHOCOLATE) , celda.getCoordenada().getX() , celda.getCoordenada().getY() ));
 
-
-        for( int i = 0 ; i < 19 ; i++ ){
+        HBox panelInferior = new HBox();
+        for( int i = 0 ; i < 4 ; i++ ){
             panelInferior.getChildren().add(new Rectangle(60,60, Color.DARKGRAY));
         }
 
         panelInferior.setSpacing(8);
         panelInferior.setPadding(new Insets(8));
         panelInferior.setStyle("-fx-background-color:#323232");
+
+        DadoButton dadoButton = new DadoButton();
+        dado.agregarObservador(dadoButton);
+        dadoButton.setAlgoRoma(algoRoma);
+        panelInferior.getChildren().add(dadoButton);
 
 
         this.setCenter(mapaArena);

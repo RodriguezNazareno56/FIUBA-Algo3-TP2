@@ -24,4 +24,6 @@ module edu.fiuba.algo3 {
     exports edu.fiuba.algo3.vista;
     exports edu.fiuba.algo3.vista.dado;
     exports edu.fiuba.algo3.vista.gladiador;
+    exports edu.fiuba.algo3.Controladores.dado;
+    exports edu.fiuba.algo3.Controladores.observers;
 }
