@@ -1,10 +1,12 @@
 package edu.fiuba.algo3.modelo.celda;
 
 import edu.fiuba.algo3.modelo.FinDelJuegoException;
+import edu.fiuba.algo3.modelo.consecuencias.Consecuencia;
 import edu.fiuba.algo3.modelo.consecuencias.IConsecuencia;
 import edu.fiuba.algo3.modelo.gladiador.Gladiador;
 import edu.fiuba.algo3.modelo.gladiador.exepciones.TriunfoNoPosibleException;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.StringJoiner;
@@ -40,6 +42,10 @@ public class Celda implements ICelda {
     @Override
     public Coordenada getCoordenada() {
         return this.coordenada;
+    }
+
+    public List<IConsecuencia> getConsecuencias() {
+        return consecuencias;
     }
 
     // Dos celdas son iguales cuando tienen las mismas coordenadas y mismas consecuencias

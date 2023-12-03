@@ -15,6 +15,7 @@ import edu.fiuba.algo3.data_acceso.repositories.MapaRepositoryImpl;
 import edu.fiuba.algo3.modelo.AlgoRoma;
 import edu.fiuba.algo3.modelo.Dado;
 import edu.fiuba.algo3.vista.Bienvenida;
+import edu.fiuba.algo3.vista.DadoVista;
 import edu.fiuba.algo3.vista.Jugador.Jugador;
 import edu.fiuba.algo3.vista.mapa.MapaVista;
 import javafx.application.Application;
@@ -67,7 +68,10 @@ public class App extends Application {
         stage.show();
         */
 
-        MapaVista mapaVista = new MapaVista(algoRoma);
+        DadoVista dadoVista = new DadoVista(dado);
+        dado.agregarObservador(dadoVista);
+
+        MapaVista mapaVista = new MapaVista(algoRoma, dadoVista);
         Scene escenaArena = new Scene( mapaVista, 640, 480 );
 
         Jugador jugador = new Jugador(stage, escenaArena, algoRoma );

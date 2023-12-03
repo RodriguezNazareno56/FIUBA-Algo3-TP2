@@ -34,7 +34,7 @@ public class Gladiadores extends VBox implements Observador {
         this.imagenesPerfilGladiador = new ArrayList<String>();
 
         //Inicializo vector de imagenes de los perfiles
-        String srcImage = "File:src/main/java/edu/fiuba/algo3/vista/imagenes/PerfilGladiador";
+        String srcImage = "File:src/main/java/edu/fiuba/algo3/vista/imagenes/perfilesGladiadores/PerfilGladiador";
 
         for( int i = 1 ; i <= maxCantidadPerfiles ; i++ ){
             this.imagenesPerfilGladiador.add( srcImage + i + ".png" );
