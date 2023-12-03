@@ -9,11 +9,11 @@ import javafx.geometry.Pos;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 
-public class MapaVista extends BorderPane {
+public class AlgoRomaPantalla extends BorderPane {
 
     private AlgoRoma algoRoma;
 
-    public MapaVista(AlgoRoma algoRoma, DadoButton dadoButton) {
+    public AlgoRomaPantalla(AlgoRoma algoRoma, DadoButton dadoButton) {
 
         super();
 

@@ -17,7 +17,7 @@ import edu.fiuba.algo3.modelo.Dado;
 import edu.fiuba.algo3.vista.BienvenidaPantalla;
 import edu.fiuba.algo3.vista.Jugador.AgregarJugadorPantalla;
 import edu.fiuba.algo3.vista.dado.DadoButton;
-import edu.fiuba.algo3.vista.mapa.MapaVista;
+import edu.fiuba.algo3.vista.mapa.AlgoRomaPantalla;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -71,8 +71,8 @@ public class App extends Application {
         DadoButton dadoButton = new DadoButton(algoRoma);
         dado.agregarObservador(dadoButton);
 
-        MapaVista mapaVista = new MapaVista(algoRoma, dadoButton);
-        Scene escenaArena = new Scene( mapaVista, 640, 480 );
+        AlgoRomaPantalla algoRomaPantalla = new AlgoRomaPantalla(algoRoma, dadoButton);
+        Scene escenaArena = new Scene(algoRomaPantalla, 640, 480 );
 
         AgregarJugadorPantalla agregarJugadorPantalla = new AgregarJugadorPantalla(stage, escenaArena, algoRoma );
         Scene escenaJugador = new Scene(agregarJugadorPantalla, 640, 480);
