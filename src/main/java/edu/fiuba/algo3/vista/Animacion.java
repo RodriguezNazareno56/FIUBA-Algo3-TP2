@@ -11,18 +11,15 @@ import javafx.util.Duration;
 
 import java.util.Queue;
 
-public class Animacion extends ImageView {
+public abstract class Animacion extends ImageView {
 
     public static final int DURACION_EN_MILISEGUNDOS = 800;
-    private Queue<Image> imageQueue;
 
-    public Animacion(Queue<Image> imageQueue) {
-        this.imageQueue = imageQueue;
-        this.crearAnimacion2();
-    }
+    abstract protected Queue<Image> getAnimacionImages();
 
-    protected void crearAnimacion2() {
+    protected void crearAnimacion() {
         ObjectProperty<Integer> indexProperty = new SimpleObjectProperty<>(0);
+        Queue<Image> imageQueue = getAnimacionImages();
         this.setImage(imageQueue.remove());
 
         indexProperty.addListener(observable -> {

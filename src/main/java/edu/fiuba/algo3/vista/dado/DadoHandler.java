@@ -4,13 +4,10 @@ import edu.fiuba.algo3.vista.Animacion;
 import javafx.animation.*;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.util.Duration;
 
 import java.net.URL;
-import java.util.ArrayDeque;
-import java.util.Queue;
 import java.util.Random;
 
 public class DadoHandler implements EventHandler<ActionEvent> {
@@ -21,7 +18,7 @@ public class DadoHandler implements EventHandler<ActionEvent> {
     public DadoHandler(DadoButton dado) {
         super();
         this.dado = dado;
-        this.animacion = new Animacion(this.getAnimacionImages());
+        this.animacion = new AnimacionDado();
     }
 
     @Override
@@ -48,13 +45,13 @@ public class DadoHandler implements EventHandler<ActionEvent> {
         this.dado.setGraphic(dadoImageView);
     }
 
-    // Animacion
-    protected Queue<Image> getAnimacionImages() {
-        Queue<Image> imageQueue = new ArrayDeque<>();
-        for (int i = 0; i < 6; i++) {
-            URL url = this.getClass().getResource("dado_" + i + ".png");
-            imageQueue.add(new Image(url.toExternalForm()));
-        }
-        return imageQueue;
-    }
+//    // Animacion
+//    protected Queue<Image> getAnimacionImages() {
+//        Queue<Image> imageQueue = new ArrayDeque<>();
+//        for (int i = 0; i < 6; i++) {
+//            URL url = this.getClass().getResource("dado_" + i + ".png");
+//            imageQueue.add(new Image(url.toExternalForm()));
+//        }
+//        return imageQueue;
+//    }
 }

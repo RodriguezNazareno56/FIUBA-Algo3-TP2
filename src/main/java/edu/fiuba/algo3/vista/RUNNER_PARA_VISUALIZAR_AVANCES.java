@@ -2,6 +2,8 @@ package edu.fiuba.algo3.vista;
 
 import edu.fiuba.algo3.vista.dado.DadoButton;
 import edu.fiuba.algo3.vista.equipamientos.EquipamientosPanel;
+import edu.fiuba.algo3.vista.gladiador.Gladiador;
+import edu.fiuba.algo3.vista.gladiador.GladiadorAnimado;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.layout.StackPane;
@@ -17,6 +19,14 @@ public class RUNNER_PARA_VISUALIZAR_AVANCES extends Application {
 
         DadoButton dadoButton = new DadoButton();
         layout.getChildren().add(dadoButton);
+
+        Gladiador gladiador = new Gladiador();
+        gladiador.setTranslateX(-150);
+        layout.getChildren().add(gladiador);
+
+        GladiadorAnimado gladiadorAnimado = new GladiadorAnimado();
+        gladiadorAnimado.setTranslateX(150);
+        layout.getChildren().add(gladiadorAnimado);
 
         Scene scene = new Scene(layout, 600, 600);
 
