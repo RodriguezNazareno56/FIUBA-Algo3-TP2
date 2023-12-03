@@ -14,6 +14,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
+// TODO: eliminar si no se usa
 public class Configuracion extends VBox {
 
     private Stage stage;
@@ -24,7 +25,7 @@ public class Configuracion extends VBox {
 
         this.setAlignment(Pos.CENTER_LEFT);
         this.setPadding(new Insets(20));
-        Image imagen = new Image("file:src/main/java/edu/fiuba/algo3/vista/imagenes/nuevaroma.png");
+        Image imagen = new Image("file:src/main/resources/edu/fiuba/algo3/vista/backgroundConfiguracion.png");
         BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.REPEAT,BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
         this.setBackground(new Background(imagenDeFondo));
 

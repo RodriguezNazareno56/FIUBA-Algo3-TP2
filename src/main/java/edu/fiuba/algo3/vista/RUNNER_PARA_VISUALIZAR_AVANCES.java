@@ -36,9 +36,6 @@ public class RUNNER_PARA_VISUALIZAR_AVANCES extends Application {
         EquipamientosPanel panelEquipamientos = new EquipamientosPanel();
         layout.getChildren().add(panelEquipamientos);
 
-        DadoButton dadoButton = new DadoButton();
-        layout.getChildren().add(dadoButton);
-
         Gladiador gladiador = new Gladiador();
         gladiador.setTranslateX(-150);
         layout.getChildren().add(gladiador);
