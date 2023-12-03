@@ -35,21 +35,27 @@ public class CaminoVista extends GridPane {
         algoRoma.getMapa()
                 .getCamino()
                 .getCeldas()
-                .forEach(celda -> this.add(new CeldaVista(60, 60 ), celda.getCoordenada().getX(), celda.getCoordenada().getY()));
+                .forEach(celda -> this.add(new CeldaVista(50, 50 ), celda.getCoordenada().getX(), celda.getCoordenada().getY()));
 
-
+/*
         FlowPane celdaPrueba = new FlowPane(Orientation.VERTICAL);
         this.setMaxHeight(60);
         this.setMaxHeight(60);
 
-        celdaPrueba.getChildren().add(new Circle(10, Color.RED));
+        Circle circuloRojo = new Circle(10, Color.RED);
+
+        celdaPrueba.getChildren().add(circuloRojo);
         celdaPrueba.getChildren().add(new Circle( 10, Color.BLUE));
         celdaPrueba.getChildren().add(new Circle( 10, Color.YELLOW));
         celdaPrueba.getChildren().add(new Circle( 10, Color.CYAN));
         celdaPrueba.getChildren().add(new Circle( 10, Color.WHITE));
         celdaPrueba.getChildren().add(new Circle( 10, Color.BLACK));
 
+        celdaPrueba.getChildren().remove(circuloRojo);
+
+
         this.add( celdaPrueba, 7 , 1 );
+*/
 
     }
 

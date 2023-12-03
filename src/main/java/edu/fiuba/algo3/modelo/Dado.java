@@ -16,7 +16,7 @@ public class Dado implements Observable  {
     public int tirarDado(){
         Random random = new Random();
         this.ultimoValorArrojado = random.nextInt(6) + 1;
-
+        notificarAObservadores();
         return ultimoValorArrojado;
     }
 
