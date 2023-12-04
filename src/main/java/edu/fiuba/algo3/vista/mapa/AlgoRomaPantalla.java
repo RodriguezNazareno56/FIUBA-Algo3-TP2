@@ -2,8 +2,9 @@ package edu.fiuba.algo3.vista.mapa;
 
 import edu.fiuba.algo3.modelo.AlgoRoma;
 import edu.fiuba.algo3.vista.dado.DadoButton;
-import edu.fiuba.algo3.vista.mapa.components.CaminoVista;
+import edu.fiuba.algo3.vista.gladiador.GladiadorAnimado;
 import edu.fiuba.algo3.vista.mapa.components.Gladiadores;
+import edu.fiuba.algo3.vista.mapa.components.MapaVista;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.layout.BorderPane;
@@ -28,9 +29,19 @@ public class AlgoRomaPantalla extends BorderPane {
 
         //Creacion del camino
 
-        CaminoVista caminoVista = new CaminoVista(algoRoma);
-        this.setCenter(caminoVista);
-        this.setMargin(caminoVista, new Insets(10, 10, 10, 10));
+        MapaVista mapaVista = new MapaVista(algoRoma);
+        this.setCenter(mapaVista);
+        this.setMargin(mapaVista, new Insets(10, 10, 10, 10));
+
+
+        //Prueba para agregar Gladiador a mapa
+
+        GladiadorAnimado gladiadorAnimado = new GladiadorAnimado();
+        gladiadorAnimado.setFitWidth(50);
+        gladiadorAnimado.setFitHeight(50);
+
+        mapaVista.add(gladiadorAnimado, 1, 7 );
+
 
 
         //Panel Inferior - A modo de prueba
@@ -38,12 +49,6 @@ public class AlgoRomaPantalla extends BorderPane {
         panelControl.getChildren().add(dadoButton);
         panelControl.setMaxHeight(20);
         panelControl.setMaxWidth(20);
-
-        /*
-        for (int i = 0; i < 19; i++) {
-            panelControl.getChildren().add(new Rectangle(60, 60, Color.DARKGRAY));
-        }
-        */
 
         panelControl.setSpacing(8);
         panelControl.setPadding(new Insets(8));
@@ -53,6 +58,6 @@ public class AlgoRomaPantalla extends BorderPane {
         this.setMargin(panelControl, new Insets(10, 10, 10, 10));
 
 
-        BorderPane.setAlignment(caminoVista, Pos.TOP_CENTER);
+        BorderPane.setAlignment(mapaVista, Pos.TOP_CENTER);
     }
 }
