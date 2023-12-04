@@ -2,6 +2,7 @@ package edu.fiuba.algo3.modelo.algoRomaEstado;
 
 import edu.fiuba.algo3.modelo.AlgoRoma;
 import edu.fiuba.algo3.modelo.FinDelJuegoException;
+import edu.fiuba.algo3.modelo.JuegoNoIniciadoException;
 import edu.fiuba.algo3.modelo.MaximoGladiadoresException;
 import edu.fiuba.algo3.modelo.gladiador.Gladiador;
 
@@ -26,9 +27,10 @@ public class JuegoSinIniciar extends EstadoJuego{
     }
 
     @Override
-    public void agregarTriunfo(Gladiador gladiador) throws FinDelJuegoException {
-        throw new FinDelJuegoException(" No se pueden agregar triunfos en un juego no iniciado");
+    public void agregarTriunfo(Gladiador gladiador) throws JuegoNoIniciadoException {
+        throw new JuegoNoIniciadoException(" No se pueden agregar triunfos en un juego no iniciado");
     }
+
 
 
 

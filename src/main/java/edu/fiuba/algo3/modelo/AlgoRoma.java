@@ -212,4 +212,8 @@ public class AlgoRoma implements ObservadorGladiador, Observable {
     public void setEstadoJuego(EstadoJuego estadoJuego) {
         this.estadoJuego = estadoJuego;
     }
+
+    public int getMaximaCantidadRondas() {
+        return MAXIMA_CANTIDAD_DE_RONDAS;
+    }
 }

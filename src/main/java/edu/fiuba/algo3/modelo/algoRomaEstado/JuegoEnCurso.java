@@ -25,7 +25,7 @@ public class JuegoEnCurso extends EstadoJuego{
         @Override
         public void jugarTurno() throws Exception {
 
-                if(algoRoma.getRondasJugadas() >= AlgoRomaConstantes.MAXIMA_CANTIDAD_DE_RONDAS){
+                if(algoRoma.getRondasJugadas() >= algoRoma.getMaximaCantidadRondas()){
                         JuegoTerminado juegoTerminado = new JuegoTerminado(algoRoma);
                         algoRoma.setEstadoJuego( juegoTerminado );
                         juegoTerminado.jugarTurno();
