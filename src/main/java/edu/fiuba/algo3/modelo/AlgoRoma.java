@@ -19,7 +19,6 @@ import org.slf4j.Logger;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Stack;
-import edu.fiuba.algo3.modelo.constantes.AlgoRomaConstantes;
 
 import static edu.fiuba.algo3.modelo.constantes.AlgoRomaConstantes.*;
 
@@ -40,8 +39,6 @@ public class AlgoRoma implements ObservadorGladiador, Observable {
 
     private final int MAX_CANTIDAD_GLADIADORES = 6;
 
-    private boolean juegoEnCurso;
-
     private final MapaService mapaService;
 
     private final Dado dado;
@@ -54,7 +51,6 @@ public class AlgoRoma implements ObservadorGladiador, Observable {
 
         this.gladiadores = new ArrayList<>();
         this.gladiadoresEnEspera = new Stack<>();
-        this.juegoEnCurso = false;
 
         this.estadoJuego = new JuegoSinIniciar(this);
 
@@ -77,7 +73,6 @@ public class AlgoRoma implements ObservadorGladiador, Observable {
 
     public void agregarGladiador(String nombreGladiador) throws FinDelJuegoException {
         this.estadoJuego.agregarGladiador(nombreGladiador);
-
     }
     public void jugarTurno() throws Exception {
         if( gladiadoresEnEspera.isEmpty()){
@@ -87,8 +82,8 @@ public class AlgoRoma implements ObservadorGladiador, Observable {
         this.estadoJuego.jugarTurno();
     }
 
-    public void agregarGladiador(String nombreGladiador, JuegoSinIniciar juegoSinIniciar){
-        if( gladiadores.size() < MAX_CANTIDAD_GLADIADORES){
+    public void agregarGladiadorALaLista(String nombreGladiador){
+        if( gladiadores.size() < MAXIMA_CANTIDAD_DE_GLADIADORES){
             Gladiador gladiador = new Gladiador(new Energia(ENERGIA_INICIAL_GLADIADOR), new SinEquipamiento(), new Senority(), this.logger);
             gladiador.setNombre(nombreGladiador);
             gladiador.subscribir(this);
@@ -98,26 +93,15 @@ public class AlgoRoma implements ObservadorGladiador, Observable {
         else{
             throw new MaximoGladiadoresException("No se pueden agregar mas gladiadores");
         }
-    }
 
-    public void agregarGladiador(String nombreGladiador, JuegoEnCurso juegoEnCurso) {
-        throw new JuegoEnCursoException("No se pueden agregar gladiadores en un juego en curso");
-    }
-
-    public void agregarGladiador(String nombreGladiador, JuegoTerminado juegoTerminado) throws FinDelJuegoException {
-        throw new FinDelJuegoException(" No se pueden agregar gladiadores en un juego terminado");
     }
 
     private void inicializarJuego() throws MinimoGladiadoresException {
-        //post: no se puede inicializar un juego con menos de dos gladiadores, se lanza una excepcion
-        if( gladiadores.size() < MINIMO_DE_GLADIADORES){
-            //cambiar a mínimo o uno que englobe ambos casos
+        if( gladiadores.size() < MINIMA_CANTIDAD_DE_GLADIADORES){
             throw new MinimoGladiadoresException("No se puede inicializar un juego con menos de dos gladiadores");
         }
-        this.juegoEnCurso = true;
 
         Collections.shuffle(gladiadores);
-
 
         // TODO: no se si aca esta bien. pero al mapa hay que cargarle los gladiadores
         this.mapa.setGladiadores(gladiadores);
@@ -129,7 +113,6 @@ public class AlgoRoma implements ObservadorGladiador, Observable {
 
 
     public void jugarTurnoSegunEstado(JuegoSinIniciar juegoSinIniciar) throws Exception {
-        //especificar excepcion
         this.inicializarJuego();
         avanzarGladiador();
     }
@@ -207,7 +190,6 @@ public class AlgoRoma implements ObservadorGladiador, Observable {
     @Override
     public void notificarTriunfo(Gladiador gladiador) throws FinDelJuegoException {
         this.logger.info(gladiador + " ha triunfado!!!");
-        this.juegoEnCurso = false;
         this.estadoJuego.agregarTriunfo(gladiador);
         throw new FinDelJuegoException(gladiador + " ha triunfado !!");
     }

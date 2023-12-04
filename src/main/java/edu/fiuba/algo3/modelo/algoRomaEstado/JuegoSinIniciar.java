@@ -1,7 +1,12 @@
 package edu.fiuba.algo3.modelo.algoRomaEstado;
 
 import edu.fiuba.algo3.modelo.AlgoRoma;
+import edu.fiuba.algo3.modelo.FinDelJuegoException;
+import edu.fiuba.algo3.modelo.MaximoGladiadoresException;
 import edu.fiuba.algo3.modelo.gladiador.Gladiador;
+
+import static edu.fiuba.algo3.modelo.constantes.AlgoRomaConstantes.MAXIMA_CANTIDAD_DE_GLADIADORES;
+
 
 public class JuegoSinIniciar extends EstadoJuego{
 
@@ -11,7 +16,7 @@ public class JuegoSinIniciar extends EstadoJuego{
 
     @Override
     public void agregarGladiador(String nombreGladiador) {
-        algoRoma.agregarGladiador(nombreGladiador, this);
+        algoRoma.agregarGladiadorALaLista(nombreGladiador);
     }
     @Override
     public void jugarTurno() throws Exception {
@@ -21,9 +26,8 @@ public class JuegoSinIniciar extends EstadoJuego{
     }
 
     @Override
-    public void agregarTriunfo(Gladiador gladiador) {
-        // Es posible tener un triunfo cuando el juego no esta iniciado?, debería lanzar un error?
-        algoRoma.setEstadoJuego( new JuegoTerminado(algoRoma));
+    public void agregarTriunfo(Gladiador gladiador) throws FinDelJuegoException {
+        throw new FinDelJuegoException(" No se pueden agregar triunfos en un juego no iniciado");
     }
 
 

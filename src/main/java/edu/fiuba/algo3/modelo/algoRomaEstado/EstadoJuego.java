@@ -16,5 +16,5 @@ public abstract class EstadoJuego {
 
     public abstract void agregarGladiador(String nombreGladiador) throws FinDelJuegoException;
 
-    public abstract void agregarTriunfo(Gladiador gladiador);
+    public abstract void agregarTriunfo(Gladiador gladiador) throws FinDelJuegoException;
 }

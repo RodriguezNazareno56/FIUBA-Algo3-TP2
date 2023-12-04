@@ -11,7 +11,7 @@ public class JuegoTerminado extends EstadoJuego{
 
     @Override
     public void agregarGladiador(String nombreGladiador) throws FinDelJuegoException {
-        algoRoma.agregarGladiador(nombreGladiador, this);
+        throw new FinDelJuegoException(" No se pueden agregar gladiadores en un juego terminado");
     }
 
     @Override
@@ -20,7 +20,8 @@ public class JuegoTerminado extends EstadoJuego{
     }
 
     @Override
-    public void agregarTriunfo(Gladiador gladiador) {
+    public void agregarTriunfo(Gladiador gladiador) throws FinDelJuegoException {
+        throw new FinDelJuegoException(" No se pueden agregar triunfos en un juego terminado");
     }
 
 
