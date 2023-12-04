@@ -50,7 +50,6 @@ public class CasoDeUso20Test {
         // Arrange
         algoRoma.agregarGladiador("Mike Tyson");
         algoRoma.agregarGladiador("Rocky Balboa");
-        algoRoma.inicializarJuego();
 
         // Act
         // Los jugadores juegan en un mapa sin incrementos de equipamientos hasta que se agotan los turnos y pierden.

@@ -3,6 +3,7 @@ package edu.fiuba.algo3.entrega_2;
 import edu.fiuba.algo3.data_acceso.MapaService;
 import edu.fiuba.algo3.modelo.AlgoRoma;
 import edu.fiuba.algo3.modelo.Dado;
+import edu.fiuba.algo3.modelo.FinDelJuegoException;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -28,12 +29,17 @@ public class CasoDeUso18Test {
 
         // Instancio AlgoRoma
         this.algoRoma = new AlgoRoma(mapaServiceMock, Mockito.mock(Dado.class), loggerMock);
+
+        //iniciado algoRoma
+        this.algoRoma.agregarGladiador("Espartaco");
+        this.algoRoma.agregarGladiador("Augusto");
+        this.algoRoma.jugarTurno();
     }
 
     @Test
-    public void verificarSistemaLogNecesarioEntrega3() {
+    public void verificarSistemaLogNecesarioEntrega3() throws Exception {
+
         // Act
-        algoRoma.inicializarJuego();
 
         // Verify
         // this.logger.info("Juego inicilizado") al inicializar juego

@@ -51,7 +51,6 @@ public class CasoDeUso19Test {
         // Arrange
         algoRoma.agregarGladiador("Mike Tyson");
         algoRoma.agregarGladiador("Rocky Balboa");
-        algoRoma.inicializarJuego();
 
         // Act
         // Los jugadores llegan hasta la anteultima casilla con equipamiento llave
