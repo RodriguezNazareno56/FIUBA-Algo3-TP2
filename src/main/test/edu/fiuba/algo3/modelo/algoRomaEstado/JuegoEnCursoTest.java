@@ -1,17 +1,15 @@
 package edu.fiuba.algo3.modelo.algoRomaEstado;
-import edu.fiuba.algo3.data_acceso.MapaService;
 import edu.fiuba.algo3.modelo.AlgoRoma;
 import edu.fiuba.algo3.modelo.FinDelJuegoException;
 import edu.fiuba.algo3.modelo.JuegoEnCursoException;
 import edu.fiuba.algo3.modelo.gladiador.Gladiador;
-import edu.fiuba.algo3.modelo.mapa.Mapa;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import edu.fiuba.algo3.modelo.algoRomaEstado.JuegoEnCurso;
+
 
 
 import org.mockito.Mockito;
@@ -37,7 +35,6 @@ public class JuegoEnCursoTest {
 
         @Test void seLlamaAJugarTurnoSegunEstadoEnAlgoRomaCuandoSeJuegaTurno() throws Exception {
             // Arrange
-            String nombre = "Espartaco";
             Mockito.when(algoRoma.getRondasJugadas()).thenReturn(1);
             Mockito.when(algoRoma.getMaximaCantidadRondas()).thenReturn(30);
             // Act
@@ -45,7 +42,7 @@ public class JuegoEnCursoTest {
             // Assert
             Mockito.verify(algoRoma, Mockito.times(1)).jugarTurnoSegunEstado(Mockito.any(JuegoEnCurso.class));
         }
-
+        
     @Test
     void jugarTurnoConRondasJugadasIgualesAMaximaRondasLlamaACambiarElEstadoAJuegoTerminado() throws Exception {
         // Arrange
@@ -70,4 +67,6 @@ public class JuegoEnCursoTest {
         Mockito.verify(algoRoma, Mockito.times(1)).setEstadoJuego(Mockito.any(JuegoTerminado.class));
 
     }
+
+
 }
