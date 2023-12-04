@@ -12,8 +12,8 @@ import org.mockito.Mockito;
 
 public class JuegoTerminadoTest {
 
-    private AlgoRoma algoRoma;
-    private JuegoTerminado juegoTerminado;
+    AlgoRoma algoRoma;
+    JuegoTerminado juegoTerminado;
 
 
 

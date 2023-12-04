@@ -16,33 +16,33 @@ import org.mockito.Mockito;
 import org.slf4j.Logger;
 public class JuegoEnCursoTest {
 
-        private AlgoRoma algoRoma;
-        private JuegoEnCurso juegoEnCurso;
+    AlgoRoma algoRoma;
+    JuegoEnCurso juegoEnCurso;
 
-        @BeforeEach
-        public void setUp() throws Exception {
-            algoRoma = Mockito.mock(AlgoRoma.class);
-            //Mockito.when(mapaService.cargarMapa()).thenReturn(Mockito.mock(Mapa.class));
+    @BeforeEach
+    public void setUp() throws Exception {
+        algoRoma = Mockito.mock(AlgoRoma.class);
+        //Mockito.when(mapaService.cargarMapa()).thenReturn(Mockito.mock(Mapa.class));
 
-            juegoEnCurso = new JuegoEnCurso(algoRoma);
-        }
+        juegoEnCurso = new JuegoEnCurso(algoRoma);
+    }
 
-        @Test
-        public void seLanzaJuegoEnCursoExceptionUCuandoSeAgregaUnGladiador() throws FinDelJuegoException {
-            // Arrange
-            assertThrows(JuegoEnCursoException.class, () -> juegoEnCurso.agregarGladiador("Augusto") );
-        }
+    @Test
+    public void seLanzaJuegoEnCursoExceptionUCuandoSeAgregaUnGladiador() throws FinDelJuegoException {
+        // Arrange
+        assertThrows(JuegoEnCursoException.class, () -> juegoEnCurso.agregarGladiador("Augusto") );
+    }
+    @Test
+    void seLlamaAJugarTurnoSegunEstadoEnAlgoRomaCuandoSeJuegaTurno() throws Exception {
+        // Arrange
+        Mockito.when(algoRoma.getRondasJugadas()).thenReturn(1);
+        Mockito.when(algoRoma.getMaximaCantidadRondas()).thenReturn(30);
+        // Act
+        juegoEnCurso.jugarTurno();
+        // Assert
+        Mockito.verify(algoRoma, Mockito.times(1)).jugarTurnoSegunEstado(Mockito.any(JuegoEnCurso.class));
+    }
 
-        @Test void seLlamaAJugarTurnoSegunEstadoEnAlgoRomaCuandoSeJuegaTurno() throws Exception {
-            // Arrange
-            Mockito.when(algoRoma.getRondasJugadas()).thenReturn(1);
-            Mockito.when(algoRoma.getMaximaCantidadRondas()).thenReturn(30);
-            // Act
-            juegoEnCurso.jugarTurno();
-            // Assert
-            Mockito.verify(algoRoma, Mockito.times(1)).jugarTurnoSegunEstado(Mockito.any(JuegoEnCurso.class));
-        }
-        
     @Test
     void jugarTurnoConRondasJugadasIgualesAMaximaRondasLlamaACambiarElEstadoAJuegoTerminado() throws Exception {
         // Arrange
@@ -57,7 +57,7 @@ public class JuegoEnCursoTest {
     }
 
     @Test
-    public void seLLamaACambiarEstadoAJuegoTerminadoEnAlgoRomaCuandoSeAgregaUnTriunfo() throws FinDelJuegoException {
+    public void seLLamaACambiarEstadoAJuegoTerminadoEnAlgoRomaCuandoSeAgregaUnTriunfo() {
         Gladiador gladiador = Mockito.mock(Gladiador.class);
         Mockito.when(algoRoma.getRondasJugadas()).thenReturn(10);
         Mockito.when(algoRoma.getMaximaCantidadRondas()).thenReturn(30);

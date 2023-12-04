@@ -16,8 +16,8 @@ import org.mockito.Mockito;
 
 public class JuegoSinIniciarTest {
 
-    private AlgoRoma algoRoma;
-    private JuegoSinIniciar juegoSinIniciar;
+    AlgoRoma algoRoma;
+    JuegoSinIniciar juegoSinIniciar;
 
     @BeforeEach
     public void setUp() throws Exception {
