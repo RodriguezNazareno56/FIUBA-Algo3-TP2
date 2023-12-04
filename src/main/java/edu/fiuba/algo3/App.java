@@ -20,12 +20,16 @@ import edu.fiuba.algo3.vista.dado.DadoButton;
 import edu.fiuba.algo3.vista.mapa.MapaVista;
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * JavaFX App
@@ -85,6 +89,7 @@ public class App extends Application {
         stage.setWidth(1200);
         stage.setHeight(600);
         stage.show();
+
     }
 
     public static void main(String[] args) {

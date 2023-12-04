@@ -2,8 +2,11 @@ package edu.fiuba.algo3.vista.mapa.components;
 
 import edu.fiuba.algo3.modelo.AlgoRoma;
 import edu.fiuba.algo3.modelo.consecuencias.IConsecuencia;
+import edu.fiuba.algo3.vista.equipamientos.EquipamientoPremio;
 import javafx.geometry.Orientation;
 import javafx.geometry.Pos;
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.InputMethodEvent;
@@ -35,7 +38,23 @@ public class CaminoVista extends GridPane {
         algoRoma.getMapa()
                 .getCamino()
                 .getCeldas()
-                .forEach(celda -> this.add(new CeldaVista(50, 50 ), celda.getCoordenada().getX(), celda.getCoordenada().getY()));
+                .forEach(celda -> {
+                    var celdaVista = new CeldaVista(50, 50, celda.getConsecuencias());
+                    var celdaVista1 = new CeldaPrueba(25, 25, celda.getConsecuencias());
+                    this.add(celdaVista, celda.getCoordenada().getX(), celda.getCoordenada().getY());
+                  /**  var equipamiento = celdaVista.equipamientoPremio(celda.getConsecuencias());
+                   if(equipamiento != null){
+                       var pane = new Pane();
+                        pane.setPrefSize(80,50);
+                       pane.getChildren().add(new EquipamientoPremio());
+                        this.add(celdaVista, celda.getCoordenada().getX(), celda.getCoordenada().getY());
+                        this.add(pane, celda.getCoordenada().getX(), celda.getCoordenada().getY());
+                    }
+                    else{
+                        this.add(celdaVista, celda.getCoordenada().getX(), celda.getCoordenada().getY());
+                    }**/
+                });
+
 
 /*
         FlowPane celdaPrueba = new FlowPane(Orientation.VERTICAL);

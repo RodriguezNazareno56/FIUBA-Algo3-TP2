@@ -42,6 +42,11 @@ public class Celda implements ICelda {
         return this.coordenada;
     }
 
+    @Override
+    public List<IConsecuencia> getConsecuencias() {
+        return this.consecuencias;
+    }
+
     // Dos celdas son iguales cuando tienen las mismas coordenadas y mismas consecuencias
     @Override
     public boolean equals(Object o) {

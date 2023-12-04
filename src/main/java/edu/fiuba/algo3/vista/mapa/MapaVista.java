@@ -39,12 +39,6 @@ public class MapaVista extends BorderPane {
         panelControl.setMaxHeight(20);
         panelControl.setMaxWidth(20);
 
-        /*
-        for (int i = 0; i < 19; i++) {
-            panelControl.getChildren().add(new Rectangle(60, 60, Color.DARKGRAY));
-        }
-        */
-
         panelControl.setSpacing(8);
         panelControl.setPadding(new Insets(8));
         panelControl.setStyle("-fx-background-color:#323232");
