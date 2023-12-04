@@ -43,7 +43,6 @@ public class AlgoRomaPantalla extends BorderPane {
         mapaVista.add(gladiadorAnimado, 1, 7 );
 
 
-
         //Panel Inferior - A modo de prueba
         HBox panelControl = new HBox();
         panelControl.getChildren().add(dadoButton);
