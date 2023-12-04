@@ -1,7 +1,6 @@
 package edu.fiuba.algo3.modelo;
 
 import edu.fiuba.algo3.data_acceso.MapaService;
-import edu.fiuba.algo3.data_acceso.data_mappers.JsonFormatoInvalidoException;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -38,11 +37,11 @@ public class AlgoRomaTest {
 
         // Considerando que hay 2 jugadores, se deben jugar 40 turnos para completar 19 rondas jugadas.
         // La siguiente es la 20
-        for( int i=0 ; i < 40 ; i++ ) {
+        for( int i=0 ; i < 41 ; i++ ) {
             algoRoma.jugarTurno();
         }
         // Assert
-        assertEquals( cantidadRondasEsperadas, algoRoma.getCantidadRondas()  );
+        assertEquals( cantidadRondasEsperadas, algoRoma.getRondasJugadas()  );
 
     }
 

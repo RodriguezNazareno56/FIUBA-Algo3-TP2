@@ -29,7 +29,7 @@ public class AlgoRoma implements ObservadorGladiador, Observable {
 
     private final Logger logger;
 
-    private int cantidadDeRondas = 0;
+    private int rondaActual = 0;
 
     private final ArrayList<Gladiador> gladiadores;
 
@@ -76,13 +76,14 @@ public class AlgoRoma implements ObservadorGladiador, Observable {
     }
     public void jugarTurno() throws Exception {
         if( gladiadoresEnEspera.isEmpty()){
-            this.cantidadDeRondas++;
+            this.rondaActual++;
             this.gladiadoresEnEspera.addAll(gladiadores);
         }
         this.estadoJuego.jugarTurno();
     }
 
     public void agregarGladiadorALaLista(String nombreGladiador){
+        //este metodo lo usan los estados, redefinir por un nombre más apropiado
         if( gladiadores.size() < MAXIMA_CANTIDAD_DE_GLADIADORES){
             Gladiador gladiador = new Gladiador(new Energia(ENERGIA_INICIAL_GLADIADOR), new SinEquipamiento(), new Senority(), this.logger);
             gladiador.setNombre(nombreGladiador);
@@ -122,7 +123,7 @@ public class AlgoRoma implements ObservadorGladiador, Observable {
     }
 
     public void jugarTurnoSegunEstado(JuegoTerminado juegoTerminado) throws FinDelJuegoException {
-        if( this.cantidadDeRondas >= MAXIMA_CANTIDAD_DE_RONDAS){
+        if( this.rondaActual >= MAXIMA_CANTIDAD_DE_RONDAS){
             notificarMaximoDeRondasAlcanzado();
             logger.info("Se alcanzo el numero maximo de rondas");
             throw new FinDelJuegoException("Se alcanzo el numero maximo de rondas");
@@ -150,8 +151,12 @@ public class AlgoRoma implements ObservadorGladiador, Observable {
         this.mapa = mapa;
     }
 
-    public int getCantidadRondas() {
-        return cantidadDeRondas;
+    public int getRondasJugadas() {
+        //una ronda se jugo si no hay mas gladiadores en espera
+        if( gladiadoresEnEspera.isEmpty() ){
+            return rondaActual;
+        }
+        return rondaActual-1;
     }
 
     private void notificarResultadoDado(Gladiador gladiador, int resultadoDado){

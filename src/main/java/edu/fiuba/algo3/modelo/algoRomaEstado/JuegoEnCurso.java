@@ -15,18 +15,17 @@ public class JuegoEnCurso extends EstadoJuego{
 
         @Override
         public void agregarGladiador(String nombreGladiador) throws JuegoEnCursoException {
-                if( SE_PUEDE_AGREGAR_GLADIADOR_EN_JUEGO_EN_CURSO){
+                if( SE_PUEDE_AGREGAR_GLADIADOR_EN_JUEGO_EN_CURSO ){
                         algoRoma.agregarGladiadorALaLista(nombreGladiador);
                 }
                 else{
                         throw new JuegoEnCursoException("No se pueden agregar gladiadores en un juego en curso");
-
                 }
         }
         @Override
         public void jugarTurno() throws Exception {
 
-                if(algoRoma.getCantidadRondas() > AlgoRomaConstantes.MAXIMA_CANTIDAD_DE_RONDAS){
+                if(algoRoma.getRondasJugadas() >= AlgoRomaConstantes.MAXIMA_CANTIDAD_DE_RONDAS){
                         JuegoTerminado juegoTerminado = new JuegoTerminado(algoRoma);
                         algoRoma.setEstadoJuego( juegoTerminado );
                         juegoTerminado.jugarTurno();
