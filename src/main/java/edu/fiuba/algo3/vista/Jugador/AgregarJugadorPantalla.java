@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.vista.Jugador;
 
 import edu.fiuba.algo3.modelo.AlgoRoma;
+import edu.fiuba.algo3.modelo.FinDelJuegoException;
 import edu.fiuba.algo3.vista.components.boton.BotonProximaEscenaEventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -19,7 +20,7 @@ import javafx.stage.Stage;
 public class AgregarJugadorPantalla extends VBox {
     private Stage stage;
 
-    public AgregarJugadorPantalla(Stage stage, Scene proximaEscena, AlgoRoma algoRoma) {
+    public AgregarJugadorPantalla(Stage stage, Scene proximaEscena, AlgoRoma algoRoma) throws FinDelJuegoException{
         super(30);
         this.stage = stage;
 
@@ -62,7 +63,13 @@ public class AgregarJugadorPantalla extends VBox {
                 unirse.setDisable(true);
             }
             else {
-                algoRoma.agregarGladiador(nombre);
+                try {
+                    algoRoma.agregarGladiador(nombre);
+                } catch (FinDelJuegoException ex) {
+                    throw new RuntimeException(ex);
+                }
+
+
                 textField.clear();
                 textField.requestFocus();
             }

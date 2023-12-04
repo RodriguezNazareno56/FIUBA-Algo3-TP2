@@ -39,7 +39,8 @@ public class GladiadorAvanza5CasillerosTest {
         Energia energia = new Energia(20);
         Equipamiento equipamiento = new SinEquipamiento();
         Senority senority = new Senority();
-        this.gladiador = new Gladiador(energia, equipamiento, senority, Mockito.mock(Logger.class));
+        String nombre = "Espartaco";
+        this.gladiador = new Gladiador(nombre, energia, equipamiento, senority, Mockito.mock(Logger.class));
 
         // construyo un Mapa con el camino y el gladiador
         this.mapa = new Mapa(10, 10, camino);

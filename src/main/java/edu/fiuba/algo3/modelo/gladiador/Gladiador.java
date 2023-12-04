@@ -23,7 +23,8 @@ public class Gladiador implements ObservableGladiador {
 
     private boolean estaHabilitadoParaMover;
 
-    public Gladiador(Energia energia, Equipamiento equipamiento, Senority senority, Logger logger) {
+    public Gladiador(String nombre, Energia energia, Equipamiento equipamiento, Senority senority, Logger logger) {
+        this.nombre = nombre;
         this.energia = energia;
         this.equipamiento = equipamiento;
         this.senority = senority;
@@ -96,10 +97,6 @@ public class Gladiador implements ObservableGladiador {
             throw new TriunfoNoPosibleException("El jugador no posee el equipamiento requerido");
         }
         this.notificarTriunfoObservadores();
-    }
-
-    public void setNombre(String nombreGladiador) {
-        this.nombre = nombreGladiador;
     }
 
     public String getNombre() {

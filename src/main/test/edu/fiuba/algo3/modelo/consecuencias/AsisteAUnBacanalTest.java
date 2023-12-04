@@ -39,7 +39,8 @@ public class AsisteAUnBacanalTest {
         Energia energia = new Energia(20);
         Equipamiento equipamiento = new SinEquipamiento();
         Senority senority = new Senority();
-        Gladiador gladiador = new Gladiador(energia, equipamiento, senority, Mockito.mock(Logger.class));
+        String nombre = "Espartaco";
+        Gladiador gladiador = new Gladiador(nombre, energia, equipamiento, senority, Mockito.mock(Logger.class));
 
         Dado dadoMock = Mockito.mock(Dado.class);
         Mockito.when(dadoMock.tirarDado()).thenReturn(1);
@@ -59,7 +60,8 @@ public class AsisteAUnBacanalTest {
         Energia energia = new Energia(20);
         Equipamiento equipamiento = new SinEquipamiento();
         Senority senority = new Senority();
-        Gladiador gladiador = new Gladiador(energia, equipamiento, senority, Mockito.mock(Logger.class));
+        String nombre = "Espartaco";
+        Gladiador gladiador = new Gladiador(nombre, energia, equipamiento, senority, Mockito.mock(Logger.class));
 
         Dado dadoMock = Mockito.mock(Dado.class);
         Mockito.when(dadoMock.tirarDado()).thenReturn(2);
@@ -79,7 +81,8 @@ public class AsisteAUnBacanalTest {
         Energia energia = new Energia(20);
         Equipamiento equipamiento = new SinEquipamiento();
         Senority senority = new Senority();
-        Gladiador gladiador = new Gladiador(energia, equipamiento, senority, Mockito.mock(Logger.class));
+        String nombre = "Espartaco";
+        Gladiador gladiador = new Gladiador(nombre, energia, equipamiento, senority, Mockito.mock(Logger.class));
 
         Dado dadoMock = Mockito.mock(Dado.class);
         Mockito.when(dadoMock.tirarDado()).thenReturn(3);
@@ -99,7 +102,8 @@ public class AsisteAUnBacanalTest {
         Energia energia = new Energia(20);
         Equipamiento equipamiento = new SinEquipamiento();
         Senority senority = new Senority();
-        Gladiador gladiador = new Gladiador(energia, equipamiento, senority, Mockito.mock(Logger.class));
+        String nombre = "Espartaco";
+        Gladiador gladiador = new Gladiador(nombre, energia, equipamiento, senority, Mockito.mock(Logger.class));
 
         Dado dadoMock = Mockito.mock(Dado.class);
         Mockito.when(dadoMock.tirarDado()).thenReturn(4);
@@ -119,7 +123,8 @@ public class AsisteAUnBacanalTest {
         Energia energia = new Energia(20);
         Equipamiento equipamiento = new SinEquipamiento();
         Senority senority = new Senority();
-        Gladiador gladiador = new Gladiador(energia, equipamiento, senority, Mockito.mock(Logger.class));
+        String nombre = "Espartaco";
+        Gladiador gladiador = new Gladiador(nombre, energia, equipamiento, senority, Mockito.mock(Logger.class));
 
         Dado dadoMock = Mockito.mock(Dado.class);
         Mockito.when(dadoMock.tirarDado()).thenReturn(5);
@@ -139,7 +144,8 @@ public class AsisteAUnBacanalTest {
         Energia energia = new Energia(20);
         Equipamiento equipamiento = new SinEquipamiento();
         Senority senority = new Senority();
-        Gladiador gladiador = new Gladiador(energia, equipamiento, senority, Mockito.mock(Logger.class));
+        String nombre = "Espartaco";
+        Gladiador gladiador = new Gladiador(nombre, energia, equipamiento, senority, Mockito.mock(Logger.class));
 
         Dado dadoMock = Mockito.mock(Dado.class);
         Mockito.when(dadoMock.tirarDado()).thenReturn(6);

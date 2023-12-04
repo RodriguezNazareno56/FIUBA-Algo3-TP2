@@ -23,7 +23,8 @@ public class CasoDeUso1Test {
         Energia energia = new Energia(20);
         Equipamiento equipamiento = new SinEquipamiento();
         Senority senority = new Senority();
-        Gladiador gladiador = new Gladiador(energia, equipamiento, senority, Mockito.mock(Logger.class));
+        String nombre = "Espartaco";
+        Gladiador gladiador = new Gladiador(nombre,energia, equipamiento, senority, Mockito.mock(Logger.class));
 
         // Assert
         // Un gladiador debe iniciar sin equipamiento y con 20 puntos de energia.

@@ -36,7 +36,8 @@ public class ComidaTest {
         Energia energia = new Energia(energiaInicialValor);
         Equipamiento equipamiento = new SinEquipamiento();
         Senority senority = new Senority();
-        Gladiador gladiador = new Gladiador(energia, equipamiento, senority, Mockito.mock(Logger.class));
+        String nombre = "Espartaco";
+        Gladiador gladiador = new Gladiador(nombre, energia, equipamiento, senority, Mockito.mock(Logger.class));
         Comida comida = new Comida();
         Energia energiaEsperada = new Energia(energiaInicialValor + ComidaConstantes.VALOR_DE_RECOMPOSICION);
 
@@ -54,7 +55,8 @@ public class ComidaTest {
         Energia energia = new Energia(energiaInicialValor);
         Equipamiento equipamiento = new SinEquipamiento();
         Senority senority = new Senority();
-        Gladiador gladiador = new Gladiador(energia, equipamiento, senority, Mockito.mock(Logger.class));
+        String nombre = "Espartaco";
+        Gladiador gladiador = new Gladiador(nombre, energia, equipamiento, senority, Mockito.mock(Logger.class));
         Comida comida = new Comida();
         Energia energiaEsperada = new Energia(energiaInicialValor + ComidaConstantes.VALOR_DE_RECOMPOSICION);
 

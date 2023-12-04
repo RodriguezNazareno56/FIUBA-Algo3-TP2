@@ -39,7 +39,8 @@ public class EquipamientoIncrementadoTest {
         Energia energiaInicial = new Energia(20);
         Equipamiento equipamiento = new SinEquipamiento();
         Senority senority = new Senority();
-        Gladiador gladiador = new Gladiador(energiaInicial, equipamiento, senority, Mockito.mock(Logger.class));
+        String nombre = "Espartaco";
+        Gladiador gladiador = new Gladiador(nombre, energiaInicial, equipamiento, senority, Mockito.mock(Logger.class));
         IConsecuencia fieraSalvaje = new FieraSalvaje();
 
         EquipamientoIncrementado equipamientoIncrementado = new EquipamientoIncrementado();
@@ -59,7 +60,8 @@ public class EquipamientoIncrementadoTest {
         Energia energia = new Energia(20);
         Equipamiento equipamiento = new Casco();
         Senority senority = new Senority();
-        Gladiador gladiador = new Gladiador(energia, equipamiento, senority, Mockito.mock(Logger.class));
+        String nombre = "Espartaco";
+        Gladiador gladiador = new Gladiador(nombre, energia, equipamiento, senority, Mockito.mock(Logger.class));
         IConsecuencia fieraSalvaje = new FieraSalvaje();
 
         EquipamientoIncrementado equipamientoIncrementado = new EquipamientoIncrementado();
@@ -79,7 +81,8 @@ public class EquipamientoIncrementadoTest {
         Energia energia = new Energia(20);
         Equipamiento equipamiento = new Armadura();
         Senority senority = new Senority();
-        Gladiador gladiador = new Gladiador(energia, equipamiento, senority, Mockito.mock(Logger.class));
+        String nombre = "Espartaco";
+        Gladiador gladiador = new Gladiador(nombre, energia, equipamiento, senority, Mockito.mock(Logger.class));
         IConsecuencia fieraSalvaje = new FieraSalvaje();
 
         EquipamientoIncrementado equipamientoIncrementado = new EquipamientoIncrementado();
@@ -99,7 +102,8 @@ public class EquipamientoIncrementadoTest {
         Energia energia = new Energia(20);
         Equipamiento equipamiento = new EscudoYEspada();
         Senority senority = new Senority();
-        Gladiador gladiador = new Gladiador(energia, equipamiento, senority, Mockito.mock(Logger.class));
+        String nombre = "Espartaco";
+        Gladiador gladiador = new Gladiador(nombre, energia, equipamiento, senority, Mockito.mock(Logger.class));
         IConsecuencia fieraSalvaje = new FieraSalvaje();
 
         EquipamientoIncrementado equipamientoIncrementado = new EquipamientoIncrementado();
@@ -121,7 +125,8 @@ public class EquipamientoIncrementadoTest {
         Energia energia = new Energia(20);
         Equipamiento equipamiento = new Llave();
         Senority senority = new Senority();
-        Gladiador gladiador = new Gladiador(energia, equipamiento, senority, Mockito.mock(Logger.class));
+        String nombre = "Espartaco";
+        Gladiador gladiador = new Gladiador(nombre, energia, equipamiento, senority, Mockito.mock(Logger.class));
         IConsecuencia fieraSalvaje = new FieraSalvaje();
 
         EquipamientoIncrementado equipamientoIncrementado = new EquipamientoIncrementado();

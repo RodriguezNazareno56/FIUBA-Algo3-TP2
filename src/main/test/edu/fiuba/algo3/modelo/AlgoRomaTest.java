@@ -1,7 +1,6 @@
 package edu.fiuba.algo3.modelo;
 
 import edu.fiuba.algo3.data_acceso.MapaService;
-import edu.fiuba.algo3.data_acceso.data_mappers.JsonFormatoInvalidoException;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -25,14 +24,15 @@ public class AlgoRomaTest {
 
         this.algoRoma = new AlgoRoma(mapaService, dado, Mockito.mock(Logger.class));
 
-        algoRoma.agregarGladiador("Espartaco");
-        algoRoma.agregarGladiador("Augusto");
+
     }
 
     @Test
     public void seJuegan20RondasEntoncesLaCantidadDeRondasEs20EnAlgoRoma() throws Exception {
         // Arrange
-        algoRoma.inicializarJuego();
+        algoRoma.agregarGladiador("Espartaco");
+        algoRoma.agregarGladiador("Augusto");
+
         int cantidadRondasEsperadas = 20 ;
 
         // Considerando que hay 2 jugadores, se deben jugar 40 turnos para completar 19 rondas jugadas.
@@ -41,15 +41,15 @@ public class AlgoRomaTest {
             algoRoma.jugarTurno();
         }
         // Assert
-        assertEquals( cantidadRondasEsperadas, algoRoma.getCantidadRondas()  );
+        assertEquals( cantidadRondasEsperadas, algoRoma.getRondasJugadas()  );
 
     }
 
     @Test
     public void seJueganMasDe30RondasSeLanzaExceptionFinDelJuego() throws Exception {
         // Arrange
-        algoRoma.inicializarJuego();
-
+        algoRoma.agregarGladiador("Espartaco");
+        algoRoma.agregarGladiador("Augusto");
         // Considerando que hay 2 jugadores, se deben jugar 60 turnos
         for( int i=0 ; i < 60 ; i++ ) {
             algoRoma.jugarTurno();
@@ -58,10 +58,13 @@ public class AlgoRomaTest {
         assertThrows(FinDelJuegoException.class, algoRoma::jugarTurno);
     }
 
+
     @Test
-    public void seAgreganMasDe6JugadoresSeLanzaMaximoGladiadoresException(){
-        // Considerando que en el setUp ya se han agregado 2. Agrego 4 mas
-        for( int i=1 ; i <= 4 ; i++ ) {
+    public void seAgreganMasDe6JugadoresSeLanzaMaximoGladiadoresException() throws FinDelJuegoException {
+        // Arrange
+
+
+        for( int i=1 ; i <= 6 ; i++ ) {
             algoRoma.agregarGladiador("Espartaco");
         }
         // Assert
@@ -72,14 +75,30 @@ public class AlgoRomaTest {
     }
 
     @Test
-    public void agregarGladiadoresEnUnJuegoIniciadoLanzaJuegoEnCursoException() throws JsonFormatoInvalidoException {
-        // Arrange
-        algoRoma.inicializarJuego();
+    public void agregarGladiadoresEnUnJuegoQueSeHaJugadoUnTurnoLanzaJuegoEnCursoException() throws Exception {
 
+        // Arrange
+        algoRoma.agregarGladiador("Espartaco");
+        algoRoma.agregarGladiador("Augusto");
+
+        algoRoma.jugarTurno();
         // Assert
         assertThrows(JuegoEnCursoException.class,
                 ()->{
                     algoRoma.agregarGladiador("Aurelio");
+                });
+    }
+
+    @Test
+    public void jugarTurnoConMenosDeDosGladiadoresLanzaMinimoGladiadoresException() throws Exception {
+        // Arrange
+        algoRoma.agregarGladiador("Espartaco");
+
+
+        // Assert
+        assertThrows(MinimoGladiadoresException.class,
+                ()->{
+                    algoRoma.jugarTurno();
                 });
     }
 
@@ -96,8 +115,8 @@ public class AlgoRomaTest {
     @Test
     public void jugarMasDe30RondasLanzaFinDelJuegoException() throws Exception {
         // Arrange
-        algoRoma.inicializarJuego();
-
+        algoRoma.agregarGladiador("Espartaco");
+        algoRoma.agregarGladiador("Augusto");
         for( int i=1 ; i <= 60 ; i++ ) {
             algoRoma.jugarTurno();
 
