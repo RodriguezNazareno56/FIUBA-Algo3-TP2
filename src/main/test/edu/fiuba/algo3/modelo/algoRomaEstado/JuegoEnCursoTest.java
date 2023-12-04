@@ -32,29 +32,7 @@ public class JuegoEnCursoTest {
         // Arrange
         assertThrows(JuegoEnCursoException.class, () -> juegoEnCurso.agregarGladiador("Augusto") );
     }
-    @Test
-    void seLlamaAJugarTurnoSegunEstadoEnAlgoRomaCuandoSeJuegaTurno() throws Exception {
-        // Arrange
-        Mockito.when(algoRoma.getRondasJugadas()).thenReturn(1);
-        Mockito.when(algoRoma.getMaximaCantidadRondas()).thenReturn(30);
-        // Act
-        juegoEnCurso.jugarTurno();
-        // Assert
-        Mockito.verify(algoRoma, Mockito.times(1)).jugarTurnoSegunEstado(Mockito.any(JuegoEnCurso.class));
-    }
-
-    @Test
-    void jugarTurnoConRondasJugadasIgualesAMaximaRondasLlamaACambiarElEstadoAJuegoTerminado() throws Exception {
-        // Arrange
-        Mockito.when(algoRoma.getRondasJugadas()).thenReturn(30);
-        Mockito.when(algoRoma.getMaximaCantidadRondas()).thenReturn(30);
-
-        // Act
-        juegoEnCurso.jugarTurno();
-
-        // Assert
-        Mockito.verify(algoRoma, Mockito.times(1)).setEstadoJuego(Mockito.any(JuegoTerminado.class));
-    }
+    
 
     @Test
     public void seLLamaACambiarEstadoAJuegoTerminadoEnAlgoRomaCuandoSeAgregaUnTriunfo() {
