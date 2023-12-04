@@ -85,8 +85,7 @@ public class AlgoRoma implements ObservadorGladiador, Observable {
     public void agregarGladiadorALaLista(String nombreGladiador){
         //este metodo lo usan los estados, redefinir por un nombre más apropiado
         if( gladiadores.size() < MAXIMA_CANTIDAD_DE_GLADIADORES){
-            Gladiador gladiador = new Gladiador(new Energia(ENERGIA_INICIAL_GLADIADOR), new SinEquipamiento(), new Senority(), this.logger);
-            gladiador.setNombre(nombreGladiador);
+            Gladiador gladiador = new Gladiador(nombreGladiador, new Energia(ENERGIA_INICIAL_GLADIADOR), new SinEquipamiento(), new Senority(), this.logger);
             gladiador.subscribir(this);
             this.gladiadores.add(gladiador);
             System.out.println(gladiador.getNombre());

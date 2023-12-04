@@ -41,7 +41,8 @@ public class LesionTest {
         Energia energia = new Energia(20);
         Equipamiento equipamiento = new SinEquipamiento();
         Senority senority = new Senority();
-        Gladiador gladiador = new Gladiador(energia, equipamiento, senority, Mockito.mock(Logger.class));
+        String nombre = "Espartaco";
+        Gladiador gladiador = new Gladiador(nombre, energia, equipamiento, senority, Mockito.mock(Logger.class));
 
         //Act
         lesion.afectarGladiador(gladiador);
