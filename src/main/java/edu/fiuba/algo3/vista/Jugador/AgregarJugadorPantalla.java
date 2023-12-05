@@ -1,13 +1,17 @@
-package edu.fiuba.algo3.vista.Jugador.components;
+package edu.fiuba.algo3.vista.Jugador;
 
 import edu.fiuba.algo3.controladores.AgregarJugadorTextHandler;
 import edu.fiuba.algo3.controladores.ComenzarPartidaButtonHandler;
 import edu.fiuba.algo3.controladores.UnirseButtonHandler;
 import edu.fiuba.algo3.modelo.AlgoRoma;
-import edu.fiuba.algo3.vista.Jugador.UnirseButton;
+import edu.fiuba.algo3.modelo.FinDelJuegoException;
+import edu.fiuba.algo3.vista.Jugador.components.ComenzarPartidaButton;
+import edu.fiuba.algo3.vista.components.boton.BotonProximaEscenaEventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;

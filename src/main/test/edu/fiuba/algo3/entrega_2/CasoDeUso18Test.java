@@ -28,12 +28,16 @@ public class CasoDeUso18Test {
 
         // Instancio AlgoRoma
         this.algoRoma = new AlgoRoma(mapaServiceMock, Mockito.mock(Dado.class), loggerMock);
+
+        //iniciado algoRoma
+        this.algoRoma.agregarGladiador("Espartaco");
+        this.algoRoma.agregarGladiador("Augusto");
+        this.algoRoma.jugarTurno();
     }
 
     @Test
     public void verificarSistemaLogNecesarioEntrega3() {
         // Act
-        algoRoma.inicializarJuego();
 
         // Verify
         // this.logger.info("Juego inicilizado") al inicializar juego

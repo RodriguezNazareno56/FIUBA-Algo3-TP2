@@ -23,7 +23,8 @@ public class CasoDeUso10Test {
         Senority senority = new Senority();
         Energia energia = new Energia(energiaInicialValor);
         Equipamiento equipamiento = new Llave();
-        this.gladiador = new Gladiador(energia, equipamiento, senority, Mockito.mock(Logger.class));
+        String nombre = "Espartaco";
+        this.gladiador = new Gladiador(nombre, energia, equipamiento, senority, Mockito.mock(Logger.class));
     }
 
     @Test

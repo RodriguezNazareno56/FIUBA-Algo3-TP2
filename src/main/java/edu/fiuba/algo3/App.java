@@ -14,8 +14,9 @@ import edu.fiuba.algo3.data_acceso.repositories.MapaRepositoryImpl;
 import edu.fiuba.algo3.data_acceso.repositories.MapaRepository;
 import edu.fiuba.algo3.modelo.AlgoRoma;
 import edu.fiuba.algo3.modelo.Dado;
+import edu.fiuba.algo3.modelo.FinDelJuegoException;
 import edu.fiuba.algo3.vista.BienvenidaPantalla;
-import edu.fiuba.algo3.vista.Jugador.components.AgregarJugadorPantalla;
+import edu.fiuba.algo3.vista.Jugador.AgregarJugadorPantalla;
 import edu.fiuba.algo3.vista.dado.DadoButton;
 import edu.fiuba.algo3.vista.mapa.AlgoRomaPantalla;
 import javafx.application.Application;
@@ -33,7 +34,7 @@ import java.nio.file.Paths;
 public class App extends Application {
 
     @Override
-    public void start(Stage stage) throws IOException {
+    public void start(Stage stage) throws IOException, FinDelJuegoException {
         var javaVersion = SystemInfo.javaVersion();
         var javafxVersion = SystemInfo.javafxVersion();
 

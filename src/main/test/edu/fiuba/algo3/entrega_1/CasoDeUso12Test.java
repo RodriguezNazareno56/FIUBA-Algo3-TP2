@@ -34,7 +34,6 @@ public class CasoDeUso12Test {
     @Test
     public void verificarQueSiPasan30TurnosYNadieLlegoALaMetaSeTerminaElJuego() throws Exception {
         // Arrange
-        algoRoma.inicializarJuego();
 
         // Considerando que hay 2 jugadores, se deben jugar 60 turnos
         for( int i=0 ; i < 60 ; i++ ) {
