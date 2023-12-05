@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.vista.Jugador;
+package edu.fiuba.algo3.controladores;
 
 import edu.fiuba.algo3.modelo.AlgoRoma;
 import edu.fiuba.algo3.modelo.JuegoEnCursoException;

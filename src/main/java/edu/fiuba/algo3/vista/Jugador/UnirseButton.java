@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.vista.Jugador;
 
+import edu.fiuba.algo3.controladores.UnirseButtonHandler;
 import javafx.scene.control.Button;
 
 public class UnirseButton extends Button {
