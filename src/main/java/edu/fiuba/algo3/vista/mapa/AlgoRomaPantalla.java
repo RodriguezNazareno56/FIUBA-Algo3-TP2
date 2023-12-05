@@ -2,11 +2,13 @@ package edu.fiuba.algo3.vista.mapa;
 
 import edu.fiuba.algo3.modelo.AlgoRoma;
 import edu.fiuba.algo3.vista.dado.DadoButton;
+import edu.fiuba.algo3.vista.equipamientos.EquipamientosPanel;
 import edu.fiuba.algo3.vista.gladiador.GladiadorAnimado;
 import edu.fiuba.algo3.vista.mapa.components.Gladiadores;
 import edu.fiuba.algo3.vista.mapa.components.MapaVista;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.layout.Border;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 
@@ -34,20 +36,32 @@ public class AlgoRomaPantalla extends BorderPane {
         this.setMargin(mapaVista, new Insets(10, 10, 10, 10));
 
 
-        //Panel Inferior - A modo de prueba
-        HBox panelControl = new HBox();
-        panelControl.getChildren().add(dadoButton);
-        panelControl.setMaxHeight(20);
-        panelControl.setMaxWidth(20);
+        //Panel de Estado/Equipamiento de Gladiador
 
-        panelControl.setSpacing(8);
-        panelControl.setPadding(new Insets(8));
-        panelControl.setStyle("-fx-background-color:#323232");
+       HBox panelInferior = new HBox();
 
-        this.setBottom(panelControl);
-        this.setMargin(panelControl, new Insets(10, 10, 10, 10));
+       panelInferior.setMaxHeight(20);
+       panelInferior.setMaxWidth(Double.MAX_VALUE);
+       //panelInferior.setSpacing(10);
+        //ARRIBA  -     - ABAJO    -
+         panelInferior.setPadding(new Insets(10, 0, 10, 0));
+       panelInferior.setStyle("-fx-background-color:#323232");
+       panelInferior.setAlignment(Pos.CENTER);
+
+       EquipamientosPanel panelEquipamiento = new EquipamientosPanel();
+       panelEquipamiento.setVgap(0);
+       panelEquipamiento.setHgap(0);
+
+       panelInferior.getChildren().add(panelEquipamiento);
+       panelInferior.getChildren().add(dadoButton);
 
 
+
+
+        this.setBottom(panelInferior);
+        this.setMargin(panelInferior, new Insets(10, 10, 10, 10));
+
+        BorderPane.setAlignment(panelInferior, Pos.CENTER);
         BorderPane.setAlignment(mapaVista, Pos.TOP_CENTER);
     }
 }

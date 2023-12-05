@@ -23,8 +23,8 @@ public class EquipamientoBox extends StackPane {
         Image image = new Image(url.toExternalForm());
         BackgroundImage backgroundImage = new BackgroundImage(
                 image,
-                BackgroundRepeat.REPEAT, // Puedes cambiar esto según tus necesidades
-                BackgroundRepeat.REPEAT,
+                BackgroundRepeat.NO_REPEAT, // Puedes cambiar esto según tus necesidades
+                BackgroundRepeat.NO_REPEAT,
                 BackgroundPosition.CENTER,
                 new BackgroundSize(
                         BackgroundSize.AUTO,
