@@ -91,8 +91,6 @@ public class AlgoRomaTest {
 //                algoRoma::jugarTurno);
 //    }
 
-
-
     @Test
     public void jugarMasDe30RondasLanzaFinDelJuegoException() throws Exception {
         // Arrange
@@ -108,4 +106,11 @@ public class AlgoRomaTest {
                 algoRoma::jugarTurno);
     }
 
+    @Test
+    public void noSePuedeAgregarUnJugadorConUnNombreDeMenosDe4Caracteres() throws Exception {
+        // Assert
+        assertThrows(NombreInvalidoException.class, () -> {
+            algoRoma.agregarGladiador("Pol");
+        });
+    }
 }
