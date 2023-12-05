@@ -16,7 +16,7 @@ public class JuegoSinIniciar extends EstadoJuego{
     }
 
     @Override
-    public void agregarGladiador(String nombreGladiador) {
+    public void agregarGladiador(String nombreGladiador) throws MaximoGladiadoresException {
         algoRoma.agregarGladiadorALaLista(nombreGladiador);
     }
     @Override

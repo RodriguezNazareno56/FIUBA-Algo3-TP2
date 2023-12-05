@@ -1,21 +1,22 @@
 package edu.fiuba.algo3.vista.mapa.components;
 
-import edu.fiuba.algo3.controladores.observers.Observable;
-import edu.fiuba.algo3.controladores.observers.Observador;
+import edu.fiuba.algo3.controladores.observers.ObservadorMapa;
 import edu.fiuba.algo3.modelo.AlgoRoma;
+import edu.fiuba.algo3.modelo.celda.Coordenada;
 import edu.fiuba.algo3.modelo.gladiador.Gladiador;
 import edu.fiuba.algo3.vista.gladiador.GladiadorAnimado;
 import javafx.geometry.Pos;
-import javafx.scene.Node;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 
-public class MapaVista extends GridPane implements Observador {
+public class MapaVista extends GridPane implements ObservadorMapa {
+
+    private HashMap<String, GladiadorAnimado> gladiadorAnimadoEnElMapa;
 
     public MapaVista(AlgoRoma algoRoma){
-
+        this.gladiadorAnimadoEnElMapa = new HashMap<>();
 
         Image imagen = new Image("File:src/main/resources/edu/fiuba/algo3/vista/mapa/components/TexturaCesped-100-100.png");
         BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.REPEAT,BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
@@ -33,15 +34,20 @@ public class MapaVista extends GridPane implements Observador {
                 .getCeldas()
                 .forEach(celda -> this.add(new CeldaVista(50, 50 ), celda.getCoordenada().getX(), celda.getCoordenada().getY()));
 
-        
+        algoRoma.getMapa().agregarObservador(this);
     }
-
-
 
     @Override
-    public void actualizar() {
-
-
-
+    public void actualizar(Gladiador gladiador, Coordenada coordenada) {
+        if (gladiadorAnimadoEnElMapa.containsKey(gladiador.getNombre())) {
+            GladiadorAnimado gladiadorAnimado = gladiadorAnimadoEnElMapa.get(gladiador.getNombre());
+            this.getChildren().remove(gladiadorAnimado);
+        }
+        GladiadorAnimado gladiadorAnimado = new GladiadorAnimado();
+        gladiadorAnimado.setFitWidth(50);
+        gladiadorAnimado.setFitHeight(50);
+        this.add(gladiadorAnimado, coordenada.getX(), coordenada.getY() );
+        gladiadorAnimadoEnElMapa.put(gladiador.getNombre(), gladiadorAnimado);       
     }
+
 }

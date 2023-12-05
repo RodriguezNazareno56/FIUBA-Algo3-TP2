@@ -34,15 +34,6 @@ public class AlgoRomaPantalla extends BorderPane {
         this.setMargin(mapaVista, new Insets(10, 10, 10, 10));
 
 
-        //Prueba para agregar Gladiador a mapa
-
-        GladiadorAnimado gladiadorAnimado = new GladiadorAnimado();
-        gladiadorAnimado.setFitWidth(50);
-        gladiadorAnimado.setFitHeight(50);
-
-        mapaVista.add(gladiadorAnimado, 1, 7 );
-
-
         //Panel Inferior - A modo de prueba
         HBox panelControl = new HBox();
         panelControl.getChildren().add(dadoButton);
