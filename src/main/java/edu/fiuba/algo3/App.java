@@ -72,6 +72,7 @@ public class App extends Application {
         DadoButton dadoButton = new DadoButton(algoRoma);
         dado.agregarObservador(dadoButton);
 
+
         // TODO: renombrar escenaArena
         AlgoRomaPantalla algoRomaPantalla = new AlgoRomaPantalla(algoRoma, dadoButton);
         Scene escenaArena = new Scene(algoRomaPantalla, 640, 480 );

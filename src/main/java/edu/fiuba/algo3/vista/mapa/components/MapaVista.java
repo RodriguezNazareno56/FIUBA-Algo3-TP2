@@ -47,6 +47,7 @@ public class MapaVista extends GridPane implements ObservadorMapa {
         gladiadorAnimado.setFitWidth(50);
         gladiadorAnimado.setFitHeight(50);
         this.add(gladiadorAnimado, coordenada.getX(), coordenada.getY() );
-        gladiadorAnimadoEnElMapa.put(gladiador.getNombre(), gladiadorAnimado);
+        gladiadorAnimadoEnElMapa.put(gladiador.getNombre(), gladiadorAnimado);       
     }
+
 }
