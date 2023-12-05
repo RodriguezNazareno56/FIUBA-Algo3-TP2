@@ -63,22 +63,22 @@ public class AlgoRoma implements ObservadorGladiador, Observable {
         this.mapa = mapaService.cargarMapa();
     }
 
-    public void agregarGladiador(String nombreGladiador){
+    public void agregarGladiador(String nombreGladiador) throws NombreInvalidoException, JuegoEnCursoException, MaximoGladiadoresException {
         if(juegoEnCurso){
             throw new JuegoEnCursoException("No se pueden agregar gladiadores en un juego en curso");
         }
-
-        if( gladiadores.size() < MAX_CANTIDAD_GLADIADORES){
-            Gladiador gladiador = new Gladiador(new Energia(20), new SinEquipamiento(), new Senority(), this.logger);
-            gladiador.setNombre(nombreGladiador);
-            gladiador.subscribir(this);
-            this.gladiadores.add(gladiador);
-            System.out.println(gladiador.getNombre());
+        if (nombreGladiador.length() < 4) {
+            throw new NombreInvalidoException("El nombre debe poseer al menos 4 caracteres");
         }
-        else{
+        if( gladiadores.size() >= MAX_CANTIDAD_GLADIADORES){
             throw new MaximoGladiadoresException("No se pueden agregar mas gladiadores");
         }
 
+        Gladiador gladiador = new Gladiador(new Energia(20), new SinEquipamiento(), new Senority(), this.logger);
+        gladiador.setNombre(nombreGladiador);
+        gladiador.subscribir(this);
+        this.gladiadores.add(gladiador);
+        System.out.println(gladiador.getNombre());
     }
 
     public void inicializarJuego(){

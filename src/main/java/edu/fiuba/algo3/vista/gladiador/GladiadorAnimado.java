@@ -10,6 +10,8 @@ import java.util.Queue;
 
 public class GladiadorAnimado extends Animacion {
 
+    private String name;
+
     public GladiadorAnimado() {
         super();
         super.crearAnimacion();

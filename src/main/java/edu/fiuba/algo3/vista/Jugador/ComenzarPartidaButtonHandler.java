@@ -1,0 +1,28 @@
+package edu.fiuba.algo3.vista.Jugador;
+
+import edu.fiuba.algo3.modelo.AlgoRoma;
+import edu.fiuba.algo3.vista.components.boton.BotonProximaEscenaEventHandler;
+import javafx.event.ActionEvent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
+public class ComenzarPartidaButtonHandler extends BotonProximaEscenaEventHandler {
+
+    private AlgoRoma algoRoma;
+
+    public ComenzarPartidaButtonHandler(Stage stage, Scene proximaEscena, AlgoRoma algoRoma) {
+        super(stage, proximaEscena);
+        this.algoRoma = algoRoma;
+    }
+
+    @Override
+    public void handle(ActionEvent actionEvent) {
+        // TODO: esta validacion debe realizarla el modelo
+        if(algoRoma.cantidadDeGladiadores()>=2 && algoRoma.cantidadDeGladiadores()<=6){
+            // TODO: la vista no deberia hacer uso del metodo algoRoma.notificarObservadores (de echo el mismo deberia
+            //  ser privado)
+            algoRoma.notificarAObservadores();
+            super.handle(actionEvent);
+        }
+    }
+}

@@ -59,7 +59,7 @@ public class AlgoRomaTest {
     }
 
     @Test
-    public void seAgreganMasDe6JugadoresSeLanzaMaximoGladiadoresException(){
+    public void seAgreganMasDe6JugadoresSeLanzaMaximoGladiadoresException() throws Exception {
         // Considerando que en el setUp ya se han agregado 2. Agrego 4 mas
         for( int i=1 ; i <= 4 ; i++ ) {
             algoRoma.agregarGladiador("Espartaco");
