@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.vista.elegirGladiador;
 
+import edu.fiuba.algo3.controladores.UnirseButtonHandler;
 import edu.fiuba.algo3.modelo.AlgoRoma;
-import edu.fiuba.algo3.vista.elegirGladiador.componentes.BotonAgregarGladiadorEventHandler;
 import edu.fiuba.algo3.vista.elegirGladiador.componentes.BotonSiguienteImagenEventHandler;
 import edu.fiuba.algo3.vista.elegirGladiador.componentes.TextoAccionaBotonEventHandler;
 import javafx.geometry.Pos;
@@ -62,7 +62,7 @@ public class SelectorGladiador extends HBox {
         this.buttonEnviarNombre = new Button("Seleccionar");
 
 
-        buttonEnviarNombre.setOnAction(new BotonAgregarGladiadorEventHandler(algoRoma, textFieldEscribirNombre));
+        buttonEnviarNombre.setOnAction(new UnirseButtonHandler( textFieldEscribirNombre,algoRoma));
         textFieldEscribirNombre.setOnKeyPressed(new TextoAccionaBotonEventHandler(buttonEnviarNombre));
 
         buttonEnviarNombre.setStyle("-fx-background-color: #006600; -fx-text-fill: white; -fx-font-size: 22px;-fx-background-radius: 10;");

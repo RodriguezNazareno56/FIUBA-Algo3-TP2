@@ -1,9 +1,9 @@
 package edu.fiuba.algo3.vista.elegirGladiador;
 
+import edu.fiuba.algo3.controladores.ComenzarPartidaButtonHandler;
 import edu.fiuba.algo3.controladores.observers.Observador;
 import edu.fiuba.algo3.modelo.AlgoRoma;
 import edu.fiuba.algo3.modelo.gladiador.Gladiador;
-import edu.fiuba.algo3.vista.elegirGladiador.componentes.BotonJugarSiguienteEscenaEventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -44,12 +44,14 @@ public class ElegirGladiadorPantalla extends VBox implements Observador {
         this.setSpacing(40);
 
         botonSiguienteEscena = new Button("Jugar");
-        botonSiguienteEscena.setOnAction(new BotonJugarSiguienteEscenaEventHandler(stage, escenaSiguiente, algoRoma));
+        botonSiguienteEscena.setOnAction(new ComenzarPartidaButtonHandler(stage, escenaSiguiente, algoRoma));
         botonSiguienteEscena.setStyle("-fx-background-color: #006600; -fx-text-fill: white; -fx-font-size: 28px;-fx-background-radius: 10;");
 
         this.actualizarBotonSiguienteEscena();
         this.getChildren().add(botonSiguienteEscena);
 
+        /*
+        //poner otra imagen, esta imagen no contrasta bien con las fotos
         Image imagen = new Image("file:src/main/resources/edu/fiuba/algo3/vista/backgroundAgregarJugadorPantalla.png");
         BackgroundImage imagenDeFondo = new BackgroundImage(
                 imagen,
@@ -58,6 +60,8 @@ public class ElegirGladiadorPantalla extends VBox implements Observador {
                 BackgroundPosition.DEFAULT,
                 BackgroundSize.DEFAULT);
         this.setBackground(new Background(imagenDeFondo));
+
+         */
     }
 
     @Override
@@ -73,7 +77,7 @@ public class ElegirGladiadorPantalla extends VBox implements Observador {
         Image imagenElegida = this.selectorGladiador.getAndDeleteImagenPerfilGladiador();
 
         Gladiador gladiador = algoRoma.getGladiadores().get(algoRoma.getGladiadores().size() - 1);
-        GladiadorVista gladiadorVista = new GladiadorVista(gladiador, imagenElegida);
+        GladiadorElegidoVista gladiadorVista = new GladiadorElegidoVista(gladiador, imagenElegida);
         this.gladiadoresElegidosHBox.getChildren().add(gladiadorVista);
         gladiadoresElegidosHBox.setSpacing(60);
 

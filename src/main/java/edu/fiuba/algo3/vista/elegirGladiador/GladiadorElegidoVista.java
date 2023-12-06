@@ -9,13 +9,13 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 
-public class GladiadorVista extends VBox {
+public class GladiadorElegidoVista extends VBox {
     private Gladiador gladiador;
 
     private ImageView imageViewGladiador;
 
     private Label nombreGladiador;
-    public GladiadorVista(Gladiador gladiador, Image imagen) {
+    public GladiadorElegidoVista(Gladiador gladiador, Image imagen) {
         super();
 
         this.gladiador = gladiador;
@@ -51,7 +51,7 @@ public class GladiadorVista extends VBox {
         return this.imageViewGladiador;
     }
 
-    public GladiadorVista duplicar(){
-        return new GladiadorVista(this.gladiador, this.imageViewGladiador.getImage());
+    public GladiadorElegidoVista duplicar(){
+        return new GladiadorElegidoVista(this.gladiador, this.imageViewGladiador.getImage());
     }
 }

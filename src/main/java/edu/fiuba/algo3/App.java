@@ -80,14 +80,13 @@ public class App extends Application {
         AlgoRomaPantalla algoRomaPantalla = new AlgoRomaPantalla(algoRoma, dadoButton, dirImagenesPorNombreGladiador);
         Scene escenaArena = new Scene(algoRomaPantalla, 640, 480 );
 
-        //prueba
+        //nuevaEscena
         ElegirGladiadorPantalla elegirGladiadorPantalla = new ElegirGladiadorPantalla(stage, escenaArena, algoRoma, dirImagenesPorNombreGladiador);
         Scene escenaJugador = new Scene(elegirGladiadorPantalla, 640, 480);
 
         //AgregarJugadorPantalla agregarJugadorPantalla = new AgregarJugadorPantalla(stage, escenaArena, algoRoma );
         //Scene escenaJugador = new Scene(agregarJugadorPantalla, 640, 480);
 
-        //BienvenidaPantalla bienvenidaPantalla = new BienvenidaPantalla(stage, escenaJugador);
         BienvenidaPantalla bienvenidaPantalla = new BienvenidaPantalla(stage, escenaJugador);
         Scene escenaBienvenida = new Scene(bienvenidaPantalla, 640, 480);
 
