@@ -6,12 +6,14 @@ import edu.fiuba.algo3.modelo.gladiador.Gladiador;
 
 public class AsisteAUnBacanal extends Consecuencia {
 
-    private final Dado dado;
+    private Dado dado;
     final int CANTIDAD_DE_PUNTOS = 4;
 
     public AsisteAUnBacanal(Dado dado){
         this.dado = dado;
     }
+
+    public AsisteAUnBacanal(){}
 
     @Override
     public void afectarGladiador(Gladiador gladiador) {

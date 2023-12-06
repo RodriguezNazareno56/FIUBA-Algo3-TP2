@@ -4,6 +4,7 @@ import edu.fiuba.algo3.controladores.observers.ObservadorMapa;
 import edu.fiuba.algo3.modelo.AlgoRoma;
 import edu.fiuba.algo3.modelo.celda.Coordenada;
 import edu.fiuba.algo3.modelo.gladiador.Gladiador;
+import edu.fiuba.algo3.vista.consecuencias.ConsecuenciaManager;
 import edu.fiuba.algo3.vista.gladiador.GladiadorAnimado;
 import javafx.geometry.Pos;
 import javafx.scene.image.Image;
@@ -28,11 +29,15 @@ public class MapaVista extends GridPane implements ObservadorMapa {
         this.setVgap(5); //Separacion vertical entre celdas
 
         // Dibujar camino en Mapa
+        ConsecuenciaManager consecuenciaManager = new ConsecuenciaManager();
 
         algoRoma.getMapa()
                 .getCamino()
                 .getCeldas()
-                .forEach(celda -> this.add(new CeldaVista(50, 50 ), celda.getCoordenada().getX(), celda.getCoordenada().getY()));
+                .forEach(celda -> {
+                    this.add(new CeldaVista(50, 50 ), celda.getCoordenada().getX(), celda.getCoordenada().getY());
+                    consecuenciaManager.agregarAnimaciones(celda.getConsecuencias(),this,celda.getCoordenada());
+                });
 
         algoRoma.getMapa().agregarObservador(this);
     }
