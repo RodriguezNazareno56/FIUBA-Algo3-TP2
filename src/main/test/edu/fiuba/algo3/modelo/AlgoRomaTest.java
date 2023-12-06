@@ -60,10 +60,8 @@ public class AlgoRomaTest {
 
 
     @Test
-    public void seAgreganMasDe6JugadoresSeLanzaMaximoGladiadoresException() throws FinDelJuegoException {
+    public void seAgreganMasDe6JugadoresSeLanzaMaximoGladiadoresException() throws Exception {
         // Arrange
-
-
         for( int i=1 ; i <= 6 ; i++ ) {
             algoRoma.agregarGladiador("Espartaco");
         }
@@ -110,8 +108,6 @@ public class AlgoRomaTest {
 //                algoRoma::jugarTurno);
 //    }
 
-
-
     @Test
     public void jugarMasDe30RondasLanzaFinDelJuegoException() throws Exception {
         // Arrange
@@ -127,4 +123,11 @@ public class AlgoRomaTest {
                 algoRoma::jugarTurno);
     }
 
+    @Test
+    public void noSePuedeAgregarUnJugadorConUnNombreDeMenosDe4Caracteres() throws Exception {
+        // Assert
+        assertThrows(NombreInvalidoException.class, () -> {
+            algoRoma.agregarGladiador("Pol");
+        });
+    }
 }

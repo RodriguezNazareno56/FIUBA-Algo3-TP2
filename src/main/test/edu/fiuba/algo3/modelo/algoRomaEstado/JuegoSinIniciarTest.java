@@ -1,9 +1,6 @@
 package edu.fiuba.algo3.modelo.algoRomaEstado;
 import edu.fiuba.algo3.data_acceso.MapaService;
-import edu.fiuba.algo3.modelo.AlgoRoma;
-import edu.fiuba.algo3.modelo.FinDelJuegoException;
-import edu.fiuba.algo3.modelo.JuegoEnCursoException;
-import edu.fiuba.algo3.modelo.JuegoNoIniciadoException;
+import edu.fiuba.algo3.modelo.*;
 import edu.fiuba.algo3.modelo.gladiador.Gladiador;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
 import org.junit.jupiter.api.BeforeEach;
@@ -28,7 +25,7 @@ public class JuegoSinIniciarTest {
     }
 
     @Test
-    public void seLlamaAAgregarGladiadorEnListaCuandoSeAgregaUnGladiador(){
+    public void seLlamaAAgregarGladiadorEnListaCuandoSeAgregaUnGladiador() throws MaximoGladiadoresException {
         // Arrange
         String nombre = "Espartaco";
         // Act

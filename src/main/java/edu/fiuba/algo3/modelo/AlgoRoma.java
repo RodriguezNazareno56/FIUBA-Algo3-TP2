@@ -71,9 +71,14 @@ public class AlgoRoma implements ObservadorGladiador, Observable {
         this.mapa = mapaService.cargarMapa();
     }
 
-    public void agregarGladiador(String nombreGladiador) throws FinDelJuegoException {
+    public void agregarGladiador(String nombreGladiador) throws MaximoGladiadoresException,
+            NombreInvalidoException, JuegoEnCursoException, FinDelJuegoException {
+        if (nombreGladiador.length() < 4) {
+            throw new NombreInvalidoException("El nombre debe poseer al menos 4 caracteres");
+        }
         this.estadoJuego.agregarGladiador(nombreGladiador);
     }
+
     public void jugarTurno() throws Exception {
         if( gladiadoresEnEspera.isEmpty()){
             this.rondaActual++;
@@ -82,18 +87,16 @@ public class AlgoRoma implements ObservadorGladiador, Observable {
         this.estadoJuego.jugarTurno();
     }
 
-    public void agregarGladiadorALaLista(String nombreGladiador){
+    public void agregarGladiadorALaLista(String nombreGladiador) throws MaximoGladiadoresException {
         //este metodo lo usan los estados, redefinir por un nombre más apropiado
-        if( gladiadores.size() < MAXIMA_CANTIDAD_DE_GLADIADORES){
-            Gladiador gladiador = new Gladiador(nombreGladiador, new Energia(ENERGIA_INICIAL_GLADIADOR), new SinEquipamiento(), new Senority(), this.logger);
-            gladiador.subscribir(this);
-            this.gladiadores.add(gladiador);
-            System.out.println(gladiador.getNombre());
-        }
-        else{
+        if( gladiadores.size() >= MAX_CANTIDAD_GLADIADORES){
             throw new MaximoGladiadoresException("No se pueden agregar mas gladiadores");
         }
 
+        Gladiador gladiador = new Gladiador(nombreGladiador, new Energia(ENERGIA_INICIAL_GLADIADOR), new SinEquipamiento(), new Senority(), this.logger);
+        gladiador.subscribir(this);
+        this.gladiadores.add(gladiador);
+        logger.info(gladiador + " se unio al juego");
     }
 
     private void inicializarJuego() throws MinimoGladiadoresException {

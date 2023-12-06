@@ -1,6 +1,10 @@
 package edu.fiuba.algo3.modelo.mapa;
 
+import edu.fiuba.algo3.controladores.observers.ObservableMapa;
+import edu.fiuba.algo3.controladores.observers.ObservadorDado;
+import edu.fiuba.algo3.controladores.observers.ObservadorMapa;
 import edu.fiuba.algo3.modelo.FinDelJuegoException;
+import edu.fiuba.algo3.modelo.celda.Coordenada;
 import edu.fiuba.algo3.modelo.gladiador.exepciones.MovimientoException;
 import edu.fiuba.algo3.modelo.gladiador.exepciones.MovimientoPausadoExeption;
 import edu.fiuba.algo3.modelo.camino.Camino;
@@ -15,7 +19,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Objects;
 
-public class Mapa {
+public class Mapa extends ObservableMapa {
     private static final Logger logger = LoggerFactory.getLogger(Mapa.class);
 
     private int ancho;
@@ -24,6 +28,7 @@ public class Mapa {
     private HashMap<Gladiador, ICelda> posicionDeGladiadores;
 
     public Mapa(int ancho, int largo, Camino camino) {
+        super();
         this.ancho = ancho;
         this.largo = largo;
         this.camino = camino;
@@ -31,6 +36,7 @@ public class Mapa {
     }
 
     public Mapa(int ancho, int largo) {
+        super();
         this.ancho = ancho;
         this.largo = largo;
         this.camino = new Camino(new ArrayList<>());
@@ -58,6 +64,8 @@ public class Mapa {
         gladiador.avanzar();
         this.posicionDeGladiadores.put(gladiador, celdaDestino);
         logger.info(gladiador + " avanza a " + celdaDestino.toString());
+
+        notificarPosicionamientoDeGladiador(gladiador, celdaDestino.getCoordenada());
 
         try {
             celdaDestino.afectarGladiadorConConsecuencia(gladiador);
