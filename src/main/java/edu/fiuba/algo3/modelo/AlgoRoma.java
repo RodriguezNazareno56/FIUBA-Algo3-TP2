@@ -23,7 +23,7 @@ import java.util.Stack;
 import static edu.fiuba.algo3.modelo.constantes.AlgoRomaConstantes.*;
 
 
-public class AlgoRoma implements ObservadorGladiador, Observable {
+public class AlgoRoma extends Observable implements ObservadorGladiador {
 
     private EstadoJuego estadoJuego;
 
@@ -43,10 +43,10 @@ public class AlgoRoma implements ObservadorGladiador, Observable {
 
     private final Dado dado;
 
-    private final ArrayList<Observador> observadores;
 
-    // TODO: el mapaService debe ser inyectado aca tambien?
+
     public AlgoRoma(MapaService mapaService, Dado dado, Logger logger) {
+        super();
         this.logger = logger;
 
         this.gladiadores = new ArrayList<>();
@@ -56,8 +56,6 @@ public class AlgoRoma implements ObservadorGladiador, Observable {
 
         this.mapaService = mapaService;
         this.dado = dado;
-
-        this.observadores = new ArrayList<>();
 
         //fabricar mapa con json
         try {
@@ -135,18 +133,14 @@ public class AlgoRoma implements ObservadorGladiador, Observable {
 
     private void avanzarGladiador() throws Exception, FinDelJuegoException {
         Gladiador gladiador = gladiadoresEnEspera.pop();
-        int resultadoDado = tirarDado();
+        int resultadoDado = this.dado.tirarDado();
 
         try{
             mapa.avanzarNPosicionesGladiador(gladiador, resultadoDado);
-            notificarResultadoDado(gladiador, resultadoDado);
         }
         catch (MovimientoException | MovimientoPausadoExeption e){
             notificarTurnoPerdido(gladiador);
         }
-    }
-    private int tirarDado(){
-        return this.dado.tirarDado();
     }
 
     public void setMapa(Mapa mapa){
@@ -161,9 +155,6 @@ public class AlgoRoma implements ObservadorGladiador, Observable {
         return rondaActual-1;
     }
 
-    private void notificarResultadoDado(Gladiador gladiador, int resultadoDado){
-        // notificar a la vista el resultado del dado
-    }
     private void notificarMaximoDeRondasAlcanzado(){
         // notificar a la vista que se alcanzo el maximo de rondas
     }
@@ -193,23 +184,11 @@ public class AlgoRoma implements ObservadorGladiador, Observable {
         return this.gladiadores.size();
     }
 
-
     @Override
     public void notificarTriunfo(Gladiador gladiador) throws FinDelJuegoException {
         this.logger.info(gladiador + " ha triunfado!!!");
         this.estadoJuego.agregarTriunfo(gladiador);
         throw new FinDelJuegoException(gladiador + " ha triunfado !!");
-    }
-
-    @Override
-    public void agregarObservador(Observador observador) {
-        this.observadores.add(observador);
-    }
-
-    public void notificarAObservadores() {
-        for (Observador observador : observadores) {
-            observador.actualizar();
-        }
     }
 
     public void setEstadoJuego(EstadoJuego estadoJuego) {
