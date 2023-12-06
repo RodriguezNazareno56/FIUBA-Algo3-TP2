@@ -78,10 +78,10 @@ public class App extends Application {
 
         // TODO: renombrar escenaArena
         AlgoRomaPantalla algoRomaPantalla = new AlgoRomaPantalla(algoRoma, dadoButton, dirImagenesPorNombreGladiador);
-        Scene escenaArena = new Scene(algoRomaPantalla, 640, 480 );
+        Scene escenaJuegoAlgoRoma = new Scene(algoRomaPantalla, 640, 480 );
 
         //nuevaEscena
-        ElegirGladiadorPantalla elegirGladiadorPantalla = new ElegirGladiadorPantalla(stage, escenaArena, algoRoma, dirImagenesPorNombreGladiador);
+        ElegirGladiadorPantalla elegirGladiadorPantalla = new ElegirGladiadorPantalla(stage, escenaJuegoAlgoRoma, algoRoma, dirImagenesPorNombreGladiador);
         Scene escenaJugador = new Scene(elegirGladiadorPantalla, 640, 480);
 
         //AgregarJugadorPantalla agregarJugadorPantalla = new AgregarJugadorPantalla(stage, escenaArena, algoRoma );
