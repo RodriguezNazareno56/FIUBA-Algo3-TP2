@@ -13,7 +13,10 @@ public class SemiSeniorState extends SenorityState {
     public SenorityState aumentarExperiencia() {
         experiencia += 1;
         if (experiencia == 12) {
-            return new SeniorState(this.senority);
+            notificarCambioDeSenority();
+            SeniorState seniorState = new SeniorState(this.senority);
+            transferirObservadoresA(seniorState);
+            return seniorState;
         }
         return this;
     }

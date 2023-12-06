@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.vista.mapa.components;
 
-import edu.fiuba.algo3.controladores.observers.Observador;
+import edu.fiuba.algo3.controladores.observers.ObservadorSenority;
 import edu.fiuba.algo3.modelo.AlgoRoma;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -14,7 +14,7 @@ import javafx.scene.text.FontWeight;
 
 import java.util.ArrayList;
 
-public class Gladiadores extends VBox implements Observador {
+public class Gladiadores extends VBox implements ObservadorSenority {
 
     private AlgoRoma algoRoma;
 
@@ -44,7 +44,7 @@ public class Gladiadores extends VBox implements Observador {
 
 
     @Override
-    public void actualizar(){
+    public void actualizarPorAumentoDeSenority(){
 
         double cantidadGladiadores = algoRoma.getGladiadores().size();
 
