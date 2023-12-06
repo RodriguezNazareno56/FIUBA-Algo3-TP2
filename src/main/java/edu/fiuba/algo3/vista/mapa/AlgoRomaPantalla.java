@@ -2,7 +2,6 @@ package edu.fiuba.algo3.vista.mapa;
 
 import edu.fiuba.algo3.modelo.AlgoRoma;
 import edu.fiuba.algo3.vista.dado.DadoButton;
-import edu.fiuba.algo3.vista.gladiador.GladiadorAnimado;
 import edu.fiuba.algo3.vista.mapa.components.Gladiadores;
 import edu.fiuba.algo3.vista.mapa.components.MapaVista;
 import javafx.geometry.Insets;
@@ -10,18 +9,20 @@ import javafx.geometry.Pos;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 
+import java.util.HashMap;
+
 public class AlgoRomaPantalla extends BorderPane {
 
     private AlgoRoma algoRoma;
 
-    public AlgoRomaPantalla(AlgoRoma algoRoma, DadoButton dadoButton) {
+    public AlgoRomaPantalla(AlgoRoma algoRoma, DadoButton dadoButton, HashMap<String, String> dirImagenesPorNombreGladiador) {
 
         super();
 
         this.algoRoma = algoRoma;
 
         // Columna Izquierda con perfiles de Gladiadores
-        Gladiadores panelGladiadores = new Gladiadores(this.algoRoma);
+        Gladiadores panelGladiadores = new Gladiadores(this.algoRoma, dirImagenesPorNombreGladiador);
         algoRoma.agregarObservador(panelGladiadores);
         this.setLeft(panelGladiadores);
         this.setMargin(panelGladiadores, new Insets(10, 10, 10, 10));

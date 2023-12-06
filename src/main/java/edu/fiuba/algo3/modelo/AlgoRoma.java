@@ -97,6 +97,7 @@ public class AlgoRoma implements ObservadorGladiador, Observable {
         gladiador.subscribir(this);
         this.gladiadores.add(gladiador);
         logger.info(gladiador + " se unio al juego");
+        this.notificarAObservadores();
     }
 
     private void inicializarJuego() throws MinimoGladiadoresException {
@@ -218,5 +219,13 @@ public class AlgoRoma implements ObservadorGladiador, Observable {
 
     public int getMaximaCantidadRondas() {
         return MAXIMA_CANTIDAD_DE_RONDAS;
+    }
+
+    public int getMinimaCantidadGladiadores() {
+        return MINIMA_CANTIDAD_DE_GLADIADORES;
+    }
+
+    public int getMaximaCantidadGladiadores() {
+        return MAX_CANTIDAD_GLADIADORES;
     }
 }

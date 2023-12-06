@@ -16,8 +16,8 @@ import edu.fiuba.algo3.modelo.AlgoRoma;
 import edu.fiuba.algo3.modelo.Dado;
 import edu.fiuba.algo3.modelo.FinDelJuegoException;
 import edu.fiuba.algo3.vista.BienvenidaPantalla;
-import edu.fiuba.algo3.vista.Jugador.AgregarJugadorPantalla;
 import edu.fiuba.algo3.vista.dado.DadoButton;
+import edu.fiuba.algo3.vista.elegirGladiador.ElegirGladiadorPantalla;
 import edu.fiuba.algo3.vista.mapa.AlgoRomaPantalla;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -27,6 +27,7 @@ import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.HashMap;
 
 /**
  * JavaFX App
@@ -37,6 +38,8 @@ public class App extends Application {
     public void start(Stage stage) throws IOException, FinDelJuegoException {
         var javaVersion = SystemInfo.javaVersion();
         var javafxVersion = SystemInfo.javafxVersion();
+
+        HashMap<String, String> dirImagenesPorNombreGladiador = new HashMap<>();
 
         Path jsonPath = Paths.get("src/main/resources/mapa.json");
         CaminoDAO caminoDAO = new CaminoDAOJsonImpl(jsonPath);
@@ -74,12 +77,17 @@ public class App extends Application {
 
 
         // TODO: renombrar escenaArena
-        AlgoRomaPantalla algoRomaPantalla = new AlgoRomaPantalla(algoRoma, dadoButton);
+        AlgoRomaPantalla algoRomaPantalla = new AlgoRomaPantalla(algoRoma, dadoButton, dirImagenesPorNombreGladiador);
         Scene escenaArena = new Scene(algoRomaPantalla, 640, 480 );
 
-        AgregarJugadorPantalla agregarJugadorPantalla = new AgregarJugadorPantalla(stage, escenaArena, algoRoma );
-        Scene escenaJugador = new Scene(agregarJugadorPantalla, 640, 480);
+        //prueba
+        ElegirGladiadorPantalla elegirGladiadorPantalla = new ElegirGladiadorPantalla(stage, escenaArena, algoRoma, dirImagenesPorNombreGladiador);
+        Scene escenaJugador = new Scene(elegirGladiadorPantalla, 640, 480);
 
+        //AgregarJugadorPantalla agregarJugadorPantalla = new AgregarJugadorPantalla(stage, escenaArena, algoRoma );
+        //Scene escenaJugador = new Scene(agregarJugadorPantalla, 640, 480);
+
+        //BienvenidaPantalla bienvenidaPantalla = new BienvenidaPantalla(stage, escenaJugador);
         BienvenidaPantalla bienvenidaPantalla = new BienvenidaPantalla(stage, escenaJugador);
         Scene escenaBienvenida = new Scene(bienvenidaPantalla, 640, 480);
 
