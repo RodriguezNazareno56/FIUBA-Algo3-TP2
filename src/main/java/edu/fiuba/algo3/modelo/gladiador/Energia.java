@@ -1,8 +1,10 @@
 package edu.fiuba.algo3.modelo.gladiador;
 
+import edu.fiuba.algo3.controladores.observers.ObservableEnergia;
+
 import java.util.Objects;
 
-public class Energia {
+public class Energia extends ObservableEnergia {
     private int valor;
 
     public Energia(int valor) {
@@ -14,11 +16,18 @@ public class Energia {
     }
 
     public void aumentarEnergia(Energia energia){
-        valor += energia.getValor();
+        int nuevoValor = this.valor + energia.valor;
+        this.cambiarValor(nuevoValor);
     }
 
     public void disminuirEnergia(Energia energia){
-        valor -= energia.getValor();
+        int nuevoValor = this.valor - energia.getValor();
+        this.cambiarValor(nuevoValor);
+    }
+
+    private void cambiarValor(int nuevoValor) {
+        valor = nuevoValor;
+        notificar(valor);
     }
 
     public boolean isAgotada() {
