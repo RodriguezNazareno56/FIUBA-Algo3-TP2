@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.vista.components.boton;
 
+import edu.fiuba.algo3.vista.ViewProperties;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
@@ -18,7 +19,8 @@ public class BotonProximaEscenaEventHandler implements EventHandler<ActionEvent>
     @Override
     public void handle(ActionEvent actionEvent) {
         stage.setScene(this.proximaEscena);
-        stage.setWidth(1350);
-        stage.setHeight(700);
+        stage.setWidth(ViewProperties.stageMaximoAlto);
+        stage.setHeight(ViewProperties.stageMaximoAncho);
+        stage.centerOnScreen();
     }
 }

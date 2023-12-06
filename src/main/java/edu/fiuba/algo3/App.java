@@ -17,6 +17,7 @@ import edu.fiuba.algo3.modelo.Dado;
 import edu.fiuba.algo3.modelo.FinDelJuegoException;
 import edu.fiuba.algo3.vista.BienvenidaPantalla;
 import edu.fiuba.algo3.vista.Jugador.AgregarJugadorPantalla;
+import edu.fiuba.algo3.vista.ViewProperties;
 import edu.fiuba.algo3.vista.dado.DadoButton;
 import edu.fiuba.algo3.vista.mapa.AlgoRomaPantalla;
 import javafx.application.Application;
@@ -75,18 +76,19 @@ public class App extends Application {
 
         // TODO: renombrar escenaArena
         AlgoRomaPantalla algoRomaPantalla = new AlgoRomaPantalla(algoRoma, dadoButton);
-        Scene escenaArena = new Scene(algoRomaPantalla, 640, 480 );
+        Scene escenaArena = new Scene(algoRomaPantalla, ViewProperties.stageMaximoAlto, ViewProperties.stageMaximoAncho );
 
         AgregarJugadorPantalla agregarJugadorPantalla = new AgregarJugadorPantalla(stage, escenaArena, algoRoma );
-        Scene escenaJugador = new Scene(agregarJugadorPantalla, 640, 480);
+        Scene escenaJugador = new Scene(agregarJugadorPantalla, ViewProperties.stageMaximoAlto, ViewProperties.stageMaximoAncho);
 
         BienvenidaPantalla bienvenidaPantalla = new BienvenidaPantalla(stage, escenaJugador);
-        Scene escenaBienvenida = new Scene(bienvenidaPantalla, 640, 480);
+        Scene escenaBienvenida = new Scene(bienvenidaPantalla, ViewProperties.stageMaximoAlto, ViewProperties.stageMaximoAncho);
 
 
         stage.setScene(escenaBienvenida);
-        stage.setWidth(1200);
-        stage.setHeight(600);
+        stage.setWidth(ViewProperties.stageMaximoAlto);
+        stage.setHeight(ViewProperties.stageMaximoAncho);
+        stage.centerOnScreen();
         stage.show();
     }
 
