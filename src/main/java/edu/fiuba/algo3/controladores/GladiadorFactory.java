@@ -1,7 +1,6 @@
 package edu.fiuba.algo3.controladores;
 
 import edu.fiuba.algo3.modelo.*;
-import edu.fiuba.algo3.modelo.constantes.Constantes;
 import edu.fiuba.algo3.modelo.equipamientos.SinEquipamiento;
 import edu.fiuba.algo3.modelo.gladiador.Energia;
 import edu.fiuba.algo3.modelo.gladiador.Gladiador;
@@ -16,16 +15,25 @@ import edu.fiuba.algo3.vista.paneles_de_visualizacion.PanelInferior;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.ArrayDeque;
+import java.util.Deque;
+
 import static edu.fiuba.algo3.modelo.constantes.GladiadorConstantes.ENERGIA_INICIAL_GLADIADOR;
 
 public class GladiadorFactory {
 
     private AlgoRoma algoRoma;
     private AlgoRomaPantalla algoRomaPantalla;
+    private Deque<GladiadorVista.Color> coloresGladiadorVista;
+    private Deque<GladiadorAnimado.Color> coloresGladiadorAnimado;
+    private GladiadorAnimado.Color colorGladiadorAnimado;
+    private GladiadorVista.Color colorGladiadorVista;
 
     public GladiadorFactory(AlgoRoma algoRoma, AlgoRomaPantalla algoRomaPantalla) {
         this.algoRoma = algoRoma;
         this.algoRomaPantalla = algoRomaPantalla;
+        inicializarColores();
+        avanzarColor();
     }
 
     // TODO: a renombrar
@@ -43,8 +51,8 @@ public class GladiadorFactory {
         Logger logger = LoggerFactory.getLogger(Gladiador.class);
 
         Gladiador gladiador = new Gladiador(nombreGladiador, energia, equipamiento, senority, logger);
-        GladiadorAnimado gladiadorAnimado = new GladiadorAnimado(nombreGladiador,GladiadorAnimado.ColoresGladiador.GRIS);
-        GladiadorVista gladiadorImageParaPanel = new GladiadorVista(nombreGladiador, GladiadorVista.ColoresGladiador.GRIS);
+        GladiadorAnimado gladiadorAnimado = new GladiadorAnimado(nombreGladiador, colorGladiadorAnimado);
+        GladiadorVista gladiadorImageParaPanel = new GladiadorVista(nombreGladiador, colorGladiadorVista);
 
         EquipamientosPanel equipamientosPanel = new EquipamientosPanel(gladiador);
 
@@ -57,6 +65,28 @@ public class GladiadorFactory {
         algoRoma.agregarGladiador(gladiador);
         algoRomaPantalla.agregarPanelInferiorDeJugador(panelInferior);
         algoRomaPantalla.agregarGladiador(gladiadorAnimado);
+
+        avanzarColor();
+    }
+
+    private void avanzarColor() {
+        this.colorGladiadorAnimado = coloresGladiadorAnimado.pop();
+        coloresGladiadorAnimado.add(colorGladiadorAnimado);
+
+        this.colorGladiadorVista = coloresGladiadorVista.pop();
+        coloresGladiadorVista.add(colorGladiadorVista);
+    }
+
+    private void inicializarColores() {
+        coloresGladiadorAnimado = new ArrayDeque<>();
+        coloresGladiadorAnimado.add(GladiadorAnimado.Color.GRIS);
+        coloresGladiadorAnimado.add(GladiadorAnimado.Color.MARRON);
+        coloresGladiadorAnimado.add(GladiadorAnimado.Color.DORADO);
+
+        coloresGladiadorVista = new ArrayDeque<>();
+        coloresGladiadorVista.add(GladiadorVista.Color.GRIS);
+        coloresGladiadorVista.add(GladiadorVista.Color.MARRON);
+        coloresGladiadorVista.add(GladiadorVista.Color.DORADO);
     }
 }
 

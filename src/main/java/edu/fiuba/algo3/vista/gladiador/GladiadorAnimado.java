@@ -10,7 +10,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.util.Duration;
 
-import java.net.URL;
 import java.util.ArrayDeque;
 import java.util.Queue;
 
@@ -19,7 +18,7 @@ public class GladiadorAnimado extends ImageView {
     private static final int ANIMACION_DURACION_EN_MILISEGUNDOS = 800;
     private final String nombre;
 
-    public enum ColoresGladiador {
+    public enum Color {
         DORADO,
         GRIS,
         MARRON;
@@ -27,7 +26,7 @@ public class GladiadorAnimado extends ImageView {
 
     private String colorString;
 
-    public GladiadorAnimado(String nombre, ColoresGladiador color) {
+    public GladiadorAnimado(String nombre, Color color) {
         switch (color) {
             case GRIS:
                 this.colorString = "gris";
@@ -35,8 +34,9 @@ public class GladiadorAnimado extends ImageView {
             case MARRON:
                 this.colorString = "marron";
                 break;
-            default:
+            case DORADO:
                 this.colorString = "dorado";
+                break;
         }
         this.nombre = nombre;
         this.crearAnimacion();
@@ -53,7 +53,7 @@ public class GladiadorAnimado extends ImageView {
         for (int i = 0; i < 18; i++) {
             String numero = String.format("%02d", i);
             String url = "file:src/main/resources/edu/fiuba/algo3/vista/gladiador/"+ colorString +
-                    "/Idle/GreekBasic_Idle_"+ numero +".png";
+                    "/idle/GreekBasic_Idle_"+ numero +".png";
             imageQueue.add(new Image(url, 400, 600, true, true));
         }
         return imageQueue;
