@@ -140,8 +140,10 @@ public class AlgoRoma extends ObservableAlgoRoma implements ObservadorGladiador 
 
     private void avanzarGladiador() throws Exception, FinDelJuegoException {
         notificarNuevoTurno();
-      
+
         Gladiador gladiador = gladiadoresEnEspera.poll();
+
+        logger.info("~~~~~~ Turno para el jugador: " + gladiador + "~~~~~~");
         
         int resultadoDado = this.dado.tirarDado();
 
