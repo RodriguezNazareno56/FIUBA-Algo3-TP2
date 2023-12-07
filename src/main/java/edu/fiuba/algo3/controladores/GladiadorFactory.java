@@ -33,7 +33,6 @@ public class GladiadorFactory {
         EnergiaVista energiaVista = new EnergiaVista(energia, Constantes.ENERGIA_DEL_GLADIADOR_VALOR_INICIAL);
 
         SinEquipamiento equipamiento = new SinEquipamiento();
-        EquipamientosPanel equipamientosPanel = new EquipamientosPanel();
 
         Senority senority = new Senority();
         SenorityVista senorityVista = new SenorityVista(senority);
@@ -42,6 +41,8 @@ public class GladiadorFactory {
 
         Gladiador gladiador = new Gladiador(nombreGladiador, energia, equipamiento, senority, logger);
         GladiadorAnimado gladiadorAnimado = new GladiadorAnimado(GladiadorAnimado.ColoresGladiador.GRIS);
+
+        EquipamientosPanel equipamientosPanel = new EquipamientosPanel(gladiador);
 
         PanelInferior panelInferior = new PanelInferior(new edu.fiuba.algo3.vista.gladiador.Gladiador(100),
                 energiaVista,

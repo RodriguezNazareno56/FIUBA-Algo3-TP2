@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.modelo.gladiador;
 
+import edu.fiuba.algo3.controladores.observers.ObservableEquipamiento;
+import edu.fiuba.algo3.controladores.observers.ObservadorEquipamiento;
 import edu.fiuba.algo3.modelo.FinDelJuegoException;
 import edu.fiuba.algo3.modelo.NombreInvalidoException;
 import edu.fiuba.algo3.modelo.consecuencias.IConsecuencia;
@@ -13,7 +15,7 @@ import org.slf4j.Logger;
 
 import java.util.ArrayList;
 
-public class Gladiador implements ObservableGladiador {
+public class Gladiador implements ObservableGladiador, ObservableEquipamiento {
     private Logger logger;
 
     private String nombre;
@@ -21,6 +23,7 @@ public class Gladiador implements ObservableGladiador {
     private Equipamiento equipamiento;
     private Senority senority;
     private ArrayList<ObservadorGladiador> observadores;
+    private ArrayList<ObservadorEquipamiento> observadoresEquipamiento;
 
     private boolean estaHabilitadoParaMover;
 
@@ -35,6 +38,7 @@ public class Gladiador implements ObservableGladiador {
         this.logger = logger;
         this.estaHabilitadoParaMover = true;
         this.observadores = new ArrayList<ObservadorGladiador>();
+        this.observadoresEquipamiento = new ArrayList<>();
     }
 
     public Energia getEnergia() {
@@ -75,6 +79,7 @@ public class Gladiador implements ObservableGladiador {
     public void incrementarEquipamiento() {
         this.equipamiento = this.equipamiento.incrementar();
         logger.info(this + " incrementa equipamiento a: " + this.equipamiento.toString());
+        this.notificarObservadoresEquipamiento();
     }
 
     public void recibirAtaque(Enemigo enemigo) {
@@ -122,5 +127,18 @@ public class Gladiador implements ObservableGladiador {
     @Override
     public void subscribir(ObservadorGladiador observadorGladiador) {
         this.observadores.add(observadorGladiador);
+    }
+
+
+    @Override
+    public void notificarObservadoresEquipamiento() {
+        for(ObservadorEquipamiento observador : observadoresEquipamiento) {
+            observador.notificarActualizacionEquipamiento();
+        }
+    }
+
+    @Override
+    public void agregarObservadorEquipamiento(ObservadorEquipamiento observadorEquipamiento) {
+        this.observadoresEquipamiento.add(observadorEquipamiento);
     }
 }
