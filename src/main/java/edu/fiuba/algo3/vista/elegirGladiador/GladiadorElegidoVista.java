@@ -10,25 +10,22 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 
 public class GladiadorElegidoVista extends VBox {
-    private Gladiador gladiador;
 
     private ImageView imageViewGladiador;
 
-    private Label nombreGladiador;
-    public GladiadorElegidoVista(Gladiador gladiador, Image imagen) {
+    private Label labelNombreGladiador;
+    public GladiadorElegidoVista(String nombreGladiador, Image imagen) {
         super();
-
-        this.gladiador = gladiador;
 
         this.imageViewGladiador = new ImageView(imagen);
         imageViewGladiador.setFitHeight(100);
         imageViewGladiador.setFitWidth(100);
 
-        this.nombreGladiador = new Label(gladiador.getNombre());
-        nombreGladiador.setFont(Font.font("Helvetica", FontWeight.BOLD, 12));
-        nombreGladiador.setTextFill(Color.DARKGREEN);
+        this.labelNombreGladiador = new Label(nombreGladiador);
+        labelNombreGladiador.setFont(Font.font("Helvetica", FontWeight.BOLD, 12));
+        labelNombreGladiador.setTextFill(Color.DARKGREEN);
 
-        this.getChildren().addAll(imageViewGladiador, nombreGladiador);
+        this.getChildren().addAll(imageViewGladiador, labelNombreGladiador);
 
         this.setAlignment(javafx.geometry.Pos.CENTER);
         this.setSpacing(5);

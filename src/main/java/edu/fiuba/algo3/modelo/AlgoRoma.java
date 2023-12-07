@@ -228,4 +228,12 @@ public class AlgoRoma implements ObservadorGladiador, Observable {
     public int getMaximaCantidadGladiadores() {
         return MAX_CANTIDAD_GLADIADORES;
     }
+
+    public ArrayList<String> getNombresGladiadores(){
+        ArrayList<String> nombres = new ArrayList<>();
+        for (Gladiador gladiador : gladiadores) {
+            nombres.add(gladiador.getNombre());
+        }
+        return nombres;
+    }
 }
