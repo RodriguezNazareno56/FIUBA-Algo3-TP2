@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo.gladiador.senority;
 
+import edu.fiuba.algo3.controladores.observers.ObservadorSenority;
 import edu.fiuba.algo3.modelo.gladiador.Energia;
 import edu.fiuba.algo3.modelo.gladiador.senority.states.NovatoState;
 import edu.fiuba.algo3.modelo.gladiador.senority.states.SenorityState;
@@ -23,5 +24,10 @@ public class Senority {
     @Override
     public String toString() {
         return estado.toString();
+    }
+
+    // TODO: a analizar si esto no debe ser parte de un interface observable
+    public void agregarObservador(ObservadorSenority observadorSenority) {
+        this.estado.agregarObservador(observadorSenority);
     }
 }

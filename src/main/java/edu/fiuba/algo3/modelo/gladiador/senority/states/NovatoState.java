@@ -13,7 +13,10 @@ public class NovatoState extends SenorityState {
     public SenorityState aumentarExperiencia() {
         experiencia += 1;
         if (experiencia == 8) {
-            return new SemiSeniorState(this.senority);
+            notificarCambioDeSenority();
+            SemiSeniorState semiSeniorState = new SemiSeniorState(this.senority);
+            transferirObservadoresA(semiSeniorState);
+            return semiSeniorState;
         }
         return this;
     }
