@@ -40,7 +40,7 @@ public class GladiadorFactory {
         Logger logger = LoggerFactory.getLogger(Gladiador.class);
 
         Gladiador gladiador = new Gladiador(nombreGladiador, energia, equipamiento, senority, logger);
-        GladiadorAnimado gladiadorAnimado = new GladiadorAnimado(GladiadorAnimado.ColoresGladiador.GRIS);
+        GladiadorAnimado gladiadorAnimado = new GladiadorAnimado(nombreGladiador,GladiadorAnimado.ColoresGladiador.GRIS);
 
         EquipamientosPanel equipamientosPanel = new EquipamientosPanel(gladiador);
 

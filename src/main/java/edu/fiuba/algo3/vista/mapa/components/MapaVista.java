@@ -47,13 +47,8 @@ public class MapaVista extends GridPane implements ObservadorMapa {
 
     @Override
     public void actualizar(Gladiador gladiador, Coordenada coordenada) {
-        if (gladiadorAnimadoEnElMapa.containsKey(gladiador.getNombre())) {
-            GladiadorAnimado gladiadorAnimado = gladiadorAnimadoEnElMapa.get(gladiador.getNombre());
-            this.getChildren().remove(gladiadorAnimado);
-        }
-        GladiadorAnimado gladiadorAnimado = new GladiadorAnimado(GladiadorAnimado.ColoresGladiador.DORADO);
-        gladiadorAnimado.setFitWidth(50);
-        gladiadorAnimado.setFitHeight(50);
+        GladiadorAnimado gladiadorAnimado = gladiadorAnimadoEnElMapa.get(gladiador.getNombre());
+        this.getChildren().remove(gladiadorAnimado);
         this.add(gladiadorAnimado, coordenada.getX(), coordenada.getY() );
         gladiadorAnimadoEnElMapa.put(gladiador.getNombre(), gladiadorAnimado);       
     }
@@ -64,5 +59,6 @@ public class MapaVista extends GridPane implements ObservadorMapa {
         gladiadorAnimado.setFitWidth(50);
         gladiadorAnimado.setFitHeight(50);
         this.add(gladiadorAnimado, coordenadaSalida.getX(), coordenadaSalida.getY());
+        gladiadorAnimadoEnElMapa.put(gladiadorAnimado.getNombre(), gladiadorAnimado);
     }
 }
