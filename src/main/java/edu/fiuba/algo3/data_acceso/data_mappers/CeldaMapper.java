@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.data_acceso.data_mappers;
 
 import edu.fiuba.algo3.data_acceso.DTOs.CeldaDto;
-import edu.fiuba.algo3.modelo.Dado;
+import edu.fiuba.algo3.modelo.dado.Dado;
 import edu.fiuba.algo3.modelo.celda.*;
 import edu.fiuba.algo3.modelo.consecuencias.*;
 

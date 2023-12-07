@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.otros_casos_de_uso;
 
-import edu.fiuba.algo3.modelo.Dado;
+import edu.fiuba.algo3.modelo.dado.Dado;
 import edu.fiuba.algo3.modelo.consecuencias.AsisteAUnBacanal;
 import edu.fiuba.algo3.modelo.consecuencias.IConsecuencia;
 import edu.fiuba.algo3.modelo.equipamientos.Equipamiento;

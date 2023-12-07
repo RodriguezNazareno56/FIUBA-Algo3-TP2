@@ -1,7 +1,9 @@
 package edu.fiuba.algo3.modelo.gladiador;
 
 import edu.fiuba.algo3.controladores.observers.ObservableEquipamiento;
+import edu.fiuba.algo3.controladores.observers.ObservableGladiador;
 import edu.fiuba.algo3.controladores.observers.ObservadorEquipamiento;
+import edu.fiuba.algo3.controladores.observers.ObservadorGladiador;
 import edu.fiuba.algo3.modelo.FinDelJuegoException;
 import edu.fiuba.algo3.modelo.NombreInvalidoException;
 import edu.fiuba.algo3.modelo.consecuencias.IConsecuencia;

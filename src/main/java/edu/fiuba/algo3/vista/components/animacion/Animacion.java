@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.vista;
+package edu.fiuba.algo3.vista.components.animacion;
 
 import javafx.animation.Animation;
 import javafx.animation.Interpolator;

@@ -15,11 +15,12 @@ import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
 // TODO: eliminar si no se usa
-public class Configuracion extends VBox {
+@Deprecated
+public class ConfiguracionPantalla extends VBox {
 
     private Stage stage;
 
-    public Configuracion(Stage stage, Scene proximaEscena){
+    public ConfiguracionPantalla(Stage stage, Scene proximaEscena){
         super();
         this.stage = stage;
 

@@ -6,8 +6,7 @@ import edu.fiuba.algo3.modelo.consecuencias.FieraSalvaje;
 import edu.fiuba.algo3.modelo.consecuencias.IConsecuencia;
 import edu.fiuba.algo3.modelo.consecuencias.Lesion;
 import edu.fiuba.algo3.vista.consecuencias.ConsecuenciaAnimacion;
-import edu.fiuba.algo3.vista.consecuencias.equipamiento.EquipamientoAnimacion;
-import edu.fiuba.algo3.vista.mapa.components.MapaVista;
+import edu.fiuba.algo3.vista.mapa.MapaVista;
 
 public class ObstaculoAnimacionManager implements ConsecuenciaAnimacion {
     @Override

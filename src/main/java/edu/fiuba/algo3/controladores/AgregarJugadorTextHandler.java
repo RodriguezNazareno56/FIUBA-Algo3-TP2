@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.controladores;
 
-import edu.fiuba.algo3.vista.Jugador.UnirseButton;
+import edu.fiuba.algo3.vista.Jugador.components.UnirseButton;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;

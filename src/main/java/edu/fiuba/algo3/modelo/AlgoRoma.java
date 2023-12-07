@@ -1,12 +1,14 @@
 package edu.fiuba.algo3.modelo;
 
 import edu.fiuba.algo3.controladores.observers.ObservableAlgoRoma;
+import edu.fiuba.algo3.controladores.observers.ObservadorGladiador;
 import edu.fiuba.algo3.data_acceso.MapaService;
 import edu.fiuba.algo3.data_acceso.data_mappers.JsonFormatoInvalidoException;
 import edu.fiuba.algo3.modelo.algoRomaEstado.EstadoJuego;
 import edu.fiuba.algo3.modelo.algoRomaEstado.JuegoEnCurso;
 import edu.fiuba.algo3.modelo.algoRomaEstado.JuegoSinIniciar;
 import edu.fiuba.algo3.modelo.algoRomaEstado.JuegoTerminado;
+import edu.fiuba.algo3.modelo.dado.Dado;
 import edu.fiuba.algo3.modelo.equipamientos.SinEquipamiento;
 import edu.fiuba.algo3.modelo.gladiador.*;
 import edu.fiuba.algo3.modelo.gladiador.exepciones.MovimientoException;

@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.controladores.dado;
 
 import edu.fiuba.algo3.modelo.AlgoRoma;
-import edu.fiuba.algo3.vista.Animacion;
+import edu.fiuba.algo3.vista.components.animacion.Animacion;
 import edu.fiuba.algo3.vista.dado.AnimacionDado;
 import edu.fiuba.algo3.vista.dado.DadoButton;
 import javafx.animation.*;

@@ -6,28 +6,13 @@ import edu.fiuba.algo3.data_acceso.data_mappers.CeldaMapper;
 import edu.fiuba.algo3.data_acceso.repositories.CaminoRepository;
 import edu.fiuba.algo3.data_acceso.repositories.CaminoRepositoryImpl;
 import edu.fiuba.algo3.entrega_2.Json_test_resources.CasoDeUso15_16_17;
-import edu.fiuba.algo3.modelo.Dado;
-import edu.fiuba.algo3.modelo.celda.Celda;
-import edu.fiuba.algo3.modelo.celda.Coordenada;
-import edu.fiuba.algo3.modelo.consecuencias.*;
-import edu.fiuba.algo3.modelo.gladiador.exepciones.MovimientoPausadoExeption;
+import edu.fiuba.algo3.modelo.dado.Dado;
 import edu.fiuba.algo3.modelo.camino.Camino;
-import edu.fiuba.algo3.modelo.celda.ICelda;
-import edu.fiuba.algo3.modelo.equipamientos.Casco;
-import edu.fiuba.algo3.modelo.equipamientos.Equipamiento;
-import edu.fiuba.algo3.modelo.gladiador.Energia;
-import edu.fiuba.algo3.modelo.gladiador.Gladiador;
-import edu.fiuba.algo3.modelo.gladiador.senority.Senority;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
-import org.slf4j.Logger;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

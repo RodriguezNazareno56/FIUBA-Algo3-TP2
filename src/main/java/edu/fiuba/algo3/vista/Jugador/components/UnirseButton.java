@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.vista.Jugador;
+package edu.fiuba.algo3.vista.Jugador.components;
 
 import edu.fiuba.algo3.controladores.UnirseButtonHandler;
 import javafx.scene.control.Button;

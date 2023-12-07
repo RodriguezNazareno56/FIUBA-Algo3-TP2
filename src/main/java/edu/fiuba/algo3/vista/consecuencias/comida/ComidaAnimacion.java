@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.vista.consecuencias.comida;
 
-import edu.fiuba.algo3.vista.Animacion;
+import edu.fiuba.algo3.vista.components.animacion.Animacion;
 import javafx.scene.image.Image;
 
 import java.util.ArrayDeque;

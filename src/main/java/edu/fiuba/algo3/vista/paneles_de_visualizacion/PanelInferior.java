@@ -1,18 +1,17 @@
-package edu.fiuba.algo3.vista.panel;
+package edu.fiuba.algo3.vista.paneles_de_visualizacion;
 
 import edu.fiuba.algo3.vista.equipamientos.EquipamientosPanel;
 import edu.fiuba.algo3.vista.gladiador.EnergiaVista;
-import edu.fiuba.algo3.vista.gladiador.Gladiador;
+import edu.fiuba.algo3.vista.gladiador.GladiadorVista;
 import edu.fiuba.algo3.vista.gladiador.senority.SenorityVista;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
-import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 
 public class PanelInferior extends HBox {
 
-    public PanelInferior(Gladiador gladiador, EnergiaVista energia, SenorityVista senority, EquipamientosPanel equipamientosPanel){
+    public PanelInferior(GladiadorVista gladiador, EnergiaVista energia, SenorityVista senority, EquipamientosPanel equipamientosPanel){
         super();
         this.setMaxHeight(20);
         this.setMaxWidth(Double.MAX_VALUE);

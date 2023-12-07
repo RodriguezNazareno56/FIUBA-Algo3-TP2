@@ -1,6 +1,5 @@
 package edu.fiuba.algo3.vista.gladiador;
 
-import edu.fiuba.algo3.vista.Animacion;
 import edu.fiuba.algo3.vista.ViewProperties;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -11,9 +10,9 @@ import javafx.scene.text.FontWeight;
 
 import java.net.URL;
 
-public class Gladiador extends ImageView {
+public class GladiadorVista extends ImageView {
 
-    public Gladiador() {
+    public GladiadorVista() {
 //        this.setFitWidth(ViewProperties.gladiadorViewAncho);
         this.setFitHeight(ViewProperties.gladiadorViewAlto);
         this.setPreserveRatio(true);
@@ -23,7 +22,7 @@ public class Gladiador extends ImageView {
         this.setImage(armaduraImage);
     }
 
-    public Gladiador(int alto) {
+    public GladiadorVista(int alto) {
         this.setFitHeight(alto);
         this.setPreserveRatio(true);
 

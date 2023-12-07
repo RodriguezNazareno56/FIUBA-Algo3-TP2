@@ -1,8 +1,8 @@
-package edu.fiuba.algo3.vista.elegirGladiador.componentes;
+package edu.fiuba.algo3.vista.pantalla_elegir_gladiador.componentes;
 
 import edu.fiuba.algo3.controladores.ComenzarPartidaButtonHandler;
 import edu.fiuba.algo3.modelo.AlgoRoma;
-import edu.fiuba.algo3.vista.mapa.AlgoRomaPantalla;
+import edu.fiuba.algo3.vista.AlgoRomaPantalla;
 import javafx.event.ActionEvent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;

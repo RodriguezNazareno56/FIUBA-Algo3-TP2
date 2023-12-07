@@ -2,7 +2,7 @@ package edu.fiuba.algo3.vista.consecuencias;
 
 import edu.fiuba.algo3.modelo.celda.Coordenada;
 import edu.fiuba.algo3.modelo.consecuencias.IConsecuencia;
-import edu.fiuba.algo3.vista.mapa.components.MapaVista;
+import edu.fiuba.algo3.vista.mapa.MapaVista;
 
 public interface ConsecuenciaAnimacion {
 

@@ -1,10 +1,8 @@
 package edu.fiuba.algo3.vista.consecuencias.equipamiento;
 
-import edu.fiuba.algo3.vista.Animacion;
-import edu.fiuba.algo3.vista.ViewProperties;
+import edu.fiuba.algo3.vista.components.animacion.Animacion;
 import javafx.scene.image.Image;
 
-import java.net.URL;
 import java.util.ArrayDeque;
 import java.util.Queue;
 
