@@ -17,7 +17,10 @@ import javafx.scene.text.FontWeight;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+// TODO: renombrar a panelGladiadores
 public class Gladiadores extends VBox implements ObservadorSenority, ObservadorAlgoRoma {
+
+
 
     private AlgoRoma algoRoma;
 
@@ -50,29 +53,25 @@ public class Gladiadores extends VBox implements ObservadorSenority, ObservadorA
 
     }
 
+    public void agregarGladiador(){
 
-    @Override
-    public void actualizarPorAumentoDeSenority(){
-
-        double cantidadGladiadores = algoRoma.getGladiadores().size();
-
-        for( int i = 0 ; i < cantidadGladiadores ; i++ ){
-
-            Image imagen = new Image(String.valueOf(this.imagenesPerfilGladiador.get(i)));
-            ImageView imagenPerfilGladiador = new ImageView(imagen);
-            imagenPerfilGladiador.setFitHeight(altoImagenPerfil);
-            imagenPerfilGladiador.setFitWidth(anchoImagenPerfil);
-
-            Label nombreGladiador = new Label();
-            nombreGladiador.setText(algoRoma.getGladiadores().get(i).getNombre());
-            nombreGladiador.setFont(Font.font("Helvetica", FontWeight.BOLD, 12));
-            nombreGladiador.setTextFill(Color.WHITE);
-
-            this.getChildren().add(imagenPerfilGladiador);
-            this.getChildren().add(nombreGladiador);
+        int cantidadGladiadores = algoRoma.getGladiadores().size();
 
 
-        }
+        Image imagen = new Image(String.valueOf(this.imagenesPerfilGladiador.get(cantidadGladiadores - 1)));
+        ImageView imagenPerfilGladiador = new ImageView(imagen);
+        imagenPerfilGladiador.setFitHeight(altoImagenPerfil);
+        imagenPerfilGladiador.setFitWidth(anchoImagenPerfil);
+
+        Label nombreGladiador = new Label();
+        nombreGladiador.setText(algoRoma.getGladiadores().get(cantidadGladiadores - 1).getNombre());
+        nombreGladiador.setFont(Font.font("Helvetica", FontWeight.BOLD, 12));
+        nombreGladiador.setTextFill(Color.WHITE);
+
+        this.getChildren().add(imagenPerfilGladiador);
+        this.getChildren().add(nombreGladiador);
+
+
 
         this.setAlignment(Pos.CENTER);
         this.setSpacing(8);
@@ -159,6 +158,11 @@ public class Gladiadores extends VBox implements ObservadorSenority, ObservadorA
         this.getChildren().add(nombreGladiadorLabel);
 
         return nombreGladiadorLabel;
+    }
+  
+  @Override
+    public void actualizarPorAumentoDeSenority() {
+        
     }
 
 }
