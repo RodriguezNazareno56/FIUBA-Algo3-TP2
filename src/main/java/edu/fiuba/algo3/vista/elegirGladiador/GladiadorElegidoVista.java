@@ -31,27 +31,9 @@ public class GladiadorElegidoVista extends VBox {
         this.getChildren().addAll(imageViewGladiador, nombreGladiador);
 
         this.setAlignment(javafx.geometry.Pos.CENTER);
+        this.setSpacing(5);
 
     }
 
-    public String getNombre(){
-        return this.gladiador.getNombre();
-    }
 
-    public void cambiarDimensionImagen(double alto, double ancho){
-        this.imageViewGladiador.setFitHeight(alto);
-        this.imageViewGladiador.setFitWidth(ancho);
-    }
-
-    public Label getNombreGladiador(){
-        return this.nombreGladiador;
-    }
-
-    public ImageView getImageViewGladiador(){
-        return this.imageViewGladiador;
-    }
-
-    public GladiadorElegidoVista duplicar(){
-        return new GladiadorElegidoVista(this.gladiador, this.imageViewGladiador.getImage());
-    }
 }

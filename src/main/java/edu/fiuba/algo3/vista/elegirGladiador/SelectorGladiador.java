@@ -19,7 +19,7 @@ public class SelectorGladiador extends HBox {
 
     private AlgoRoma algoRoma;
 
-    private ImageView imagenPerfilGladiador;
+    private ImageView imageViewGladiador;
 
     private ArrayList<Image> imagenes;
 
@@ -31,20 +31,20 @@ public class SelectorGladiador extends HBox {
         super();
         this.algoRoma = algoRoma;
         this.imagenes = imagenes;;
-        this.imagenPerfilGladiador = new ImageView(imagenes.get(0));
+        this.imageViewGladiador = new ImageView(imagenes.get(0));
 
 
-        VBox contenedorGladiador = this.crearImagenTextoGladiador();
+        VBox contenedorGladiadorElegible = this.crearGladiadorElegible();
 
         Button botonSiguiente = new Button(">");
-        botonSiguiente.setOnAction(new BotonSiguienteImagenEventHandler(imagenes, true, imagenPerfilGladiador));
+        botonSiguiente.setOnAction(new BotonSiguienteImagenEventHandler(imagenes, true, imageViewGladiador));
         botonSiguiente.setStyle("-fx-background-color: #006600; -fx-text-fill: white; -fx-font-size: 18px;-fx-background-radius: 10;");
 
         Button botonAnterior = new Button("<");
-        botonAnterior.setOnAction(new BotonSiguienteImagenEventHandler(imagenes, false, imagenPerfilGladiador));
+        botonAnterior.setOnAction(new BotonSiguienteImagenEventHandler(imagenes, false, imageViewGladiador));
         botonAnterior.setStyle("-fx-background-color: #006600; -fx-text-fill: white; -fx-font-size: 18px;-fx-background-radius: 10;");
 
-        this.getChildren().addAll(botonAnterior, contenedorGladiador, botonSiguiente);
+        this.getChildren().addAll(botonAnterior, contenedorGladiadorElegible, botonSiguiente);
 
         this.setSpacing(10);
         this.setAlignment(Pos.CENTER);
@@ -52,22 +52,21 @@ public class SelectorGladiador extends HBox {
     }
 
 
-    public VBox crearImagenTextoGladiador() {
+    private VBox crearGladiadorElegible() {
         VBox vBox = new VBox();
 
-        imagenPerfilGladiador.setFitHeight(DIMENSION_IMAGEN);
-        imagenPerfilGladiador.setFitWidth(DIMENSION_IMAGEN);
+        imageViewGladiador.setFitHeight(DIMENSION_IMAGEN);
+        imageViewGladiador.setFitWidth(DIMENSION_IMAGEN);
 
-        TextField textFieldEscribirNombre = new TextField("");
-        this.buttonEnviarNombre = new Button("Seleccionar");
+        TextField textFieldNombreParaGladiador = new TextField("");
+        this.buttonEnviarNombre = new Button("Unirse");
 
 
-        buttonEnviarNombre.setOnAction(new UnirseButtonHandler( textFieldEscribirNombre,algoRoma));
-        textFieldEscribirNombre.setOnKeyPressed(new TextoAccionaBotonEventHandler(buttonEnviarNombre));
-
+        buttonEnviarNombre.setOnAction(new UnirseButtonHandler( textFieldNombreParaGladiador,algoRoma));
         buttonEnviarNombre.setStyle("-fx-background-color: #006600; -fx-text-fill: white; -fx-font-size: 22px;-fx-background-radius: 10;");
+        textFieldNombreParaGladiador.setOnKeyPressed(new TextoAccionaBotonEventHandler(buttonEnviarNombre));
 
-        vBox.getChildren().addAll(imagenPerfilGladiador, textFieldEscribirNombre, buttonEnviarNombre);
+        vBox.getChildren().addAll(imageViewGladiador, textFieldNombreParaGladiador, buttonEnviarNombre);
         vBox.setSpacing(10);
         vBox.setAlignment(Pos.CENTER);
 
@@ -75,24 +74,24 @@ public class SelectorGladiador extends HBox {
     }
 
     public Image getImagenPerfilGladiador() {
-        return imagenPerfilGladiador.getImage();
+        return imageViewGladiador.getImage();
     }
 
     public Image getAndDeleteImagenPerfilGladiador() {
         //refactor
         if(imagenes.isEmpty()) {
-            imagenPerfilGladiador.setImage(null);
+            imageViewGladiador.setImage(null);
             return null;
         }
 
-        Image imagen = imagenPerfilGladiador.getImage();
+        Image imagen = imageViewGladiador.getImage();
         this.imagenes.remove(imagen);
 
         if(imagenes.isEmpty()){
-            imagenPerfilGladiador.setImage(null);
+            imageViewGladiador.setImage(null);
         }
         else{
-            imagenPerfilGladiador.setImage(imagenes.get(0));
+            imageViewGladiador.setImage(imagenes.get(0));
         }
 
 

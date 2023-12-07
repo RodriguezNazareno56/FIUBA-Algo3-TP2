@@ -27,6 +27,10 @@ public class ElegirGladiadorPantalla extends VBox implements Observador {
     private Button botonSiguienteEscena;
 
     private SelectorGladiador selectorGladiador;
+
+    private final int ESPACIADO_GLADIADORES_ELEGIDOS = 60;
+
+    private final int ESPACIADO_BLOQUES = 40;
     public ElegirGladiadorPantalla(Stage stage, Scene escenaSiguiente, AlgoRoma algoRoma, HashMap<String, String> dirImagenesPorNombreGladiador) {
         super();
         this.algoRoma = algoRoma;
@@ -39,9 +43,9 @@ public class ElegirGladiadorPantalla extends VBox implements Observador {
         this.getChildren().addAll(this.gladiadoresElegidosHBox, selectorGladiador);
 
         gladiadoresElegidosHBox.setAlignment(Pos.CENTER);
-        gladiadoresElegidosHBox.setSpacing(60);
+        gladiadoresElegidosHBox.setSpacing(ESPACIADO_GLADIADORES_ELEGIDOS);
         this.setAlignment(Pos.CENTER);
-        this.setSpacing(40);
+        this.setSpacing(ESPACIADO_BLOQUES);
 
         botonSiguienteEscena = new Button("Jugar");
         botonSiguienteEscena.setOnAction(new ComenzarPartidaButtonHandler(stage, escenaSiguiente, algoRoma));
