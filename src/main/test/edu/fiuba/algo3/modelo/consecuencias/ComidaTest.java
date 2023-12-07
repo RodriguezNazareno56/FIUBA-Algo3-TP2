@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo.consecuencias;
 
 
+import edu.fiuba.algo3.modelo.NombreInvalidoException;
 import edu.fiuba.algo3.modelo.constantes.ComidaConstantes;
 import edu.fiuba.algo3.modelo.equipamientos.Equipamiento;
 import edu.fiuba.algo3.modelo.equipamientos.SinEquipamiento;
@@ -30,7 +31,7 @@ public class ComidaTest {
     }
 
     @Test
-    public void unGladiadorEsAfectadoPorComidaYSuEnergiaSeIncrementa() {
+    public void unGladiadorEsAfectadoPorComidaYSuEnergiaSeIncrementa() throws NombreInvalidoException {
         // Arrange
         int energiaInicialValor = 20;
         Energia energia = new Energia(energiaInicialValor);
@@ -49,7 +50,7 @@ public class ComidaTest {
     }
 
     @Test
-    public void unGladiadorConEnergiaNegativaEsAfectadoPorComidaYSuEnergiaSeIncrementa() {
+    public void unGladiadorConEnergiaNegativaEsAfectadoPorComidaYSuEnergiaSeIncrementa() throws NombreInvalidoException {
         // Arrange
         int energiaInicialValor = -10;
         Energia energia = new Energia(energiaInicialValor);

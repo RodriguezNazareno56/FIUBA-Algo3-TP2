@@ -47,7 +47,7 @@ public class App extends Application {
         AlgoRomaPantalla algoRomaPantalla = new AlgoRomaPantalla(algoRoma, dadoButton);
         Scene mapaVista = new Scene(algoRomaPantalla, ViewProperties.stageMaximoAlto, ViewProperties.stageMaximoAncho );
 
-        AgregarJugadorPantalla agregarJugadorPantalla = new AgregarJugadorPantalla(stage, mapaVista, algoRoma );
+        AgregarJugadorPantalla agregarJugadorPantalla = new AgregarJugadorPantalla(stage, mapaVista, algoRoma , algoRomaPantalla);
         Scene escenaJugador = new Scene(agregarJugadorPantalla, ViewProperties.stageMaximoAlto, ViewProperties.stageMaximoAncho);
 
         BienvenidaPantalla bienvenidaPantalla = new BienvenidaPantalla(stage, escenaJugador);

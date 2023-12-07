@@ -21,7 +21,7 @@ public class ComenzarPartidaButtonHandler extends BotonProximaEscenaEventHandler
         if(algoRoma.cantidadDeGladiadores()>=2 && algoRoma.cantidadDeGladiadores()<=6){
             // TODO: la vista no deberia hacer uso del metodo algoRoma.notificarObservadores (de echo el mismo deberia
             //  ser privado)
-            algoRoma.notificarAObservadores();
+//            algoRoma.notificarAObservadores();
             super.handle(actionEvent);
         }
     }

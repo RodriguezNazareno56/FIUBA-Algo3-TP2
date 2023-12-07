@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.entrega_1;
 
+import edu.fiuba.algo3.modelo.NombreInvalidoException;
 import edu.fiuba.algo3.modelo.gladiador.exepciones.TriunfoNoPosibleException;
 import edu.fiuba.algo3.modelo.gladiador.Energia;
 import edu.fiuba.algo3.modelo.equipamientos.Casco;
@@ -20,7 +21,7 @@ public class CasoDeUso8Test {
     private Gladiador gladiador;
 
     @BeforeEach
-    public void setUp() {
+    public void setUp() throws NombreInvalidoException {
         Senority senority = new Senority();
         Energia energia = new Energia(20);
         Equipamiento equipamiento = new Casco();

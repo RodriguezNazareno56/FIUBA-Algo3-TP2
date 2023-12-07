@@ -1,9 +1,6 @@
 package edu.fiuba.algo3.modelo.algoRomaEstado;
 
-import edu.fiuba.algo3.modelo.AlgoRoma;
-import edu.fiuba.algo3.modelo.FinDelJuegoException;
-import edu.fiuba.algo3.modelo.JuegoEnCursoException;
-import edu.fiuba.algo3.modelo.MaximoGladiadoresException;
+import edu.fiuba.algo3.modelo.*;
 import edu.fiuba.algo3.modelo.gladiador.Gladiador;
 
 public abstract class EstadoJuego {
@@ -16,7 +13,7 @@ public abstract class EstadoJuego {
 
     public abstract void jugarTurno() throws Exception;
 
-    public abstract void agregarGladiador(String nombreGladiador) throws FinDelJuegoException, MaximoGladiadoresException, JuegoEnCursoException;
+    public abstract void agregarGladiador(Gladiador gladiador) throws FinDelJuegoException, MaximoGladiadoresException, JuegoEnCursoException;
 
     public abstract void agregarTriunfo(Gladiador gladiador) throws FinDelJuegoException;
 }

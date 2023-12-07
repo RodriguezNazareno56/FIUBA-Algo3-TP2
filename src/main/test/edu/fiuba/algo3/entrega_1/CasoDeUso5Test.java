@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.entrega_1;
 
+import edu.fiuba.algo3.modelo.NombreInvalidoException;
 import edu.fiuba.algo3.modelo.consecuencias.IConsecuencia;
 import edu.fiuba.algo3.modelo.consecuencias.EquipamientoIncrementado;
 import edu.fiuba.algo3.modelo.consecuencias.FieraSalvaje;
@@ -21,7 +22,7 @@ public class CasoDeUso5Test {
     private final int energiaInicialValor = 20;
 
     @BeforeEach
-    public void setUp() {
+    public void setUp() throws NombreInvalidoException {
         Energia energia = new Energia(energiaInicialValor);
         Equipamiento equipamiento = new SinEquipamiento();
         Senority senority = new Senority();

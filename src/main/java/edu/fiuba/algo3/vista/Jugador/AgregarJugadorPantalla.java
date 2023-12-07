@@ -2,11 +2,13 @@ package edu.fiuba.algo3.vista.Jugador;
 
 import edu.fiuba.algo3.controladores.AgregarJugadorTextHandler;
 import edu.fiuba.algo3.controladores.ComenzarPartidaButtonHandler;
+import edu.fiuba.algo3.controladores.GladiadorFactory;
 import edu.fiuba.algo3.controladores.UnirseButtonHandler;
 import edu.fiuba.algo3.modelo.AlgoRoma;
 import edu.fiuba.algo3.modelo.FinDelJuegoException;
 import edu.fiuba.algo3.vista.Jugador.components.ComenzarPartidaButton;
 import edu.fiuba.algo3.vista.components.boton.BotonProximaEscenaEventHandler;
+import edu.fiuba.algo3.vista.mapa.AlgoRomaPantalla;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -23,7 +25,8 @@ import javafx.stage.Stage;
 
 public class AgregarJugadorPantalla extends VBox {
 
-    public AgregarJugadorPantalla(Stage stage, Scene proximaEscena, AlgoRoma algoRoma) {
+    // TODO: quitar algoRomaPantalla
+    public AgregarJugadorPantalla(Stage stage, Scene proximaEscena, AlgoRoma algoRoma, AlgoRomaPantalla algoRomaPantalla) {
         super(30);
 
         // Style
@@ -47,8 +50,8 @@ public class AgregarJugadorPantalla extends VBox {
         TextField textField = new TextField();
         textField.setMaxWidth(240);
 
-
-        UnirseButtonHandler unirseButtonHandler = new UnirseButtonHandler(textField, algoRoma);
+        GladiadorFactory gladiadorFactory = new GladiadorFactory(algoRoma, algoRomaPantalla);
+        UnirseButtonHandler unirseButtonHandler = new UnirseButtonHandler(textField, gladiadorFactory);
         UnirseButton unirse = new UnirseButton(unirseButtonHandler);
 
         textField.setOnKeyPressed(new AgregarJugadorTextHandler(unirse));

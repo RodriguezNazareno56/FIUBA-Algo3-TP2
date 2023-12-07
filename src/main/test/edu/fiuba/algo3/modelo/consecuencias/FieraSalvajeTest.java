@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo.consecuencias;
 
+import edu.fiuba.algo3.modelo.NombreInvalidoException;
 import edu.fiuba.algo3.modelo.constantes.FieraSalvajeConstantes;
 import edu.fiuba.algo3.modelo.equipamientos.*;
 import edu.fiuba.algo3.modelo.gladiador.Energia;
@@ -115,7 +116,7 @@ public class FieraSalvajeTest {
     // Pruebas sin MOCK
 
     @Test
-    public void unaFieraAtacaAUnGladiadorSinEquipamientoYLeResta20DeEnergia() {
+    public void unaFieraAtacaAUnGladiadorSinEquipamientoYLeResta20DeEnergia() throws NombreInvalidoException {
         // Arrange
         Energia energia = new Energia(20);
         Equipamiento equipamiento = new SinEquipamiento();
@@ -132,7 +133,7 @@ public class FieraSalvajeTest {
     }
 
     @Test
-    public void unaFieraAtacaAUnGladiadorConCascoYLeResta15DeEnergia() {
+    public void unaFieraAtacaAUnGladiadorConCascoYLeResta15DeEnergia() throws NombreInvalidoException {
         // Arrange
         Energia energia = new Energia(20);
         Equipamiento equipamiento = new Casco();
@@ -149,7 +150,7 @@ public class FieraSalvajeTest {
     }
 
     @Test
-    public void unaFieraAtacaAUnGladiadorConArmaduraYLeResta10DeEnergia() {
+    public void unaFieraAtacaAUnGladiadorConArmaduraYLeResta10DeEnergia() throws NombreInvalidoException {
         // Arrange
         Energia energia = new Energia(20);
         Equipamiento equipamiento = new Armadura();
@@ -166,7 +167,7 @@ public class FieraSalvajeTest {
     }
 
     @Test
-    public void unaFieraAtacaAUnGladiadorEscudoYEspadaYLeResta2DeEnergia() {
+    public void unaFieraAtacaAUnGladiadorEscudoYEspadaYLeResta2DeEnergia() throws NombreInvalidoException {
         // Arrange
         Energia energia = new Energia(20);
         Equipamiento equipamiento = new EscudoYEspada();
@@ -183,7 +184,7 @@ public class FieraSalvajeTest {
     }
 
     @Test
-    public void unaFieraAtacaAUnGladiadorConLlaveYNoLeRestaEnergia() {
+    public void unaFieraAtacaAUnGladiadorConLlaveYNoLeRestaEnergia() throws NombreInvalidoException {
         // Arrange
         Energia energia = new Energia(20);
         Equipamiento equipamiento = new Llave();

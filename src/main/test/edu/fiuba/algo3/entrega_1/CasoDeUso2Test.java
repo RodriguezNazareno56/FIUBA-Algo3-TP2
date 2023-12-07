@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.entrega_1;
 
+import edu.fiuba.algo3.modelo.NombreInvalidoException;
 import edu.fiuba.algo3.modelo.gladiador.exepciones.MovimientoException;
 import edu.fiuba.algo3.modelo.camino.Camino;
 import edu.fiuba.algo3.modelo.celda.Celda;
@@ -26,7 +27,7 @@ public class CasoDeUso2Test {
     private Mapa mapa;
 
     @BeforeEach
-    public void setUp() {
+    public void setUp() throws NombreInvalidoException {
         // Construyo un camino con 10 celdas
         List<ICelda> celdas = new ArrayList<>();
         for (int i = 0; i < 10; i++) {

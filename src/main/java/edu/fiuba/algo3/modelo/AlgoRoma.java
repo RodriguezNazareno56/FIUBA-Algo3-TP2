@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo;
 
 import edu.fiuba.algo3.controladores.observers.Observable;
+import edu.fiuba.algo3.controladores.observers.ObservableAlgoRoma;
 import edu.fiuba.algo3.data_acceso.MapaService;
 import edu.fiuba.algo3.data_acceso.data_mappers.JsonFormatoInvalidoException;
 import edu.fiuba.algo3.modelo.algoRomaEstado.EstadoJuego;
@@ -22,7 +23,7 @@ import java.util.Stack;
 import static edu.fiuba.algo3.modelo.constantes.AlgoRomaConstantes.*;
 
 
-public class AlgoRoma extends Observable implements ObservadorGladiador {
+public class AlgoRoma extends ObservableAlgoRoma implements ObservadorGladiador {
 
     private EstadoJuego estadoJuego;
 
@@ -68,12 +69,16 @@ public class AlgoRoma extends Observable implements ObservadorGladiador {
         this.mapa = mapaService.cargarMapa();
     }
 
+    // TODO: posible a eliminar
     public void agregarGladiador(String nombreGladiador) throws MaximoGladiadoresException,
-            NombreInvalidoException, JuegoEnCursoException, FinDelJuegoException {
-        if (nombreGladiador.length() < 4) {
-            throw new NombreInvalidoException("El nombre debe poseer al menos 4 caracteres");
-        }
-        this.estadoJuego.agregarGladiador(nombreGladiador);
+            JuegoEnCursoException, FinDelJuegoException, NombreInvalidoException {
+        Gladiador gladiador = new Gladiador(nombreGladiador, new Energia(ENERGIA_INICIAL_GLADIADOR), new SinEquipamiento(), new Senority(), this.logger);
+        this.estadoJuego.agregarGladiador(gladiador);
+    }
+
+    public void agregarGladiador(Gladiador gladiador) throws MaximoGladiadoresException,
+            JuegoEnCursoException, FinDelJuegoException {
+        this.estadoJuego.agregarGladiador(gladiador);
     }
 
     public void jugarTurno() throws Exception {
@@ -84,13 +89,12 @@ public class AlgoRoma extends Observable implements ObservadorGladiador {
         this.estadoJuego.jugarTurno();
     }
 
-    public void agregarGladiadorALaLista(String nombreGladiador) throws MaximoGladiadoresException {
+    public void agregarGladiadorALaLista(Gladiador gladiador) throws MaximoGladiadoresException {
         //este metodo lo usan los estados, redefinir por un nombre más apropiado
         if( gladiadores.size() >= MAX_CANTIDAD_GLADIADORES){
             throw new MaximoGladiadoresException("No se pueden agregar mas gladiadores");
         }
 
-        Gladiador gladiador = new Gladiador(nombreGladiador, new Energia(ENERGIA_INICIAL_GLADIADOR), new SinEquipamiento(), new Senority(), this.logger);
         gladiador.subscribir(this);
         this.gladiadores.add(gladiador);
         logger.info(gladiador + " se unio al juego");
@@ -118,6 +122,7 @@ public class AlgoRoma extends Observable implements ObservadorGladiador {
     }
 
     public void jugarTurnoSegunEstado(JuegoEnCurso juegoEnCurso) throws Exception {
+        notificarNuevoTurno();
         avanzarGladiador();
     }
 

@@ -12,7 +12,7 @@ public class JuegoEnCurso extends EstadoJuego{
         }
 
         @Override
-        public void agregarGladiador(String nombreGladiador) throws JuegoEnCursoException {
+        public void agregarGladiador(Gladiador gladiador) throws JuegoEnCursoException {
                 throw new JuegoEnCursoException("No se pueden agregar gladiadores en un juego en curso");
 
         }
