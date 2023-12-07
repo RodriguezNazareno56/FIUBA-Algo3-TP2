@@ -44,10 +44,12 @@ public class GladiadorFactory {
 
         Gladiador gladiador = new Gladiador(nombreGladiador, energia, equipamiento, senority, logger);
         GladiadorAnimado gladiadorAnimado = new GladiadorAnimado(nombreGladiador,GladiadorAnimado.ColoresGladiador.GRIS);
+        GladiadorVista gladiadorImageParaPanel = new GladiadorVista(nombreGladiador, GladiadorVista.ColoresGladiador.GRIS);
 
         EquipamientosPanel equipamientosPanel = new EquipamientosPanel(gladiador);
 
-        PanelInferior panelInferior = new PanelInferior(new GladiadorVista(100),
+        PanelInferior panelInferior = new PanelInferior(
+                gladiadorImageParaPanel,
                 energiaVista,
                 senorityVista,
                 equipamientosPanel);
