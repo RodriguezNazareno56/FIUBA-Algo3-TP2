@@ -83,7 +83,7 @@ public class AlgoRoma extends ObservableAlgoRoma implements ObservadorGladiador 
     public void jugarTurno() throws Exception {
         if( gladiadoresEnEspera.isEmpty()){
             this.rondaActual++;
-            this.gladiadoresEnEspera.addAll(gladiadores);
+            this.gladiadoresEnEspera.addAll(this.getGladiadoresSegunOrdenEnRonda());
         }
         this.estadoJuego.jugarTurno();
     }
@@ -106,7 +106,7 @@ public class AlgoRoma extends ObservableAlgoRoma implements ObservadorGladiador 
             throw new MinimoGladiadoresException("No se puede inicializar un juego con menos de dos gladiadores");
         }
 
-        Collections.shuffle(gladiadores);
+        //Collections.shuffle(gladiadores);
 
         // TODO: no se si aca esta bien. pero al mapa hay que cargarle los gladiadores
         this.mapa.setGladiadores(gladiadores);

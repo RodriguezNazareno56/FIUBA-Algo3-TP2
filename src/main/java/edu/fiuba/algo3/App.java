@@ -49,7 +49,7 @@ public class App extends Application {
         DadoButton dadoButton = new DadoButton(algoRoma);
         dado.agregarObservador(dadoButton);
 
-        AlgoRomaPantalla algoRomaPantalla = new AlgoRomaPantalla(algoRoma, dadoButton);
+        AlgoRomaPantalla algoRomaPantalla = new AlgoRomaPantalla(algoRoma, dadoButton, dirImagenesPorNombreGladiador);
         Scene mapaVista = new Scene(algoRomaPantalla, ViewProperties.stageMaximoAlto, ViewProperties.stageMaximoAncho );
 
         //AgregarJugadorPantalla agregarJugadorPantalla = new AgregarJugadorPantalla(stage, mapaVista, algoRoma , algoRomaPantalla);

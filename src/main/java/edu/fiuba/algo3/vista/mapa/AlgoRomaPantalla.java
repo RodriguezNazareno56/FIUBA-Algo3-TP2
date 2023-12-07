@@ -19,20 +19,23 @@ import javafx.scene.layout.BorderPane;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
+import java.util.HashMap;
 
 public class AlgoRomaPantalla extends BorderPane implements ObservadorAlgoRoma {
 
     private final Deque<PanelInferior> panelInferiorsList;
     private final MapaVista mapaVista;
 
+    private final Gladiadores panelGladiadores;
 
-    public AlgoRomaPantalla(AlgoRoma algoRoma, DadoButton dadoButton) {
+    public AlgoRomaPantalla(AlgoRoma algoRoma, DadoButton dadoButton, HashMap<String, String> dirImagenesPorNombreGladiador) {
         super();
         panelInferiorsList = new ArrayDeque<>();
 
         // Columna Izquierda con perfiles de Gladiadores
-        Gladiadores panelGladiadores = new Gladiadores(algoRoma);
-//        algoRoma.agregarObservador(panelGladiadores);
+        Gladiadores panelGladiadores = new Gladiadores(algoRoma, dirImagenesPorNombreGladiador);
+        this.panelGladiadores = panelGladiadores;
+        algoRoma.agregarObservador(panelGladiadores);
         this.setLeft(panelGladiadores);
         this.setMargin(panelGladiadores, new Insets(10, 10, 10, 10));
 
@@ -78,9 +81,13 @@ public class AlgoRomaPantalla extends BorderPane implements ObservadorAlgoRoma {
     }
 
     public void actualizarPanelGladiadores() {
+        //this.panelGladiadores.visualizarNuevoGladiador();
+        this.panelGladiadores.mostrarGladiadoresEnOrden();
     }
 
     public void visualizarNuevoGladiador() {
-        //udar este en vez del de arriba
+
+        //this.panelGladiadores.visualizarProximoPanelInferior();
+
     }
 }
