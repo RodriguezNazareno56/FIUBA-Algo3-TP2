@@ -13,7 +13,6 @@ public abstract class Observable {
         this.observadores.add(observador);
     }
 
-    // TODO: este metodo debe ser privado
     public void notificarAObservadores() {
         for (ObservadorSenority observador : observadores) {
             observador.actualizarPorAumentoDeSenority();
