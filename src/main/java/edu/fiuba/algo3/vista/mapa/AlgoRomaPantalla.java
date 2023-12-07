@@ -27,17 +27,16 @@ import java.util.List;
 
 public class AlgoRomaPantalla extends BorderPane implements ObservadorAlgoRoma {
 
-    private AlgoRoma algoRoma;
-    private Deque<PanelInferior> panelInferiorsList;
+    private final Deque<PanelInferior> panelInferiorsList;
+    private final MapaVista mapaVista;
+
 
     public AlgoRomaPantalla(AlgoRoma algoRoma, DadoButton dadoButton) {
         super();
         panelInferiorsList = new ArrayDeque<>();
 
-        this.algoRoma = algoRoma;
-
         // Columna Izquierda con perfiles de Gladiadores
-        Gladiadores panelGladiadores = new Gladiadores(this.algoRoma);
+        Gladiadores panelGladiadores = new Gladiadores(algoRoma);
 //        algoRoma.agregarObservador(panelGladiadores);
         this.setLeft(panelGladiadores);
         this.setMargin(panelGladiadores, new Insets(10, 10, 10, 10));
@@ -47,7 +46,7 @@ public class AlgoRomaPantalla extends BorderPane implements ObservadorAlgoRoma {
 
         //Creacion del camino
 
-        MapaVista mapaVista = new MapaVista(algoRoma);
+        this.mapaVista = new MapaVista(algoRoma);
         this.setCenter(mapaVista);
         this.setMargin(mapaVista, new Insets(10, 10, 10, 10));
 
@@ -70,6 +69,10 @@ public class AlgoRomaPantalla extends BorderPane implements ObservadorAlgoRoma {
 
     public void agregarPanelInferiorDeJugador(PanelInferior panelInferior) {
         this.panelInferiorsList.add(panelInferior);
+    }
+
+    public void agregarGladiador(GladiadorAnimado gladiadorAnimado) {
+        mapaVista.agregarGladiadorAlInicio(gladiadorAnimado);
     }
 
     @Override
