@@ -16,6 +16,8 @@ import edu.fiuba.algo3.vista.paneles_de_visualizacion.PanelInferior;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import static edu.fiuba.algo3.modelo.constantes.GladiadorConstantes.ENERGIA_INICIAL_GLADIADOR;
+
 public class GladiadorFactory {
 
     private AlgoRoma algoRoma;
@@ -30,8 +32,8 @@ public class GladiadorFactory {
     public void crearGladiador(String nombreGladiador) throws NombreInvalidoException,
             MaximoGladiadoresException, JuegoEnCursoException, FinDelJuegoException {
 
-        Energia energia = new Energia(Constantes.ENERGIA_DEL_GLADIADOR_VALOR_INICIAL);
-        EnergiaVista energiaVista = new EnergiaVista(energia, Constantes.ENERGIA_DEL_GLADIADOR_VALOR_INICIAL);
+        Energia energia = new Energia(ENERGIA_INICIAL_GLADIADOR);
+        EnergiaVista energiaVista = new EnergiaVista(energia, ENERGIA_INICIAL_GLADIADOR);
 
         SinEquipamiento equipamiento = new SinEquipamiento();
 
