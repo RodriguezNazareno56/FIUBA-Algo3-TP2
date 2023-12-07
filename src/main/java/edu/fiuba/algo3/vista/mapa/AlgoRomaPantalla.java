@@ -76,4 +76,11 @@ public class AlgoRomaPantalla extends BorderPane implements ObservadorAlgoRoma {
         this.setBottom(popPanelInferior);
         panelInferiorsList.add(popPanelInferior);
     }
+
+    public void actualizarPanelGladiadores() {
+    }
+
+    public void visualizarNuevoGladiador() {
+        //udar este en vez del de arriba
+    }
 }

@@ -96,6 +96,7 @@ public class AlgoRoma extends ObservableAlgoRoma implements ObservadorGladiador 
 
         gladiador.subscribir(this);
         this.gladiadores.add(gladiador);
+        this.notificarNuevoGladiador();
         this.gladiadorPrimeroEnLaRonda = null;
         logger.info(gladiador + " se unio al juego");
     }
@@ -247,5 +248,21 @@ public class AlgoRoma extends ObservableAlgoRoma implements ObservadorGladiador 
                     .orElse(null));
         }
         return gladiadoresSegunOrden;
+    }
+
+    public ArrayList<String> getNombresGladiadores(){
+        ArrayList<String> nombres = new ArrayList<>();
+        for (Gladiador gladiador : gladiadores) {
+            nombres.add(gladiador.getNombre());
+        }
+        return nombres;
+    }
+
+    public int getMinimaCantidadGladiadores() {
+        return MINIMA_CANTIDAD_DE_GLADIADORES;
+    }
+
+    public int getMaximaCantidadGladiadores() {
+        return MAX_CANTIDAD_GLADIADORES;
     }
 }
