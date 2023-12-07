@@ -9,6 +9,4 @@ public interface AlgoRomaConstantes {
     int MINIMA_CANTIDAD_DE_GLADIADORES = 2;
 
     int MAXIMA_CANTIDAD_DE_RONDAS = 30;
-    int ENERGIA_INICIAL_GLADIADOR = 20;
-
 }
