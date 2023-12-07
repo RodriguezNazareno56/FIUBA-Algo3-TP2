@@ -19,10 +19,6 @@ import java.util.ArrayList;
 
 public class SelectorGladiadorVista extends HBox {
 
-    private AlgoRoma algoRoma;
-
-    private AlgoRomaPantalla algoRomaPantalla;
-
     private ImageView imageViewGladiador;
 
     private ArrayList<Image> imagenes;
@@ -31,12 +27,13 @@ public class SelectorGladiadorVista extends HBox {
 
     private final int DIMENSION_IMAGEN = 130;
 
-    public SelectorGladiadorVista(AlgoRoma algoRoma, AlgoRomaPantalla romaPantalla, ArrayList<Image> imagenes, AlgoRomaPantalla algoRomaPantalla) {
+    private final GladiadorFactory gladiadorFactory;
+
+    public SelectorGladiadorVista(ArrayList<Image> imagenes, GladiadorFactory gladiadorFactory) {
         super();
-        this.algoRoma = algoRoma;
-        this.algoRomaPantalla = algoRomaPantalla;
         this.imagenes = imagenes;;
         this.imageViewGladiador = new ImageView(imagenes.get(0));
+        this.gladiadorFactory = gladiadorFactory;
 
 
         VBox contenedorGladiadorElegible = this.crearGladiadorElegible();
@@ -66,7 +63,6 @@ public class SelectorGladiadorVista extends HBox {
         TextField textFieldNombreParaGladiador = new TextField("");
         this.buttonEnviarNombre = new Button("Unirse");
 
-        GladiadorFactory gladiadorFactory = new GladiadorFactory(algoRoma, algoRomaPantalla);
         UnirseButtonHandler unirseButtonHandler = new UnirseButtonHandler(textFieldNombreParaGladiador, gladiadorFactory);
         buttonEnviarNombre.setOnAction(unirseButtonHandler);
 

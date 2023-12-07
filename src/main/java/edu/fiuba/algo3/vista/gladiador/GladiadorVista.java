@@ -1,18 +1,14 @@
 package edu.fiuba.algo3.vista.gladiador;
 
-import edu.fiuba.algo3.vista.ViewProperties;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 
-import java.net.URL;
-
 public class GladiadorVista extends VBox {
-    public enum ColoresGladiador {
+    public enum Color {
         DORADO,
         GRIS,
         MARRON;
@@ -20,7 +16,7 @@ public class GladiadorVista extends VBox {
 
     private String colorString;
 
-    public GladiadorVista(String nombreGladiador, ColoresGladiador color) {
+    public GladiadorVista(String nombreGladiador, Color color) {
         switch (color) {
             case GRIS:
                 this.colorString = "gris";
@@ -28,8 +24,9 @@ public class GladiadorVista extends VBox {
             case MARRON:
                 this.colorString = "marron";
                 break;
-            default:
+            case DORADO:
                 this.colorString = "dorado";
+                break;
         }
 
         String url = "file:src/main/resources/edu/fiuba/algo3/vista/gladiador/"+ colorString + "/GreekBasic.png";
@@ -41,7 +38,7 @@ public class GladiadorVista extends VBox {
         Label nombreLabel = new Label();
         nombreLabel.setText(nombreGladiador);
         nombreLabel.setFont(Font.font("Helvetica", FontWeight.BOLD, 12));
-        nombreLabel.setTextFill(Color.WHITE);
+        nombreLabel.setTextFill(javafx.scene.paint.Color.WHITE);
 
         this.getChildren().add(imageView);
         this.getChildren().add(nombreLabel);

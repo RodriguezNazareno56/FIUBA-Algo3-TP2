@@ -39,7 +39,6 @@ public class ElegirGladiadorPantalla extends VBox implements ObservadorAlgoRoma 
     public ElegirGladiadorPantalla(Stage stage, Scene escenaSiguiente, AlgoRoma algoRoma, AlgoRomaPantalla algoRomaPantalla,
                                    HashMap<String,String> dirImagenesPorNombreGladiador) {
         super();
-        GladiadorFactory gladiadorFactory = new GladiadorFactory(algoRoma, algoRomaPantalla);
 
         this.algoRoma = algoRoma;
         algoRoma.agregarObservador(this);
@@ -49,7 +48,8 @@ public class ElegirGladiadorPantalla extends VBox implements ObservadorAlgoRoma 
         gladiadoresElegidosHBox.setAlignment(Pos.CENTER);
         gladiadoresElegidosHBox.setSpacing(ESPACIADO_GLADIADORES_ELEGIDOS);
 
-        this.selectorGladiador = new SelectorGladiadorVista(algoRoma, algoRomaPantalla, this.getImageSeleccionablesGladiadores(), algoRomaPantalla);
+        GladiadorFactory gladiadorFactory = new GladiadorFactory(algoRoma, algoRomaPantalla);
+        this.selectorGladiador = new SelectorGladiadorVista(this.getImageSeleccionablesGladiadores(), gladiadorFactory);
 
         botonSiguienteEscena = new Button("Jugar");
         botonSiguienteEscena.setOnAction(new JugarPartidaButtonEventHandler(stage, escenaSiguiente, algoRoma, algoRomaPantalla));
