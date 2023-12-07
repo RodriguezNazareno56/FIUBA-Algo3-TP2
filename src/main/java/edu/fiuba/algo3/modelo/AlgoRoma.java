@@ -1,6 +1,5 @@
 package edu.fiuba.algo3.modelo;
 
-import edu.fiuba.algo3.controladores.observers.Observable;
 import edu.fiuba.algo3.controladores.observers.ObservableAlgoRoma;
 import edu.fiuba.algo3.data_acceso.MapaService;
 import edu.fiuba.algo3.data_acceso.data_mappers.JsonFormatoInvalidoException;
@@ -111,8 +110,9 @@ public class AlgoRoma extends ObservableAlgoRoma implements ObservadorGladiador 
         this.mapa.setGladiadores(gladiadores);
         this.logger.info("Juego inicilizado");
 
-        notificarOrdenDeTurno();
-        notificarFormaDeMapa();
+        // TODO: no se estan usando. Creo que son para eliminar
+//        notificarOrdenDeTurno();
+//        notificarFormaDeMapa();
     }
 
 
@@ -122,7 +122,6 @@ public class AlgoRoma extends ObservableAlgoRoma implements ObservadorGladiador 
     }
 
     public void jugarTurnoSegunEstado(JuegoEnCurso juegoEnCurso) throws Exception {
-        notificarNuevoTurno();
         avanzarGladiador();
     }
 
@@ -136,6 +135,8 @@ public class AlgoRoma extends ObservableAlgoRoma implements ObservadorGladiador 
     }
 
     private void avanzarGladiador() throws Exception, FinDelJuegoException {
+        notificarNuevoTurno();
+
         Gladiador gladiador = gladiadoresEnEspera.pop();
         int resultadoDado = this.dado.tirarDado();
 

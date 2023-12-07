@@ -24,15 +24,14 @@ public class AlgoRomaPantalla extends BorderPane implements ObservadorAlgoRoma {
 
     private final Deque<PanelInferior> panelInferiorsList;
     private final MapaVista mapaVista;
-
+    private Gladiadores panelGladiadores;
 
     public AlgoRomaPantalla(AlgoRoma algoRoma, DadoButton dadoButton) {
         super();
         panelInferiorsList = new ArrayDeque<>();
 
         // Columna Izquierda con perfiles de Gladiadores
-        Gladiadores panelGladiadores = new Gladiadores(algoRoma);
-//        algoRoma.agregarObservador(panelGladiadores);
+        this.panelGladiadores = new Gladiadores(algoRoma);
         this.setLeft(panelGladiadores);
         this.setMargin(panelGladiadores, new Insets(10, 10, 10, 10));
 
@@ -67,6 +66,7 @@ public class AlgoRomaPantalla extends BorderPane implements ObservadorAlgoRoma {
     }
 
     public void agregarGladiador(GladiadorAnimado gladiadorAnimado) {
+        this.panelGladiadores.agregarGladiador();
         mapaVista.agregarGladiadorAlInicio(gladiadorAnimado);
     }
 
