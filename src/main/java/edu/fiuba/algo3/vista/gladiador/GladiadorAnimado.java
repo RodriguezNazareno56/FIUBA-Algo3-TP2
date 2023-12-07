@@ -16,7 +16,8 @@ import java.util.Queue;
 
 public class GladiadorAnimado extends ImageView {
 
-    public static final int ANIMACION_DURACION_EN_MILISEGUNDOS = 800;
+    private static final int ANIMACION_DURACION_EN_MILISEGUNDOS = 800;
+    private final String nombre;
 
     public enum ColoresGladiador {
         DORADO,
@@ -26,7 +27,7 @@ public class GladiadorAnimado extends ImageView {
 
     private String colorString;
 
-    public GladiadorAnimado(ColoresGladiador color) {
+    public GladiadorAnimado(String nombre, ColoresGladiador color) {
         switch (color) {
             case GRIS:
                 this.colorString = "gris";
@@ -37,9 +38,14 @@ public class GladiadorAnimado extends ImageView {
             default:
                 this.colorString = "dorado";
         }
+        this.nombre = nombre;
         this.crearAnimacion();
         this.setFitHeight(ViewProperties.gladiadorViewAlto);
         this.setPreserveRatio(true);
+    }
+
+    public String getNombre() {
+        return nombre;
     }
 
     protected Queue<Image> getAnimacionImages() {
