@@ -1,11 +1,11 @@
-package edu.fiuba.algo3.vista.elegirGladiador;
+package edu.fiuba.algo3.vista.pantalla_elegir_gladiador;
 
 import edu.fiuba.algo3.controladores.GladiadorFactory;
 import edu.fiuba.algo3.controladores.UnirseButtonHandler;
 import edu.fiuba.algo3.modelo.AlgoRoma;
-import edu.fiuba.algo3.vista.elegirGladiador.componentes.SiguienteImagenButtonEventHandler;
-import edu.fiuba.algo3.vista.elegirGladiador.componentes.TextoAccionaBotonEventHandler;
-import edu.fiuba.algo3.vista.mapa.AlgoRomaPantalla;
+import edu.fiuba.algo3.vista.pantalla_elegir_gladiador.componentes.SiguienteImagenButtonEventHandler;
+import edu.fiuba.algo3.vista.pantalla_elegir_gladiador.componentes.TextoAccionaBotonEventHandler;
+import edu.fiuba.algo3.vista.AlgoRomaPantalla;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.Button;

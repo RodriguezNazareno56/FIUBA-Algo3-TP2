@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.modelo.gladiador;
+package edu.fiuba.algo3.controladores.observers;
 
 import edu.fiuba.algo3.modelo.FinDelJuegoException;
 

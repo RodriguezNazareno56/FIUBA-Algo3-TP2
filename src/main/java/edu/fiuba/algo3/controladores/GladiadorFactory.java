@@ -9,9 +9,10 @@ import edu.fiuba.algo3.modelo.gladiador.senority.Senority;
 import edu.fiuba.algo3.vista.equipamientos.EquipamientosPanel;
 import edu.fiuba.algo3.vista.gladiador.EnergiaVista;
 import edu.fiuba.algo3.vista.gladiador.GladiadorAnimado;
+import edu.fiuba.algo3.vista.gladiador.GladiadorVista;
 import edu.fiuba.algo3.vista.gladiador.senority.SenorityVista;
-import edu.fiuba.algo3.vista.mapa.AlgoRomaPantalla;
-import edu.fiuba.algo3.vista.panel.PanelInferior;
+import edu.fiuba.algo3.vista.AlgoRomaPantalla;
+import edu.fiuba.algo3.vista.paneles_de_visualizacion.PanelInferior;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -44,7 +45,7 @@ public class GladiadorFactory {
 
         EquipamientosPanel equipamientosPanel = new EquipamientosPanel(gladiador);
 
-        PanelInferior panelInferior = new PanelInferior(new edu.fiuba.algo3.vista.gladiador.Gladiador(100),
+        PanelInferior panelInferior = new PanelInferior(new GladiadorVista(100),
                 energiaVista,
                 senorityVista,
                 equipamientosPanel);

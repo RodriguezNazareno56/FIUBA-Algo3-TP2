@@ -4,7 +4,7 @@ import edu.fiuba.algo3.modelo.celda.Coordenada;
 import edu.fiuba.algo3.modelo.consecuencias.EquipamientoIncrementado;
 import edu.fiuba.algo3.modelo.consecuencias.IConsecuencia;
 import edu.fiuba.algo3.vista.consecuencias.ConsecuenciaAnimacion;
-import edu.fiuba.algo3.vista.mapa.components.MapaVista;
+import edu.fiuba.algo3.vista.mapa.MapaVista;
 
 public class EquipamientoAnimacionManager implements ConsecuenciaAnimacion {
     @Override

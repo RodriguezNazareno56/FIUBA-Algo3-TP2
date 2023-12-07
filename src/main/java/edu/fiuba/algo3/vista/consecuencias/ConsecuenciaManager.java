@@ -5,7 +5,7 @@ import edu.fiuba.algo3.modelo.consecuencias.IConsecuencia;
 import edu.fiuba.algo3.vista.consecuencias.comida.ComidaAnimacionManager;
 import edu.fiuba.algo3.vista.consecuencias.equipamiento.EquipamientoAnimacionManager;
 import edu.fiuba.algo3.vista.consecuencias.obstaculos.ObstaculoAnimacionManager;
-import edu.fiuba.algo3.vista.mapa.components.MapaVista;
+import edu.fiuba.algo3.vista.mapa.MapaVista;
 
 import java.util.ArrayList;
 import java.util.List;

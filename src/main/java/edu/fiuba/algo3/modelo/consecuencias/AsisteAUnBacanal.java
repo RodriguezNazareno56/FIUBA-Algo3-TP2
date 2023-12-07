@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.modelo.consecuencias;
 
-import edu.fiuba.algo3.modelo.Dado;
+import edu.fiuba.algo3.modelo.dado.Dado;
 import edu.fiuba.algo3.modelo.gladiador.Energia;
 import edu.fiuba.algo3.modelo.gladiador.Gladiador;
 

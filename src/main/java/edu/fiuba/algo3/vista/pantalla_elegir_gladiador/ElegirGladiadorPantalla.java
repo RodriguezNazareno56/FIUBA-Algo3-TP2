@@ -1,10 +1,10 @@
-package edu.fiuba.algo3.vista.elegirGladiador;
+package edu.fiuba.algo3.vista.pantalla_elegir_gladiador;
 
 import edu.fiuba.algo3.controladores.GladiadorFactory;
 import edu.fiuba.algo3.controladores.observers.ObservadorAlgoRoma;
 import edu.fiuba.algo3.modelo.AlgoRoma;
-import edu.fiuba.algo3.vista.elegirGladiador.componentes.JugarPartidaButtonEventHandler;
-import edu.fiuba.algo3.vista.mapa.AlgoRomaPantalla;
+import edu.fiuba.algo3.vista.pantalla_elegir_gladiador.componentes.JugarPartidaButtonEventHandler;
+import edu.fiuba.algo3.vista.AlgoRomaPantalla;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -14,8 +14,6 @@ import javafx.stage.Stage;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-
-import edu.fiuba.algo3.vista.elegirGladiador.SelectorGladiadorVista;
 
 
 public class ElegirGladiadorPantalla extends VBox implements ObservadorAlgoRoma {

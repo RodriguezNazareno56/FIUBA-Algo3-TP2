@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.vista.mapa.components;
+package edu.fiuba.algo3.vista.celda;
 
 import javafx.geometry.Orientation;
 import javafx.scene.image.Image;

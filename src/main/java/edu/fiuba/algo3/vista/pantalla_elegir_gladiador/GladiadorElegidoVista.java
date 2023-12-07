@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.vista.elegirGladiador;
+package edu.fiuba.algo3.vista.pantalla_elegir_gladiador;
 
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;

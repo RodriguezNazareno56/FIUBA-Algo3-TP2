@@ -2,7 +2,7 @@ package edu.fiuba.algo3.entrega_2;
 
 import edu.fiuba.algo3.data_acceso.MapaService;
 import edu.fiuba.algo3.modelo.AlgoRoma;
-import edu.fiuba.algo3.modelo.Dado;
+import edu.fiuba.algo3.modelo.dado.Dado;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

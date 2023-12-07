@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.modelo;
+package edu.fiuba.algo3.modelo.dado;
 
 import edu.fiuba.algo3.controladores.observers.ObservableDado;
 import edu.fiuba.algo3.controladores.observers.ObservadorDado;

@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.vista.mapa.components;
+package edu.fiuba.algo3.vista.paneles_de_visualizacion;
 
 import edu.fiuba.algo3.controladores.observers.ObservadorAlgoRoma;
 import edu.fiuba.algo3.controladores.observers.ObservadorSenority;
@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 // TODO: renombrar a panelGladiadores
-public class Gladiadores extends VBox implements ObservadorSenority, ObservadorAlgoRoma {
+public class PanelLateralGladiadores extends VBox implements ObservadorSenority, ObservadorAlgoRoma {
 
 
 
@@ -36,7 +36,7 @@ public class Gladiadores extends VBox implements ObservadorSenority, ObservadorA
 
     private ArrayList<String> nombresAgregados;
     private ArrayList<Label> labelsGladiadores;
-    public Gladiadores(AlgoRoma algoRoma, HashMap<String, String> dirImagenesPorNombreGladiador){
+    public PanelLateralGladiadores(AlgoRoma algoRoma, HashMap<String, String> dirImagenesPorNombreGladiador){
 
         this.algoRoma = algoRoma;
         this.imagenesPerfilGladiador = new ArrayList<String>();
