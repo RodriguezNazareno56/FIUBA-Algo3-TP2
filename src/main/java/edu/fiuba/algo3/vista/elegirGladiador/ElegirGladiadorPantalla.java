@@ -9,8 +9,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
@@ -65,18 +64,16 @@ public class ElegirGladiadorPantalla extends VBox implements ObservadorAlgoRoma 
 
         this.setAlignment(Pos.CENTER);
         this.setSpacing(ESPACIADO_BLOQUES);
-        /*
+
         //poner otra imagen, esta imagen no contrasta bien con las fotos
-        Image imagen = new Image("file:src/main/resources/edu/fiuba/algo3/vista/backgroundAgregarJugadorPantalla.png");
+        Image imagen = new Image("file:src/main/resources/edu/fiuba/algo3/vista/ElegirGladiadorPantallaBackground.png");
         BackgroundImage imagenDeFondo = new BackgroundImage(
                 imagen,
                 BackgroundRepeat.REPEAT,
                 BackgroundRepeat.NO_REPEAT,
-                BackgroundPosition.DEFAULT,
+                BackgroundPosition.CENTER,
                 BackgroundSize.DEFAULT);
         this.setBackground(new Background(imagenDeFondo));
-
-         */
     }
 
     @Override
