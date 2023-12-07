@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.vista.mapa;
 
+import edu.fiuba.algo3.controladores.observers.ObservadorAlgoRoma;
+import edu.fiuba.algo3.controladores.observers.ObservadorDado;
 import edu.fiuba.algo3.modelo.AlgoRoma;
 import edu.fiuba.algo3.modelo.gladiador.Energia;
 import edu.fiuba.algo3.modelo.gladiador.senority.Senority;
@@ -18,21 +20,29 @@ import javafx.scene.layout.Border;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 
-public class AlgoRomaPantalla extends BorderPane {
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.Deque;
+import java.util.List;
+
+public class AlgoRomaPantalla extends BorderPane implements ObservadorAlgoRoma {
 
     private AlgoRoma algoRoma;
+    private Deque<PanelInferior> panelInferiorsList;
 
     public AlgoRomaPantalla(AlgoRoma algoRoma, DadoButton dadoButton) {
-
         super();
+        panelInferiorsList = new ArrayDeque<>();
 
         this.algoRoma = algoRoma;
 
         // Columna Izquierda con perfiles de Gladiadores
         Gladiadores panelGladiadores = new Gladiadores(this.algoRoma);
-        algoRoma.agregarObservador(panelGladiadores);
+//        algoRoma.agregarObservador(panelGladiadores);
         this.setLeft(panelGladiadores);
         this.setMargin(panelGladiadores, new Insets(10, 10, 10, 10));
+
+        panelGladiadores.getChildren().add(dadoButton);
 
 
         //Creacion del camino
@@ -43,22 +53,29 @@ public class AlgoRomaPantalla extends BorderPane {
 
 
         //Panel de Estado/Equipamiento de Gladiador
-        PanelInferior panelInferior = new PanelInferior();
 
-        EquipamientosPanel panelEquipamiento = new EquipamientosPanel();
-        panelEquipamiento.setVgap(0);
-        panelEquipamiento.setHgap(0);
-
-        panelInferior.agregarElementos(dadoButton);
-        panelInferior.agregarElementos(new Gladiador(100));
-        panelInferior.agregarElementos(new EnergiaVista(new Energia(20),20));
-        panelInferior.agregarElementos(new SenorityVista(new Senority()));
-        panelInferior.agregarElementos(panelEquipamiento);
+        PanelInferior panelInferior = new PanelInferior(new Gladiador(100),
+                new EnergiaVista(new Energia(20),20),
+                new SenorityVista(new Senority()),
+                new EquipamientosPanel());
 
         this.setBottom(panelInferior);
         this.setMargin(panelInferior, new Insets(10, 10, 10, 10));
 
         BorderPane.setAlignment(panelInferior, Pos.CENTER);
         BorderPane.setAlignment(mapaVista, Pos.TOP_CENTER);
+
+        algoRoma.agregarObservador(this);
+    }
+
+    public void agregarPanelInferiorDeJugador(PanelInferior panelInferior) {
+        this.panelInferiorsList.add(panelInferior);
+    }
+
+    @Override
+    public void visualizarProximoPanelInferior() {
+        PanelInferior popPanelInferior = this.panelInferiorsList.pop();
+        this.setBottom(popPanelInferior);
+        panelInferiorsList.add(popPanelInferior);
     }
 }

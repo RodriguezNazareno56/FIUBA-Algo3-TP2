@@ -1,4 +1,5 @@
 package edu.fiuba.algo3.modelo.constantes;
 
-public class Constantes implements FieraSalvajeConstantes{
+public interface Constantes extends FieraSalvajeConstantes {
+    int ENERGIA_DEL_GLADIADOR_VALOR_INICIAL = 20;
 }

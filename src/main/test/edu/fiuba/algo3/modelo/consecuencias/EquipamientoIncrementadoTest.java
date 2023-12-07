@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo.consecuencias;
 
 import edu.fiuba.algo3.modelo.FinDelJuegoException;
+import edu.fiuba.algo3.modelo.NombreInvalidoException;
 import edu.fiuba.algo3.modelo.equipamientos.Casco;
 import edu.fiuba.algo3.modelo.equipamientos.Armadura;
 import edu.fiuba.algo3.modelo.equipamientos.EscudoYEspada;
@@ -34,7 +35,7 @@ public class EquipamientoIncrementadoTest {
     }
 
     @Test
-    public void unGladiadorSinEquipamientoEsAfectadoYObtieneUnCasco() throws TriunfoNoPosibleException, FinDelJuegoException {
+    public void unGladiadorSinEquipamientoEsAfectadoYObtieneUnCasco() throws TriunfoNoPosibleException, FinDelJuegoException, NombreInvalidoException {
         // Arrange
         Energia energiaInicial = new Energia(20);
         Equipamiento equipamiento = new SinEquipamiento();
@@ -55,7 +56,7 @@ public class EquipamientoIncrementadoTest {
     }
 
     @Test
-    public void unGladiadorConCascoEsAfectadoYObtieneUnaArmadura() throws TriunfoNoPosibleException, FinDelJuegoException {
+    public void unGladiadorConCascoEsAfectadoYObtieneUnaArmadura() throws TriunfoNoPosibleException, FinDelJuegoException, NombreInvalidoException {
         // Arrange
         Energia energia = new Energia(20);
         Equipamiento equipamiento = new Casco();
@@ -76,7 +77,7 @@ public class EquipamientoIncrementadoTest {
     }
 
     @Test
-    public void unGladiadorConArmaduraEsAfectadoYObtieneEscudoYEspada() throws TriunfoNoPosibleException, FinDelJuegoException {
+    public void unGladiadorConArmaduraEsAfectadoYObtieneEscudoYEspada() throws TriunfoNoPosibleException, FinDelJuegoException, NombreInvalidoException {
         // Arrange
         Energia energia = new Energia(20);
         Equipamiento equipamiento = new Armadura();
@@ -97,7 +98,7 @@ public class EquipamientoIncrementadoTest {
     }
 
     @Test
-    public void unGladiadorConEscudoYEspadaEsAfectadoYObtieneUnaLlave() throws TriunfoNoPosibleException, FinDelJuegoException {
+    public void unGladiadorConEscudoYEspadaEsAfectadoYObtieneUnaLlave() throws TriunfoNoPosibleException, FinDelJuegoException, NombreInvalidoException {
         // Arrange
         Energia energia = new Energia(20);
         Equipamiento equipamiento = new EscudoYEspada();
@@ -120,7 +121,7 @@ public class EquipamientoIncrementadoTest {
     }
 
     @Test
-    public void unGladiadorConLlaveEsAfectadoSigueTeniendoLaLLave() throws TriunfoNoPosibleException, FinDelJuegoException {
+    public void unGladiadorConLlaveEsAfectadoSigueTeniendoLaLLave() throws TriunfoNoPosibleException, FinDelJuegoException, NombreInvalidoException {
         // Arrange
         Energia energia = new Energia(20);
         Equipamiento equipamiento = new Llave();

@@ -30,7 +30,9 @@ public class JuegoEnCursoTest {
     @Test
     public void seLanzaJuegoEnCursoExceptionUCuandoSeAgregaUnGladiador() throws FinDelJuegoException {
         // Arrange
-        assertThrows(JuegoEnCursoException.class, () -> juegoEnCurso.agregarGladiador("Augusto") );
+        Gladiador gladiador = Mockito.mock(Gladiador.class);
+        // Assert
+        assertThrows(JuegoEnCursoException.class, () -> juegoEnCurso.agregarGladiador(gladiador) );
     }
     
 

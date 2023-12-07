@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo.consecuencias;
 
 import edu.fiuba.algo3.modelo.Dado;
+import edu.fiuba.algo3.modelo.NombreInvalidoException;
 import edu.fiuba.algo3.modelo.equipamientos.Equipamiento;
 import edu.fiuba.algo3.modelo.equipamientos.SinEquipamiento;
 import edu.fiuba.algo3.modelo.gladiador.Energia;
@@ -34,7 +35,7 @@ public class AsisteAUnBacanalTest {
     }
 
     @Test
-    public void unGladiadorAsisteAUnBacanalTomaUnTragoYPierdeEnergia() {
+    public void unGladiadorAsisteAUnBacanalTomaUnTragoYPierdeEnergia() throws NombreInvalidoException {
         //Arrange
         Energia energia = new Energia(20);
         Equipamiento equipamiento = new SinEquipamiento();
@@ -55,7 +56,7 @@ public class AsisteAUnBacanalTest {
     }
 
     @Test
-    public void unGladiadorAsisteAUnBacanalTomaDosTragosYPierdeEnergia() {
+    public void unGladiadorAsisteAUnBacanalTomaDosTragosYPierdeEnergia() throws NombreInvalidoException {
         //Arrange
         Energia energia = new Energia(20);
         Equipamiento equipamiento = new SinEquipamiento();
@@ -76,7 +77,7 @@ public class AsisteAUnBacanalTest {
     }
 
     @Test
-    public void unGladiadorAsisteAUnBacanalTomaTresTragosYPierdeEnergia() {
+    public void unGladiadorAsisteAUnBacanalTomaTresTragosYPierdeEnergia() throws NombreInvalidoException {
         //Arrange
         Energia energia = new Energia(20);
         Equipamiento equipamiento = new SinEquipamiento();
@@ -97,7 +98,7 @@ public class AsisteAUnBacanalTest {
     }
 
     @Test
-    public void unGladiadorAsisteAUnBacanalTomaCuatroTragosYPierdeEnergia() {
+    public void unGladiadorAsisteAUnBacanalTomaCuatroTragosYPierdeEnergia() throws NombreInvalidoException {
         //Arrange
         Energia energia = new Energia(20);
         Equipamiento equipamiento = new SinEquipamiento();
@@ -118,7 +119,7 @@ public class AsisteAUnBacanalTest {
     }
 
     @Test
-    public void unGladiadorAsisteAUnBacanalTomaCincoTragosYPierdeEnergia() {
+    public void unGladiadorAsisteAUnBacanalTomaCincoTragosYPierdeEnergia() throws NombreInvalidoException {
         //Arrange
         Energia energia = new Energia(20);
         Equipamiento equipamiento = new SinEquipamiento();
@@ -139,7 +140,7 @@ public class AsisteAUnBacanalTest {
     }
 
     @Test
-    public void unGladiadorAsisteAUnBacanalYSuEnergiaQuedaNegativa() {
+    public void unGladiadorAsisteAUnBacanalYSuEnergiaQuedaNegativa() throws NombreInvalidoException {
         //Arrange
         Energia energia = new Energia(20);
         Equipamiento equipamiento = new SinEquipamiento();

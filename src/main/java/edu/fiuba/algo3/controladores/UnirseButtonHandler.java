@@ -1,6 +1,9 @@
 package edu.fiuba.algo3.controladores;
 
-import edu.fiuba.algo3.modelo.*;
+import edu.fiuba.algo3.modelo.FinDelJuegoException;
+import edu.fiuba.algo3.modelo.JuegoEnCursoException;
+import edu.fiuba.algo3.modelo.MaximoGladiadoresException;
+import edu.fiuba.algo3.modelo.NombreInvalidoException;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Alert;
@@ -8,19 +11,19 @@ import javafx.scene.control.TextField;
 
 public class UnirseButtonHandler implements EventHandler<ActionEvent> {
 
-    private TextField textField;
-    private AlgoRoma algoRoma;
+    private final TextField textField;
+    private final GladiadorFactory gladiadorFactory;
 
-    public UnirseButtonHandler(TextField textField, AlgoRoma algoRoma) {
+    public UnirseButtonHandler(TextField textField, GladiadorFactory gladiadorFactory) {
         this.textField = textField;
-        this.algoRoma = algoRoma;
+        this.gladiadorFactory = gladiadorFactory;
     }
 
     @Override
     public void handle(ActionEvent actionEvent) {
         String nombre = textField.getText().trim();
         try {
-            algoRoma.agregarGladiador(nombre);
+            gladiadorFactory.crearGladiador(nombre);
         } catch (NombreInvalidoException | JuegoEnCursoException | MaximoGladiadoresException | FinDelJuegoException e) {
             this.alert(e.getMessage());
         }

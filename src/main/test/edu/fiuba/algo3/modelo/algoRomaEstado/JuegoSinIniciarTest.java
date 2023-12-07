@@ -1,7 +1,11 @@
 package edu.fiuba.algo3.modelo.algoRomaEstado;
 import edu.fiuba.algo3.data_acceso.MapaService;
 import edu.fiuba.algo3.modelo.*;
+import edu.fiuba.algo3.modelo.equipamientos.Equipamiento;
+import edu.fiuba.algo3.modelo.equipamientos.SinEquipamiento;
+import edu.fiuba.algo3.modelo.gladiador.Energia;
 import edu.fiuba.algo3.modelo.gladiador.Gladiador;
+import edu.fiuba.algo3.modelo.gladiador.senority.Senority;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -10,6 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.mockito.Mockito;
+import org.slf4j.Logger;
 
 public class JuegoSinIniciarTest {
 
@@ -19,7 +24,6 @@ public class JuegoSinIniciarTest {
     @BeforeEach
     public void setUp() throws Exception {
         algoRoma = Mockito.mock(AlgoRoma.class);
-        //Mockito.when(mapaService.cargarMapa()).thenReturn(Mockito.mock(Mapa.class));
 
         juegoSinIniciar = new JuegoSinIniciar(algoRoma);
     }
@@ -28,10 +32,11 @@ public class JuegoSinIniciarTest {
     public void seLlamaAAgregarGladiadorEnListaCuandoSeAgregaUnGladiador() throws MaximoGladiadoresException {
         // Arrange
         String nombre = "Espartaco";
+        Gladiador gladiador = Mockito.mock(Gladiador.class);
         // Act
-        juegoSinIniciar.agregarGladiador(nombre);
+        juegoSinIniciar.agregarGladiador(gladiador);
         // Assert
-        Mockito.verify(algoRoma, Mockito.times(1)).agregarGladiadorALaLista(nombre);
+        Mockito.verify(algoRoma, Mockito.times(1)).agregarGladiadorALaLista(gladiador);
     }
 
     @Test

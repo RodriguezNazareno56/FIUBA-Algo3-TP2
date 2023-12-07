@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo.consecuencias;
 
 import edu.fiuba.algo3.modelo.FinDelJuegoException;
+import edu.fiuba.algo3.modelo.NombreInvalidoException;
 import edu.fiuba.algo3.modelo.gladiador.exepciones.TriunfoNoPosibleException;
 import edu.fiuba.algo3.modelo.equipamientos.Equipamiento;
 import edu.fiuba.algo3.modelo.equipamientos.SinEquipamiento;
@@ -35,7 +36,7 @@ public class LesionTest {
     }
 
     @Test
-    public void unaLesionAfectaAUnGladiadorImpidiendoleAvanzarUnTurno() throws TriunfoNoPosibleException, FinDelJuegoException {
+    public void unaLesionAfectaAUnGladiadorImpidiendoleAvanzarUnTurno() throws TriunfoNoPosibleException, FinDelJuegoException, NombreInvalidoException {
         //Arrange
         IConsecuencia lesion = new Lesion();
         Energia energia = new Energia(20);

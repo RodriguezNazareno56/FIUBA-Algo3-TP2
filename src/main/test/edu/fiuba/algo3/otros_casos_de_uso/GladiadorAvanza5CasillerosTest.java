@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.otros_casos_de_uso;
 
+import edu.fiuba.algo3.modelo.NombreInvalidoException;
 import edu.fiuba.algo3.modelo.camino.Camino;
 import edu.fiuba.algo3.modelo.celda.Celda;
 import edu.fiuba.algo3.modelo.celda.Coordenada;
@@ -27,7 +28,7 @@ public class GladiadorAvanza5CasillerosTest {
     private List<ICelda> celdas;
 
     @BeforeEach
-    public void setUp() {
+    public void setUp() throws NombreInvalidoException {
         // Construyo un camino con 10 celdas
         this.celdas = new ArrayList<>();
         for (int i = 0; i < 10; i++) {

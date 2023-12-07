@@ -1,9 +1,6 @@
 package edu.fiuba.algo3.modelo.algoRomaEstado;
 
-import edu.fiuba.algo3.modelo.AlgoRoma;
-import edu.fiuba.algo3.modelo.FinDelJuegoException;
-import edu.fiuba.algo3.modelo.JuegoNoIniciadoException;
-import edu.fiuba.algo3.modelo.MaximoGladiadoresException;
+import edu.fiuba.algo3.modelo.*;
 import edu.fiuba.algo3.modelo.gladiador.Gladiador;
 
 import static edu.fiuba.algo3.modelo.constantes.AlgoRomaConstantes.MAXIMA_CANTIDAD_DE_GLADIADORES;
@@ -16,8 +13,8 @@ public class JuegoSinIniciar extends EstadoJuego{
     }
 
     @Override
-    public void agregarGladiador(String nombreGladiador) throws MaximoGladiadoresException {
-        algoRoma.agregarGladiadorALaLista(nombreGladiador);
+    public void agregarGladiador(Gladiador gladiador) throws MaximoGladiadoresException {
+        algoRoma.agregarGladiadorALaLista(gladiador);
     }
     @Override
     public void jugarTurno() throws Exception {

@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo.gladiador;
 
 import edu.fiuba.algo3.modelo.FinDelJuegoException;
+import edu.fiuba.algo3.modelo.NombreInvalidoException;
 import edu.fiuba.algo3.modelo.consecuencias.IConsecuencia;
 import edu.fiuba.algo3.modelo.consecuencias.Enemigo;
 import edu.fiuba.algo3.modelo.equipamientos.Equipamiento;
@@ -23,7 +24,10 @@ public class Gladiador implements ObservableGladiador {
 
     private boolean estaHabilitadoParaMover;
 
-    public Gladiador(String nombre, Energia energia, Equipamiento equipamiento, Senority senority, Logger logger) {
+    public Gladiador(String nombre, Energia energia, Equipamiento equipamiento, Senority senority, Logger logger) throws NombreInvalidoException {
+        if (nombre.length() < 4) {
+            throw new NombreInvalidoException("El nombre debe poseer al menos 4 caracteres");
+        }
         this.nombre = nombre;
         this.energia = energia;
         this.equipamiento = equipamiento;

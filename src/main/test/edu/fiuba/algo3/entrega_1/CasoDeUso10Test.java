@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.entrega_1;
 
+import edu.fiuba.algo3.modelo.NombreInvalidoException;
 import edu.fiuba.algo3.modelo.gladiador.Energia;
 import edu.fiuba.algo3.modelo.equipamientos.Equipamiento;
 import edu.fiuba.algo3.modelo.equipamientos.Llave;
@@ -19,7 +20,7 @@ public class CasoDeUso10Test {
     private final int energiaInicialValor = 20;
 
     @BeforeEach
-    public void setUp() {
+    public void setUp() throws NombreInvalidoException {
         Senority senority = new Senority();
         Energia energia = new Energia(energiaInicialValor);
         Equipamiento equipamiento = new Llave();
