@@ -202,4 +202,50 @@ public class AlgoRoma extends ObservableAlgoRoma implements ObservadorGladiador 
     public int getMaximaCantidadRondas() {
         return MAXIMA_CANTIDAD_DE_RONDAS;
     }
+    public ArrayList<String> getNombresGladiadoresSegunOrdenEnRonda(){
+        int indicePrimero;
+        ArrayList<String> nombres = new ArrayList<>();
+        if(gladiadores.isEmpty()){
+            return nombres;
+        }
+        if(this.gladiadorPrimeroEnLaRonda == null){
+            Random random = new Random();
+            indicePrimero = random.nextInt(gladiadores.size());
+            this.gladiadorPrimeroEnLaRonda = gladiadores.get(indicePrimero).getNombre();
+        }
+        else{
+            indicePrimero = getIndiceGladiadorSegunNombre(this.gladiadorPrimeroEnLaRonda);
+        }
+
+
+        for(int i = indicePrimero; i<gladiadores.size() ; i++){
+            nombres.add(gladiadores.get(i).getNombre());
+        }
+        for( int i=0 ; i<indicePrimero ; i++){
+            nombres.add(gladiadores.get(i).getNombre());
+        }
+        // voy a devolver el orden de los gladiadores segun el primero en la ronda
+        return nombres;
+    }
+    private int getIndiceGladiadorSegunNombre(String nombre){
+        for( int i=0 ; i<gladiadores.size() ; i++){
+            if( gladiadores.get(i).getNombre().equals(nombre)){
+                return i;
+            }
+        }
+        return -1;
+    }
+    private ArrayList<Gladiador> getGladiadoresSegunOrdenEnRonda(){
+        ArrayList<String> nombres = getNombresGladiadoresSegunOrdenEnRonda();
+
+        ArrayList<Gladiador> gladiadoresSegunOrden = new ArrayList<>();
+
+        for(String nombre : nombres){
+            gladiadoresSegunOrden.add(gladiadores.stream()
+                    .filter(gladiador -> gladiador.getNombre().equals(nombre) )
+                    .findFirst()
+                    .orElse(null));
+        }
+        return gladiadoresSegunOrden;
+    }
 }
