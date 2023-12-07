@@ -16,9 +16,7 @@ import edu.fiuba.algo3.modelo.gladiador.senority.Senority;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
 import org.slf4j.Logger;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Stack;
+import java.util.*;
 
 import static edu.fiuba.algo3.modelo.constantes.AlgoRomaConstantes.*;
 
@@ -33,7 +31,7 @@ public class AlgoRoma extends ObservableAlgoRoma implements ObservadorGladiador 
 
     private final ArrayList<Gladiador> gladiadores;
 
-    private final Stack<Gladiador> gladiadoresEnEspera;
+    private final Queue<Gladiador> gladiadoresEnEspera;
 
     private Mapa mapa;
 
@@ -43,6 +41,7 @@ public class AlgoRoma extends ObservableAlgoRoma implements ObservadorGladiador 
 
     private final Dado dado;
 
+    private String gladiadorPrimeroEnLaRonda = null;
 
 
     public AlgoRoma(MapaService mapaService, Dado dado, Logger logger) {
@@ -50,7 +49,7 @@ public class AlgoRoma extends ObservableAlgoRoma implements ObservadorGladiador 
         this.logger = logger;
 
         this.gladiadores = new ArrayList<>();
-        this.gladiadoresEnEspera = new Stack<>();
+        this.gladiadoresEnEspera = new LinkedList<>();
 
         this.estadoJuego = new JuegoSinIniciar(this);
 
@@ -97,6 +96,7 @@ public class AlgoRoma extends ObservableAlgoRoma implements ObservadorGladiador 
 
         gladiador.subscribir(this);
         this.gladiadores.add(gladiador);
+        this.gladiadorPrimeroEnLaRonda = null;
         logger.info(gladiador + " se unio al juego");
     }
 
@@ -136,7 +136,7 @@ public class AlgoRoma extends ObservableAlgoRoma implements ObservadorGladiador 
     }
 
     private void avanzarGladiador() throws Exception, FinDelJuegoException {
-        Gladiador gladiador = gladiadoresEnEspera.pop();
+        Gladiador gladiador = gladiadoresEnEspera.poll();
         int resultadoDado = this.dado.tirarDado();
 
         try{
