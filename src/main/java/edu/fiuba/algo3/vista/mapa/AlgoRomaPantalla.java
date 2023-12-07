@@ -1,11 +1,17 @@
 package edu.fiuba.algo3.vista.mapa;
 
 import edu.fiuba.algo3.modelo.AlgoRoma;
+import edu.fiuba.algo3.modelo.gladiador.Energia;
+import edu.fiuba.algo3.modelo.gladiador.senority.Senority;
 import edu.fiuba.algo3.vista.dado.DadoButton;
 import edu.fiuba.algo3.vista.equipamientos.EquipamientosPanel;
+import edu.fiuba.algo3.vista.gladiador.EnergiaVista;
+import edu.fiuba.algo3.vista.gladiador.Gladiador;
 import edu.fiuba.algo3.vista.gladiador.GladiadorAnimado;
+import edu.fiuba.algo3.vista.gladiador.senority.SenorityVista;
 import edu.fiuba.algo3.vista.mapa.components.Gladiadores;
 import edu.fiuba.algo3.vista.mapa.components.MapaVista;
+import edu.fiuba.algo3.vista.panel.PanelInferior;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.layout.Border;
@@ -37,26 +43,17 @@ public class AlgoRomaPantalla extends BorderPane {
 
 
         //Panel de Estado/Equipamiento de Gladiador
+        PanelInferior panelInferior = new PanelInferior();
 
-       HBox panelInferior = new HBox();
+        EquipamientosPanel panelEquipamiento = new EquipamientosPanel();
+        panelEquipamiento.setVgap(0);
+        panelEquipamiento.setHgap(0);
 
-       panelInferior.setMaxHeight(20);
-       panelInferior.setMaxWidth(Double.MAX_VALUE);
-       //panelInferior.setSpacing(10);
-        //ARRIBA  -     - ABAJO    -
-         panelInferior.setPadding(new Insets(10, 0, 10, 0));
-       panelInferior.setStyle("-fx-background-color:#323232");
-       panelInferior.setAlignment(Pos.CENTER);
-
-       EquipamientosPanel panelEquipamiento = new EquipamientosPanel();
-       panelEquipamiento.setVgap(0);
-       panelEquipamiento.setHgap(0);
-
-       panelInferior.getChildren().add(panelEquipamiento);
-       panelInferior.getChildren().add(dadoButton);
-
-
-
+        panelInferior.agregarElementos(dadoButton);
+        panelInferior.agregarElementos(new Gladiador(100));
+        panelInferior.agregarElementos(new EnergiaVista(new Energia(20),20));
+        panelInferior.agregarElementos(new SenorityVista(new Senority()));
+        panelInferior.agregarElementos(panelEquipamiento);
 
         this.setBottom(panelInferior);
         this.setMargin(panelInferior, new Insets(10, 10, 10, 10));
