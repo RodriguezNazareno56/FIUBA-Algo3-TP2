@@ -34,11 +34,34 @@ import java.nio.file.Paths;
  */
 public class App extends Application {
 
-    @Override
-    public void start(Stage stage) throws IOException, FinDelJuegoException {
-        var javaVersion = SystemInfo.javaVersion();
-        var javafxVersion = SystemInfo.javafxVersion();
+    private AlgoRoma algoRoma;
+    private Dado dado;
 
+    @Override
+    public void start(Stage stage) throws IOException {
+        this.cargarDependencias();
+
+        DadoButton dadoButton = new DadoButton(algoRoma);
+        dado.agregarObservador(dadoButton);
+
+        AlgoRomaPantalla algoRomaPantalla = new AlgoRomaPantalla(algoRoma, dadoButton);
+        Scene mapaVista = new Scene(algoRomaPantalla, ViewProperties.stageMaximoAlto, ViewProperties.stageMaximoAncho );
+
+        AgregarJugadorPantalla agregarJugadorPantalla = new AgregarJugadorPantalla(stage, mapaVista, algoRoma );
+        Scene escenaJugador = new Scene(agregarJugadorPantalla, ViewProperties.stageMaximoAlto, ViewProperties.stageMaximoAncho);
+
+        BienvenidaPantalla bienvenidaPantalla = new BienvenidaPantalla(stage, escenaJugador);
+        Scene escenaBienvenida = new Scene(bienvenidaPantalla, ViewProperties.stageMaximoAlto, ViewProperties.stageMaximoAncho);
+
+
+        stage.setScene(escenaBienvenida);
+        stage.setWidth(ViewProperties.stageMaximoAlto);
+        stage.setHeight(ViewProperties.stageMaximoAncho);
+        stage.centerOnScreen();
+        stage.show();
+    }
+
+    private void cargarDependencias() throws IOException {
         Path jsonPath = Paths.get("src/main/resources/mapa.json");
         CaminoDAO caminoDAO = new CaminoDAOJsonImpl(jsonPath);
         Dado dadoParaBacanal = new Dado();
@@ -53,43 +76,9 @@ public class App extends Application {
 
         MapaService mapaService = new MapaService(caminoRepository, mapaRepository);
 
-        Dado dado = new Dado();
+         dado = new Dado();
 
-        AlgoRoma algoRoma = new AlgoRoma(mapaService, dado, LoggerFactory.getLogger("App"));
-
-        /*
-        StackPane root = new StackPane();
-        var arena = new Arena(algoRoma);
-        var arenaScene = new Scene(new StackPane(arena), 640, 480);
-        var jugador = new Scene(new StackPane(new Jugador(stage, arenaScene, algoRoma)), 640, 480);
-        root.getChildren().add(new Bienvenida(stage, jugador));
-        var escens = new Scene(root,640, 480);
-        stage.setScene(escens);
-        stage.setWidth(1200);
-        stage.setHeight(600);
-        stage.show();
-        */
-
-        DadoButton dadoButton = new DadoButton(algoRoma);
-        dado.agregarObservador(dadoButton);
-
-
-        // TODO: renombrar escenaArena
-        AlgoRomaPantalla algoRomaPantalla = new AlgoRomaPantalla(algoRoma, dadoButton);
-        Scene escenaArena = new Scene(algoRomaPantalla, ViewProperties.stageMaximoAlto, ViewProperties.stageMaximoAncho );
-
-        AgregarJugadorPantalla agregarJugadorPantalla = new AgregarJugadorPantalla(stage, escenaArena, algoRoma );
-        Scene escenaJugador = new Scene(agregarJugadorPantalla, ViewProperties.stageMaximoAlto, ViewProperties.stageMaximoAncho);
-
-        BienvenidaPantalla bienvenidaPantalla = new BienvenidaPantalla(stage, escenaJugador);
-        Scene escenaBienvenida = new Scene(bienvenidaPantalla, ViewProperties.stageMaximoAlto, ViewProperties.stageMaximoAncho);
-
-
-        stage.setScene(escenaBienvenida);
-        stage.setWidth(ViewProperties.stageMaximoAlto);
-        stage.setHeight(ViewProperties.stageMaximoAncho);
-        stage.centerOnScreen();
-        stage.show();
+         algoRoma = new AlgoRoma(mapaService, dado, LoggerFactory.getLogger("App"));
     }
 
     public static void main(String[] args) {
