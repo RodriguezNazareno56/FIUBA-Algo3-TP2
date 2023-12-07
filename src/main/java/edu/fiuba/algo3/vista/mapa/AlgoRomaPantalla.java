@@ -1,7 +1,6 @@
 package edu.fiuba.algo3.vista.mapa;
 
 import edu.fiuba.algo3.controladores.observers.ObservadorAlgoRoma;
-import edu.fiuba.algo3.controladores.observers.ObservadorDado;
 import edu.fiuba.algo3.modelo.AlgoRoma;
 import edu.fiuba.algo3.modelo.gladiador.Energia;
 import edu.fiuba.algo3.modelo.gladiador.senority.Senority;
@@ -16,14 +15,10 @@ import edu.fiuba.algo3.vista.mapa.components.MapaVista;
 import edu.fiuba.algo3.vista.panel.PanelInferior;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.layout.Border;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
 
 import java.util.ArrayDeque;
-import java.util.ArrayList;
 import java.util.Deque;
-import java.util.List;
 
 public class AlgoRomaPantalla extends BorderPane implements ObservadorAlgoRoma {
 
