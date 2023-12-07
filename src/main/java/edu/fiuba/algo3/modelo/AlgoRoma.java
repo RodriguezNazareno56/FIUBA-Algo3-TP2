@@ -15,9 +15,7 @@ import edu.fiuba.algo3.modelo.gladiador.senority.Senority;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
 import org.slf4j.Logger;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Stack;
+import java.util.*;
 
 import static edu.fiuba.algo3.modelo.constantes.AlgoRomaConstantes.*;
 
@@ -32,7 +30,7 @@ public class AlgoRoma extends ObservableAlgoRoma implements ObservadorGladiador 
 
     private final ArrayList<Gladiador> gladiadores;
 
-    private final Stack<Gladiador> gladiadoresEnEspera;
+    private final Queue<Gladiador> gladiadoresEnEspera;
 
     private Mapa mapa;
 
@@ -42,6 +40,7 @@ public class AlgoRoma extends ObservableAlgoRoma implements ObservadorGladiador 
 
     private final Dado dado;
 
+    private String gladiadorPrimeroEnLaRonda = null;
 
 
     public AlgoRoma(MapaService mapaService, Dado dado, Logger logger) {
@@ -49,7 +48,7 @@ public class AlgoRoma extends ObservableAlgoRoma implements ObservadorGladiador 
         this.logger = logger;
 
         this.gladiadores = new ArrayList<>();
-        this.gladiadoresEnEspera = new Stack<>();
+        this.gladiadoresEnEspera = new LinkedList<>();
 
         this.estadoJuego = new JuegoSinIniciar(this);
 
@@ -83,7 +82,7 @@ public class AlgoRoma extends ObservableAlgoRoma implements ObservadorGladiador 
     public void jugarTurno() throws Exception {
         if( gladiadoresEnEspera.isEmpty()){
             this.rondaActual++;
-            this.gladiadoresEnEspera.addAll(gladiadores);
+            this.gladiadoresEnEspera.addAll(this.getGladiadoresSegunOrdenEnRonda());
         }
         this.estadoJuego.jugarTurno();
     }
@@ -96,6 +95,8 @@ public class AlgoRoma extends ObservableAlgoRoma implements ObservadorGladiador 
 
         gladiador.subscribir(this);
         this.gladiadores.add(gladiador);
+        this.notificarNuevoGladiador();
+        this.gladiadorPrimeroEnLaRonda = null;
         logger.info(gladiador + " se unio al juego");
     }
 
@@ -104,7 +105,7 @@ public class AlgoRoma extends ObservableAlgoRoma implements ObservadorGladiador 
             throw new MinimoGladiadoresException("No se puede inicializar un juego con menos de dos gladiadores");
         }
 
-        Collections.shuffle(gladiadores);
+        //Collections.shuffle(gladiadores);
 
         // TODO: no se si aca esta bien. pero al mapa hay que cargarle los gladiadores
         this.mapa.setGladiadores(gladiadores);
@@ -136,8 +137,9 @@ public class AlgoRoma extends ObservableAlgoRoma implements ObservadorGladiador 
 
     private void avanzarGladiador() throws Exception, FinDelJuegoException {
         notificarNuevoTurno();
-
-        Gladiador gladiador = gladiadoresEnEspera.pop();
+      
+        Gladiador gladiador = gladiadoresEnEspera.poll();
+        
         int resultadoDado = this.dado.tirarDado();
 
         try{
@@ -202,5 +204,67 @@ public class AlgoRoma extends ObservableAlgoRoma implements ObservadorGladiador 
 
     public int getMaximaCantidadRondas() {
         return MAXIMA_CANTIDAD_DE_RONDAS;
+    }
+    public ArrayList<String> getNombresGladiadoresSegunOrdenEnRonda(){
+        int indicePrimero;
+        ArrayList<String> nombres = new ArrayList<>();
+        if(gladiadores.isEmpty()){
+            return nombres;
+        }
+        if(this.gladiadorPrimeroEnLaRonda == null){
+            Random random = new Random();
+            indicePrimero = random.nextInt(gladiadores.size());
+            this.gladiadorPrimeroEnLaRonda = gladiadores.get(indicePrimero).getNombre();
+        }
+        else{
+            indicePrimero = getIndiceGladiadorSegunNombre(this.gladiadorPrimeroEnLaRonda);
+        }
+
+
+        for(int i = indicePrimero; i<gladiadores.size() ; i++){
+            nombres.add(gladiadores.get(i).getNombre());
+        }
+        for( int i=0 ; i<indicePrimero ; i++){
+            nombres.add(gladiadores.get(i).getNombre());
+        }
+        // voy a devolver el orden de los gladiadores segun el primero en la ronda
+        return nombres;
+    }
+    private int getIndiceGladiadorSegunNombre(String nombre){
+        for( int i=0 ; i<gladiadores.size() ; i++){
+            if( gladiadores.get(i).getNombre().equals(nombre)){
+                return i;
+            }
+        }
+        return -1;
+    }
+    private ArrayList<Gladiador> getGladiadoresSegunOrdenEnRonda(){
+        ArrayList<String> nombres = getNombresGladiadoresSegunOrdenEnRonda();
+
+        ArrayList<Gladiador> gladiadoresSegunOrden = new ArrayList<>();
+
+        for(String nombre : nombres){
+            gladiadoresSegunOrden.add(gladiadores.stream()
+                    .filter(gladiador -> gladiador.getNombre().equals(nombre) )
+                    .findFirst()
+                    .orElse(null));
+        }
+        return gladiadoresSegunOrden;
+    }
+
+    public ArrayList<String> getNombresGladiadores(){
+        ArrayList<String> nombres = new ArrayList<>();
+        for (Gladiador gladiador : gladiadores) {
+            nombres.add(gladiador.getNombre());
+        }
+        return nombres;
+    }
+
+    public int getMinimaCantidadGladiadores() {
+        return MINIMA_CANTIDAD_DE_GLADIADORES;
+    }
+
+    public int getMaximaCantidadGladiadores() {
+        return MAX_CANTIDAD_GLADIADORES;
     }
 }

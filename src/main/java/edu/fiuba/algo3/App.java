@@ -19,6 +19,7 @@ import edu.fiuba.algo3.vista.BienvenidaPantalla;
 import edu.fiuba.algo3.vista.Jugador.AgregarJugadorPantalla;
 import edu.fiuba.algo3.vista.ViewProperties;
 import edu.fiuba.algo3.vista.dado.DadoButton;
+import edu.fiuba.algo3.vista.elegirGladiador.ElegirGladiadorPantalla;
 import edu.fiuba.algo3.vista.mapa.AlgoRomaPantalla;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -28,6 +29,7 @@ import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.HashMap;
 
 /**
  * JavaFX App
@@ -41,13 +43,18 @@ public class App extends Application {
     public void start(Stage stage) throws IOException {
         this.cargarDependencias();
 
+        HashMap<String, String> dirImagenesPorNombreGladiador = new HashMap<>();
+
+
         DadoButton dadoButton = new DadoButton(algoRoma);
         dado.agregarObservador(dadoButton);
 
-        AlgoRomaPantalla algoRomaPantalla = new AlgoRomaPantalla(algoRoma, dadoButton);
+        AlgoRomaPantalla algoRomaPantalla = new AlgoRomaPantalla(algoRoma, dadoButton, dirImagenesPorNombreGladiador);
         Scene mapaVista = new Scene(algoRomaPantalla, ViewProperties.stageMaximoAlto, ViewProperties.stageMaximoAncho );
 
-        AgregarJugadorPantalla agregarJugadorPantalla = new AgregarJugadorPantalla(stage, mapaVista, algoRoma , algoRomaPantalla);
+        //AgregarJugadorPantalla agregarJugadorPantalla = new AgregarJugadorPantalla(stage, mapaVista, algoRoma , algoRomaPantalla);
+        ElegirGladiadorPantalla agregarJugadorPantalla = new ElegirGladiadorPantalla(stage, mapaVista,
+                algoRoma , algoRomaPantalla, dirImagenesPorNombreGladiador);
         Scene escenaJugador = new Scene(agregarJugadorPantalla, ViewProperties.stageMaximoAlto, ViewProperties.stageMaximoAncho);
 
         BienvenidaPantalla bienvenidaPantalla = new BienvenidaPantalla(stage, escenaJugador);

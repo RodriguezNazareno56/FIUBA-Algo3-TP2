@@ -19,4 +19,11 @@ public class ObservableAlgoRoma {
             observador.visualizarProximoPanelInferior();
         }
     }
+
+    public void notificarNuevoGladiador() {
+        for (ObservadorAlgoRoma observador : observadores) {
+            observador.visualizarNuevoGladiador();
+        }
+    }
+
 }
