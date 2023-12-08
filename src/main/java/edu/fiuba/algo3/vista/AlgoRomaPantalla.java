@@ -20,9 +20,6 @@ public class AlgoRomaPantalla extends BorderPane implements ObservadorAlgoRoma {
 
     private final Deque<PanelInferior> panelInferiorsDeque;
     private final MapaVista mapaVista;
-
-    private String ultimoGladiadorQueJugo = null;
-
     private AlgoRoma algoRoma;
     private PanelLateralGladiadores panelPanelLateralGladiadores;
 
