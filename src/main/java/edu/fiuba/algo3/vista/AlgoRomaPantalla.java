@@ -63,16 +63,17 @@ public class AlgoRomaPantalla extends BorderPane implements ObservadorAlgoRoma {
 
     @Override
     public void visualizarProximoPanelInferior() {
-        String ultimoGladiador = this.getUltimoGladiadorQueJugo( this.algoRoma.getNombresGladiadoresSegunOrdenEnRonda());
-        System.out.println(ultimoGladiador);
         PanelInferior popPanelInferior = this.panelInferiorsDeque.pop();
         this.setBottom(popPanelInferior);
         panelInferiorsDeque.add(popPanelInferior);
     }
 
-    public void actualizarPanelGladiadores() {
+    public void actualizarOrdenDeGladiadores() {
         //this.panelGladiadores.visualizarNuevoGladiador();
+        //esta funcion se llama en el pase de escena, lo cual no deberia pasar
         this.panelPanelLateralGladiadores.mostrarGladiadoresEnOrden();
+        this.actualizarOrdenPanelInferior();
+
     }
 
     public void visualizarNuevoGladiador() {
@@ -81,16 +82,17 @@ public class AlgoRomaPantalla extends BorderPane implements ObservadorAlgoRoma {
 
     }
 
-    private String getUltimoGladiadorQueJugo(ArrayList<String> nombresGladiadores){
-        System.out.println(nombresGladiadores);
-        if(ultimoGladiadorQueJugo == null){
-            //se ejecuta solo en el primer turno
-            this.ultimoGladiadorQueJugo = nombresGladiadores.get(0);
-            return nombresGladiadores.get(0);
+    private void actualizarOrdenPanelInferior(){
+        ArrayList<String> nombresGladiadores = algoRoma.getNombresGladiadoresSegunOrdenEnRonda();
+        ArrayList<String> ordenNombresEnPanelInferior = algoRoma.getNombresGladiadoresSegunOrdenDeIngreso();
+        ArrayList<PanelInferior> panelInferiors = new ArrayList<>(panelInferiorsDeque);
+
+        for(int i = 0; i < nombresGladiadores.size(); i++){
+            String nombreGladiador = nombresGladiadores.get(i);
+            int indiceGladiadorEnPanelInferior = ordenNombresEnPanelInferior.indexOf(nombreGladiador);
+            PanelInferior panelInferior = panelInferiors.get(indiceGladiadorEnPanelInferior);
+            panelInferiorsDeque.remove(panelInferior);
+            panelInferiorsDeque.add(panelInferior);
         }
-        int indiceUltimoGladiadorQueAvanzo = nombresGladiadores.indexOf(ultimoGladiadorQueJugo);
-        int indiceSiguienteGladiador = (indiceUltimoGladiadorQueAvanzo + 1) % nombresGladiadores.size();
-        this.ultimoGladiadorQueJugo = nombresGladiadores.get(indiceSiguienteGladiador);
-        return nombresGladiadores.get(indiceSiguienteGladiador);
     }
 }

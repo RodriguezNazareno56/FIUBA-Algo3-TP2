@@ -89,7 +89,7 @@ public class ElegirGladiadorPantalla extends VBox implements ObservadorAlgoRoma 
     }
 
     private void actualizarGladiadoresElegidos(){
-        ArrayList<String> nombreGladiadores = algoRoma.getNombresGladiadores();
+        ArrayList<String> nombreGladiadores = algoRoma.getNombresGladiadoresSegunOrdenDeIngreso();
 
         for(String nombreGladiador : nombreGladiadores){
             if(!this.dirImagenesPorNombreGladiador.containsKey(nombreGladiador)){
@@ -106,7 +106,7 @@ public class ElegirGladiadorPantalla extends VBox implements ObservadorAlgoRoma 
     }
 
     private void actualizarBotonSiguienteEscena(){
-        if( algoRoma.getNombresGladiadores().size() < algoRoma.getMinimaCantidadGladiadores()){
+        if( algoRoma.getNombresGladiadoresSegunOrdenDeIngreso().size() < algoRoma.getMinimaCantidadGladiadores()){
             botonSiguienteEscena.setDisable(true);
         }
         else{
@@ -115,7 +115,7 @@ public class ElegirGladiadorPantalla extends VBox implements ObservadorAlgoRoma 
     }
 
     private void actualizarBotonElegirNombreGladiador(){
-        if(algoRoma.getNombresGladiadores().size() >= algoRoma.getMaximaCantidadGladiadores()){
+        if(algoRoma.getNombresGladiadoresSegunOrdenDeIngreso().size() >= algoRoma.getMaximaCantidadGladiadores()){
             //selectorGladiador.setDesactivarBotonEnviarNombre(true);
             selectorGladiador.desactivarBotones(true);
         }
