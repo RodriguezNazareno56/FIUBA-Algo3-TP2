@@ -12,6 +12,7 @@ import javafx.geometry.Pos;
 import javafx.scene.layout.BorderPane;
 
 import java.util.ArrayDeque;
+import java.util.ArrayList;
 import java.util.Deque;
 import java.util.HashMap;
 
@@ -20,11 +21,15 @@ public class AlgoRomaPantalla extends BorderPane implements ObservadorAlgoRoma {
     private final Deque<PanelInferior> panelInferiorsDeque;
     private final MapaVista mapaVista;
 
+    private String ultimoGladiadorQueJugo = null;
+
+    private AlgoRoma algoRoma;
     private PanelLateralGladiadores panelPanelLateralGladiadores;
 
     public AlgoRomaPantalla(AlgoRoma algoRoma, DadoButton dadoButton, HashMap<String, String> dirImagenesPorNombreGladiador) {
         super();
         panelInferiorsDeque = new ArrayDeque<>();
+        this.algoRoma = algoRoma;
 
         // Columna Izquierda con perfiles de Gladiadores
         this.panelPanelLateralGladiadores = new PanelLateralGladiadores(algoRoma, dirImagenesPorNombreGladiador);
@@ -58,6 +63,8 @@ public class AlgoRomaPantalla extends BorderPane implements ObservadorAlgoRoma {
 
     @Override
     public void visualizarProximoPanelInferior() {
+        String ultimoGladiador = this.getUltimoGladiadorQueJugo( this.algoRoma.getNombresGladiadoresSegunOrdenEnRonda());
+        System.out.println(ultimoGladiador);
         PanelInferior popPanelInferior = this.panelInferiorsDeque.pop();
         this.setBottom(popPanelInferior);
         panelInferiorsDeque.add(popPanelInferior);
@@ -72,5 +79,18 @@ public class AlgoRomaPantalla extends BorderPane implements ObservadorAlgoRoma {
 
         //this.panelGladiadores.visualizarProximoPanelInferior();
 
+    }
+
+    private String getUltimoGladiadorQueJugo(ArrayList<String> nombresGladiadores){
+        System.out.println(nombresGladiadores);
+        if(ultimoGladiadorQueJugo == null){
+            //se ejecuta solo en el primer turno
+            this.ultimoGladiadorQueJugo = nombresGladiadores.get(0);
+            return nombresGladiadores.get(0);
+        }
+        int indiceUltimoGladiadorQueAvanzo = nombresGladiadores.indexOf(ultimoGladiadorQueJugo);
+        int indiceSiguienteGladiador = (indiceUltimoGladiadorQueAvanzo + 1) % nombresGladiadores.size();
+        this.ultimoGladiadorQueJugo = nombresGladiadores.get(indiceSiguienteGladiador);
+        return nombresGladiadores.get(indiceSiguienteGladiador);
     }
 }
