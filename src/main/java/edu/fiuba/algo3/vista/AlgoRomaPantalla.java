@@ -18,9 +18,9 @@ import java.util.HashMap;
 
 public class AlgoRomaPantalla extends BorderPane implements ObservadorAlgoRoma {
 
+    private AlgoRoma algoRoma;
     private final Deque<PanelInferior> panelInferiorsDeque;
     private final MapaVista mapaVista;
-    private AlgoRoma algoRoma;
     private PanelLateralGladiadores panelPanelLateralGladiadores;
 
     public AlgoRomaPantalla(AlgoRoma algoRoma, DadoButton dadoButton, HashMap<String, String> dirImagenesPorNombreGladiador) {
@@ -67,7 +67,7 @@ public class AlgoRomaPantalla extends BorderPane implements ObservadorAlgoRoma {
 
     public void actualizarOrdenDeGladiadores() {
         //this.panelGladiadores.visualizarNuevoGladiador();
-        //esta funcion se llama en el pase de escena, lo cual no deberia pasar
+        //esta funcion se llama en el pase de escena
         this.panelPanelLateralGladiadores.mostrarGladiadoresEnOrden();
         this.actualizarOrdenPanelInferior();
 
