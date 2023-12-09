@@ -24,8 +24,6 @@ public class ObservableAlgoRoma {
             observador.update();
         }
     }
-
-
     public void notificarNuevoGladiador() {
         for (ObservadorAlgoRoma observador : observadoresNuevoGladiador) {
             observador.update();

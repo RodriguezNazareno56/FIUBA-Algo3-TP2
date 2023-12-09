@@ -33,14 +33,11 @@ public class AlgoRomaPantalla extends BorderPane implements ObservadorAlgoRoma {
         gladiadoresAnimados = new ArrayList<>();
 
         // Columna Izquierda con perfiles de Gladiadores
-        this.panelPanelLateralGladiadores = new PanelLateralGladiadores(algoRoma, colorPorClaveNombreGladiador);
+        this.panelPanelLateralGladiadores = new PanelLateralGladiadores(algoRoma, colorPorClaveNombreGladiador, dadoButton);
 
 
         this.setLeft(panelPanelLateralGladiadores);
         this.setMargin(panelPanelLateralGladiadores, new Insets(10, 10, 10, 10));
-
-        panelPanelLateralGladiadores.getChildren().add(dadoButton);
-
 
         //Creacion del camino
 
@@ -53,6 +50,7 @@ public class AlgoRomaPantalla extends BorderPane implements ObservadorAlgoRoma {
         algoRoma.agregarObservadorNuevoTurno(this);
     }
 
+
     public void agregarPanelInferiorDeJugador(PanelInferior panelInferior) {
         this.panelInferiorsDeque.add(panelInferior);
     }
@@ -63,15 +61,20 @@ public class AlgoRomaPantalla extends BorderPane implements ObservadorAlgoRoma {
         mapaVista.agregarGladiadorAlInicio(gladiadorAnimado);
     }
 
-
+    @Override
+    public void update() {
+        PanelInferior popPanelInferior = this.panelInferiorsDeque.pop();
+        this.setBottom(popPanelInferior);
+        panelInferiorsDeque.add(popPanelInferior);
+        //actualizarOrdenDeGladiadores();
+    }
 
     public void actualizarOrdenDeGladiadores() {
         //this.panelGladiadores.visualizarNuevoGladiador();
         //esta funcion se llama en el pase de escena, temporal coupling?
-        this.panelPanelLateralGladiadores.mostrarGladiadoresEnOrden();
+        this.panelPanelLateralGladiadores.actualizarGladiadores();
         this.actualizarOrdenYColorPanelInferior();
         this.actualizarColoresGladiadoresAnimados();
-
     }
 
     private void actualizarColoresGladiadoresAnimados(){
@@ -81,14 +84,6 @@ public class AlgoRomaPantalla extends BorderPane implements ObservadorAlgoRoma {
             String colorGladiador = colorPorClaveNombreGladiador.get(nombreGladiador);
             gladiadorAnimado.iniciarAnimacion(colorGladiador);
         }
-    }
-
-
-    @Override
-    public void update() {
-        PanelInferior popPanelInferior = this.panelInferiorsDeque.pop();
-        this.setBottom(popPanelInferior);
-        panelInferiorsDeque.add(popPanelInferior);
     }
 
     private void actualizarOrdenYColorPanelInferior(){
