@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.vista.gladiador;
 
+import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -45,6 +46,7 @@ public class GladiadorVista extends VBox {
 
         this.getChildren().add(imageView);
         this.getChildren().add(nombreLabel);
+        this.setAlignment(Pos.TOP_CENTER);
     }
 
     public void cambiarColor(String colorString) {

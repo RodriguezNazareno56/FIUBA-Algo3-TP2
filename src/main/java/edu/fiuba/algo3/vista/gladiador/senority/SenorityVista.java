@@ -5,6 +5,7 @@ import edu.fiuba.algo3.modelo.gladiador.senority.Senority;
 import edu.fiuba.algo3.vista.gladiador.senority.states.NovatoStateVista;
 import edu.fiuba.algo3.vista.gladiador.senority.states.SemiSeniorVista;
 import edu.fiuba.algo3.vista.gladiador.senority.states.SeniorVista;
+import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
@@ -33,6 +34,7 @@ public class SenorityVista extends GridPane implements ObservadorSenority {
         add(seniorVista, 0, 2);
         senoritiesSiguientes.add(seniorVista);
 
+        this.setAlignment(Pos.CENTER);
         senority.agregarObservador(this);
     }
 

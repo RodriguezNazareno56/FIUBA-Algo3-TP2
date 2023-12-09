@@ -22,9 +22,10 @@ public class PanelLateralGladiadores extends VBox{
 
 
     private DadoButton dadoButton;
-    private double altoImagenPerfil = 60 ;
+    private double altoImagenPerfil = 50 ;
 
-    private double anchoImagenPerfil = 60;
+    private double anchoImagenPerfil = 50;
+
     private ArrayList<Label> labelsGladiadores;
     private final String DIRECCION_IMAGEN_GLADIADOR = "File:src/main/resources/edu/fiuba/algo3/vista/mapa/components/perfilesGladiadores/PerfilGladiador";
 
