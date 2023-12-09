@@ -84,7 +84,7 @@ public class AlgoRomaPantalla extends BorderPane implements ObservadorAlgoRoma {
         for(GladiadorAnimado gladiadorAnimado : gladiadoresAnimados){
             String nombreGladiador = gladiadorAnimado.getNombre();
             String colorGladiador = colorPorClaveNombreGladiador.get(nombreGladiador);
-            gladiadorAnimado.inicializarAnimacion(colorGladiador);
+            gladiadorAnimado.iniciarAnimacion(colorGladiador);
         }
     }
 

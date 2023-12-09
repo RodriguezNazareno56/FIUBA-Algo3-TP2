@@ -48,7 +48,7 @@ public class GladiadorAnimado extends ImageView {
         return nombre;
     }
 
-    public void inicializarAnimacion(String color){
+    public void iniciarAnimacion(String color){
         //temporal coupling?
         // se podría cambiar el nombre a cambiarColorAnimacion y quitar el comentado en el constructor como animacion por default
         // por ahora lo dejo comentado porque no se como implementar lo anterior sin que me salgan dos animaciones
