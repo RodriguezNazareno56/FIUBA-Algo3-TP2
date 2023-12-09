@@ -19,28 +19,25 @@ import java.util.HashMap;
 public class AlgoRomaPantalla extends BorderPane implements ObservadorAlgoRoma {
 
     private AlgoRoma algoRoma;
-    private final Deque<PanelInferior> panelInferiorsDeque;
     private final MapaVista mapaVista;
     private PanelLateralGladiadores panelPanelLateralGladiadores;
+    private final Deque<PanelInferior> panelInferiorsDeque;
     private ArrayList<GladiadorAnimado> gladiadoresAnimados;
     private HashMap<String, String> colorPorClaveNombreGladiador;
 
     public AlgoRomaPantalla(AlgoRoma algoRoma, DadoButton dadoButton, HashMap<String, String> colorPorClaveNombreGladiador) {
         super();
-        panelInferiorsDeque = new ArrayDeque<>();
-        gladiadoresAnimados = new ArrayList<>();
         this.algoRoma = algoRoma;
         this.colorPorClaveNombreGladiador = colorPorClaveNombreGladiador;
+        panelInferiorsDeque = new ArrayDeque<>();
+        gladiadoresAnimados = new ArrayList<>();
 
         // Columna Izquierda con perfiles de Gladiadores
-        this.panelPanelLateralGladiadores = new PanelLateralGladiadores(algoRoma, colorPorClaveNombreGladiador);
-        algoRoma.agregarObservador(panelPanelLateralGladiadores);
+        this.panelPanelLateralGladiadores = new PanelLateralGladiadores(dadoButton);
+
 
         this.setLeft(panelPanelLateralGladiadores);
         this.setMargin(panelPanelLateralGladiadores, new Insets(5, 0, 5, 5));
-
-        panelPanelLateralGladiadores.getChildren().add(dadoButton);
-
 
         //Creacion del camino
 
@@ -50,8 +47,9 @@ public class AlgoRomaPantalla extends BorderPane implements ObservadorAlgoRoma {
 
         BorderPane.setAlignment(mapaVista, Pos.TOP_CENTER);
 
-        algoRoma.agregarObservador(this);
+        algoRoma.agregarObservadorNuevoTurno(this);
     }
+
 
     public void agregarPanelInferiorDeJugador(PanelInferior panelInferior) {
         this.panelInferiorsDeque.add(panelInferior);
@@ -65,19 +63,22 @@ public class AlgoRomaPantalla extends BorderPane implements ObservadorAlgoRoma {
     }
 
     @Override
-    public void visualizarProximoPanelInferior() {
+    public void update() {
         PanelInferior popPanelInferior = this.panelInferiorsDeque.pop();
         this.setBottom(popPanelInferior);
         panelInferiorsDeque.add(popPanelInferior);
+
+        this.panelPanelLateralGladiadores.actualizarGladiadorEnEspera();
+        //actualizarOrdenDeGladiadores();
     }
 
     public void actualizarOrdenDeGladiadores() {
         //this.panelGladiadores.visualizarNuevoGladiador();
         //esta funcion se llama en el pase de escena, temporal coupling?
-        this.panelPanelLateralGladiadores.mostrarGladiadoresEnOrden();
+        this.panelPanelLateralGladiadores.actualizarGladiadores(algoRoma.getNombresGladiadoresSegunOrdenEnRonda(),
+                colorPorClaveNombreGladiador);
         this.actualizarOrdenYColorPanelInferior();
         this.actualizarColoresGladiadoresAnimados();
-
     }
 
     private void actualizarColoresGladiadoresAnimados(){
@@ -87,12 +88,6 @@ public class AlgoRomaPantalla extends BorderPane implements ObservadorAlgoRoma {
             String colorGladiador = colorPorClaveNombreGladiador.get(nombreGladiador);
             gladiadorAnimado.iniciarAnimacion(colorGladiador);
         }
-    }
-
-    public void visualizarNuevoGladiador() {
-
-        //this.panelGladiadores.visualizarProximoPanelInferior();
-
     }
 
     private void actualizarOrdenYColorPanelInferior(){

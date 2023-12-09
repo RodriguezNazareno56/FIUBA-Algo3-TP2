@@ -41,7 +41,7 @@ public class ElegirGladiadorPantalla extends VBox implements ObservadorAlgoRoma 
         super();
 
         this.algoRoma = algoRoma;
-        algoRoma.agregarObservador(this);
+        algoRoma.agregarObservadorNuevoGladiador(this);
         this.colorPorClaveNombreGladiador = colorPorClaveNombreGladiador;
 
         this.gladiadoresElegidosHBox = new HBox();
@@ -74,24 +74,20 @@ public class ElegirGladiadorPantalla extends VBox implements ObservadorAlgoRoma 
         this.setBackground(new Background(imagenDeFondo));
     }
 
+
+
+
+
     @Override
-    public void visualizarProximoPanelInferior() {
-
-    }
-
-    @Override
-    public void visualizarNuevoGladiador() {
-
+    public void update() {
         this.actualizarGladiadoresElegidos();
-
-        this.actualizarBotonSiguienteEscena();
-        this.actualizarBotonElegirNombreGladiador();
     }
 
     private void actualizarGladiadoresElegidos(){
         ArrayList<String> nombreGladiadores = algoRoma.getNombresGladiadoresSegunOrdenDeIngreso();
 
         for(String nombreGladiador : nombreGladiadores){
+            // si el gladiador no esta en el hashmap entonces lo agrego con la imagen del selector
             if(!this.colorPorClaveNombreGladiador.containsKey(nombreGladiador)){
                 Image imageElegida = this.selectorGladiador.getAndDeleteImagenElegidaParaGladiador();
 
@@ -102,9 +98,8 @@ public class ElegirGladiadorPantalla extends VBox implements ObservadorAlgoRoma 
                 String color = getColorSegunNumeroImagen(this.conseguirNumeroImagen(this.direccionesPorImage.get(imageElegida)));
                 this.colorPorClaveNombreGladiador.put(nombreGladiador, color);
 
-                System.out.println("el color correspondiente es: " + getColorSegunNumeroImagen(this.conseguirNumeroImagen(this.direccionesPorImage.get(imageElegida))));
-                //System.out.println("el numero correspondiente es: " + this.conseguirNumeroImagen(this.direccionesPorImage.get(imageElegida)));
-
+                this.actualizarBotonSiguienteEscena();
+                this.actualizarBotonesSelectorGladiador();
             }
         }
 
@@ -119,7 +114,7 @@ public class ElegirGladiadorPantalla extends VBox implements ObservadorAlgoRoma 
         }
     }
 
-    private void actualizarBotonElegirNombreGladiador(){
+    private void actualizarBotonesSelectorGladiador(){
         if(algoRoma.getNombresGladiadoresSegunOrdenDeIngreso().size() >= algoRoma.getMaximaCantidadGladiadores()){
             //selectorGladiador.setDesactivarBotonEnviarNombre(true);
             selectorGladiador.desactivarBotones(true);
