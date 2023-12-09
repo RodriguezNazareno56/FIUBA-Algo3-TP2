@@ -2,10 +2,8 @@ package edu.fiuba.algo3.vista.pantalla_elegir_gladiador;
 
 import edu.fiuba.algo3.controladores.GladiadorFactory;
 import edu.fiuba.algo3.controladores.UnirseButtonHandler;
-import edu.fiuba.algo3.modelo.AlgoRoma;
 import edu.fiuba.algo3.vista.pantalla_elegir_gladiador.componentes.SiguienteImagenButtonEventHandler;
 import edu.fiuba.algo3.vista.pantalla_elegir_gladiador.componentes.TextoAccionaBotonEventHandler;
-import edu.fiuba.algo3.vista.AlgoRomaPantalla;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
@@ -83,7 +81,7 @@ public class SelectorGladiadorVista extends HBox {
         return imageViewGladiador.getImage();
     }
 
-    public Image getAndDeleteImagenPerfilGladiador() {
+    public Image getAndDeleteImagenElegidaParaGladiador() {
         //refactor
         if(imagenes.isEmpty()) {
             imageViewGladiador.setImage(null);
