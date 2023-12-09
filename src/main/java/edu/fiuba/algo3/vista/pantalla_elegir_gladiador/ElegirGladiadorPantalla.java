@@ -151,6 +151,7 @@ public class ElegirGladiadorPantalla extends VBox implements ObservadorAlgoRoma 
         return partes[0].substring(partes[0].length() - 1);
     }
     public static String getColorSegunNumeroImagen(String nombreImagen){
+        //posible refactor a algun tipo de lista enlazada o algo asi y a otra clase
         String color = "gris";
 
         switch (nombreImagen) {

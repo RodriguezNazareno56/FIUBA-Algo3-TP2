@@ -74,7 +74,7 @@ public class AlgoRomaPantalla extends BorderPane implements ObservadorAlgoRoma {
         //this.panelGladiadores.visualizarNuevoGladiador();
         //esta funcion se llama en el pase de escena, temporal coupling?
         this.panelPanelLateralGladiadores.mostrarGladiadoresEnOrden();
-        this.actualizarOrdenPanelInferior();
+        this.actualizarOrdenYColorPanelInferior();
         this.actualizarColoresGladiadoresAnimados();
 
     }
@@ -94,7 +94,7 @@ public class AlgoRomaPantalla extends BorderPane implements ObservadorAlgoRoma {
 
     }
 
-    private void actualizarOrdenPanelInferior(){
+    private void actualizarOrdenYColorPanelInferior(){
         ArrayList<String> nombresGladiadores = algoRoma.getNombresGladiadoresSegunOrdenEnRonda();
         ArrayList<String> ordenNombresEnPanelInferior = algoRoma.getNombresGladiadoresSegunOrdenDeIngreso();
         ArrayList<PanelInferior> panelInferiors = new ArrayList<>(panelInferiorsDeque);
@@ -103,6 +103,7 @@ public class AlgoRomaPantalla extends BorderPane implements ObservadorAlgoRoma {
             String nombreGladiador = nombresGladiadores.get(i);
             int indiceGladiadorEnPanelInferior = ordenNombresEnPanelInferior.indexOf(nombreGladiador);
             PanelInferior panelInferior = panelInferiors.get(indiceGladiadorEnPanelInferior);
+            panelInferior.setColorGladiador(colorPorClaveNombreGladiador.get(nombreGladiador));
             panelInferiorsDeque.remove(panelInferior);
             panelInferiorsDeque.add(panelInferior);
         }

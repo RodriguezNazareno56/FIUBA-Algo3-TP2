@@ -8,6 +8,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 
 public class GladiadorVista extends VBox {
+
     public enum Color {
         DORADO,
         GRIS,
@@ -15,6 +16,7 @@ public class GladiadorVista extends VBox {
     }
 
     private String colorString;
+    private ImageView imageView;
 
     public GladiadorVista(String nombreGladiador, Color color) {
         switch (color) {
@@ -31,7 +33,8 @@ public class GladiadorVista extends VBox {
 
         String url = "file:src/main/resources/edu/fiuba/algo3/vista/gladiador/"+ colorString + "/GreekBasic.png";
         Image gladiadorImage = new Image(url);
-        ImageView imageView = new ImageView(gladiadorImage);
+        //ImageView imageView = new ImageView(gladiadorImage);
+        imageView = new ImageView(gladiadorImage);
         imageView.setFitHeight(100);
         imageView.setPreserveRatio(true);
 
@@ -44,5 +47,10 @@ public class GladiadorVista extends VBox {
         this.getChildren().add(nombreLabel);
     }
 
+    public void cambiarColor(String colorString) {
+        String url = "file:src/main/resources/edu/fiuba/algo3/vista/gladiador/"+ colorString + "/GreekBasic.png";
+        Image gladiadorImage = new Image(url);
+        imageView.setImage(gladiadorImage);
+    }
 
 }
