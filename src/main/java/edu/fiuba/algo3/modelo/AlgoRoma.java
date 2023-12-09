@@ -257,7 +257,7 @@ public class AlgoRoma extends ObservableAlgoRoma implements ObservadorGladiador 
         return gladiadoresSegunOrden;
     }
 
-    public ArrayList<String> getNombresGladiadores(){
+    public ArrayList<String> getNombresGladiadoresSegunOrdenDeIngreso(){
         ArrayList<String> nombres = new ArrayList<>();
         for (Gladiador gladiador : gladiadores) {
             nombres.add(gladiador.getNombre());

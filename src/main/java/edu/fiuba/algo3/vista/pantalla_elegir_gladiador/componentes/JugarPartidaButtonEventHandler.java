@@ -18,6 +18,6 @@ public class JugarPartidaButtonEventHandler extends ComenzarPartidaButtonHandler
     @Override
     public void handle(ActionEvent actionEvent) {
         super.handle(actionEvent);
-        algoRomaPantalla.actualizarPanelGladiadores();
+        algoRomaPantalla.actualizarOrdenDeGladiadores();
     }
 }

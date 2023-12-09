@@ -12,19 +12,21 @@ import javafx.geometry.Pos;
 import javafx.scene.layout.BorderPane;
 
 import java.util.ArrayDeque;
+import java.util.ArrayList;
 import java.util.Deque;
 import java.util.HashMap;
 
 public class AlgoRomaPantalla extends BorderPane implements ObservadorAlgoRoma {
 
+    private AlgoRoma algoRoma;
     private final Deque<PanelInferior> panelInferiorsDeque;
     private final MapaVista mapaVista;
-
     private PanelLateralGladiadores panelPanelLateralGladiadores;
 
     public AlgoRomaPantalla(AlgoRoma algoRoma, DadoButton dadoButton, HashMap<String, String> dirImagenesPorNombreGladiador) {
         super();
         panelInferiorsDeque = new ArrayDeque<>();
+        this.algoRoma = algoRoma;
 
         // Columna Izquierda con perfiles de Gladiadores
         this.panelPanelLateralGladiadores = new PanelLateralGladiadores(algoRoma, dirImagenesPorNombreGladiador);
@@ -63,14 +65,31 @@ public class AlgoRomaPantalla extends BorderPane implements ObservadorAlgoRoma {
         panelInferiorsDeque.add(popPanelInferior);
     }
 
-    public void actualizarPanelGladiadores() {
+    public void actualizarOrdenDeGladiadores() {
         //this.panelGladiadores.visualizarNuevoGladiador();
+        //esta funcion se llama en el pase de escena
         this.panelPanelLateralGladiadores.mostrarGladiadoresEnOrden();
+        this.actualizarOrdenPanelInferior();
+
     }
 
     public void visualizarNuevoGladiador() {
 
         //this.panelGladiadores.visualizarProximoPanelInferior();
 
+    }
+
+    private void actualizarOrdenPanelInferior(){
+        ArrayList<String> nombresGladiadores = algoRoma.getNombresGladiadoresSegunOrdenEnRonda();
+        ArrayList<String> ordenNombresEnPanelInferior = algoRoma.getNombresGladiadoresSegunOrdenDeIngreso();
+        ArrayList<PanelInferior> panelInferiors = new ArrayList<>(panelInferiorsDeque);
+
+        for(int i = 0; i < nombresGladiadores.size(); i++){
+            String nombreGladiador = nombresGladiadores.get(i);
+            int indiceGladiadorEnPanelInferior = ordenNombresEnPanelInferior.indexOf(nombreGladiador);
+            PanelInferior panelInferior = panelInferiors.get(indiceGladiadorEnPanelInferior);
+            panelInferiorsDeque.remove(panelInferior);
+            panelInferiorsDeque.add(panelInferior);
+        }
     }
 }
