@@ -29,9 +29,9 @@ public class PanelLateralGladiadores extends VBox implements ObservadorSenority,
 
     private double maxCantidadPerfiles = 6;
 
-    private double altoImagenPerfil = 60 ;
+    private double altoImagenPerfil = 50 ;
 
-    private double anchoImagenPerfil = 60;
+    private double anchoImagenPerfil = 50;
 
     private HashMap<String, String> colorPorClaveNombreGladiador;
 
