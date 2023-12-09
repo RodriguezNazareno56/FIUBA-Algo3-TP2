@@ -20,7 +20,7 @@ public class ElegirGladiadorPantalla extends VBox implements ObservadorAlgoRoma 
 
     private HashMap<Image, String> direccionesPorImage = new HashMap<>();
 
-    private HashMap<String, String> dirImagenesPorNombreGladiador;
+    private HashMap<String, String> colorPorClaveNombreGladiador;
 
     private AlgoRoma algoRoma;
 
@@ -37,12 +37,12 @@ public class ElegirGladiadorPantalla extends VBox implements ObservadorAlgoRoma 
 
     private final int ESPACIADO_BLOQUES = 40;
     public ElegirGladiadorPantalla(Stage stage, Scene escenaSiguiente, AlgoRoma algoRoma, AlgoRomaPantalla algoRomaPantalla,
-                                   HashMap<String,String> dirImagenesPorNombreGladiador) {
+                                   HashMap<String,String> colorPorClaveNombreGladiador) {
         super();
 
         this.algoRoma = algoRoma;
         algoRoma.agregarObservador(this);
-        this.dirImagenesPorNombreGladiador = dirImagenesPorNombreGladiador;
+        this.colorPorClaveNombreGladiador = colorPorClaveNombreGladiador;
 
         this.gladiadoresElegidosHBox = new HBox();
         gladiadoresElegidosHBox.setAlignment(Pos.CENTER);
@@ -92,14 +92,19 @@ public class ElegirGladiadorPantalla extends VBox implements ObservadorAlgoRoma 
         ArrayList<String> nombreGladiadores = algoRoma.getNombresGladiadoresSegunOrdenDeIngreso();
 
         for(String nombreGladiador : nombreGladiadores){
-            if(!this.dirImagenesPorNombreGladiador.containsKey(nombreGladiador)){
-                Image imageElegida = this.selectorGladiador.getAndDeleteImagenPerfilGladiador();
+            if(!this.colorPorClaveNombreGladiador.containsKey(nombreGladiador)){
+                Image imageElegida = this.selectorGladiador.getAndDeleteImagenElegidaParaGladiador();
 
                 GladiadorElegidoVista gladiadorNuevoVista = new GladiadorElegidoVista(nombreGladiador, imageElegida);
                 this.gladiadoresElegidosHBox.getChildren().add(gladiadorNuevoVista);
 
 
-                this.dirImagenesPorNombreGladiador.put(nombreGladiador, this.direccionesPorImage.get(imageElegida));
+                String color = getColorSegunNumeroImagen(this.conseguirNumeroImagen(this.direccionesPorImage.get(imageElegida)));
+                this.colorPorClaveNombreGladiador.put(nombreGladiador, color);
+
+                System.out.println("el color correspondiente es: " + getColorSegunNumeroImagen(this.conseguirNumeroImagen(this.direccionesPorImage.get(imageElegida))));
+                //System.out.println("el numero correspondiente es: " + this.conseguirNumeroImagen(this.direccionesPorImage.get(imageElegida)));
+
             }
         }
 
@@ -136,5 +141,66 @@ public class ElegirGladiadorPantalla extends VBox implements ObservadorAlgoRoma 
             this.direccionesPorImage.put(imageSeleccionable, direccionImagen);
         }
         return imagenes;
+    }
+
+    private String conseguirNumeroImagen(String direccionImagen){
+        // el numero de imagen se encuentra antes del tipo de imagen, por lo tanto hare un split
+
+        String[] partes = direccionImagen.split(".png");
+
+        return partes[0].substring(partes[0].length() - 1);
+    }
+    public static String getColorSegunNumeroImagen(String nombreImagen){
+        String color = "gris";
+
+        switch (nombreImagen) {
+            case "1":
+                color= "rojo";
+                break;
+            case "2":
+                color= "azul";
+                break;
+            case "3":
+                color= "verde";
+                break;
+            case "4":
+                color= "amarillo";
+                break;
+            case "5":
+                color= "violeta";
+                break;
+            case "6":
+                color= "celeste";
+                break;
+        }
+        return color;
+
+    }
+
+    public static String getNumeroSegunColor(String color){
+        String numero = "1";
+
+        switch (color) {
+            case "rojo":
+                numero= "1";
+                break;
+            case "azul":
+                numero= "2";
+                break;
+            case "verde":
+                numero= "3";
+                break;
+            case "amarillo":
+                numero= "4";
+                break;
+            case "violeta":
+                numero= "5";
+                break;
+            case "celeste":
+                numero= "6";
+                break;
+        }
+        return numero;
+
     }
 }

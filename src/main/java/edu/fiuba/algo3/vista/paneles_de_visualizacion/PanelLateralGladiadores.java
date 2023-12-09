@@ -4,6 +4,7 @@ import edu.fiuba.algo3.controladores.observers.ObservadorAlgoRoma;
 import edu.fiuba.algo3.controladores.observers.ObservadorSenority;
 import edu.fiuba.algo3.modelo.AlgoRoma;
 import edu.fiuba.algo3.modelo.gladiador.Gladiador;
+import edu.fiuba.algo3.vista.pantalla_elegir_gladiador.ElegirGladiadorPantalla;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
@@ -32,15 +33,17 @@ public class PanelLateralGladiadores extends VBox implements ObservadorSenority,
 
     private double anchoImagenPerfil = 60;
 
-    private HashMap<String, String> dirImagenesPorNombreGladiador;
+    private HashMap<String, String> colorPorClaveNombreGladiador;
 
     private ArrayList<String> nombresAgregados;
     private ArrayList<Label> labelsGladiadores;
-    public PanelLateralGladiadores(AlgoRoma algoRoma, HashMap<String, String> dirImagenesPorNombreGladiador){
+    private final String DIRECCION_IMAGEN_GLADIADOR = "File:src/main/resources/edu/fiuba/algo3/vista/mapa/components/perfilesGladiadores/PerfilGladiador";
+
+    public PanelLateralGladiadores(AlgoRoma algoRoma, HashMap<String, String> colorPorClaveNombreGladiador){
 
         this.algoRoma = algoRoma;
         this.imagenesPerfilGladiador = new ArrayList<String>();
-        this.dirImagenesPorNombreGladiador = dirImagenesPorNombreGladiador;
+        this.colorPorClaveNombreGladiador = colorPorClaveNombreGladiador;
         this.nombresAgregados = new ArrayList<String>();
         this.labelsGladiadores = new ArrayList<Label>();
 
@@ -121,7 +124,7 @@ public class PanelLateralGladiadores extends VBox implements ObservadorSenority,
 
         for( Gladiador gladiador : gladiadores ){
             String nombreGladiador = gladiador.getNombre();
-            String dirImagen = this.dirImagenesPorNombreGladiador.get(nombreGladiador);
+            String dirImagen = this.colorPorClaveNombreGladiador.get(nombreGladiador);
             if( dirImagen != null && !nombresAgregados.contains(nombreGladiador) ){
                 nombresAgregados.add(nombreGladiador);
 
@@ -134,13 +137,18 @@ public class PanelLateralGladiadores extends VBox implements ObservadorSenority,
         ArrayList<String> nombresGladiadores = algoRoma.getNombresGladiadoresSegunOrdenEnRonda();
 
         for( String nombreGladiador : nombresGladiadores ){
-            String dirImagen = this.dirImagenesPorNombreGladiador.get(nombreGladiador);
-            if( dirImagen != null && !nombresAgregados.contains(nombreGladiador) ){
+            String colorGladiador = this.colorPorClaveNombreGladiador.get(nombreGladiador);
+            if( colorGladiador != null && !nombresAgregados.contains(nombreGladiador) ){
 
-                this.labelsGladiadores.add(agregarVistaGladiador(nombreGladiador, dirImagen));
+                this.labelsGladiadores.add(agregarVistaGladiador(nombreGladiador, getImagenSegunColor(colorGladiador)));
             }
         }
         this.labelsGladiadores.get(0).setTextFill(Color.DARKGREEN);
+    }
+
+    private String getImagenSegunColor(String color){
+        String numero = ElegirGladiadorPantalla.getNumeroSegunColor(color);
+        return DIRECCION_IMAGEN_GLADIADOR + numero + ".png";
     }
 
     private Label agregarVistaGladiador(String nombreGladiador, String dirImagen) {

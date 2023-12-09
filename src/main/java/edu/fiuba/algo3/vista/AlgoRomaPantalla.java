@@ -23,13 +23,13 @@ public class AlgoRomaPantalla extends BorderPane implements ObservadorAlgoRoma {
     private final MapaVista mapaVista;
     private PanelLateralGladiadores panelPanelLateralGladiadores;
 
-    public AlgoRomaPantalla(AlgoRoma algoRoma, DadoButton dadoButton, HashMap<String, String> dirImagenesPorNombreGladiador) {
+    public AlgoRomaPantalla(AlgoRoma algoRoma, DadoButton dadoButton, HashMap<String, String> colorPorClaveNombreGladiador) {
         super();
         panelInferiorsDeque = new ArrayDeque<>();
         this.algoRoma = algoRoma;
 
         // Columna Izquierda con perfiles de Gladiadores
-        this.panelPanelLateralGladiadores = new PanelLateralGladiadores(algoRoma, dirImagenesPorNombreGladiador);
+        this.panelPanelLateralGladiadores = new PanelLateralGladiadores(algoRoma, colorPorClaveNombreGladiador);
         algoRoma.agregarObservador(panelPanelLateralGladiadores);
 
         this.setLeft(panelPanelLateralGladiadores);

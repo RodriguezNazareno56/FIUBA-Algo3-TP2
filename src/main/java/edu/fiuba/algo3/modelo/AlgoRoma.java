@@ -210,6 +210,7 @@ public class AlgoRoma extends ObservableAlgoRoma implements ObservadorGladiador 
     public int getMaximaCantidadRondas() {
         return MAXIMA_CANTIDAD_DE_RONDAS;
     }
+
     public ArrayList<String> getNombresGladiadoresSegunOrdenEnRonda(){
         int indicePrimero;
         ArrayList<String> nombres = new ArrayList<>();
@@ -243,6 +244,7 @@ public class AlgoRoma extends ObservableAlgoRoma implements ObservadorGladiador 
         }
         return -1;
     }
+
     private ArrayList<Gladiador> getGladiadoresSegunOrdenEnRonda(){
         ArrayList<String> nombres = getNombresGladiadoresSegunOrdenEnRonda();
 
