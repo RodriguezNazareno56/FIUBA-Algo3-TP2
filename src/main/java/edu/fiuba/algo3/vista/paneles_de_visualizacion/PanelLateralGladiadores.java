@@ -42,6 +42,7 @@ public class PanelLateralGladiadores extends VBox implements ObservadorSenority,
     public PanelLateralGladiadores(AlgoRoma algoRoma, HashMap<String, String> colorPorClaveNombreGladiador){
 
         this.algoRoma = algoRoma;
+        algoRoma.agregarObservadorNuevoTurno(this);
         this.imagenesPerfilGladiador = new ArrayList<String>();
         this.colorPorClaveNombreGladiador = colorPorClaveNombreGladiador;
         this.nombresAgregados = new ArrayList<String>();
@@ -83,11 +84,6 @@ public class PanelLateralGladiadores extends VBox implements ObservadorSenority,
 
     }
 
-    @Override
-    public void visualizarProximoPanelInferior(){
-
-        this.actualizarLabelNuevoTurno();
-    }
 
     private void actualizarLabelNuevoTurno(){
         // si el label esta en darkgreen pongo el siguiente label en darkgreen y los demas en white
@@ -107,16 +103,8 @@ public class PanelLateralGladiadores extends VBox implements ObservadorSenority,
 
 
     @Override
-    public void visualizarNuevoGladiador(){
-        //this.actualizarNuevoGladiadorConImagen();
-
-        //this.mostrarGladiadoresEnOrden();
-
-        this.setAlignment(Pos.CENTER);
-        this.setSpacing(8);
-        this.setPadding(new Insets(8));
-        this.setStyle("-fx-background-color:#323232");
-
+    public void update() {
+        this.actualizarLabelNuevoTurno();
     }
 
     private void actualizarNuevoGladiadorConImagen(){
@@ -144,6 +132,11 @@ public class PanelLateralGladiadores extends VBox implements ObservadorSenority,
             }
         }
         this.labelsGladiadores.get(0).setTextFill(Color.DARKGREEN);
+
+        this.setAlignment(Pos.CENTER);
+        this.setSpacing(8);
+        this.setPadding(new Insets(8));
+        this.setStyle("-fx-background-color:#323232");
     }
 
     private String getImagenSegunColor(String color){

@@ -19,22 +19,22 @@ import java.util.HashMap;
 public class AlgoRomaPantalla extends BorderPane implements ObservadorAlgoRoma {
 
     private AlgoRoma algoRoma;
-    private final Deque<PanelInferior> panelInferiorsDeque;
     private final MapaVista mapaVista;
     private PanelLateralGladiadores panelPanelLateralGladiadores;
+    private final Deque<PanelInferior> panelInferiorsDeque;
     private ArrayList<GladiadorAnimado> gladiadoresAnimados;
     private HashMap<String, String> colorPorClaveNombreGladiador;
 
     public AlgoRomaPantalla(AlgoRoma algoRoma, DadoButton dadoButton, HashMap<String, String> colorPorClaveNombreGladiador) {
         super();
-        panelInferiorsDeque = new ArrayDeque<>();
-        gladiadoresAnimados = new ArrayList<>();
         this.algoRoma = algoRoma;
         this.colorPorClaveNombreGladiador = colorPorClaveNombreGladiador;
+        panelInferiorsDeque = new ArrayDeque<>();
+        gladiadoresAnimados = new ArrayList<>();
 
         // Columna Izquierda con perfiles de Gladiadores
         this.panelPanelLateralGladiadores = new PanelLateralGladiadores(algoRoma, colorPorClaveNombreGladiador);
-        algoRoma.agregarObservador(panelPanelLateralGladiadores);
+
 
         this.setLeft(panelPanelLateralGladiadores);
         this.setMargin(panelPanelLateralGladiadores, new Insets(10, 10, 10, 10));
@@ -50,7 +50,7 @@ public class AlgoRomaPantalla extends BorderPane implements ObservadorAlgoRoma {
 
         BorderPane.setAlignment(mapaVista, Pos.TOP_CENTER);
 
-        algoRoma.agregarObservador(this);
+        algoRoma.agregarObservadorNuevoTurno(this);
     }
 
     public void agregarPanelInferiorDeJugador(PanelInferior panelInferior) {
@@ -63,12 +63,7 @@ public class AlgoRomaPantalla extends BorderPane implements ObservadorAlgoRoma {
         mapaVista.agregarGladiadorAlInicio(gladiadorAnimado);
     }
 
-    @Override
-    public void visualizarProximoPanelInferior() {
-        PanelInferior popPanelInferior = this.panelInferiorsDeque.pop();
-        this.setBottom(popPanelInferior);
-        panelInferiorsDeque.add(popPanelInferior);
-    }
+
 
     public void actualizarOrdenDeGladiadores() {
         //this.panelGladiadores.visualizarNuevoGladiador();
@@ -88,10 +83,12 @@ public class AlgoRomaPantalla extends BorderPane implements ObservadorAlgoRoma {
         }
     }
 
-    public void visualizarNuevoGladiador() {
 
-        //this.panelGladiadores.visualizarProximoPanelInferior();
-
+    @Override
+    public void update() {
+        PanelInferior popPanelInferior = this.panelInferiorsDeque.pop();
+        this.setBottom(popPanelInferior);
+        panelInferiorsDeque.add(popPanelInferior);
     }
 
     private void actualizarOrdenYColorPanelInferior(){
