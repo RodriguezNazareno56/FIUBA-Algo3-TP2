@@ -18,34 +18,23 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 // TODO: renombrar a panelGladiadores
-public class PanelLateralGladiadores extends VBox implements ObservadorAlgoRoma {
+public class PanelLateralGladiadores extends VBox{
 
-    private AlgoRoma algoRoma;
 
     private DadoButton dadoButton;
     private double altoImagenPerfil = 60 ;
 
     private double anchoImagenPerfil = 60;
-    private HashMap<String, String> colorPorClaveNombreGladiador;
     private ArrayList<Label> labelsGladiadores;
     private final String DIRECCION_IMAGEN_GLADIADOR = "File:src/main/resources/edu/fiuba/algo3/vista/mapa/components/perfilesGladiadores/PerfilGladiador";
 
-    public PanelLateralGladiadores(AlgoRoma algoRoma, HashMap<String, String> colorPorClaveNombreGladiador, DadoButton dadoButton){
-
-        this.algoRoma = algoRoma;
+    public PanelLateralGladiadores(DadoButton dadoButton){
         this.dadoButton = dadoButton;
-        this.colorPorClaveNombreGladiador = colorPorClaveNombreGladiador;
         this.labelsGladiadores = new ArrayList<Label>();
 
-        algoRoma.agregarObservadorNuevoTurno(this);
-
     }
-    @Override
-    public void update() {
-        this.actualizarLabelNuevoTurno();
 
-    }
-    private void actualizarLabelNuevoTurno(){
+    public void actualizarGladiadorEnEspera(){
         // si el label esta en darkgreen pongo el siguiente label en darkgreen y los demas en white
         for( int i = 0 ; i < this.labelsGladiadores.size() ; i++ ){
             if( this.labelsGladiadores.get(i).getTextFill() == Color.DARKGREEN ){
@@ -60,16 +49,17 @@ public class PanelLateralGladiadores extends VBox implements ObservadorAlgoRoma 
         }
     }
 
-    public void actualizarGladiadores(){
+    public void actualizarGladiadores(ArrayList<String> nombresGladiadores,
+                                      HashMap<String, String> colorPorClaveNombreGladiador){
         this.getChildren().clear();
+        this.labelsGladiadores.clear();
         this.getChildren().add(dadoButton);
-        ArrayList<String> nombresGladiadores = algoRoma.getNombresGladiadoresSegunOrdenEnRonda();
 
         for( String nombreGladiador : nombresGladiadores ){
-            String colorGladiador = this.colorPorClaveNombreGladiador.get(nombreGladiador);
+            String colorGladiador = colorPorClaveNombreGladiador.get(nombreGladiador);
             if( colorGladiador != null ){
-
-                this.labelsGladiadores.add(agregarVistaGladiador(nombreGladiador, getDirImagenSegunColor(colorGladiador)));
+                Label labelGladiador = agregarVistaGladiadorAndGetLabel(nombreGladiador, getDirImagenSegunColor(colorGladiador));
+                this.labelsGladiadores.add(labelGladiador);
             }
         }
         this.labelsGladiadores.get(0).setTextFill(Color.DARKGREEN);
@@ -85,7 +75,7 @@ public class PanelLateralGladiadores extends VBox implements ObservadorAlgoRoma 
         return DIRECCION_IMAGEN_GLADIADOR + numero + ".png";
     }
 
-    private Label agregarVistaGladiador(String nombreGladiador, String dirImagen) {
+    private Label agregarVistaGladiadorAndGetLabel(String nombreGladiador, String dirImagen) {
         Image imagen = new Image(dirImagen);
         ImageView imagenPerfilGladiador = new ImageView(imagen);
         imagenPerfilGladiador.setFitHeight(altoImagenPerfil);

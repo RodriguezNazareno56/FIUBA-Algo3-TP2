@@ -33,7 +33,7 @@ public class AlgoRomaPantalla extends BorderPane implements ObservadorAlgoRoma {
         gladiadoresAnimados = new ArrayList<>();
 
         // Columna Izquierda con perfiles de Gladiadores
-        this.panelPanelLateralGladiadores = new PanelLateralGladiadores(algoRoma, colorPorClaveNombreGladiador, dadoButton);
+        this.panelPanelLateralGladiadores = new PanelLateralGladiadores(dadoButton);
 
 
         this.setLeft(panelPanelLateralGladiadores);
@@ -66,13 +66,16 @@ public class AlgoRomaPantalla extends BorderPane implements ObservadorAlgoRoma {
         PanelInferior popPanelInferior = this.panelInferiorsDeque.pop();
         this.setBottom(popPanelInferior);
         panelInferiorsDeque.add(popPanelInferior);
+
+        this.panelPanelLateralGladiadores.actualizarGladiadorEnEspera();
         //actualizarOrdenDeGladiadores();
     }
 
     public void actualizarOrdenDeGladiadores() {
         //this.panelGladiadores.visualizarNuevoGladiador();
         //esta funcion se llama en el pase de escena, temporal coupling?
-        this.panelPanelLateralGladiadores.actualizarGladiadores();
+        this.panelPanelLateralGladiadores.actualizarGladiadores(algoRoma.getNombresGladiadoresSegunOrdenEnRonda(),
+                colorPorClaveNombreGladiador);
         this.actualizarOrdenYColorPanelInferior();
         this.actualizarColoresGladiadoresAnimados();
     }
