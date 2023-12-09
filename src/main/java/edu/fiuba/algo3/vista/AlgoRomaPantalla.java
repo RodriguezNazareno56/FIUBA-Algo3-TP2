@@ -22,11 +22,15 @@ public class AlgoRomaPantalla extends BorderPane implements ObservadorAlgoRoma {
     private final Deque<PanelInferior> panelInferiorsDeque;
     private final MapaVista mapaVista;
     private PanelLateralGladiadores panelPanelLateralGladiadores;
+    private ArrayList<GladiadorAnimado> gladiadoresAnimados;
+    private HashMap<String, String> colorPorClaveNombreGladiador;
 
     public AlgoRomaPantalla(AlgoRoma algoRoma, DadoButton dadoButton, HashMap<String, String> colorPorClaveNombreGladiador) {
         super();
         panelInferiorsDeque = new ArrayDeque<>();
+        gladiadoresAnimados = new ArrayList<>();
         this.algoRoma = algoRoma;
+        this.colorPorClaveNombreGladiador = colorPorClaveNombreGladiador;
 
         // Columna Izquierda con perfiles de Gladiadores
         this.panelPanelLateralGladiadores = new PanelLateralGladiadores(algoRoma, colorPorClaveNombreGladiador);
@@ -55,6 +59,7 @@ public class AlgoRomaPantalla extends BorderPane implements ObservadorAlgoRoma {
 
     public void agregarGladiador(GladiadorAnimado gladiadorAnimado) {
         //this.panelGladiadores.agregarGladiador();
+        this.gladiadoresAnimados.add(gladiadorAnimado);
         mapaVista.agregarGladiadorAlInicio(gladiadorAnimado);
     }
 
@@ -67,10 +72,20 @@ public class AlgoRomaPantalla extends BorderPane implements ObservadorAlgoRoma {
 
     public void actualizarOrdenDeGladiadores() {
         //this.panelGladiadores.visualizarNuevoGladiador();
-        //esta funcion se llama en el pase de escena
+        //esta funcion se llama en el pase de escena, temporal coupling?
         this.panelPanelLateralGladiadores.mostrarGladiadoresEnOrden();
         this.actualizarOrdenPanelInferior();
+        this.actualizarColoresGladiadoresAnimados();
 
+    }
+
+    private void actualizarColoresGladiadoresAnimados(){
+
+        for(GladiadorAnimado gladiadorAnimado : gladiadoresAnimados){
+            String nombreGladiador = gladiadorAnimado.getNombre();
+            String colorGladiador = colorPorClaveNombreGladiador.get(nombreGladiador);
+            gladiadorAnimado.inicializarAnimacion(colorGladiador);
+        }
     }
 
     public void visualizarNuevoGladiador() {
