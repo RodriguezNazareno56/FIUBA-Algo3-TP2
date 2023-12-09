@@ -14,9 +14,9 @@ public class PanelInferior extends HBox {
 
     public PanelInferior(GladiadorVista gladiador, EnergiaVista energia, SenorityVista senority, EquipamientosPanel equipamientosPanel){
         super();
-        this.setMaxHeight(20);
+        this.setMaxHeight(Double.MAX_VALUE);
         this.setMaxWidth(Double.MAX_VALUE);
-        this.setPadding(new Insets(10, 0, 10, 0));
+        this.setPadding(new Insets(10, 10, 10, 10));
         this.setStyle("-fx-background-color:#323232");
         this.setAlignment(Pos.CENTER);
 

@@ -37,7 +37,7 @@ public class AlgoRomaPantalla extends BorderPane implements ObservadorAlgoRoma {
         algoRoma.agregarObservador(panelPanelLateralGladiadores);
 
         this.setLeft(panelPanelLateralGladiadores);
-        this.setMargin(panelPanelLateralGladiadores, new Insets(10, 10, 10, 10));
+        this.setMargin(panelPanelLateralGladiadores, new Insets(5, 0, 5, 5));
 
         panelPanelLateralGladiadores.getChildren().add(dadoButton);
 
@@ -46,7 +46,7 @@ public class AlgoRomaPantalla extends BorderPane implements ObservadorAlgoRoma {
 
         this.mapaVista = new MapaVista(algoRoma);
         this.setCenter(mapaVista);
-        this.setMargin(mapaVista, new Insets(10, 10, 10, 10));
+        this.setMargin(mapaVista, new Insets(5, 5, 5, 5));
 
         BorderPane.setAlignment(mapaVista, Pos.TOP_CENTER);
 
@@ -55,6 +55,7 @@ public class AlgoRomaPantalla extends BorderPane implements ObservadorAlgoRoma {
 
     public void agregarPanelInferiorDeJugador(PanelInferior panelInferior) {
         this.panelInferiorsDeque.add(panelInferior);
+        this.setMargin(panelInferior, new Insets(0,5,5,5));
     }
 
     public void agregarGladiador(GladiadorAnimado gladiadorAnimado) {

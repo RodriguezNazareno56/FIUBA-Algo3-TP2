@@ -14,6 +14,7 @@ public class EquipamientosPanel extends GridPane implements ObservadorEquipamien
     public EquipamientosPanel() {
         this.equipamientos = new ArrayDeque<>();
 
+
         EquipamientoBox boxCasco = new EquipamientoBox(new Casco());
         this.add(boxCasco, 0, 0);
         this.equipamientos.add(boxCasco);
