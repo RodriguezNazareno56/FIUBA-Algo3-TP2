@@ -11,11 +11,9 @@ import edu.fiuba.algo3.vista.gladiador.GladiadorAnimado;
 import javafx.geometry.Pos;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
-
 import java.util.HashMap;
 
 public class MapaVista extends GridPane implements ObservadorMapa {
-
     private final HashMap<String, GladiadorAnimado> gladiadorAnimadoEnElMapa;
     private final AlgoRoma algoRoma;
 
@@ -32,6 +30,8 @@ public class MapaVista extends GridPane implements ObservadorMapa {
         this.setHgap(5); //Separacion horizontal entre celdas
         this.setVgap(5); //Separacion vertical entre celdas
 
+
+
         // Dibujar camino en Mapa
         ConsecuenciaManager consecuenciaManager = new ConsecuenciaManager();
 
@@ -44,6 +44,7 @@ public class MapaVista extends GridPane implements ObservadorMapa {
                 });
 
         algoRoma.getMapa().agregarObservador(this);
+
     }
 
     @Override

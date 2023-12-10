@@ -5,6 +5,8 @@ import javafx.scene.image.Image;
 
 import java.net.URL;
 import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Queue;
 
 public class AnimacionDado extends Animacion {

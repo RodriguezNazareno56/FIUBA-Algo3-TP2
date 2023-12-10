@@ -1,15 +1,21 @@
 package edu.fiuba.algo3.controladores.dado;
 
 import edu.fiuba.algo3.modelo.AlgoRoma;
+import edu.fiuba.algo3.vista.AlgoRomaPantalla;
 import edu.fiuba.algo3.vista.components.animacion.Animacion;
 import edu.fiuba.algo3.vista.dado.AnimacionDado;
 import edu.fiuba.algo3.vista.dado.DadoButton;
 import javafx.animation.*;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.control.Alert;
 import javafx.util.Duration;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class DadoHandler implements EventHandler<ActionEvent> {
+
+    private static final Logger LOG = LoggerFactory.getLogger(DadoHandler.class);
 
     private DadoButton dado;
     private Animacion animacion;
@@ -44,6 +50,8 @@ public class DadoHandler implements EventHandler<ActionEvent> {
                     try {
                         algoRoma.jugarTurno();
                     } catch (Exception ignored) {
+                        LOG.info("FIn del juego", ignored);
+                        //this.mostrarAlertWarning();
                         // TODO: no se si lo correcto es siempre ignorar. Por ejemplo al finalizar el juego deberia
                         //  impedir seguir tirando el dado. Para esto es necesario que jugarTurno devuelva las exepciones
                         //  especificas y no un simple Exception. De igual modo el fin de la partida puede se tratado de
@@ -54,4 +62,13 @@ public class DadoHandler implements EventHandler<ActionEvent> {
         );
         timeline.play();
     }
+
+    private void mostrarAlertWarning() {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setHeaderText(null);
+        alert.setTitle("Info");
+        alert.setContentText("Warning en la aplica");
+        alert.showAndWait();
+    }
+
 }
