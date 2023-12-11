@@ -44,13 +44,12 @@ public class App extends Application {
         HashMap<String, String> dirImagenesPorNombreGladiador = new HashMap<>();
 
 
-        DadoButton dadoButton = new DadoButton(algoRoma);
+        DadoButton dadoButton = new DadoButton(algoRoma, stage);
         dado.agregarObservador(dadoButton);
 
         AlgoRomaPantalla algoRomaPantalla = new AlgoRomaPantalla(algoRoma, dadoButton, dirImagenesPorNombreGladiador);
         Scene mapaVista = new Scene(algoRomaPantalla, ViewProperties.stageMaximoAlto, ViewProperties.stageMaximoAncho );
 
-        //AgregarJugadorPantalla agregarJugadorPantalla = new AgregarJugadorPantalla(stage, mapaVista, algoRoma , algoRomaPantalla);
         ElegirGladiadorPantalla agregarJugadorPantalla = new ElegirGladiadorPantalla(stage, mapaVista,
                 algoRoma , algoRomaPantalla, dirImagenesPorNombreGladiador);
         Scene escenaJugador = new Scene(agregarJugadorPantalla, ViewProperties.stageMaximoAlto, ViewProperties.stageMaximoAncho);
@@ -85,6 +84,8 @@ public class App extends Application {
 
          algoRoma = new AlgoRoma(mapaService, dado, LoggerFactory.getLogger("App"));
     }
+
+
 
     public static void main(String[] args) {
         launch();
