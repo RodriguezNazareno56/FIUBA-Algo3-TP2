@@ -10,13 +10,22 @@ import edu.fiuba.algo3.vista.paneles_de_visualizacion.PanelLateralGladiadores;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaView;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
+import java.io.File;
+import java.net.MalformedURLException;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Deque;
 import java.util.HashMap;
 
 public class AlgoRomaPantalla extends BorderPane implements ObservadorAlgoRoma {
+
+    private static final Logger LOG = LoggerFactory.getLogger(AlgoRomaPantalla.class);
 
     private AlgoRoma algoRoma;
     private final MapaVista mapaVista;
@@ -46,6 +55,17 @@ public class AlgoRomaPantalla extends BorderPane implements ObservadorAlgoRoma {
         this.setMargin(mapaVista, new Insets(5, 5, 5, 5));
 
         BorderPane.setAlignment(mapaVista, Pos.TOP_CENTER);
+
+        File mediaFile = new File("src/main/resources/edu/fiuba/algo3/vista/media/gamemusic.mp3");
+        try {
+            Media media = new Media(mediaFile.toURI().toURL().toString());
+            MediaPlayer mediaPlayer = new MediaPlayer(media);
+            MediaView mediaView = new MediaView(mediaPlayer);
+            this.getChildren().add(mediaView);
+            mediaPlayer.play();
+        }catch (MalformedURLException e){
+            LOG.error("No se puede reproducir audio: " + e.getMessage(), e);
+        }
 
         algoRoma.agregarObservadorNuevoTurno(this);
     }

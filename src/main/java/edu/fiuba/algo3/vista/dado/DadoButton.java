@@ -6,6 +6,7 @@ import edu.fiuba.algo3.modelo.AlgoRoma;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
 
 import java.net.URL;
 
@@ -13,7 +14,7 @@ public class DadoButton extends Button implements ObservadorDado {
 
     private final DadoHandler dadoHandler;
 
-    public DadoButton(AlgoRoma algoRoma) {
+    public DadoButton(AlgoRoma algoRoma, Stage stage) {
 //        this.setWidth(50);
 //        this.setHeight(50);
         this.setStyle("-fx-background-color:transparent ; " +
@@ -25,7 +26,7 @@ public class DadoButton extends Button implements ObservadorDado {
         ImageView dadoImageView = new ImageView(url.toExternalForm());
         this.setGraphic(dadoImageView);
 
-        dadoHandler = new DadoHandler(this, algoRoma);
+        dadoHandler = new DadoHandler(this, algoRoma, stage);
         this.setOnAction(dadoHandler);
     }
 

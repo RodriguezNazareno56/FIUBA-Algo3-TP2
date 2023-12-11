@@ -3,6 +3,7 @@ module edu.fiuba.algo3 {
     requires com.fasterxml.jackson.databind;
     requires org.json;
     requires org.slf4j;
+    requires javafx.media;
     exports edu.fiuba.algo3;
     exports edu.fiuba.algo3.modelo;
     exports edu.fiuba.algo3.modelo.gladiador.senority;
