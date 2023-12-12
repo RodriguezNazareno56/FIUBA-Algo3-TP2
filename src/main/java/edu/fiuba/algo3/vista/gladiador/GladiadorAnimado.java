@@ -61,7 +61,7 @@ public class GladiadorAnimado extends ImageView {
         for (int i = 0; i < 18; i++) {
             String numero = String.format("%02d", i);
             String url = "file:src/main/resources/edu/fiuba/algo3/vista/gladiador/"+ colorString +
-                    "/idle/GreekBasic_Idle_"+ numero +".png";
+                    "/idle/GreekBasic_Idle_"+ numero +".PNG";
             imageQueue.add(new Image(url, 400, 600, true, true));
         }
         return imageQueue;
