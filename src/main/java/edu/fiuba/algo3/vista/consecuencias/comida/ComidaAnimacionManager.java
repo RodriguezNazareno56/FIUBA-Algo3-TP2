@@ -11,8 +11,8 @@ public class ComidaAnimacionManager implements ConsecuenciaAnimacion {
     public void agregarAnimacion(MapaVista mapaVista, IConsecuencia consecuencia, Coordenada coordenada) {
         if(consecuencia.equals(new Comida())){
             ComidaAnimacion comidaAnimacion = new ComidaAnimacion();
-            comidaAnimacion.setFitWidth(20);
-            comidaAnimacion.setFitHeight(20);
+            comidaAnimacion.setFitWidth(30);
+            comidaAnimacion.setFitHeight(30);
             mapaVista.add(comidaAnimacion, coordenada.getX(),coordenada.getY());
         }
     }

@@ -18,7 +18,7 @@ public class ObstaculoAnimacion extends Animacion {
     @Override
     protected Queue<Image> getAnimacionImages() {
         Queue<Image> imageQueue = new ArrayDeque<>();
-        imageQueue.add(new Image("File:src/main/resources/edu/fiuba/algo3/vista/obstaculo/Obstaculo2.png", 400, 600, true, true));
+        imageQueue.add(new Image("File:src/main/resources/edu/fiuba/algo3/vista/obstaculo/ObstaculoConsecuencia.png", 400, 600, true, true));
         return imageQueue;
     }
 }

@@ -11,8 +11,8 @@ public class EquipamientoAnimacionManager implements ConsecuenciaAnimacion {
     public void agregarAnimacion(MapaVista mapaVista, IConsecuencia consecuencia, Coordenada coordenada) {
         if(consecuencia.equals(new EquipamientoIncrementado())){
             EquipamientoAnimacion equipamientoAnimacion = new EquipamientoAnimacion();
-            equipamientoAnimacion.setFitWidth(20);
-            equipamientoAnimacion.setFitHeight(20);
+            equipamientoAnimacion.setFitWidth(50);
+            equipamientoAnimacion.setFitHeight(50);
             mapaVista.add(equipamientoAnimacion, coordenada.getX(),coordenada.getY());
         }
     }
