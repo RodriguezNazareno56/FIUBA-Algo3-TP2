@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>/home/nazareno/Desktop/Algo 3/FIUBA-Algo3-TP2/src/main/java/edu/fiuba/algo3/modelo/consecuencias</OriginalElement>
+  <nodes>
+    <node x="466.5" y="299.1666666666667">edu.fiuba.algo3.modelo.celda.Celda</node>
+    <node x="1003.6666666666665" y="311.1666666666667">edu.fiuba.algo3.modelo.celda.Coordenada</node>
+    <node x="625.6666666666666" y="130.08333333333326">edu.fiuba.algo3.modelo.celda.ICelda</node>
+    <node x="961.8333333333331" y="570.6666666666669">edu.fiuba.algo3.modelo.consecuencias.IConsecuencia</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="edu.fiuba.algo3.modelo.celda.Celda" target="edu.fiuba.algo3.modelo.consecuencias.IConsecuencia" relationship="TO_MANY">
+      <point x="188.00000000000284" y="87.00000000000028" />
+      <point x="850.0000000000028" y="530.5000000000002" />
+      <point x="930.5833333333333" y="530.5000000000002" />
+      <point x="930.5833333333333" y="607.1666666666671" />
+      <point x="-110.00000000000034" y="7.500000000000227" />
+    </edge>
+    <edge source="edu.fiuba.algo3.modelo.celda.Celda" target="edu.fiuba.algo3.modelo.celda.ICelda" relationship="REALIZATION">
+      <point x="-1.1666666666637866" y="-126.33333333333297" />
+      <point x="660.8333333333362" y="267.625" />
+      <point x="818.3333333333347" y="267.625" />
+      <point x="-2.8333333333318933" y="-47.58333333333508" />
+    </edge>
+    <edge source="edu.fiuba.algo3.modelo.celda.Celda" target="edu.fiuba.algo3.modelo.celda.Coordenada" relationship="TO_ONE">
+      <point x="-97.75" y="-126.0" />
+      <point x="564.25" y="424.66666666666686" />
+      <point x="-100.49999999999864" y="-0.49999999999982947" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="1.2000000000000002" showDependencies="true" x="934.5833333333372" y="377.58333333333434" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Constructors</Category>
+    <Category>Fields</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

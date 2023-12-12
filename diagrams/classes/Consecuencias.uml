@@ -1,71 +1,115 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Diagram>
   <ID>JAVA</ID>
-  <OriginalElement>/home/nazareno/Desktop/Algo 3/FIUBA-Algo3-TP2/src/main/java/edu/fiuba/algo3/Concecuencias</OriginalElement>
+  <OriginalElement>/home/nazareno/Desktop/Algo 3/FIUBA-Algo3-TP2/src/main/java/edu/fiuba/algo3/modelo</OriginalElement>
   <nodes>
-    <node x="933.0" y="44.0">edu.fiuba.algo3.Concecuencias.Consecuencia</node>
-    <node x="-145.0" y="212.0">edu.fiuba.algo3.Concecuencias.FieraSalvaje</node>
-    <node x="297.0000000000001" y="272.0">edu.fiuba.algo3.Concecuencias.AsisteAUnBacanal</node>
-    <node x="639.0000000000001" y="284.0">edu.fiuba.algo3.Concecuencias.Comida</node>
-    <node x="1227.0" y="284.0">edu.fiuba.algo3.Concecuencias.Lesion</node>
-    <node x="-145.0" y="-16.0">edu.fiuba.algo3.Concecuencias.Enemigo</node>
-    <node x="1832.0" y="284.0">edu.fiuba.algo3.Concecuencias.SinConcecuencia</node>
-    <node x="1521.0" y="284.0">edu.fiuba.algo3.Concecuencias.EquipamientoIncrementado</node>
-    <node x="933.0" y="284.0">edu.fiuba.algo3.Concecuencias.Triunfo</node>
+    <node x="1965.7998294243125" y="73.75270788912582">edu.fiuba.algo3.modelo.constantes.ComidaConstantes</node>
+    <node x="1022.0285714285715" y="-24.746268656716325">edu.fiuba.algo3.modelo.consecuencias.Consecuencia</node>
+    <node x="586.0" y="201.26652452025587">edu.fiuba.algo3.modelo.consecuencias.Triunfo</node>
+    <node x="1675.1647121535182" y="73.75270788912582">edu.fiuba.algo3.modelo.constantes.FieraSalvajeConstantes</node>
+    <node x="1899.6973987206825" y="-72.75019189765464">edu.fiuba.algo3.modelo.constantes.Constantes</node>
+    <node x="871.25" y="201.26652452025587">edu.fiuba.algo3.modelo.consecuencias.Lesion</node>
+    <node x="1156.5" y="201.26652452025587">edu.fiuba.algo3.modelo.consecuencias.EquipamientoIncrementado</node>
+    <node x="930.0285714285715" y="-436.0252452025586">edu.fiuba.algo3.modelo.celda.Celda</node>
+    <node x="252.75" y="201.26652452025587">edu.fiuba.algo3.modelo.consecuencias.AsisteAUnBacanal</node>
+    <node x="1465.2651385927504" y="201.26652452025587">edu.fiuba.algo3.modelo.consecuencias.FieraSalvaje</node>
+    <node x="1365.0815351812369" y="-162.00051172707887">edu.fiuba.algo3.modelo.consecuencias.Enemigo</node>
+    <node x="988.5285714285715" y="-129.77449893390187">edu.fiuba.algo3.modelo.consecuencias.IConsecuencia</node>
+    <node x="1905.0302771855008" y="201.26652452025587">edu.fiuba.algo3.modelo.consecuencias.Comida</node>
+    <node x="419.4264392324093" y="-90.94456289978677">edu.fiuba.algo3.modelo.dado.Dado</node>
   </nodes>
   <notes />
   <edges>
-    <edge source="edu.fiuba.algo3.Concecuencias.AsisteAUnBacanal" target="edu.fiuba.algo3.Concecuencias.Consecuencia" relationship="REALIZATION">
-      <point x="0.0" y="-41.0" />
-      <point x="458.0000000000001" y="192.0" />
-      <point x="1070.0" y="192.0" />
-      <point x="0.0" y="29.0" />
+    <edge source="edu.fiuba.algo3.modelo.consecuencias.FieraSalvaje" target="edu.fiuba.algo3.modelo.constantes.FieraSalvajeConstantes" relationship="REALIZATION">
+      <point x="68.71643923241413" y="-124.51970149253748" />
+      <point x="1744.9815778251645" y="226.18392324093804" />
+      <point x="1737.1647121535182" y="226.18392324093804" />
+      <point x="-62.0" y="15.5" />
     </edge>
-    <edge source="edu.fiuba.algo3.Concecuencias.SinConcecuencia" target="edu.fiuba.algo3.Concecuencias.Consecuencia" relationship="REALIZATION">
-      <point x="0.0" y="-29.0" />
-      <point x="1969.0" y="192.0" />
-      <point x="1070.0" y="192.0" />
-      <point x="0.0" y="29.0" />
+    <edge source="edu.fiuba.algo3.modelo.constantes.Constantes" target="edu.fiuba.algo3.modelo.constantes.FieraSalvajeConstantes" relationship="INTERFACE_GENERALIZATION">
+      <point x="0.0" y="-15.5" />
+      <point x="1973.1973987206825" y="19.756162046908315" />
+      <point x="1861.1647121535182" y="19.756162046908315" />
+      <point x="62.0" y="15.5" />
     </edge>
-    <edge source="edu.fiuba.algo3.Concecuencias.EquipamientoIncrementado" target="edu.fiuba.algo3.Concecuencias.Consecuencia" relationship="REALIZATION">
-      <point x="0.0" y="-29.0" />
-      <point x="1666.5" y="192.0" />
-      <point x="1070.0" y="192.0" />
-      <point x="0.0" y="29.0" />
+    <edge source="edu.fiuba.algo3.modelo.consecuencias.Triunfo" target="edu.fiuba.algo3.modelo.consecuencias.Consecuencia" relationship="GENERALIZATION">
+      <point x="0.0" y="-54.0" />
+      <point x="723.0" y="152.0" />
+      <point x="1125.5285714285715" y="152.0" />
+      <point x="0.0" y="54.0" />
     </edge>
-    <edge source="edu.fiuba.algo3.Concecuencias.Comida" target="edu.fiuba.algo3.Concecuencias.Consecuencia" relationship="REALIZATION">
-      <point x="0.0" y="-29.0" />
-      <point x="776.0000000000001" y="192.0" />
-      <point x="1070.0" y="192.0" />
-      <point x="0.0" y="29.0" />
-    </edge>
-    <edge source="edu.fiuba.algo3.Concecuencias.FieraSalvaje" target="edu.fiuba.algo3.Concecuencias.Consecuencia" relationship="REALIZATION">
-      <point x="0.0" y="-101.0" />
-      <point x="66.00000000000011" y="182.0" />
-      <point x="1070.0" y="182.0" />
-      <point x="0.0" y="29.0" />
-    </edge>
-    <edge source="edu.fiuba.algo3.Concecuencias.FieraSalvaje" target="edu.fiuba.algo3.Concecuencias.Enemigo" relationship="REALIZATION">
-      <point x="0.0" y="-101.0" />
+    <edge source="edu.fiuba.algo3.modelo.consecuencias.FieraSalvaje" target="edu.fiuba.algo3.modelo.consecuencias.Enemigo" relationship="REALIZATION">
+      <point x="-99.13500980809499" y="-127.76105245202353" />
+      <point x="1577.1301287846554" y="162.0" />
+      <point x="1576.0815351812369" y="162.0" />
       <point x="0.0" y="89.0" />
     </edge>
-    <edge source="edu.fiuba.algo3.Concecuencias.Lesion" target="edu.fiuba.algo3.Concecuencias.Consecuencia" relationship="REALIZATION">
-      <point x="-1.1368683772161603E-13" y="-29.0" />
-      <point x="1364.0" y="192.0" />
-      <point x="1070.0" y="192.0" />
-      <point x="0.0" y="29.0" />
+    <edge source="edu.fiuba.algo3.modelo.consecuencias.Comida" target="edu.fiuba.algo3.modelo.constantes.ComidaConstantes" relationship="REALIZATION">
+      <point x="37.738933901924156" y="-53.984520255863686" />
+      <point x="7.969381663112472" y="7.32405117270838" />
     </edge>
-    <edge source="edu.fiuba.algo3.Concecuencias.Triunfo" target="edu.fiuba.algo3.Concecuencias.Consecuencia" relationship="REALIZATION">
-      <point x="0.0" y="-29.0" />
-      <point x="0.0" y="29.0" />
+    <edge source="edu.fiuba.algo3.modelo.consecuencias.Comida" target="edu.fiuba.algo3.modelo.consecuencias.Consecuencia" relationship="GENERALIZATION">
+      <point x="-68.5" y="-54.0" />
+      <point x="1973.5302771855008" y="152.0" />
+      <point x="1125.5285714285715" y="152.0" />
+      <point x="0.0" y="54.0" />
+    </edge>
+    <edge source="edu.fiuba.algo3.modelo.consecuencias.AsisteAUnBacanal" target="edu.fiuba.algo3.modelo.consecuencias.Consecuencia" relationship="GENERALIZATION">
+      <point x="80.5" y="-78.0" />
+      <point x="494.25" y="152.0" />
+      <point x="1125.5285714285715" y="152.0" />
+      <point x="0.0" y="54.0" />
+    </edge>
+    <edge source="edu.fiuba.algo3.modelo.consecuencias.Consecuencia" target="edu.fiuba.algo3.modelo.consecuencias.IConsecuencia" relationship="REALIZATION">
+      <point x="0.0" y="-54.0" />
+      <point x="1125.5285714285715" y="-48.260383795309096" />
+      <point x="1125.6599147121535" y="-48.260383795309096" />
+      <point x="0.13134328358205494" y="29.600213219616194" />
+    </edge>
+    <edge source="edu.fiuba.algo3.modelo.consecuencias.Lesion" target="edu.fiuba.algo3.modelo.consecuencias.Consecuencia" relationship="GENERALIZATION">
+      <point x="0.0" y="-54.0" />
+      <point x="1008.25" y="152.0" />
+      <point x="1125.5285714285715" y="152.0" />
+      <point x="0.0" y="54.0" />
+    </edge>
+    <edge source="edu.fiuba.algo3.modelo.consecuencias.EquipamientoIncrementado" target="edu.fiuba.algo3.modelo.consecuencias.Consecuencia" relationship="GENERALIZATION">
+      <point x="-1.1368683772161603E-13" y="-54.0" />
+      <point x="1302.0" y="152.0" />
+      <point x="1125.5285714285715" y="152.0" />
+      <point x="0.0" y="54.0" />
+    </edge>
+    <edge source="edu.fiuba.algo3.modelo.celda.Celda" target="edu.fiuba.algo3.modelo.consecuencias.IConsecuencia" relationship="TO_MANY">
+      <point x="0.0" y="-103.0" />
+      <point x="1125.5285714285715" y="-286.9488272921109" />
+      <point x="1125.6599147121535" y="-286.9488272921109" />
+      <point x="0.13134328358205494" y="-2.625799573560812" />
+    </edge>
+    <edge source="edu.fiuba.algo3.modelo.consecuencias.FieraSalvaje" target="edu.fiuba.algo3.modelo.consecuencias.Consecuencia" relationship="GENERALIZATION">
+      <point x="-36.691918976548095" y="-123.99236673773964" />
+      <point x="1639.5732196162023" y="152.0" />
+      <point x="1125.5285714285715" y="152.0" />
+      <point x="0.0" y="54.0" />
+    </edge>
+    <edge source="edu.fiuba.algo3.modelo.consecuencias.AsisteAUnBacanal" target="edu.fiuba.algo3.modelo.dado.Dado" relationship="TO_ONE">
+      <point x="0.3837953091684767" y="-77.22281449893387" />
+      <point x="414.1337953091685" y="115.12579957356081" />
+      <point x="590.4264392324093" y="115.12579957356081" />
+      <point x="0.0" y="66.0" />
+    </edge>
+    <edge source="edu.fiuba.algo3.modelo.constantes.Constantes" target="edu.fiuba.algo3.modelo.constantes.ComidaConstantes" relationship="INTERFACE_GENERALIZATION">
+      <point x="0.0" y="-15.5" />
+      <point x="1973.1973987206825" y="19.756162046908315" />
+      <point x="2077.07394456291" y="19.756162046908315" />
+      <point x="5.274115138597608" y="2.1678891257994906" />
     </edge>
   </edges>
-  <settings layout="Hierarchic" zoom="0.5918097754293263" showDependencies="false" x="990.5" y="209.0" />
-  <SelectedNodes>
-    <node>edu.fiuba.algo3.Concecuencias.FieraSalvaje</node>
-  </SelectedNodes>
+  <settings layout="Hierarchic" zoom="0.8533478893740905" showDependencies="true" x="1265.1823249467022" y="-2.26452366737567" />
+  <SelectedNodes />
   <Categories>
+    <Category>Constructors</Category>
+    <Category>Inner Classes</Category>
     <Category>Methods</Category>
+    <Category>Properties</Category>
   </Categories>
   <SCOPE>All</SCOPE>
   <VISIBILITY>private</VISIBILITY>

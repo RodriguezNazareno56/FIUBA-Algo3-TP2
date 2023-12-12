@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>/home/nazareno/Desktop/Algo 3/FIUBA-Algo3-TP2/src/main/java/edu/fiuba/algo3/modelo/camino</OriginalElement>
+  <nodes>
+    <node x="383.5747596795727" y="1209.5981308411215">edu.fiuba.algo3.modelo.celda.ICelda</node>
+    <node x="-66.91822429906551" y="1199.4742990654208">edu.fiuba.algo3.modelo.camino.Camino</node>
+    <node x="-604.4112082777037" y="1103.4742990654208">edu.fiuba.algo3.modelo.mapa.Mapa</node>
+    <node x="330.0747596795727" y="1350.591401869159">edu.fiuba.algo3.modelo.gladiador.Gladiador</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="edu.fiuba.algo3.modelo.camino.Camino" target="edu.fiuba.algo3.modelo.celda.ICelda" relationship="TO_MANY">
+      <point x="0.0" y="-138.0" />
+      <point x="98.08177570093449" y="1265.4485981308412" />
+      <point x="579.0747596795727" y="1265.4485981308412" />
+      <point x="0.0" y="53.0" />
+    </edge>
+    <edge source="edu.fiuba.algo3.modelo.mapa.Mapa" target="edu.fiuba.algo3.modelo.camino.Camino" relationship="TO_ONE">
+      <point x="104.25" y="-234.0" />
+      <point x="-291.66120827770374" y="1392.7973831775698" />
+      <point x="122.70813084112149" y="1392.7973831775698" />
+      <point x="24.626355140187002" y="138.0" />
+    </edge>
+    <edge source="edu.fiuba.algo3.modelo.mapa.Mapa" target="edu.fiuba.algo3.modelo.gladiador.Gladiador" relationship="TO_MANY">
+      <point x="104.25" y="-234.0" />
+      <point x="-291.66120827770374" y="1566.4183177570094" />
+      <point x="579.0747596795727" y="1566.4183177570094" />
+      <point x="0.0" y="330.0" />
+    </edge>
+    <edge source="edu.fiuba.algo3.modelo.mapa.Mapa" target="edu.fiuba.algo3.modelo.celda.ICelda" relationship="TO_MANY">
+      <point x="104.25" y="-234.0" />
+      <point x="-291.66120827770374" y="1155.9088785046729" />
+      <point x="579.0747596795727" y="1155.9088785046729" />
+      <point x="0.0" y="53.0" />
+    </edge>
+    <edge source="edu.fiuba.algo3.modelo.mapa.Mapa" target="edu.fiuba.algo3.modelo.camino.Camino" relationship="CREATE">
+      <point x="-104.25" y="-234.0" />
+      <point x="-500.16120827770374" y="1289.1705607476638" />
+      <point x="15.581775700934486" y="1289.1705607476638" />
+      <point x="-82.5" y="138.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.6303387334315169" showDependencies="true" x="299.7452336448587" y="1336.4279439252327" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Constructors</Category>
+    <Category>Fields</Category>
+    <Category>Inner Classes</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

@@ -1,84 +1,83 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Diagram>
   <ID>JAVA</ID>
-  <OriginalElement>/home/nazareno/Desktop/Algo 3/FIUBA-Algo3-TP2/src/main/java/edu/fiuba/algo3/Equipamientos</OriginalElement>
+  <OriginalElement>/home/nazareno/Desktop/Algo 3/FIUBA-Algo3-TP2/src/main/java/edu/fiuba/algo3/modelo/equipamientos</OriginalElement>
   <nodes>
-    <node x="781.8530470249518" y="279.09788867562384">edu.fiuba.algo3.Equipamientos.Llave</node>
-    <node x="141.25" y="249.97850287907863">edu.fiuba.algo3.Equipamientos.Armadura</node>
-    <node x="167.25" y="92.0">edu.fiuba.algo3.Equipamientos.Equipamiento</node>
-    <node x="-499.3530470249518" y="220.85911708253354">edu.fiuba.algo3.Equipamientos.SinEquipamiento</node>
-    <node x="-179.05152351247594" y="235.41880998080615">edu.fiuba.algo3.Equipamientos.Casco</node>
-    <node x="141.25" y="-16.0">edu.fiuba.algo3.Equipamientos.Afectable</node>
-    <node x="461.5515235124759" y="261.8909788867562">edu.fiuba.algo3.Equipamientos.EscudoYEspada</node>
+    <node x="745.0083110316166" y="253.34711332858166">edu.fiuba.algo3.modelo.equipamientos.Llave</node>
+    <node x="161.25" y="92.0">edu.fiuba.algo3.modelo.equipamientos.Equipamiento</node>
+    <node x="-186.23966500356386" y="224.62295081967216">edu.fiuba.algo3.modelo.equipamientos.Casco</node>
+    <node x="124.17632700816301" y="233.46115466856736">edu.fiuba.algo3.modelo.equipamientos.Armadura</node>
+    <node x="-496.6556570152907" y="215.78474697077684">edu.fiuba.algo3.modelo.equipamientos.SinEquipamiento</node>
+    <node x="135.25" y="-16.0">edu.fiuba.algo3.modelo.equipamientos.Afectable</node>
+    <node x="434.5923190198898" y="243.40413399857442">edu.fiuba.algo3.modelo.equipamientos.EscudoYEspada</node>
   </nodes>
   <notes />
   <edges>
-    <edge source="edu.fiuba.algo3.Equipamientos.Llave" target="edu.fiuba.algo3.Equipamientos.Equipamiento" relationship="GENERALIZATION">
-      <point x="0.0" y="-41.0" />
-      <point x="926.8530470249518" y="207.93090211132437" />
-      <point x="286.25" y="207.93090211132437" />
+    <edge source="edu.fiuba.algo3.modelo.equipamientos.Llave" target="edu.fiuba.algo3.modelo.equipamientos.Equipamiento" relationship="GENERALIZATION">
+      <point x="0.0" y="-53.0" />
+      <point x="890.0083110316166" y="200.01639344262296" />
+      <point x="280.25" y="200.01639344262296" />
       <point x="0.0" y="29.0" />
     </edge>
-    <edge source="edu.fiuba.algo3.Equipamientos.Casco" target="edu.fiuba.algo3.Equipamientos.Equipamiento" relationship="GENERALIZATION">
-      <point x="72.5" y="-41.0" />
-      <point x="38.44847648752406" y="207.93090211132437" />
-      <point x="286.25" y="207.93090211132437" />
+    <edge source="edu.fiuba.algo3.modelo.equipamientos.SinEquipamiento" target="edu.fiuba.algo3.modelo.equipamientos.Equipamiento" relationship="GENERALIZATION">
+      <point x="-0.5417770545606686" y="-42.91161796151266" />
+      <point x="-352.1974340698514" y="197.62295081967204" />
+      <point x="280.25" y="197.62295081967204" />
       <point x="0.0" y="29.0" />
     </edge>
-    <edge source="edu.fiuba.algo3.Equipamientos.SinEquipamiento" target="edu.fiuba.algo3.Equipamientos.Casco" relationship="CREATE">
-      <point x="9.870513435700445" y="51.27984644913573" />
-      <point x="-344.4825335892514" y="402.3289827255278" />
-      <point x="-110.24030710172752" y="402.3289827255278" />
-      <point x="-76.18878358925159" y="44.6602687140109" />
-    </edge>
-    <edge source="edu.fiuba.algo3.Equipamientos.SinEquipamiento" target="edu.fiuba.algo3.Equipamientos.Equipamiento" relationship="GENERALIZATION">
-      <point x="72.5" y="-41.0" />
-      <point x="-281.8530470249518" y="207.93090211132437" />
-      <point x="286.25" y="207.93090211132437" />
+    <edge source="edu.fiuba.algo3.modelo.equipamientos.Casco" target="edu.fiuba.algo3.modelo.equipamientos.Equipamiento" relationship="GENERALIZATION">
+      <point x="7.217569493940516" y="-49.54027084818415" />
+      <point x="-34.02209550962334" y="197.62295081967204" />
+      <point x="280.25" y="197.62295081967204" />
       <point x="0.0" y="29.0" />
     </edge>
-    <edge source="edu.fiuba.algo3.Equipamientos.Armadura" target="edu.fiuba.algo3.Equipamientos.EscudoYEspada" relationship="CREATE">
-      <point x="46.95499040307095" y="44.661804222648186" />
-      <point x="333.20499040307095" y="402.3289827255278" />
-      <point x="550.2767754318618" y="402.3289827255278" />
-      <point x="-56.27474808061413" y="36.72015355086313" />
+    <edge source="edu.fiuba.algo3.modelo.equipamientos.EscudoYEspada" target="edu.fiuba.algo3.modelo.equipamientos.Llave" relationship="CREATE">
+      <point x="52.5652005809651" y="54.308624376334706" />
+      <point x="632.1575196008549" y="385.3471133285816" />
+      <point x="890.0083110316166" y="385.3471133285816" />
+      <point x="-0.0" y="53.0" />
     </edge>
-    <edge source="edu.fiuba.algo3.Equipamientos.EscudoYEspada" target="edu.fiuba.algo3.Equipamientos.Llave" relationship="CREATE">
-      <point x="87.34881238003834" y="39.36737044145815" />
-      <point x="693.9003358925142" y="402.3289827255278" />
-      <point x="926.8530470249518" y="402.3289827255278" />
-      <point x="-0.0" y="41.0" />
+    <edge source="edu.fiuba.algo3.modelo.equipamientos.Armadura" target="edu.fiuba.algo3.modelo.equipamientos.EscudoYEspada" relationship="CREATE">
+      <point x="59.16793528691852" y="52.09907341411099" />
+      <point x="328.34426229508153" y="385.3471133285816" />
+      <point x="579.5923190198898" y="385.3471133285816" />
+      <point x="-0.0" y="53.0" />
     </edge>
-    <edge source="edu.fiuba.algo3.Equipamientos.Equipamiento" target="edu.fiuba.algo3.Equipamientos.Afectable" relationship="REALIZATION">
+    <edge source="edu.fiuba.algo3.modelo.equipamientos.Equipamiento" target="edu.fiuba.algo3.modelo.equipamientos.Afectable" relationship="REALIZATION">
       <point x="0.0" y="-29.0" />
       <point x="0.0" y="29.0" />
     </edge>
-    <edge source="edu.fiuba.algo3.Equipamientos.EscudoYEspada" target="edu.fiuba.algo3.Equipamientos.Equipamiento" relationship="GENERALIZATION">
-      <point x="72.5" y="-41.0" />
-      <point x="666.7178502879077" y="261.8909788867562" />
-      <point x="666.7178502879077" y="207.93090211132437" />
-      <point x="286.25" y="207.93090211132437" />
+    <edge source="edu.fiuba.algo3.modelo.equipamientos.SinEquipamiento" target="edu.fiuba.algo3.modelo.equipamientos.Casco" relationship="CREATE">
+      <point x="-4.960878979007418" y="50.99429793300004" />
+      <point x="-356.61653599429815" y="385.3471133285816" />
+      <point x="-83.73699215965803" y="385.3471133285816" />
+      <point x="-42.49732715609417" y="54.30862437633567" />
+    </edge>
+    <edge source="edu.fiuba.algo3.modelo.equipamientos.EscudoYEspada" target="edu.fiuba.algo3.modelo.equipamientos.Equipamiento" relationship="GENERALIZATION">
+      <point x="72.5" y="-53.0" />
+      <point x="652.0923190198898" y="200.01639344262296" />
+      <point x="280.25" y="200.01639344262296" />
       <point x="0.0" y="29.0" />
     </edge>
-    <edge source="edu.fiuba.algo3.Equipamientos.Armadura" target="edu.fiuba.algo3.Equipamientos.Equipamiento" relationship="GENERALIZATION">
-      <point x="0.6286948176583564" y="-44.019961612284646" />
-      <point x="286.87869481765836" y="239.016890595009" />
-      <point x="286.25" y="239.016890595009" />
-      <point x="0.0" y="29.0" />
+    <edge source="edu.fiuba.algo3.modelo.equipamientos.Casco" target="edu.fiuba.algo3.modelo.equipamientos.Armadura" relationship="CREATE">
+      <point x="46.989486813970984" y="52.09907341411213" />
+      <point x="5.749821810407127" y="385.3471133285816" />
+      <point x="269.176327008163" y="385.3471133285816" />
+      <point x="-0.0" y="53.0" />
     </edge>
-    <edge source="edu.fiuba.algo3.Equipamientos.Casco" target="edu.fiuba.algo3.Equipamientos.Armadura" relationship="CREATE">
-      <point x="48.26687859884831" y="44.661804222648186" />
-      <point x="14.21535508637237" y="402.3289827255278" />
-      <point x="236.58157389635312" y="402.3289827255278" />
-      <point x="-49.66842610364688" y="42.01458733205317" />
+    <edge source="edu.fiuba.algo3.modelo.equipamientos.Armadura" target="edu.fiuba.algo3.modelo.equipamientos.Equipamiento" relationship="GENERALIZATION">
+      <point x="11.662589599106354" y="-50.64504632929567" />
+      <point x="280.83891660726937" y="200.01639344262296" />
+      <point x="280.25" y="200.01639344262296" />
+      <point x="0.0" y="29.0" />
     </edge>
   </edges>
-  <settings layout="Hierarchic" zoom="0.7555104408352669" showDependencies="true" x="322.6161228406912" y="354.17082533589195" />
+  <settings layout="Hierarchic" zoom="0.9051612903225806" showDependencies="true" x="350.99215965787585" y="283.8738417676391" />
   <SelectedNodes />
   <Categories>
+    <Category>Fields</Category>
     <Category>Inner Classes</Category>
     <Category>Methods</Category>
-    <Category>Properties</Category>
   </Categories>
   <SCOPE>All</SCOPE>
   <VISIBILITY>private</VISIBILITY>
