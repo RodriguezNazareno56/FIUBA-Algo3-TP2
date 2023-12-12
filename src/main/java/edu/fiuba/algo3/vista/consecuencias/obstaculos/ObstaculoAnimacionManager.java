@@ -13,9 +13,10 @@ public class ObstaculoAnimacionManager implements ConsecuenciaAnimacion {
     public void agregarAnimacion(MapaVista mapaVista, IConsecuencia consecuencia, Coordenada coordenada) {
         if(this.seEncotroObstaculos(consecuencia)){
             ObstaculoAnimacion obstaculoAnimacion = new ObstaculoAnimacion();
-            obstaculoAnimacion.setFitWidth(20);
-            obstaculoAnimacion.setFitHeight(20);
+            obstaculoAnimacion.setFitWidth(40);
+            obstaculoAnimacion.setFitHeight(40);
             mapaVista.add(obstaculoAnimacion, coordenada.getX(),coordenada.getY());
+
         }
     }
 
