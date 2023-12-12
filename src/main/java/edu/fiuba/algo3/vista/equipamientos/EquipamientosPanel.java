@@ -14,7 +14,6 @@ public class EquipamientosPanel extends GridPane implements ObservadorEquipamien
 
     public EquipamientosPanel() {
         this.equipamientos = new ArrayDeque<>();
-this.setGridLinesVisible(true);
 
         EquipamientoBox boxCasco = new EquipamientoBox(new Casco());
         this.add(boxCasco, 0, 0);
@@ -34,8 +33,7 @@ this.setGridLinesVisible(true);
 
         this.setAlignment(Pos.CENTER);
 
-        //boxCasco.visibilizarEquipamiento();
-        //boxArmadura.visibilizarEquipamiento();
+
     }
 
     public EquipamientosPanel(Gladiador gladiador) {
