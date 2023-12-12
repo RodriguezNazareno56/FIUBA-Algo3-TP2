@@ -58,7 +58,6 @@ public class GladiadorVista extends StackPane {
         VBox gladiadorVista = new VBox();
         gladiadorVista.getChildren().add(imageView);
         gladiadorVista.getChildren().add(nombreLabel);
-        gladiadorVista.setSpacing(0);
         gladiadorVista.setAlignment(Pos.CENTER);
 
         this.getChildren().add(gladiadorVista);
