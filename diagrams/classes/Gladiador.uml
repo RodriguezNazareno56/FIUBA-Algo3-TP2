@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>edu.fiuba.algo3.modelo.gladiador.Energia</OriginalElement>
+  <nodes>
+    <node x="487.6414354473385" y="339.6104190260476">edu.fiuba.algo3.modelo.gladiador.senority.Senority</node>
+    <node x="546.4942100792751" y="694.0">edu.fiuba.algo3.modelo.gladiador.Energia</node>
+    <node x="-97.53227633069082" y="310.0">edu.fiuba.algo3.modelo.gladiador.Gladiador</node>
+    <node x="556.9942100792751" y="559.7638731596828">edu.fiuba.algo3.modelo.equipamientos.Equipamiento</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="edu.fiuba.algo3.modelo.gladiador.Gladiador" target="edu.fiuba.algo3.modelo.gladiador.Energia" relationship="TO_ONE">
+      <point x="-118.03750000000002" y="-330.0" />
+      <point x="33.43022366930916" y="862.6240090600227" />
+      <point x="675.9942100792751" y="862.6240090600227" />
+      <point x="0.0" y="138.0" />
+    </edge>
+    <edge source="edu.fiuba.algo3.modelo.gladiador.Gladiador" target="edu.fiuba.algo3.modelo.equipamientos.Equipamiento" relationship="TO_ONE">
+      <point x="150.46249999999998" y="-330.0" />
+      <point x="301.93022366930916" y="628.9875424688561" />
+      <point x="675.9942100792751" y="628.9875424688561" />
+      <point x="0.0" y="41.5" />
+    </edge>
+    <edge source="edu.fiuba.algo3.modelo.gladiador.Gladiador" target="edu.fiuba.algo3.modelo.gladiador.senority.Senority" relationship="TO_ONE">
+      <point x="245.6789354473375" y="-47.6149490373723" />
+      <point x="432.6616010758777" y="592.3850509626277" />
+      <point x="432.6616010758777" y="427.1868629671574" />
+      <point x="-179.21165062287787" y="-2.423556058890199" />
+    </edge>
+    <edge source="edu.fiuba.algo3.modelo.gladiador.Gladiador" target="edu.fiuba.algo3.modelo.gladiador.Energia" relationship="CREATE">
+      <point x="0.0" y="-330.0" />
+      <point x="151.46772366930918" y="954.0498301245754" />
+      <point x="495.1262740656839" y="954.0498301245754" />
+      <point x="495.1262740656839" y="963.7961494903743" />
+      <point x="-85.16691676104313" y="131.79614949037432" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.8777335984095428" showDependencies="true" x="533.862400906001" y="614.6013590033981" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Constructors</Category>
+    <Category>Fields</Category>
+    <Category>Inner Classes</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

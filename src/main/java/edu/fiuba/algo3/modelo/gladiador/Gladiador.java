@@ -94,7 +94,7 @@ public class Gladiador implements ObservableGladiador, ObservableEquipamiento {
         return enemigo.atacarATravesDelEquipamiento(this.equipamiento);
     }
 
-    public void enojar() {
+    public void lesionar() {
         this.pausarMovimiento();
         logger.info(this + " sufre una lesion. No podra moverse en el siguiente turno");
     }

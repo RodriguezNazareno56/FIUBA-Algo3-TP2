@@ -6,7 +6,7 @@ public class Lesion extends Consecuencia {
 
     @Override
     public void afectarGladiador(Gladiador gladiador) {
-        gladiador.enojar();
+        gladiador.lesionar();
     }
 
     @Override
