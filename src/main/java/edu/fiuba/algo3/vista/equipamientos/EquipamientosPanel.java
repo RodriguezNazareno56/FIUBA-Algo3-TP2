@@ -2,6 +2,7 @@ package edu.fiuba.algo3.vista.equipamientos;
 
 import edu.fiuba.algo3.controladores.observers.ObservadorEquipamiento;
 import edu.fiuba.algo3.modelo.gladiador.Gladiador;
+import javafx.geometry.Pos;
 import javafx.scene.layout.GridPane;
 
 import java.util.ArrayDeque;
@@ -13,7 +14,7 @@ public class EquipamientosPanel extends GridPane implements ObservadorEquipamien
 
     public EquipamientosPanel() {
         this.equipamientos = new ArrayDeque<>();
-
+this.setGridLinesVisible(true);
 
         EquipamientoBox boxCasco = new EquipamientoBox(new Casco());
         this.add(boxCasco, 0, 0);
@@ -30,6 +31,8 @@ public class EquipamientosPanel extends GridPane implements ObservadorEquipamien
         EquipamientoBox boxLlave = new EquipamientoBox(new Llave());
         this.add(boxLlave, 3, 0);
         this.equipamientos.add(boxLlave);
+
+        this.setAlignment(Pos.CENTER);
 
         //boxCasco.visibilizarEquipamiento();
         //boxArmadura.visibilizarEquipamiento();

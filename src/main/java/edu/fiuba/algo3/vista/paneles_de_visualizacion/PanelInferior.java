@@ -29,7 +29,7 @@ public class PanelInferior extends HBox {
     }
 
     public void agregarElementos(Node node){
-        this.setSpacing(50);
+        this.setSpacing(10);
         this.getChildren().add(node);
     }
 
