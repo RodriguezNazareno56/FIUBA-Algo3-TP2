@@ -45,21 +45,20 @@ public class App extends Application {
 
         HashMap<String, String> dirImagenesPorNombreGladiador = new HashMap<>();
 
-
-        AudioClip sonidoFondo = new AudioClip("file:src/main/resources/edu/fiuba/algo3/vista/media/gamemusic.mp3");
-        sonidoFondo.play();
+        AudioClip sonidoDeFondo = new AudioClip("file:src/main/resources/edu/fiuba/algo3/vista/media/gamemusic.mp3");
+        sonidoDeFondo.play();
 
         DadoButton dadoButton = new DadoButton(algoRoma, stage);
         dado.agregarObservador(dadoButton);
 
-        AlgoRomaPantalla algoRomaPantalla = new AlgoRomaPantalla(stage, algoRoma, dadoButton, dirImagenesPorNombreGladiador, sonidoFondo);
+        AlgoRomaPantalla algoRomaPantalla = new AlgoRomaPantalla(stage, algoRoma, dadoButton, dirImagenesPorNombreGladiador, sonidoDeFondo);
         Scene mapaVista = new Scene(algoRomaPantalla, ViewProperties.stageMaximoAlto, ViewProperties.stageMaximoAncho );
 
         ElegirGladiadorPantalla agregarJugadorPantalla = new ElegirGladiadorPantalla(stage, mapaVista,
-                algoRoma , algoRomaPantalla, dirImagenesPorNombreGladiador);
+                algoRoma , algoRomaPantalla, dirImagenesPorNombreGladiador, sonidoDeFondo);
         Scene escenaJugador = new Scene(agregarJugadorPantalla, ViewProperties.stageMaximoAlto, ViewProperties.stageMaximoAncho);
 
-        BienvenidaPantalla bienvenidaPantalla = new BienvenidaPantalla(stage, escenaJugador, sonidoFondo);
+        BienvenidaPantalla bienvenidaPantalla = new BienvenidaPantalla(stage, escenaJugador, sonidoDeFondo);
         Scene escenaBienvenida = new Scene(bienvenidaPantalla, ViewProperties.stageMaximoAlto, ViewProperties.stageMaximoAncho);
 
 
