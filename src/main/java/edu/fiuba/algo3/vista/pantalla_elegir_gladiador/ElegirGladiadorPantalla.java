@@ -46,7 +46,6 @@ public class ElegirGladiadorPantalla extends BorderPane implements ObservadorAlg
         MenuBarra menuBarra = new MenuBarra(stage, sonidoFondo);
         this.setTop(menuBarra);
 
-
         VBox contenedorElegirGladiador = new VBox();
 
         this.algoRoma = algoRoma;
