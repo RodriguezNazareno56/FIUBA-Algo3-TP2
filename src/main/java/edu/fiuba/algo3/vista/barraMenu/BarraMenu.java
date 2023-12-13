@@ -1,9 +1,6 @@
 package edu.fiuba.algo3.vista.barraMenu;
 
-import javafx.scene.control.Menu;
-import javafx.scene.control.MenuBar;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.SeparatorMenuItem;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
@@ -16,15 +13,30 @@ public class BarraMenu extends MenuBar {
         Menu opciones = new Menu();
 
         ImageView imagenOpciones = new ImageView("file:src/main/resources/edu/fiuba/algo3/vista/barraMemu/imagenOpcionesMenu.png");
-        imagenOpciones.setFitHeight(25);
-        imagenOpciones.setFitWidth(25);
+        imagenOpciones.setFitHeight(15);
+        imagenOpciones.setFitWidth(15);
         opciones.setGraphic(imagenOpciones);
 
         MenuItem itemInstrucciones = new MenuItem("Instrucciones");
         opciones.getItems().add(itemInstrucciones);
 
-        MenuItem itemSonido = new MenuItem("Sonido");
+
+        // Item Sonido - SubMenu
+        Menu itemSonido = new Menu("Sonido");
         opciones.getItems().add(itemSonido);
+
+        RadioMenuItem itemActivado = new RadioMenuItem("Activado");
+        RadioMenuItem itemDesactivado = new RadioMenuItem("Desactivado");
+        itemActivado.setSelected(true);
+
+        ToggleGroup toggleGroup = new ToggleGroup();
+        toggleGroup.getToggles().add(itemActivado);
+        toggleGroup.getToggles().add(itemDesactivado);
+
+        itemSonido.getItems().add(itemActivado);
+        itemSonido.getItems().add(itemDesactivado);
+
+
 
         MenuItem itemPantallCompleta = new MenuItem("Pantalla Completa");
         opciones.getItems().add(itemPantallCompleta);
