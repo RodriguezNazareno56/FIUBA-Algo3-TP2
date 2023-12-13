@@ -19,13 +19,12 @@ public class BienvenidaPantalla extends BorderPane {
 
     private Stage stage;
 
-    public BienvenidaPantalla(Stage stage, Scene proximaEscena){
+    public BienvenidaPantalla(Stage stage, Scene proximaEscena, AudioClip sonidoFondo){
         super();
+
         this.stage = stage;
 
-        AudioClip sonidoFondo = new AudioClip("file:src/main/resources/edu/fiuba/algo3/vista/media/gamemusic.mp3");
-
-        MenuBarra menuBarra = new MenuBarra(sonidoFondo);
+        MenuBarra menuBarra = new MenuBarra(stage , sonidoFondo);
         this.setTop(menuBarra);
 
 

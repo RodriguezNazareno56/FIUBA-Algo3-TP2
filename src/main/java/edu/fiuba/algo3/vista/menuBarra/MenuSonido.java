@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.vista.menuBarra;
 
+import edu.fiuba.algo3.vista.menuBarra.controladoresBarra.ActivarSonidoEventHandler;
+import edu.fiuba.algo3.vista.menuBarra.controladoresBarra.DesactivarSonidoEventHandler;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Menu;
@@ -19,26 +21,13 @@ public class MenuSonido extends Menu {
         RadioMenuItem itemActivado  = new RadioMenuItem("Activado");
         RadioMenuItem itemDesactivado = new RadioMenuItem("Desactivado");
 
-        itemActivado.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                sonido.play();
-                itemActivado.setDisable(true);
-                itemDesactivado.setDisable(false);
-            }
-        });
 
+        ActivarSonidoEventHandler activarSonidoEventHandler = new ActivarSonidoEventHandler(sonido, itemActivado, itemDesactivado);
+        itemActivado.setOnAction(activarSonidoEventHandler);
 
-        itemDesactivado.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                sonido.stop();
-                itemActivado.setDisable(false);
-                itemDesactivado.setDisable(true);
-            }
-        });
+        DesactivarSonidoEventHandler desactivarSonidoEventHandler = new DesactivarSonidoEventHandler(sonido, itemActivado, itemDesactivado);
+        itemDesactivado.setOnAction(desactivarSonidoEventHandler);
 
-        sonido.play();
         itemActivado.setSelected(true);
         itemActivado.setDisable(true);
 

@@ -12,6 +12,7 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.media.AudioClip;
+import javafx.stage.Stage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -32,21 +33,17 @@ public class AlgoRomaPantalla extends BorderPane implements ObservadorAlgoRoma {
     private ArrayList<GladiadorAnimado> gladiadoresAnimados;
     private HashMap<String, String> colorPorClaveNombreGladiador;
 
-    public AlgoRomaPantalla(AlgoRoma algoRoma, DadoButton dadoButton, HashMap<String, String> colorPorClaveNombreGladiador) throws MalformedURLException {
+    public AlgoRomaPantalla(Stage stage, AlgoRoma algoRoma, DadoButton dadoButton, HashMap<String, String> colorPorClaveNombreGladiador, AudioClip sonidoFondo) throws MalformedURLException {
         super();
         this.algoRoma = algoRoma;
         this.colorPorClaveNombreGladiador = colorPorClaveNombreGladiador;
         panelInferiorsDeque = new ArrayDeque<>();
         gladiadoresAnimados = new ArrayList<>();
 
-/*
-        AudioClip   sonidoFondo = new AudioClip("file:src/main/resources/edu/fiuba/algo3/vista/media/gamemusic.mp3");
 
-        //Barra Menu
-        MenuBarra menuBarra = new MenuBarra(sonidoFondo);
+        MenuBarra menuBarra = new MenuBarra(stage , sonidoFondo);
         this.setTop(menuBarra);
 
-*/
         // Columna Izquierda con perfiles de Gladiadores
         this.panelPanelLateralGladiadores = new PanelLateralGladiadores(dadoButton);
 
