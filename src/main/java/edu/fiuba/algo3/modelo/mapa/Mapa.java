@@ -65,13 +65,12 @@ public class Mapa extends ObservableMapa {
         this.posicionDeGladiadores.put(gladiador, celdaDestino);
         logger.info(gladiador + " avanza a " + celdaDestino.toString());
 
-        notificarPosicionamientoDeGladiador(gladiador, celdaDestino.getCoordenada());
-
         try {
             celdaDestino.afectarGladiadorConConsecuencia(gladiador);
         } catch (TriunfoNoPosibleException e) {
             this.retrocederGladiadorAMitadDeCamino(gladiador);
         }
+        notificarPosicionamientoDeGladiador(gladiador, celdaDestino.getCoordenada());
     }
 
     private void retrocederGladiadorAMitadDeCamino(Gladiador gladiador) {

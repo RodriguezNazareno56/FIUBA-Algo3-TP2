@@ -143,4 +143,8 @@ public class Gladiador implements ObservableGladiador, ObservableEquipamiento {
     public void agregarObservadorEquipamiento(ObservadorEquipamiento observadorEquipamiento) {
         this.observadoresEquipamiento.add(observadorEquipamiento);
     }
+
+    public Equipamiento getEquipamiento() {
+        return this.equipamiento;
+    }
 }
