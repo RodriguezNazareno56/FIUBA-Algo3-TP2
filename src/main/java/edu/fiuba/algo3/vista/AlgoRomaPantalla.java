@@ -8,6 +8,7 @@ import edu.fiuba.algo3.vista.gladiador.GladiadorAnimado;
 import edu.fiuba.algo3.vista.mapa.MapaVista;
 import edu.fiuba.algo3.vista.paneles_de_visualizacion.PanelInferior;
 import edu.fiuba.algo3.vista.paneles_de_visualizacion.PanelLateralGladiadores;
+import edu.fiuba.algo3.vista.paneles_de_visualizacion.PanelPrincipal;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.layout.BorderPane;
@@ -51,11 +52,11 @@ public class AlgoRomaPantalla extends BorderPane implements ObservadorAlgoRoma {
         this.setLeft(panelPanelLateralGladiadores);
         this.setMargin(panelPanelLateralGladiadores, new Insets(5, 0, 5, 5));
 
-        //Creacion del camino
-
+        //Creacion del panel centrar que contiene el mapa
         this.mapaVista = new MapaVista(algoRoma);
-        this.setCenter(mapaVista);
-        this.setMargin(mapaVista, new Insets(5, 5, 5, 5));
+        PanelPrincipal panelPrincipal = new PanelPrincipal(algoRoma.getMapa(), mapaVista);
+        this.setCenter(panelPrincipal);
+        this.setMargin(panelPrincipal, new Insets(5, 5, 5, 5));
 
         BorderPane.setAlignment(mapaVista, Pos.TOP_CENTER);
 /*
