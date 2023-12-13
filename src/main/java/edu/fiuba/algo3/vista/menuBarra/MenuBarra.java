@@ -1,13 +1,15 @@
-package edu.fiuba.algo3.vista.barraMenu;
+package edu.fiuba.algo3.vista.menuBarra;
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.control.*;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.media.AudioClip;
 
-public class BarraMenu extends MenuBar {
+public class MenuBarra extends MenuBar {
 
 
-    public BarraMenu(){
+    public MenuBarra(AudioClip sonido){
 
 
         Menu opciones = new Menu();
@@ -20,22 +22,8 @@ public class BarraMenu extends MenuBar {
         MenuItem itemInstrucciones = new MenuItem("Instrucciones");
         opciones.getItems().add(itemInstrucciones);
 
-
-        // Item Sonido - SubMenu
-        Menu itemSonido = new Menu("Sonido");
+        MenuSonido itemSonido = new MenuSonido("Sonido", sonido);
         opciones.getItems().add(itemSonido);
-
-        RadioMenuItem itemActivado = new RadioMenuItem("Activado");
-        RadioMenuItem itemDesactivado = new RadioMenuItem("Desactivado");
-        itemActivado.setSelected(true);
-
-        ToggleGroup toggleGroup = new ToggleGroup();
-        toggleGroup.getToggles().add(itemActivado);
-        toggleGroup.getToggles().add(itemDesactivado);
-
-        itemSonido.getItems().add(itemActivado);
-        itemSonido.getItems().add(itemDesactivado);
-
 
 
         MenuItem itemPantallCompleta = new MenuItem("Pantalla Completa");

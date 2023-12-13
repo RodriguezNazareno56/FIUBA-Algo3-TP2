@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.vista;
 
-import edu.fiuba.algo3.vista.barraMenu.BarraMenu;
+import edu.fiuba.algo3.vista.menuBarra.MenuBarra;
 import edu.fiuba.algo3.vista.components.boton.BotonProximaEscenaEventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -9,6 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
+import javafx.scene.media.AudioClip;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
@@ -22,9 +23,10 @@ public class BienvenidaPantalla extends BorderPane {
         super();
         this.stage = stage;
 
+        AudioClip sonidoFondo = new AudioClip("file:src/main/resources/edu/fiuba/algo3/vista/media/gamemusic.mp3");
 
-        BarraMenu barraMenu = new BarraMenu();
-        this.setTop(barraMenu);
+        MenuBarra menuBarra = new MenuBarra(sonidoFondo);
+        this.setTop(menuBarra);
 
 
         //Contenido principal de la pantalla
