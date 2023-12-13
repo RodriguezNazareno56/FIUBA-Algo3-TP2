@@ -2,6 +2,7 @@ package edu.fiuba.algo3.vista;
 
 import edu.fiuba.algo3.controladores.observers.ObservadorAlgoRoma;
 import edu.fiuba.algo3.modelo.AlgoRoma;
+import edu.fiuba.algo3.vista.barraMenu.BarraMenu;
 import edu.fiuba.algo3.vista.dado.DadoButton;
 import edu.fiuba.algo3.vista.gladiador.GladiadorAnimado;
 import edu.fiuba.algo3.vista.mapa.MapaVista;
@@ -40,6 +41,12 @@ public class AlgoRomaPantalla extends BorderPane implements ObservadorAlgoRoma {
         this.colorPorClaveNombreGladiador = colorPorClaveNombreGladiador;
         panelInferiorsDeque = new ArrayDeque<>();
         gladiadoresAnimados = new ArrayList<>();
+
+
+        //Barra Menu
+        BarraMenu barraMenu = new BarraMenu();
+        this.setTop(barraMenu);
+
 
         // Columna Izquierda con perfiles de Gladiadores
         this.panelPanelLateralGladiadores = new PanelLateralGladiadores(dadoButton);
