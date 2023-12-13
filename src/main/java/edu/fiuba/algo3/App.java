@@ -17,10 +17,12 @@ import edu.fiuba.algo3.modelo.dado.Dado;
 import edu.fiuba.algo3.vista.BienvenidaPantalla;
 import edu.fiuba.algo3.vista.ViewProperties;
 import edu.fiuba.algo3.vista.dado.DadoButton;
+import edu.fiuba.algo3.vista.menuBarra.MenuBarra;
 import edu.fiuba.algo3.vista.pantalla_elegir_gladiador.ElegirGladiadorPantalla;
 import edu.fiuba.algo3.vista.AlgoRomaPantalla;
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.media.AudioClip;
 import javafx.stage.Stage;
 import org.slf4j.LoggerFactory;
 
@@ -43,18 +45,20 @@ public class App extends Application {
 
         HashMap<String, String> dirImagenesPorNombreGladiador = new HashMap<>();
 
+        AudioClip sonidoDeFondo = new AudioClip("file:src/main/resources/edu/fiuba/algo3/vista/media/gamemusic.mp3");
+        sonidoDeFondo.play();
 
         DadoButton dadoButton = new DadoButton(algoRoma, stage);
         dado.agregarObservador(dadoButton);
 
-        AlgoRomaPantalla algoRomaPantalla = new AlgoRomaPantalla(algoRoma, dadoButton, dirImagenesPorNombreGladiador);
+        AlgoRomaPantalla algoRomaPantalla = new AlgoRomaPantalla(stage, algoRoma, dadoButton, dirImagenesPorNombreGladiador, sonidoDeFondo);
         Scene mapaVista = new Scene(algoRomaPantalla, ViewProperties.stageMaximoAlto, ViewProperties.stageMaximoAncho );
 
         ElegirGladiadorPantalla agregarJugadorPantalla = new ElegirGladiadorPantalla(stage, mapaVista,
-                algoRoma , algoRomaPantalla, dirImagenesPorNombreGladiador);
+                algoRoma , algoRomaPantalla, dirImagenesPorNombreGladiador, sonidoDeFondo);
         Scene escenaJugador = new Scene(agregarJugadorPantalla, ViewProperties.stageMaximoAlto, ViewProperties.stageMaximoAncho);
 
-        BienvenidaPantalla bienvenidaPantalla = new BienvenidaPantalla(stage, escenaJugador);
+        BienvenidaPantalla bienvenidaPantalla = new BienvenidaPantalla(stage, escenaJugador, sonidoDeFondo);
         Scene escenaBienvenida = new Scene(bienvenidaPantalla, ViewProperties.stageMaximoAlto, ViewProperties.stageMaximoAncho);
 
 

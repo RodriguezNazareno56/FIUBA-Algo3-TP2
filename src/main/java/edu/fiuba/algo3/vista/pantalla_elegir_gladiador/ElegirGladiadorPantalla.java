@@ -3,20 +3,23 @@ package edu.fiuba.algo3.vista.pantalla_elegir_gladiador;
 import edu.fiuba.algo3.controladores.GladiadorFactory;
 import edu.fiuba.algo3.controladores.observers.ObservadorAlgoRoma;
 import edu.fiuba.algo3.modelo.AlgoRoma;
+import edu.fiuba.algo3.vista.menuBarra.MenuBarra;
 import edu.fiuba.algo3.vista.pantalla_elegir_gladiador.componentes.JugarPartidaButtonEventHandler;
 import edu.fiuba.algo3.vista.AlgoRomaPantalla;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Menu;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
+import javafx.scene.media.AudioClip;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
 
-public class ElegirGladiadorPantalla extends VBox implements ObservadorAlgoRoma {
+public class ElegirGladiadorPantalla extends BorderPane implements ObservadorAlgoRoma {
 
     private HashMap<Image, String> direccionesPorImage = new HashMap<>();
 
@@ -37,8 +40,13 @@ public class ElegirGladiadorPantalla extends VBox implements ObservadorAlgoRoma 
 
     private final int ESPACIADO_BLOQUES = 40;
     public ElegirGladiadorPantalla(Stage stage, Scene escenaSiguiente, AlgoRoma algoRoma, AlgoRomaPantalla algoRomaPantalla,
-                                   HashMap<String,String> colorPorClaveNombreGladiador) {
+                                   HashMap<String,String> colorPorClaveNombreGladiador, AudioClip sonidoFondo) {
         super();
+
+        MenuBarra menuBarra = new MenuBarra(stage, sonidoFondo);
+        this.setTop(menuBarra);
+
+        VBox contenedorElegirGladiador = new VBox();
 
         this.algoRoma = algoRoma;
         algoRoma.agregarObservadorNuevoGladiador(this);
@@ -57,11 +65,12 @@ public class ElegirGladiadorPantalla extends VBox implements ObservadorAlgoRoma 
 
         this.actualizarBotonSiguienteEscena();
 
-        this.getChildren().addAll(this.gladiadoresElegidosHBox, selectorGladiador);
-        this.getChildren().add(botonSiguienteEscena);
 
-        this.setAlignment(Pos.CENTER);
-        this.setSpacing(ESPACIADO_BLOQUES);
+        contenedorElegirGladiador.getChildren().addAll(this.gladiadoresElegidosHBox, selectorGladiador);
+        contenedorElegirGladiador.getChildren().add(botonSiguienteEscena);
+
+        contenedorElegirGladiador.setAlignment(Pos.CENTER);
+        contenedorElegirGladiador.setSpacing(ESPACIADO_BLOQUES);
 
         //poner otra imagen, esta imagen no contrasta bien con las fotos
         Image imagen = new Image("file:src/main/resources/edu/fiuba/algo3/vista/ElegirGladiadorPantallaBackground.png");
@@ -71,11 +80,10 @@ public class ElegirGladiadorPantalla extends VBox implements ObservadorAlgoRoma 
                 BackgroundRepeat.NO_REPEAT,
                 BackgroundPosition.CENTER,
                 BackgroundSize.DEFAULT);
-        this.setBackground(new Background(imagenDeFondo));
+
+        contenedorElegirGladiador.setBackground(new Background(imagenDeFondo));
+        this.setCenter(contenedorElegirGladiador);
     }
-
-
-
 
 
     @Override
