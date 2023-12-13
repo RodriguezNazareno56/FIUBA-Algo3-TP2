@@ -12,7 +12,6 @@ import edu.fiuba.algo3.modelo.dado.Dado;
 import edu.fiuba.algo3.modelo.equipamientos.SinEquipamiento;
 import edu.fiuba.algo3.modelo.gladiador.*;
 import edu.fiuba.algo3.modelo.gladiador.exepciones.MovimientoException;
-import edu.fiuba.algo3.modelo.gladiador.exepciones.MovimientoPausadoExeption;
 import edu.fiuba.algo3.modelo.gladiador.senority.Senority;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
 import org.slf4j.Logger;
@@ -138,7 +137,7 @@ public class AlgoRoma extends ObservableAlgoRoma implements ObservadorGladiador 
         //comprobar si el juego termino porque algun gladiador gano
     }
 
-    private void avanzarGladiador() throws Exception, FinDelJuegoException {
+    private void avanzarGladiador() throws Exception {
         notificarNuevoTurno();
 
         Gladiador gladiador = gladiadoresEnEspera.poll();
@@ -150,7 +149,7 @@ public class AlgoRoma extends ObservableAlgoRoma implements ObservadorGladiador 
         try{
             mapa.avanzarNPosicionesGladiador(gladiador, resultadoDado);
         }
-        catch (MovimientoException | MovimientoPausadoExeption e){
+        catch (MovimientoException e){
             notificarTurnoPerdido(gladiador);
         }
     }

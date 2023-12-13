@@ -10,7 +10,6 @@ import edu.fiuba.algo3.modelo.consecuencias.IConsecuencia;
 import edu.fiuba.algo3.modelo.consecuencias.Enemigo;
 import edu.fiuba.algo3.modelo.equipamientos.Equipamiento;
 import edu.fiuba.algo3.modelo.gladiador.exepciones.MovimientoException;
-import edu.fiuba.algo3.modelo.gladiador.exepciones.MovimientoPausadoExeption;
 import edu.fiuba.algo3.modelo.gladiador.exepciones.TriunfoNoPosibleException;
 import edu.fiuba.algo3.modelo.gladiador.senority.Senority;
 import org.slf4j.Logger;
@@ -48,7 +47,7 @@ public class Gladiador implements ObservableGladiador, ObservableEquipamiento {
         return new Energia(this.energia.getValor());
     }
 
-    public void avanzar() throws MovimientoException, MovimientoPausadoExeption {
+    public void avanzar() throws MovimientoException {
         if (this.energia.isAgotada()) {
             logger.info(this + " se encuentra sin energia para moverse, para el siguiente turno se repondran 5 puntos");
             this.energia.aumentarEnergia(new Energia(5));
@@ -57,7 +56,7 @@ public class Gladiador implements ObservableGladiador, ObservableEquipamiento {
         if(!this.estaHabilitadoParaMover) {
             logger.info(this + " se encuentra se encuentra lesionado, podra moverse en el proximo turno");
             this.estaHabilitadoParaMover = true;
-            throw new MovimientoPausadoExeption("El gladiador esta pausado para mover en este turno");
+            throw new MovimientoException("El gladiador esta pausado para mover en este turno");
         }
 
         this.senority.aumentarEnergia(energia);

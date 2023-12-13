@@ -1,12 +1,8 @@
 package edu.fiuba.algo3.modelo.mapa;
 
 import edu.fiuba.algo3.controladores.observers.ObservableMapa;
-import edu.fiuba.algo3.controladores.observers.ObservadorDado;
-import edu.fiuba.algo3.controladores.observers.ObservadorMapa;
 import edu.fiuba.algo3.modelo.FinDelJuegoException;
-import edu.fiuba.algo3.modelo.celda.Coordenada;
 import edu.fiuba.algo3.modelo.gladiador.exepciones.MovimientoException;
-import edu.fiuba.algo3.modelo.gladiador.exepciones.MovimientoPausadoExeption;
 import edu.fiuba.algo3.modelo.camino.Camino;
 import edu.fiuba.algo3.modelo.celda.ICelda;
 import edu.fiuba.algo3.modelo.gladiador.Gladiador;
@@ -57,7 +53,7 @@ public class Mapa extends ObservableMapa {
         });
     }
 
-    public void avanzarNPosicionesGladiador(Gladiador gladiador, int posicionesCantidad) throws MovimientoPausadoExeption, MovimientoException, FinDelJuegoException {
+    public void avanzarNPosicionesGladiador(Gladiador gladiador, int posicionesCantidad) throws MovimientoException, FinDelJuegoException {
         ICelda celdaActual = posicionDeGladiadores.get(gladiador);
         ICelda celdaDestino = this.camino.proximoEnNPosiciones(celdaActual, posicionesCantidad);
 

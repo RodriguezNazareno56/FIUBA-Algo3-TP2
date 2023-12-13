@@ -2,13 +2,13 @@ package edu.fiuba.algo3.modelo.consecuencias;
 
 import edu.fiuba.algo3.modelo.FinDelJuegoException;
 import edu.fiuba.algo3.modelo.NombreInvalidoException;
+import edu.fiuba.algo3.modelo.gladiador.exepciones.MovimientoException;
 import edu.fiuba.algo3.modelo.gladiador.exepciones.TriunfoNoPosibleException;
 import edu.fiuba.algo3.modelo.equipamientos.Equipamiento;
 import edu.fiuba.algo3.modelo.equipamientos.SinEquipamiento;
 import edu.fiuba.algo3.modelo.gladiador.Energia;
 import edu.fiuba.algo3.modelo.gladiador.Gladiador;
 import edu.fiuba.algo3.modelo.gladiador.senority.Senority;
-import edu.fiuba.algo3.modelo.gladiador.exepciones.MovimientoPausadoExeption;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -24,7 +24,7 @@ public class LesionTest {
         //Arrange
         IConsecuencia lesion = new Lesion();
         Gladiador gladiadorMock = mock(Gladiador.class);
-        doThrow(new MovimientoPausadoExeption("El gladiador esta pausado para mover en este turno"))
+        doThrow(new MovimientoException("El gladiador esta pausado para mover en este turno"))
                 .when(gladiadorMock)
                 .avanzar();
 
@@ -32,7 +32,7 @@ public class LesionTest {
         gladiadorMock.recibirConsecuencia(lesion);
 
         //Assert
-        Assertions.assertThrows(MovimientoPausadoExeption.class, gladiadorMock::avanzar);
+        Assertions.assertThrows(MovimientoException.class, gladiadorMock::avanzar);
     }
 
     @Test
@@ -49,6 +49,6 @@ public class LesionTest {
         lesion.afectarGladiador(gladiador);
 
         //Assert
-        Assertions.assertThrows(MovimientoPausadoExeption.class, gladiador::avanzar);
+        Assertions.assertThrows(MovimientoException.class, gladiador::avanzar);
     }
 }
