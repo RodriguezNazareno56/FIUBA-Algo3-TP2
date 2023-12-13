@@ -8,7 +8,6 @@ import edu.fiuba.algo3.modelo.equipamientos.Equipamiento;
 import edu.fiuba.algo3.modelo.gladiador.Gladiador;
 import edu.fiuba.algo3.modelo.gladiador.exepciones.MovimientoException;
 import edu.fiuba.algo3.modelo.gladiador.senority.Senority;
-import edu.fiuba.algo3.modelo.gladiador.exepciones.MovimientoPausadoExeption;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -30,7 +29,7 @@ public class CasoDeUso8Test {
     }
 
     @Test
-    public void verificarQueSiPasan8TurnosElSeniorityDelGladiadorPasaDeNovatoASemiSeniorYVeSuEnergiaIncrementadaAlProximoTurno() throws MovimientoException, MovimientoPausadoExeption, TriunfoNoPosibleException {
+    public void verificarQueSiPasan8TurnosElSeniorityDelGladiadorPasaDeNovatoASemiSeniorYVeSuEnergiaIncrementadaAlProximoTurno() throws MovimientoException {
         // TODO: ver si podemos sacar ese .getEnergia()
         // Arrange
         for (int i = 1; i <= 8; i++) {
