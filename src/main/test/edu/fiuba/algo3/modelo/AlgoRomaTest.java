@@ -6,14 +6,13 @@ import edu.fiuba.algo3.modelo.mapa.Mapa;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-
 import org.mockito.Mockito;
 import org.slf4j.Logger;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class AlgoRomaTest {
 
@@ -199,6 +198,45 @@ public class AlgoRomaTest {
             }
         }
 
+    }
+
+    @Test
+    public void getNombresGladiadoresEnOrdenDeRondaDevuelveUnaListaVaciaSiNoAgregueGladiadores(){
+
+        //Act
+        List<String> nombresEnOrdenDeRonda = algoRoma.getNombresGladiadoresSegunOrdenEnRonda();
+
+        //Assert
+        //voy a comprobar que el mensaje isEmpty devuelve true
+
+        assertTrue(nombresEnOrdenDeRonda.isEmpty());
+
+    }
+
+    @Test
+    public void getRondasJugadasDevuelveCeroCuandoIniciaElJuego() {
+        // Arrange
+        int rondasJugadasEsperadas = 0;
+        // Act
+        int rondasJugadas = algoRoma.getRondasJugadas();
+        // Assert
+        assertEquals(rondasJugadasEsperadas, rondasJugadas);
+    }
+
+    @Test
+    public void getRondasJugadasDevuelve1LuegoDeJugarUnaRondaYQueJuegueUnGladiador() throws Exception {
+        // Arrange
+        algoRoma.agregarGladiador("Espartaco");
+        algoRoma.agregarGladiador("Augusto");
+        // Act
+        algoRoma.jugarTurno();
+        algoRoma.jugarTurno();
+        algoRoma.jugarTurno();
+
+        int rondasJugadasEsperadas = 1;
+
+        // Assert
+        assertEquals(rondasJugadasEsperadas, algoRoma.getRondasJugadas());
     }
 
 }

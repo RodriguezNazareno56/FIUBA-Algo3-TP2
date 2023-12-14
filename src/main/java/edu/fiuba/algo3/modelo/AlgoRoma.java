@@ -211,29 +211,27 @@ public class AlgoRoma extends ObservableAlgoRoma implements ObservadorGladiador 
     }
 
     public ArrayList<String> getNombresGladiadoresSegunOrdenEnRonda(){
-        int indicePrimero;
-        ArrayList<String> nombres = new ArrayList<>();
-        if(gladiadores.isEmpty()){
-            return nombres;
+        //si no hay gladiadores agregados devuelve una lista vacia
+
+        ArrayList<String> nombresEnOrden = new ArrayList<>();
+
+        Random random = new Random(gladiadores.size());
+        int indicePrimerGladiador;
+        try {
+            indicePrimerGladiador = random.nextInt(gladiadores.size());
         }
-        if(this.gladiadorPrimeroEnLaRonda == null){
-            Random random = new Random();
-            indicePrimero = random.nextInt(gladiadores.size());
-            this.gladiadorPrimeroEnLaRonda = gladiadores.get(indicePrimero).getNombre();
-        }
-        else{
-            indicePrimero = getIndiceGladiadorSegunNombre(this.gladiadorPrimeroEnLaRonda);
+        catch (IllegalArgumentException e){
+            indicePrimerGladiador = 0;
         }
 
+        for(int i = indicePrimerGladiador; i<gladiadores.size() ; i++){
+            nombresEnOrden.add(gladiadores.get(i).getNombre());
+        }
+        for( int i=0 ; i<indicePrimerGladiador ; i++){
+            nombresEnOrden.add(gladiadores.get(i).getNombre());
+        }
 
-        for(int i = indicePrimero; i<gladiadores.size() ; i++){
-            nombres.add(gladiadores.get(i).getNombre());
-        }
-        for( int i=0 ; i<indicePrimero ; i++){
-            nombres.add(gladiadores.get(i).getNombre());
-        }
-        // voy a devolver el orden de los gladiadores segun el primero en la ronda
-        return nombres;
+        return nombresEnOrden;
     }
     private int getIndiceGladiadorSegunNombre(String nombre){
         for( int i=0 ; i<gladiadores.size() ; i++){
