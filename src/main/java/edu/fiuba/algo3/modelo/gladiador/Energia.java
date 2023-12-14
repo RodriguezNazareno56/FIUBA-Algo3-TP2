@@ -16,7 +16,7 @@ public class Energia extends ObservableEnergia {
     }
 
     public void aumentarEnergia(Energia energia){
-        int nuevoValor = this.valor + energia.valor;
+        int nuevoValor = this.valor + energia.getValor();
         this.cambiarValor(nuevoValor);
     }
 

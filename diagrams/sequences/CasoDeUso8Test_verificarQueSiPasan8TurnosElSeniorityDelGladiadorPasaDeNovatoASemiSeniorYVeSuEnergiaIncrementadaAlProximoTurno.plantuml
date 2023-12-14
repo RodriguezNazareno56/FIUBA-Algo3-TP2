@@ -1,0 +1,154 @@
+@startuml
+actor Actor as "actor"
+participant Gladiador as ":Gladiador"
+participant Energia as ":Energia"
+participant Senority as ":Senority"
+participant NovatoState as ":NovatoState"
+participant ObservableEnergia as ":ObservableEnergia"
+participant ObservableSenorityState as ":ObservableSenorityState"
+participant SemiSeniorState as ":SemiSeniorState"
+participant EnergiaExtra as "energiaExtra :Energia"
+
+  Note right
+verificarQueSiPasan8TurnosElSeniorityDelGladiadorPasaDeNovatoASemiSeniorYVeSuEnergiaIncrementadaAlProximoTurno
+  End note
+    loop 7 times
+  activate Actor
+    Actor->Gladiador: avanzar
+    activate Gladiador
+      Gladiador->Energia: isAgotada()
+      activate Energia
+      Gladiador<--Energia: false
+      deactivate Energia
+      Gladiador->Senority: aumentarEnergia(this.energia)
+      activate Senority
+        Senority->NovatoState: aumentarEnergia(energia)
+        activate NovatoState
+        note over SemiSeniorState : int NOVATO_STATE_INCREMENTO_DE_ENERGIA = 0
+        NovatoState->EnergiaExtra: << createRequest >> Energia(NOVATO_STATE_INCREMENTO_DE_ENERGIA)
+        activate EnergiaExtra
+        EnergiaExtra-->NovatoState: RequestCreated : energiaExtra
+        deactivate EnergiaExtra
+          NovatoState->Energia: aumentarEnergia(energiaExtra)
+          activate Energia
+          Energia->Energia: cambiarValor(nuevoValor)
+            Energia->ObservableEnergia: notificar(nuevoValor)
+            activate ObservableEnergia
+            Energia<--ObservableEnergia: void
+            deactivate ObservableEnergia
+          NovatoState<--Energia: void
+          deactivate Energia
+        Senority<--NovatoState: void
+        deactivate NovatoState
+      Gladiador<--Senority: void
+      deactivate Senority
+      Gladiador->Senority: aumentarExperiencia())
+      activate Senority
+        Senority->NovatoState: aumentarExperiencia()
+        activate NovatoState
+        Senority<--NovatoState: senority.states.NovatoState
+        deactivate NovatoState
+      Gladiador<--Senority: void
+      deactivate Senority
+    Actor<--Gladiador: void
+    end
+
+
+
+
+    deactivate Gladiador
+    Actor->Gladiador: avanzar
+        activate Gladiador
+          Gladiador->Energia: isAgotada()
+          activate Energia
+          Gladiador<--Energia: false
+          deactivate Energia
+          Gladiador->Senority: aumentarEnergia(this.energia)
+          activate Senority
+            Senority->NovatoState: aumentarEnergia(energia)
+            activate NovatoState
+            note over SemiSeniorState : int NOVATO_STATE_INCREMENTO_DE_ENERGIA = 0
+            NovatoState->EnergiaExtra: << createRequest >> Energia(NOVATO_STATE_INCREMENTO_DE_ENERGIA)
+            activate EnergiaExtra
+            EnergiaExtra-->NovatoState: RequestCreated : energiaExtra
+            deactivate EnergiaExtra
+              NovatoState->Energia: aumentarEnergia(energiaExtra)
+              activate Energia
+              Energia->Energia: cambiarValor(nuevoValor)
+                Energia->ObservableEnergia: notificar(nuevoValor)
+                activate ObservableEnergia
+                Energia<--ObservableEnergia: void
+                deactivate ObservableEnergia
+              NovatoState<--Energia: void
+              deactivate Energia
+            Senority<--NovatoState: void
+            deactivate NovatoState
+          Gladiador<--Senority: void
+          deactivate Senority
+      Gladiador->Senority: aumentarExperiencia()
+      activate Senority
+        Senority->NovatoState: aumentarExperiencia()
+        activate NovatoState
+          NovatoState->SemiSeniorState: << createRequest >>
+          activate SemiSeniorState
+          SemiSeniorState-->NovatoState: RequestCreated : semiSeniorState
+          NovatoState->ObservableSenorityState: notificarCambioDeSenority()
+          activate ObservableSenorityState
+          NovatoState<--ObservableSenorityState: void
+          deactivate ObservableSenorityState
+          NovatoState->ObservableSenorityState: transferirObservadoresA(semiSeniorState)
+          activate ObservableSenorityState
+          loop for (ObservadorSenority observador : observadores)
+          ObservableSenorityState->SemiSeniorState: agregarObservador(observador)
+          end
+          deactivate SemiSeniorState
+          NovatoState<--ObservableSenorityState: void
+          deactivate ObservableSenorityState
+        Senority<--NovatoState: senority.states.SemiSeniorState
+        deactivate NovatoState
+      Gladiador<--Senority: void
+      deactivate Senority
+    Actor<--Gladiador: void
+    deactivate Gladiador
+
+
+    Actor->Gladiador: avanzar
+        activate Gladiador
+          Gladiador->Energia: isAgotada()
+          activate Energia
+          Gladiador<--Energia: false
+          deactivate Energia
+          Gladiador->Senority: aumentarEnergia(this.energia)
+          activate Senority
+            Senority->SemiSeniorState: aumentarEnergia(energia)
+            activate SemiSeniorState
+            note over SemiSeniorState : int SEMISENIOR_STATE_INCREMENTO_DE_ENERGIA = 5
+            SemiSeniorState->EnergiaExtra: << createRequest >> Energia(SEMISENIOR_STATE_INCREMENTO_DE_ENERGIA)
+            activate EnergiaExtra
+            EnergiaExtra-->SemiSeniorState: RequestCreated : energiaExtra
+            deactivate EnergiaExtra
+              SemiSeniorState->Energia: aumentarEnergia(energiaExtra)
+              activate Energia
+              Energia->Energia: cambiarValor(nuevoValor)
+                Energia->ObservableEnergia: notificar(nuevoValor)
+                activate ObservableEnergia
+                Energia<--ObservableEnergia: void
+                deactivate ObservableEnergia
+              SemiSeniorState<--Energia: void
+              deactivate Energia
+            Senority<--SemiSeniorState: void
+            deactivate SemiSeniorState
+          Gladiador<--Senority: void
+          deactivate Senority
+      Gladiador->Senority: aumentarExperiencia <color:gray> 0.0068 ms</color>
+      activate Senority
+        Senority->SemiSeniorState: aumentarExperiencia <color:gray> 0.0024 ms</color>
+        activate SemiSeniorState
+        Senority<--SemiSeniorState: senority.states.SemiSeniorState
+        deactivate SemiSeniorState
+      Gladiador<--Senority: void
+      deactivate Senority
+    Actor<--Gladiador: void
+    deactivate Gladiador
+  deactivate Actor
+@enduml

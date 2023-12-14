@@ -1,0 +1,32 @@
+@startuml
+actor actor as "actor"
+participant EquipamientoIncrementado as ":EquipamientoIncrementado"
+participant Gladiador as "gladiador:Gladiador"
+participant SinEquipamiento as ":SinEquipamiento"
+participant Casco as ":Casco"
+  Note right
+Recibe un premio por primera vez y obtiene un casco
+  End note
+  activate actor
+    actor->EquipamientoIncrementado: afectarGladiador(gladiador)
+    activate EquipamientoIncrementado
+      EquipamientoIncrementado->Gladiador: incrementarEquipamiento
+      activate Gladiador
+        Gladiador->SinEquipamiento: incrementar
+        activate SinEquipamiento
+          SinEquipamiento->Casco: << createRequest >>
+          activate Casco
+          Casco-->SinEquipamiento: RequestCreated
+          deactivate Casco
+        Gladiador<--SinEquipamiento: modelo.equipamientos.Casco
+        deactivate SinEquipamiento
+        Gladiador->Gladiador: notificarObservadoresEquipamiento
+        activate Gladiador
+        Gladiador<--Gladiador: void
+        deactivate Gladiador
+      EquipamientoIncrementado<--Gladiador: void
+      deactivate Gladiador
+    actor<--EquipamientoIncrementado: void
+    deactivate EquipamientoIncrementado
+  deactivate actor
+@enduml
