@@ -1,0 +1,52 @@
+@startuml
+actor Actor as "actor"
+participant FieraSalvaje as "fieraSalvaje : FieraSalvaje"
+participant Gladiador as "gladiador : Gladiador"
+participant equipamientos as "equipamiento : Llave"
+participant Energia as ":Energia"
+participant EnergiaDanio as "danio:Energia"
+participant observers as "observers"
+  Note right
+verificarQueSiHayUnCombateConUnaFieraSalvajeYTieneUnCascoPierde15PuntosDeEnergia
+  End note
+  activate Actor
+    Actor->FieraSalvaje: afectarGladiador(gladiador)
+    activate FieraSalvaje
+      FieraSalvaje->Gladiador: recibirAtaque(this)
+      activate Gladiador
+      Gladiador->Gladiador: defenderse(fieraSalvaje)
+        Gladiador->FieraSalvaje: atacarATravesDelEquipamiento(equipamiento)
+        activate FieraSalvaje
+          FieraSalvaje->equipamientos: disiparAtaque(this)
+          activate equipamientos
+            equipamientos->FieraSalvaje: atacarContraEquipado(this)
+            note over EnergiaDanio : int ATAQUE_CONTRA_EQUIPADO_LLAVE = 0
+            FieraSalvaje->EnergiaDanio: << createRequest >> Energia(ATAQUE_CONTRA_EQUIPADO_LLAVE)
+            activate EnergiaDanio
+            EnergiaDanio-->FieraSalvaje: RequestCreated : danio
+            activate FieraSalvaje
+            equipamientos<--FieraSalvaje: danio
+            deactivate FieraSalvaje
+          FieraSalvaje<--equipamientos: danio
+          deactivate equipamientos
+        Gladiador<--FieraSalvaje: danio
+        deactivate FieraSalvaje
+        Gladiador->Energia: disminuirEnergia(danio)
+        activate Energia
+          Energia->EnergiaDanio: getValor()
+          EnergiaDanio-->Energia: 0
+          deactivate EnergiaDanio
+          note over Energia : nuevovalor = valorActual - 0
+          Energia->Energia: cambiarValor(nuevoValor)
+          Energia->observers: notificar(nuevoValor)
+          activate observers
+          Energia<--observers: void
+          deactivate observers
+        Gladiador<--Energia: void
+        deactivate Energia
+      FieraSalvaje<--Gladiador: void
+      deactivate Gladiador
+    Actor<--FieraSalvaje: void
+    deactivate FieraSalvaje
+  deactivate Actor
+@enduml
