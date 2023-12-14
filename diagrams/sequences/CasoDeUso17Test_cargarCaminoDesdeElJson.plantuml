@@ -1,0 +1,38 @@
+@startuml
+actor Actor as "actor"
+participant CaminoRepositoryImpl as ":CaminoRepositoryImpl"
+participant CaminoDAOJsonImpl as ":CaminoDAOJsonImp"
+participant CeldaDto as ":CeldaDto"
+participant CaminoMapper as ":CaminoMapper"
+participant CeldaMapper as ":CeldaMapper"
+
+  activate Actor
+      Actor->CaminoRepositoryImpl: obtener()
+      activate CaminoRepositoryImpl
+      CaminoRepositoryImpl->CaminoDAOJsonImpl
+        activate CaminoDAOJsonImpl
+        loop for celda in celdas jsonArray
+        CaminoDAOJsonImpl->CeldaDto: setObstaculo
+        CeldaDto-->CaminoDAOJsonImpl
+        CaminoDAOJsonImpl->CeldaDto: setTipo
+        CeldaDto-->CaminoDAOJsonImpl
+        CaminoDAOJsonImpl->CeldaDto: setPremio
+        CeldaDto-->CaminoDAOJsonImpl
+        CaminoDAOJsonImpl->CeldaDto: setX
+        CeldaDto-->CaminoDAOJsonImpl
+        CaminoDAOJsonImpl->CeldaDto: setY
+        CeldaDto-->CaminoDAOJsonImpl
+        end
+      CaminoDAOJsonImpl->CaminoRepositoryImpl: caminoDto
+     deactivate CaminoDAOJsonImpl
+     CaminoRepositoryImpl->CaminoMapper: convertirDesdeDto(caminoDto)
+     activate CaminoMapper
+       loop for celdasDto in caminoDto
+       CaminoMapper->CeldaMapper: convertirDesdeDto
+       CeldaMapper-->CaminoMapper: Celda
+       end
+     CaminoMapper-->CaminoRepositoryImpl: Camino
+     deactivate CaminoMapper
+     CaminoRepositoryImpl-->Actor: Camino
+  deactivate Actor
+@enduml
