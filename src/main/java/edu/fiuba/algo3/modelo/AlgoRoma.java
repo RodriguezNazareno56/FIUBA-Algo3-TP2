@@ -130,7 +130,6 @@ public class AlgoRoma extends ObservableAlgoRoma implements ObservadorGladiador 
 
     public void jugarTurnoSegunEstado(JuegoTerminado juegoTerminado) throws FinDelJuegoException {
         if( this.rondaActual >= MAXIMA_CANTIDAD_DE_RONDAS){
-            notificarMaximoDeRondasAlcanzado();
             logger.info("Se alcanzo el numero maximo de rondas");
             throw new FinDelJuegoException("Se alcanzo el numero maximo de rondas");
         }
@@ -166,27 +165,16 @@ public class AlgoRoma extends ObservableAlgoRoma implements ObservadorGladiador 
         return rondaActual-1;
     }
 
-    private void notificarMaximoDeRondasAlcanzado(){
-        // notificar a la vista que se alcanzo el maximo de rondas
-    }
-
-    private void notificarOrdenDeTurno(){
-        // notificar a la vista el orden de los gladiadores
-    }
     private void notificarTurnoPerdido(Gladiador gladiador) throws Exception {
         // notificar a la vista que el gladiador perdio el turno
         // TODO: a finalidad de testear arrojo exepcion
         throw new Exception();
     }
-
-    private void notificarFormaDeMapa(){
-        // notificar a la vista la forma del mapa
-    }
-
+    /*
     public ArrayList<Gladiador> getGladiadores() {
         return gladiadores;
     }
-
+    */
     public Mapa getMapa(){
         return this.mapa;
     }
@@ -232,14 +220,6 @@ public class AlgoRoma extends ObservableAlgoRoma implements ObservadorGladiador 
         }
 
         return nombresEnOrden;
-    }
-    private int getIndiceGladiadorSegunNombre(String nombre){
-        for( int i=0 ; i<gladiadores.size() ; i++){
-            if( gladiadores.get(i).getNombre().equals(nombre)){
-                return i;
-            }
-        }
-        return -1;
     }
 
     private ArrayList<Gladiador> getGladiadoresSegunOrdenEnRonda(){

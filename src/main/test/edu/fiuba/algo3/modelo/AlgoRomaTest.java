@@ -239,4 +239,19 @@ public class AlgoRomaTest {
         assertEquals(rondasJugadasEsperadas, algoRoma.getRondasJugadas());
     }
 
+    @Test
+    public void getCantidadDeGladiadoresDevuelveLaCantidadDeGladiadores() throws Exception{
+
+        //arrange
+        algoRoma.agregarGladiador("Espartaco");
+        algoRoma.agregarGladiador("Augusto");
+        algoRoma.agregarGladiador("Maximo");
+        algoRoma.agregarGladiador("Poncio");
+
+
+        //assert
+        assertEquals(4, algoRoma.cantidadDeGladiadores());
+
+    }
+
 }
