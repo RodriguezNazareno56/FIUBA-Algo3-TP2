@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo.consecuencias;
 
+import edu.fiuba.algo3.modelo.constantes.Constantes;
 import edu.fiuba.algo3.modelo.dado.Dado;
 import edu.fiuba.algo3.modelo.gladiador.Energia;
 import edu.fiuba.algo3.modelo.gladiador.Gladiador;
@@ -7,7 +8,7 @@ import edu.fiuba.algo3.modelo.gladiador.Gladiador;
 public class AsisteAUnBacanal extends Consecuencia {
 
     private Dado dado;
-    final int CANTIDAD_DE_PUNTOS = 4;
+    final int CANTIDAD_DE_PUNTOS = Constantes.CANTIDAD_DE_PUNTOS_PERDIDOS_POR_COPA_DE_VINO_EN_BACANAL;
 
     public AsisteAUnBacanal(Dado dado){
         this.dado = dado;

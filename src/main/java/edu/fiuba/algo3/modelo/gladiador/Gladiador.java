@@ -63,10 +63,6 @@ public class Gladiador implements ObservableGladiador, ObservableEquipamiento {
         this.senority.aumentarExperiencia();
     }
 
-    public void recibirConsecuencia(IConsecuencia consecuencia) throws Exception {
-        consecuencia.afectarGladiador(this);
-    }
-
     public void comer(Energia energia) {
         this.energia.aumentarEnergia(energia);
         logger.info(this + " come incrementando su energia en " + energia + " quedando en " + this.energia);
