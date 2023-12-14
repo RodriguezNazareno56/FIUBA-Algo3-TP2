@@ -18,7 +18,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 
 public class BacanalInfo extends VBox implements PantallaInfo {
-    private Label etiquetaJuego;
+    private final Label etiquetaJuego;
 
     public BacanalInfo(){
         super();
