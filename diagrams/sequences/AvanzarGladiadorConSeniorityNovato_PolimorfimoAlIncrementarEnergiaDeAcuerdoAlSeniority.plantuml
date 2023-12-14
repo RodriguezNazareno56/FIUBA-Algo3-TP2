@@ -1,0 +1,53 @@
+@startuml
+actor Actor as "actor"
+participant Gladiador as ":Gladiador"
+participant Energia as ":Energia"
+participant Senority as ":Senority"
+participant NovatoState as ":NovatoState"
+participant ObservableEnergia as ":ObservableEnergia"
+participant ObservableSenorityState as ":ObservableSenorityState"
+participant EnergiaExtra as "energiaExtra :Energia"
+
+  Note right
+verificarQueSiPasan8TurnosElSeniorityDelGladiadorPasaDeNovatoASemiSeniorYVeSuEnergiaIncrementadaAlProximoTurno
+  End note
+  activate Actor
+    Actor->Gladiador: avanzar
+    activate Gladiador
+      Gladiador->Energia: isAgotada()
+      activate Energia
+      Gladiador<--Energia: false
+      deactivate Energia
+      Gladiador->Senority: aumentarEnergia(this.energia)
+      activate Senority
+        Senority->NovatoState: aumentarEnergia(energia)
+        activate NovatoState
+        note over ObservableSenorityState : int NOVATO_STATE_INCREMENTO_DE_ENERGIA = 0
+        NovatoState->EnergiaExtra: << createRequest >> Energia(NOVATO_STATE_INCREMENTO_DE_ENERGIA)
+        activate EnergiaExtra
+        EnergiaExtra-->NovatoState: RequestCreated : energiaExtra
+        deactivate EnergiaExtra
+          NovatoState->Energia: aumentarEnergia(energiaExtra)
+          activate Energia
+          Energia->Energia: cambiarValor(nuevoValor)
+            Energia->ObservableEnergia: notificar(nuevoValor)
+            activate ObservableEnergia
+            Energia<--ObservableEnergia: void
+            deactivate ObservableEnergia
+          NovatoState<--Energia: void
+          deactivate Energia
+        Senority<--NovatoState: void
+        deactivate NovatoState
+      Gladiador<--Senority: void
+      deactivate Senority
+      Gladiador->Senority: aumentarExperiencia())
+      activate Senority
+        Senority->NovatoState: aumentarExperiencia()
+        activate NovatoState
+        Senority<--NovatoState: senority.states.NovatoState
+        deactivate NovatoState
+      Gladiador<--Senority: void
+      deactivate Senority
+    Actor<--Gladiador: void
+  deactivate Actor
+@enduml

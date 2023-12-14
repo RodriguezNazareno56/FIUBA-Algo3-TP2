@@ -1,0 +1,51 @@
+@startuml
+actor Actor as "actor"
+participant Gladiador as ":Gladiador"
+participant Energia as ":Energia"
+participant Senority as ":Senority"
+participant SemiSeniorState as ":SemiSeniorState"
+participant ObservableEnergia as ":ObservableEnergia"
+participant ObservableSenorityState as ":ObservableSenorityState"
+
+participant EnergiaExtra as "energiaExtra :Energia"
+
+    Actor->Gladiador: avanzar
+        activate Gladiador
+          Gladiador->Energia: isAgotada()
+          activate Energia
+          Gladiador<--Energia: false
+          deactivate Energia
+          Gladiador->Senority: aumentarEnergia(this.energia)
+          activate Senority
+            Senority->SemiSeniorState: aumentarEnergia(energia)
+            activate SemiSeniorState
+            note over ObservableSenorityState : int SEMISENIOR_STATE_INCREMENTO_DE_ENERGIA = 5
+            SemiSeniorState->EnergiaExtra: << createRequest >> Energia(SEMISENIOR_STATE_INCREMENTO_DE_ENERGIA)
+            activate EnergiaExtra
+            EnergiaExtra-->SemiSeniorState: RequestCreated : energiaExtra
+            deactivate EnergiaExtra
+              SemiSeniorState->Energia: aumentarEnergia(energiaExtra)
+              activate Energia
+              Energia->Energia: cambiarValor(nuevoValor)
+                Energia->ObservableEnergia: notificar(nuevoValor)
+                activate ObservableEnergia
+                Energia<--ObservableEnergia: void
+                deactivate ObservableEnergia
+              SemiSeniorState<--Energia: void
+              deactivate Energia
+            Senority<--SemiSeniorState: void
+            deactivate SemiSeniorState
+          Gladiador<--Senority: void
+          deactivate Senority
+      Gladiador->Senority: aumentarExperiencia <color:gray> 0.0068 ms</color>
+      activate Senority
+        Senority->SemiSeniorState: aumentarExperiencia <color:gray> 0.0024 ms</color>
+        activate SemiSeniorState
+        Senority<--SemiSeniorState: senority.states.SemiSeniorState
+        deactivate SemiSeniorState
+      Gladiador<--Senority: void
+      deactivate Senority
+    Actor<--Gladiador: void
+    deactivate Gladiador
+  deactivate Actor
+@enduml
