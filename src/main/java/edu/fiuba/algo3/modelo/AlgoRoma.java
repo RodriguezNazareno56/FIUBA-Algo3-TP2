@@ -42,7 +42,6 @@ public class AlgoRoma extends ObservableAlgoRoma implements ObservadorGladiador 
 
     private final Dado dado;
 
-    private String gladiadorPrimeroEnLaRonda = null;
 
 
     public AlgoRoma(MapaService mapaService, Dado dado, Logger logger) {
@@ -98,7 +97,6 @@ public class AlgoRoma extends ObservableAlgoRoma implements ObservadorGladiador 
         gladiador.subscribir(this);
         this.gladiadores.add(gladiador);
         this.notificarNuevoGladiador();
-        this.gladiadorPrimeroEnLaRonda = null;
         logger.info(gladiador + " se unio al juego");
     }
 
@@ -225,15 +223,15 @@ public class AlgoRoma extends ObservableAlgoRoma implements ObservadorGladiador 
     private ArrayList<Gladiador> getGladiadoresSegunOrdenEnRonda(){
         ArrayList<String> nombres = getNombresGladiadoresSegunOrdenEnRonda();
 
-        ArrayList<Gladiador> gladiadoresSegunOrden = new ArrayList<>();
+        ArrayList<Gladiador> gladiadoresOrdenados = new ArrayList<>();
 
         for(String nombre : nombres){
-            gladiadoresSegunOrden.add(gladiadores.stream()
+            gladiadoresOrdenados.add(gladiadores.stream()
                     .filter(gladiador -> gladiador.getNombre().equals(nombre) )
                     .findFirst()
                     .orElse(null));
         }
-        return gladiadoresSegunOrden;
+        return gladiadoresOrdenados;
     }
 
     public ArrayList<String> getNombresGladiadoresSegunOrdenDeIngreso(){

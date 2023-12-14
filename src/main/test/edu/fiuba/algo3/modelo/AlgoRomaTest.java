@@ -1,7 +1,11 @@
 package edu.fiuba.algo3.modelo;
 
 import edu.fiuba.algo3.data_acceso.MapaService;
+import edu.fiuba.algo3.modelo.algoRomaEstado.JuegoEnCurso;
+import edu.fiuba.algo3.modelo.algoRomaEstado.JuegoSinIniciar;
+import edu.fiuba.algo3.modelo.algoRomaEstado.JuegoTerminado;
 import edu.fiuba.algo3.modelo.dado.Dado;
+import edu.fiuba.algo3.modelo.gladiador.Gladiador;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -17,6 +21,8 @@ import static org.junit.jupiter.api.Assertions.*;
 public class AlgoRomaTest {
 
     AlgoRoma algoRoma;
+
+
 
     @BeforeEach
     public void setUp() throws Exception {
@@ -136,11 +142,13 @@ public class AlgoRomaTest {
 
     @Test
     public void pedirDosVecesLosGladiadoresEnOrdenDeRondaDevuelveElMismoOrden() throws Exception {
+        //arrange
         algoRoma.agregarGladiador("Espartaco");
         algoRoma.agregarGladiador("Augusto");
         algoRoma.agregarGladiador("Maximo");
         algoRoma.agregarGladiador("Poncio");
 
+        //assert
         assertEquals(algoRoma.getNombresGladiadoresSegunOrdenEnRonda(), algoRoma.getNombresGladiadoresSegunOrdenEnRonda());
     }
 
@@ -207,8 +215,6 @@ public class AlgoRomaTest {
         List<String> nombresEnOrdenDeRonda = algoRoma.getNombresGladiadoresSegunOrdenEnRonda();
 
         //Assert
-        //voy a comprobar que el mensaje isEmpty devuelve true
-
         assertTrue(nombresEnOrdenDeRonda.isEmpty());
 
     }
@@ -224,7 +230,7 @@ public class AlgoRomaTest {
     }
 
     @Test
-    public void getRondasJugadasDevuelve1LuegoDeJugarUnaRondaYQueJuegueUnGladiador() throws Exception {
+    public void getRondasJugadasDevuelveUnoLuegoDeJugarUnaRondaYQueJuegueUnGladiador() throws Exception {
         // Arrange
         algoRoma.agregarGladiador("Espartaco");
         algoRoma.agregarGladiador("Augusto");
@@ -254,4 +260,51 @@ public class AlgoRomaTest {
 
     }
 
+    @Test
+    public void jugarSegunEstadoJuegoTerminadoCuandoSeJueganTodasLasRondasLanzaFinDelJuegoException() throws Exception {
+        // Arrange
+        JuegoTerminado juegoTerminado = Mockito.mock(JuegoTerminado.class);
+        algoRoma.agregarGladiador("Espartaco");
+        algoRoma.agregarGladiador("Augusto");
+        for( int i=1 ; i <= 60 ; i++ ) {
+            algoRoma.jugarTurno();
+
+        }
+
+        // Assert
+        assertThrows(FinDelJuegoException.class, () -> {
+            algoRoma.jugarTurnoSegunEstado(juegoTerminado);
+        });
+    }
+
+    @Test
+    public void getMaximaCantidadDeGladiadoresDevuelveSeis(){
+        //arrange
+        int maximaCantidadDeGladiadoresEsperada = 6;
+        //assert
+        assertEquals(maximaCantidadDeGladiadoresEsperada, algoRoma.getMaximaCantidadGladiadores());
+    }
+
+    @Test
+    public void getMinimaCantidadDeGladiadoresDevuelveSeis(){
+        //arrange
+        int minimaCantidadDeGladiadoresEsperada = 2;
+        //assert
+        assertEquals(minimaCantidadDeGladiadoresEsperada, algoRoma.getMinimaCantidadGladiadores());
+    }
+
+    @Test
+    public void agregarGladiadorLlamaAlMetodoAgregarGladiadorDelEstado() throws JuegoEnCursoException, MaximoGladiadoresException, FinDelJuegoException {
+        //arrange
+        Gladiador gladiador = Mockito.mock(Gladiador.class);
+
+        JuegoSinIniciar juegoSinIniciar = Mockito.mock(JuegoSinIniciar.class);
+        algoRoma.setEstadoJuego(juegoSinIniciar);
+
+        //act
+        algoRoma.agregarGladiador(gladiador);
+
+        //assert
+        Mockito.verify(juegoSinIniciar, Mockito.times(1)).agregarGladiador(gladiador);
+    }
 }
