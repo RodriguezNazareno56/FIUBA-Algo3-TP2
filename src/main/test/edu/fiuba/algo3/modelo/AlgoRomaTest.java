@@ -12,6 +12,9 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import org.mockito.Mockito;
 import org.slf4j.Logger;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class AlgoRomaTest {
 
     AlgoRoma algoRoma;
@@ -131,4 +134,71 @@ public class AlgoRomaTest {
             algoRoma.agregarGladiador("Pol");
         });
     }
+
+    @Test
+    public void pedirDosVecesLosGladiadoresEnOrdenDeRondaDevuelveElMismoOrden() throws Exception {
+        algoRoma.agregarGladiador("Espartaco");
+        algoRoma.agregarGladiador("Augusto");
+        algoRoma.agregarGladiador("Maximo");
+        algoRoma.agregarGladiador("Poncio");
+
+        assertEquals(algoRoma.getNombresGladiadoresSegunOrdenEnRonda(), algoRoma.getNombresGladiadoresSegunOrdenEnRonda());
+    }
+
+    @Test
+    public void pedirLosGladiadoresEnOrdenDeIngresoDevuelveLosNombresDeLosGladiadoresEnOrden() throws Exception {
+        ArrayList<String> nombres = new ArrayList<>();
+        nombres.add("Espartaco");
+        nombres.add("Augusto");
+        nombres.add("Maximo");
+        nombres.add("Poncio");
+
+        algoRoma.agregarGladiador(nombres.get(0));
+        algoRoma.agregarGladiador(nombres.get(1));
+        algoRoma.agregarGladiador(nombres.get(2));
+        algoRoma.agregarGladiador(nombres.get(3));
+
+        //act
+        ArrayList<String> nombreEnOrdenDeIngreso = algoRoma.getNombresGladiadoresSegunOrdenDeIngreso();
+
+        //assert
+        assertEquals(nombres, nombreEnOrdenDeIngreso);
+    }
+
+    @Test
+    public void pedirLosGladiadoresEnOrdenDeRondaDevuelveLosGladiadoresEnSentidoLineal() throws Exception {
+        //Arrange
+        ArrayList<String> nombresEnOrdenDeIngreso = new ArrayList<>();
+        nombresEnOrdenDeIngreso.add("Espartaco");
+        nombresEnOrdenDeIngreso.add("Augusto");
+        nombresEnOrdenDeIngreso.add("Maximo");
+        nombresEnOrdenDeIngreso.add("Poncio");
+
+        algoRoma.agregarGladiador(nombresEnOrdenDeIngreso.get(0));
+        algoRoma.agregarGladiador(nombresEnOrdenDeIngreso.get(1));
+        algoRoma.agregarGladiador(nombresEnOrdenDeIngreso.get(2));
+        algoRoma.agregarGladiador(nombresEnOrdenDeIngreso.get(3));
+
+
+        //Act
+        ArrayList<String> nombresEnOrdenDeRonda = algoRoma.getNombresGladiadoresSegunOrdenEnRonda();
+
+        String primerNombreEnLaRonda = nombresEnOrdenDeRonda.get(0);
+        int indiceCorrespondienteAlIngreso = nombresEnOrdenDeIngreso.indexOf( primerNombreEnLaRonda );
+
+        //Assert
+        for (String nombreEnLaRonda : nombresEnOrdenDeRonda) {
+
+            String nombreEnElIngreso = nombresEnOrdenDeIngreso.get( indiceCorrespondienteAlIngreso );
+
+            assertEquals( nombreEnElIngreso, nombreEnLaRonda );
+
+            indiceCorrespondienteAlIngreso++;
+            if (indiceCorrespondienteAlIngreso == nombresEnOrdenDeIngreso.size()) {
+                indiceCorrespondienteAlIngreso = 0;
+            }
+        }
+
+    }
+
 }
