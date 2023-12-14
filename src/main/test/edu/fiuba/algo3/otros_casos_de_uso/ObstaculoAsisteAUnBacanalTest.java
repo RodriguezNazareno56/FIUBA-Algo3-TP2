@@ -32,7 +32,7 @@ public class ObstaculoAsisteAUnBacanalTest {
         Gladiador gladiador = new Gladiador(nombre, energia, equipamiento, senority, Mockito.mock(Logger.class));
 
         //Act
-        gladiador.recibirConsecuencia(asisteAUnBacanal);
+        asisteAUnBacanal.afectarGladiador(gladiador);
 
         //Assert
         Assertions.assertThrows(MovimientoException.class, gladiador::avanzar);

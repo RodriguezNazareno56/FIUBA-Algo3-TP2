@@ -14,7 +14,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 
 public class ComidaInfo extends VBox implements PantallaInfo {
-    private Label etiquetaJuego;
+    private final Label etiquetaJuego;
 
     public ComidaInfo(){
         super();
@@ -25,12 +25,6 @@ public class ComidaInfo extends VBox implements PantallaInfo {
         etiquetaJuego.setFont(Font.font("Helvetica", FontWeight.BOLD,42));
         etiquetaJuego.setTextFill(Color.web("#FFFFFF"));
         aplicarEfectosDeContornoTexto(etiquetaJuego);
-
-        //String url = "file:src/main/resources/edu/fiuba/algo3/vista/gladiador/marron/GreekBasic.png";
-        //Image comidaImage = new Image(url);
-        //ImageView imageView = new ImageView(comidaImage);
-        //imageView.setFitHeight(200);
-        //imageView.setPreserveRatio(true);
 
         Label mensaje = new Label();
         mensaje.setFont(Font.font("Helvetica", FontWeight.BOLD,24));
@@ -47,11 +41,6 @@ public class ComidaInfo extends VBox implements PantallaInfo {
         Background background = new Background(new BackgroundFill(new ImagePattern(imagen), CornerRadii.EMPTY, javafx.geometry.Insets.EMPTY));
         this.setBackground(background);
 
-        //StackPane labels = new StackPane();
-        //labels.setAlignment(etiquetaJuego, Pos.BOTTOM_CENTER);
-        //labels.setAlignment(mensaje, Pos.BOTTOM_CENTER);
-        //labels.getChildren().addAll(etiquetaJuego, mensaje);
-        //this.getChildren().addAll(labels);
         this.getChildren().addAll(etiquetaJuego, mensaje);
     }
 

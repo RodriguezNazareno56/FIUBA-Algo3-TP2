@@ -31,7 +31,8 @@ public class CasoDeUso1Test {
         // Un gladiador sin equipamiento al ser atacado por una fiera salvaje recibe 20 puntos de energia
         // Si la inicializacion fue correcta, entonces tras el ataque debe quedar sin energia
         // y por ende incapaz de moverse
-        gladiador.recibirConsecuencia(new FieraSalvaje());
+        FieraSalvaje fieraSalvaje = new FieraSalvaje();
+        fieraSalvaje.afectarGladiador(gladiador);
         Assertions.assertThrows(MovimientoException.class, gladiador::avanzar);
     }
 }

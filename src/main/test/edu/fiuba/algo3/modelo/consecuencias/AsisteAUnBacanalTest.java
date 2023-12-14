@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo.consecuencias;
 
+import edu.fiuba.algo3.modelo.constantes.Constantes;
 import edu.fiuba.algo3.modelo.dado.Dado;
 import edu.fiuba.algo3.modelo.NombreInvalidoException;
 import edu.fiuba.algo3.modelo.equipamientos.Equipamiento;
@@ -27,10 +28,11 @@ public class AsisteAUnBacanalTest {
         Gladiador gladiadorMock = mock(Gladiador.class);
 
         //Act
-        gladiadorMock.recibirConsecuencia(asisteAUnBacanal);
+        asisteAUnBacanal.afectarGladiador(gladiadorMock);
 
         //Assert
-        verify(gladiadorMock,times(1)).recibirConsecuencia(asisteAUnBacanal);
+        Energia energiaAfectada = new Energia(cantiadDeTragos * Constantes.CANTIDAD_DE_PUNTOS_PERDIDOS_POR_COPA_DE_VINO_EN_BACANAL);
+        verify(gladiadorMock,times(1)).tomarCopasDeVino(energiaAfectada);
 
     }
 

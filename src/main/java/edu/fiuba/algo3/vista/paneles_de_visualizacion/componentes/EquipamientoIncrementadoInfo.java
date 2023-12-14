@@ -17,7 +17,7 @@ import javafx.scene.text.FontWeight;
 
 public class EquipamientoIncrementadoInfo extends VBox implements PantallaInfo {
     private final StackPane contenedorPrincipal;
-    private Label etiquetaJuego;
+    private final Label etiquetaJuego;
 
     public EquipamientoIncrementadoInfo(){
         super();

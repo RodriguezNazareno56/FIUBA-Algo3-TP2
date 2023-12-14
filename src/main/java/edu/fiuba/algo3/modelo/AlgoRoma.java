@@ -42,7 +42,6 @@ public class AlgoRoma extends ObservableAlgoRoma implements ObservadorGladiador 
 
     private final Dado dado;
 
-    private String gladiadorPrimeroEnLaRonda = null;
 
 
     public AlgoRoma(MapaService mapaService, Dado dado, Logger logger) {
@@ -98,7 +97,6 @@ public class AlgoRoma extends ObservableAlgoRoma implements ObservadorGladiador 
         gladiador.subscribir(this);
         this.gladiadores.add(gladiador);
         this.notificarNuevoGladiador();
-        this.gladiadorPrimeroEnLaRonda = null;
         logger.info(gladiador + " se unio al juego");
     }
 
@@ -130,7 +128,6 @@ public class AlgoRoma extends ObservableAlgoRoma implements ObservadorGladiador 
 
     public void jugarTurnoSegunEstado(JuegoTerminado juegoTerminado) throws FinDelJuegoException {
         if( this.rondaActual >= MAXIMA_CANTIDAD_DE_RONDAS){
-            notificarMaximoDeRondasAlcanzado();
             logger.info("Se alcanzo el numero maximo de rondas");
             throw new FinDelJuegoException("Se alcanzo el numero maximo de rondas");
         }
@@ -166,27 +163,16 @@ public class AlgoRoma extends ObservableAlgoRoma implements ObservadorGladiador 
         return rondaActual-1;
     }
 
-    private void notificarMaximoDeRondasAlcanzado(){
-        // notificar a la vista que se alcanzo el maximo de rondas
-    }
-
-    private void notificarOrdenDeTurno(){
-        // notificar a la vista el orden de los gladiadores
-    }
     private void notificarTurnoPerdido(Gladiador gladiador) throws Exception {
         // notificar a la vista que el gladiador perdio el turno
         // TODO: a finalidad de testear arrojo exepcion
         throw new Exception();
     }
-
-    private void notificarFormaDeMapa(){
-        // notificar a la vista la forma del mapa
-    }
-
+    /*
     public ArrayList<Gladiador> getGladiadores() {
         return gladiadores;
     }
-
+    */
     public Mapa getMapa(){
         return this.mapa;
     }
@@ -211,51 +197,41 @@ public class AlgoRoma extends ObservableAlgoRoma implements ObservadorGladiador 
     }
 
     public ArrayList<String> getNombresGladiadoresSegunOrdenEnRonda(){
-        int indicePrimero;
-        ArrayList<String> nombres = new ArrayList<>();
-        if(gladiadores.isEmpty()){
-            return nombres;
+        //si no hay gladiadores agregados devuelve una lista vacia
+
+        ArrayList<String> nombresEnOrden = new ArrayList<>();
+
+        Random random = new Random(gladiadores.size());
+        int indicePrimerGladiador;
+        try {
+            indicePrimerGladiador = random.nextInt(gladiadores.size());
         }
-        if(this.gladiadorPrimeroEnLaRonda == null){
-            Random random = new Random();
-            indicePrimero = random.nextInt(gladiadores.size());
-            this.gladiadorPrimeroEnLaRonda = gladiadores.get(indicePrimero).getNombre();
-        }
-        else{
-            indicePrimero = getIndiceGladiadorSegunNombre(this.gladiadorPrimeroEnLaRonda);
+        catch (IllegalArgumentException e){
+            indicePrimerGladiador = 0;
         }
 
+        for(int i = indicePrimerGladiador; i<gladiadores.size() ; i++){
+            nombresEnOrden.add(gladiadores.get(i).getNombre());
+        }
+        for( int i=0 ; i<indicePrimerGladiador ; i++){
+            nombresEnOrden.add(gladiadores.get(i).getNombre());
+        }
 
-        for(int i = indicePrimero; i<gladiadores.size() ; i++){
-            nombres.add(gladiadores.get(i).getNombre());
-        }
-        for( int i=0 ; i<indicePrimero ; i++){
-            nombres.add(gladiadores.get(i).getNombre());
-        }
-        // voy a devolver el orden de los gladiadores segun el primero en la ronda
-        return nombres;
-    }
-    private int getIndiceGladiadorSegunNombre(String nombre){
-        for( int i=0 ; i<gladiadores.size() ; i++){
-            if( gladiadores.get(i).getNombre().equals(nombre)){
-                return i;
-            }
-        }
-        return -1;
+        return nombresEnOrden;
     }
 
     private ArrayList<Gladiador> getGladiadoresSegunOrdenEnRonda(){
         ArrayList<String> nombres = getNombresGladiadoresSegunOrdenEnRonda();
 
-        ArrayList<Gladiador> gladiadoresSegunOrden = new ArrayList<>();
+        ArrayList<Gladiador> gladiadoresOrdenados = new ArrayList<>();
 
         for(String nombre : nombres){
-            gladiadoresSegunOrden.add(gladiadores.stream()
+            gladiadoresOrdenados.add(gladiadores.stream()
                     .filter(gladiador -> gladiador.getNombre().equals(nombre) )
                     .findFirst()
                     .orElse(null));
         }
-        return gladiadoresSegunOrden;
+        return gladiadoresOrdenados;
     }
 
     public ArrayList<String> getNombresGladiadoresSegunOrdenDeIngreso(){

@@ -1,0 +1,34 @@
+@startuml
+actor Actor as "actor"
+participant comida as ":Comida"
+participant EnergiaNueva as ":Energia"
+participant Gladiador as "gladiador:Gladiador"
+participant Energia as "energiaDelGladiador : Energia"
+participant observers as ":ObservableEnergia"
+  activate Actor
+    Actor->comida: afectarGladiador(gladiador)
+    activate comida
+      comida->EnergiaNueva: << createRequest >> Energia(15)
+      activate EnergiaNueva
+      EnergiaNueva-->comida: RequestCreated
+        comida->Gladiador: comer(energia)
+        activate Gladiador
+          Gladiador->Energia: aumentarEnergia(energia)
+          activate Energia
+            Energia->EnergiaNueva: getValor()
+            EnergiaNueva-->Energia: 15
+            deactivate EnergiaNueva
+            note over Energia : nuevovalor = valorActual + 15
+            Energia->Energia: cambiarValor(nuevoValor)
+            Energia->observers: notificar(nuevoValor)
+            activate observers
+            Energia<--observers: void
+            deactivate observers
+          Gladiador<--Energia: void
+          deactivate Energia
+      comida<--Gladiador: void
+      deactivate Gladiador
+    Actor<--comida: void
+    deactivate comida
+  deactivate Actor
+@enduml

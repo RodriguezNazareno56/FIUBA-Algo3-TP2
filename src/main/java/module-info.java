@@ -30,6 +30,8 @@ module edu.fiuba.algo3 {
     exports edu.fiuba.algo3.controladores.observers;
     exports edu.fiuba.algo3.vista.gladiador.senority;
     exports edu.fiuba.algo3.modelo.dado;
+    exports edu.fiuba.algo3.modelo.mapa;
+    exports edu.fiuba.algo3.vista.mapa;
     exports edu.fiuba.algo3.vista.paneles_de_visualizacion;
     exports edu.fiuba.algo3.vista.components.animacion;
 }

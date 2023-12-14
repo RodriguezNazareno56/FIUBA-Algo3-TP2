@@ -39,8 +39,9 @@ public class CasoDeUso5Test {
         Energia energiaEsperada = new Energia(energiaInicialValor - FieraSalvaje.ATAQUE_CONTRA_EQUIPADO_CASCO);
 
         //Act
-        this.gladiador.recibirConsecuencia(incrementoDeEquipo);
-        this.gladiador.recibirAtaque(new FieraSalvaje());
+        incrementoDeEquipo.afectarGladiador(gladiador);
+        FieraSalvaje fieraSalvaje = new FieraSalvaje();
+        fieraSalvaje.afectarGladiador(gladiador);
 
         //Assert
         assertEquals(energiaEsperada, this.gladiador.getEnergia());
