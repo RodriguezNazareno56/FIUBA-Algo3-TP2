@@ -62,7 +62,7 @@ public class CasoDeUso11Test {
         IConsecuencia equipamientoIncrementado = new EquipamientoIncrementado();
 
         // Act
-        this.gladiador.recibirConsecuencia(equipamientoIncrementado);
+        equipamientoIncrementado.afectarGladiador(gladiador);
 
         // Assert
         // Si al llegar a la ultima celda, el jugador no retrocede a la mitad del camino significa que tras

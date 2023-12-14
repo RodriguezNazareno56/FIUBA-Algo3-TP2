@@ -28,7 +28,7 @@ public class ObstaculoLesionTest {
         Gladiador gladiador = new Gladiador(nombre, energia, equipamiento, senority, Mockito.mock(Logger.class));
 
         //Act
-        gladiador.recibirConsecuencia(lesion);
+        lesion.afectarGladiador(gladiador);
 
         //Assert
         Assertions.assertThrows(MovimientoException.class, gladiador::avanzar);

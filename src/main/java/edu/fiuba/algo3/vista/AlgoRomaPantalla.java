@@ -2,21 +2,21 @@ package edu.fiuba.algo3.vista;
 
 import edu.fiuba.algo3.controladores.observers.ObservadorAlgoRoma;
 import edu.fiuba.algo3.modelo.AlgoRoma;
+import edu.fiuba.algo3.vista.menuBarra.MenuBarra;
 import edu.fiuba.algo3.vista.dado.DadoButton;
 import edu.fiuba.algo3.vista.gladiador.GladiadorAnimado;
 import edu.fiuba.algo3.vista.mapa.MapaVista;
 import edu.fiuba.algo3.vista.paneles_de_visualizacion.PanelInferior;
 import edu.fiuba.algo3.vista.paneles_de_visualizacion.PanelLateralGladiadores;
+import edu.fiuba.algo3.vista.paneles_de_visualizacion.PanelPrincipal;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
-import javafx.scene.media.MediaView;
+import javafx.scene.media.AudioClip;
+import javafx.stage.Stage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.File;
 import java.net.MalformedURLException;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
@@ -34,12 +34,16 @@ public class AlgoRomaPantalla extends BorderPane implements ObservadorAlgoRoma {
     private ArrayList<GladiadorAnimado> gladiadoresAnimados;
     private HashMap<String, String> colorPorClaveNombreGladiador;
 
-    public AlgoRomaPantalla(AlgoRoma algoRoma, DadoButton dadoButton, HashMap<String, String> colorPorClaveNombreGladiador) {
+    public AlgoRomaPantalla(Stage stage, AlgoRoma algoRoma, DadoButton dadoButton, HashMap<String, String> colorPorClaveNombreGladiador, AudioClip sonidoFondo) throws MalformedURLException {
         super();
         this.algoRoma = algoRoma;
         this.colorPorClaveNombreGladiador = colorPorClaveNombreGladiador;
         panelInferiorsDeque = new ArrayDeque<>();
         gladiadoresAnimados = new ArrayList<>();
+
+
+        MenuBarra menuBarra = new MenuBarra(stage , sonidoFondo);
+        this.setTop(menuBarra);
 
         // Columna Izquierda con perfiles de Gladiadores
         this.panelPanelLateralGladiadores = new PanelLateralGladiadores(dadoButton);
@@ -48,14 +52,14 @@ public class AlgoRomaPantalla extends BorderPane implements ObservadorAlgoRoma {
         this.setLeft(panelPanelLateralGladiadores);
         this.setMargin(panelPanelLateralGladiadores, new Insets(5, 0, 5, 5));
 
-        //Creacion del camino
-
+        //Creacion del panel centrar que contiene el mapa
         this.mapaVista = new MapaVista(algoRoma);
-        this.setCenter(mapaVista);
-        this.setMargin(mapaVista, new Insets(5, 5, 5, 5));
+        PanelPrincipal panelPrincipal = new PanelPrincipal(algoRoma.getMapa(), mapaVista);
+        this.setCenter(panelPrincipal);
+        this.setMargin(panelPrincipal, new Insets(5, 5, 5, 5));
 
         BorderPane.setAlignment(mapaVista, Pos.TOP_CENTER);
-
+/*
         File mediaFile = new File("src/main/resources/edu/fiuba/algo3/vista/media/gamemusic.mp3");
         try {
             Media media = new Media(mediaFile.toURI().toURL().toString());
@@ -66,6 +70,10 @@ public class AlgoRomaPantalla extends BorderPane implements ObservadorAlgoRoma {
         }catch (MalformedURLException e){
             LOG.error("No se puede reproducir audio: " + e.getMessage(), e);
         }
+*/
+
+
+
 
         algoRoma.agregarObservadorNuevoTurno(this);
     }

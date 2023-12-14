@@ -39,9 +39,9 @@ public class CasoDeUso6Test {
         Energia energiaEsperada = new Energia(energiaInicialValor - FieraSalvaje.ATAQUE_CONTRA_EQUIPADO_ESCUDO_Y_ESPADA);
 
         //Act
-        this.gladiador.recibirConsecuencia(incrementoDeEquipo);
-        this.gladiador.recibirConsecuencia(incrementoDeEquipo);
-        this.gladiador.recibirConsecuencia(incrementoDeEquipo);
+        incrementoDeEquipo.afectarGladiador(gladiador);
+        incrementoDeEquipo.afectarGladiador(gladiador);
+        incrementoDeEquipo.afectarGladiador(gladiador);
         this.gladiador.recibirAtaque(new FieraSalvaje());
 
         //Assert
