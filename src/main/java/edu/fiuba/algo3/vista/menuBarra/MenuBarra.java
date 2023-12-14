@@ -2,6 +2,7 @@ package edu.fiuba.algo3.vista.menuBarra;
 
 import edu.fiuba.algo3.vista.menuBarra.controladoresBarra.CerrarAppEventHandler;
 import edu.fiuba.algo3.vista.menuBarra.controladoresBarra.PantallaCompletaEventHandler;
+import edu.fiuba.algo3.vista.menuBarra.controladoresBarra.mostrarInstruccionesEventHandler;
 import javafx.beans.binding.When;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
@@ -29,6 +30,8 @@ public class MenuBarra extends MenuBar {
         // Items del Menu
         MenuItem itemInstrucciones = new MenuItem("Instrucciones");
         opciones.getItems().add(itemInstrucciones);
+        itemInstrucciones.setOnAction(new mostrarInstruccionesEventHandler(stage));
+
 
         MenuSonido itemSonido = new MenuSonido("Sonido", sonido);
         opciones.getItems().add(itemSonido);
