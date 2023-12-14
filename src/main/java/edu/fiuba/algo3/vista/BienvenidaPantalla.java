@@ -33,7 +33,7 @@ public class BienvenidaPantalla extends BorderPane {
         VBox contenedorPrincipal = new VBox();
 
         Image imagen = new Image("file:src/main/resources/edu/fiuba/algo3/vista/backgroundBienvenidaPantalla.png");
-        BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.REPEAT,BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
+        BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.NO_REPEAT,BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, new BackgroundSize(1.0,1.0, true,true, false, false));
         contenedorPrincipal.setBackground(new Background(imagenDeFondo));
 
         contenedorPrincipal.setAlignment(Pos.CENTER_LEFT);
