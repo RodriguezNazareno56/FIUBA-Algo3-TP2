@@ -11,24 +11,21 @@ import edu.fiuba.algo3.vista.paneles_de_visualizacion.componentes.PantallaInfo;
 import edu.fiuba.algo3.vista.paneles_de_visualizacion.componentes.PantallaInfoFactory;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
-import javafx.application.Platform;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.util.Duration;
-
 import java.util.List;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
 
 public class PanelPrincipal extends StackPane implements ObservadorMapa {
-    Mapa mapa;
+    private final Mapa mapa;
+    private final MapaVista mapaVista;
     public PanelPrincipal(Mapa mapa, MapaVista mapaVista) {
         mapa.agregarObservador(this);
         this.mapa = mapa;
+        this.mapaVista = mapaVista;
         this.getChildren().add(mapaVista);
 
-        //cambia las pantallas con un click
+        // elimina pantallas con un click
         this.setOnMouseClicked(event -> {
             eliminarUltimoObjetoDelStack();
         });
@@ -60,12 +57,9 @@ public class PanelPrincipal extends StackPane implements ObservadorMapa {
         try {
             pantallaInfo = pantallaInfoFactory.getPantallaInfo(consecuencia, gladiador);
             this.getChildren().add((VBox)pantallaInfo);
+            limpiarPantallaEnTiempo(pantallaInfo);
         }
-        catch (NullPointerException e) {
-            //Exception ignore;
-            e.printStackTrace();
-        }
-        limpiarPantallaEnTiempo();
+        catch (NullPointerException ignore) {}
     }
 
     private void eliminarUltimoObjetoDelStack() {
@@ -78,21 +72,16 @@ public class PanelPrincipal extends StackPane implements ObservadorMapa {
     }
 
     private void limpiarPantalla() {
-        int cantidadPantallas = this.getChildren().size();
-        for(int i = cantidadPantallas; i>1; i-- ) {
-            eliminarUltimoObjetoDelStack();
-        }
+        this.getChildren().clear();
+        this.getChildren().add(mapaVista);
     }
 
     /** TODO: no está funcionando como debería, se supone que saque las pantallas de aviso
      en 5 segundos y a veces lo saca antes **/
-    private void limpiarPantallaEnTiempo() {
-        //ScheduledExecutorService executorService = Executors.newSingleThreadScheduledExecutor();
-        //executorService.schedule(() -> Platform.runLater(this::limpiarPantalla), 5, TimeUnit.SECONDS);
-
+    private void limpiarPantallaEnTiempo(PantallaInfo pantallaInfo) {
         Duration duration = Duration.seconds(6);
         KeyFrame keyFrame = new KeyFrame(duration, event -> {
-            this.limpiarPantalla();
+            this.getChildren().remove((VBox) pantallaInfo);
         });
 
         Timeline timeline = new Timeline(keyFrame);

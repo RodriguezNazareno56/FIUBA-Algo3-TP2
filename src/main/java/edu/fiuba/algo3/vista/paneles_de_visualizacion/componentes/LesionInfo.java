@@ -17,7 +17,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 
 public class LesionInfo extends VBox implements PantallaInfo {
-    private Label etiquetaJuego;
+    private final Label etiquetaJuego;
 
     public LesionInfo(){
         super();

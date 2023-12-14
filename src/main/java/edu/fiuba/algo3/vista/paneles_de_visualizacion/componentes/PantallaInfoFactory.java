@@ -22,8 +22,8 @@ public class PantallaInfoFactory {
             pantallaInfo = pantallasInfo.get(consecuencia.toString());
             return (PantallaInfo) pantallaInfo.getPantallaConInfoDe(gladiador, consecuencia);
         }
-        catch(Error e) {
-            e.printStackTrace();
+        // si no hay pantalla para la consecuencia, se ignora
+        catch(Exception ignore) {
         }
         return null;
     }

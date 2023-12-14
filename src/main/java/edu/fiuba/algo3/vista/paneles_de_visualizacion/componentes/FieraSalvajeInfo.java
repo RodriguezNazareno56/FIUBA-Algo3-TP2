@@ -18,7 +18,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 
 public class FieraSalvajeInfo extends VBox implements PantallaInfo {
-    private Label etiquetaJuego;
+    private final Label etiquetaJuego;
 
     public FieraSalvajeInfo(){
         super();
@@ -29,12 +29,6 @@ public class FieraSalvajeInfo extends VBox implements PantallaInfo {
         etiquetaJuego.setFont(Font.font("Helvetica", FontWeight.BOLD,38));
         etiquetaJuego.setTextFill(Color.web("#FFFFFF"));
         aplicarEfectosDeContornoTexto(etiquetaJuego);
-
-        //String url = "file:src/main/resources/edu/fiuba/algo3/vista/gladiador/marron/GreekBasic.png";
-        //Image comidaImage = new Image(url);
-        //ImageView imageView = new ImageView(comidaImage);
-        //imageView.setFitHeight(200);
-        //imageView.setPreserveRatio(true);
 
         Label mensaje = new Label();
         mensaje.setFont(Font.font("Helvetica", FontWeight.BOLD,20));
