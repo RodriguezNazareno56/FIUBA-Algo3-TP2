@@ -13,3 +13,4 @@ buildNumber.properties
 /appmap.yml
 /tmp/
 /qodana.yaml
+.vscode/

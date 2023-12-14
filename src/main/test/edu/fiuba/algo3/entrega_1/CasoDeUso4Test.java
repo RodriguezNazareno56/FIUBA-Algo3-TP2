@@ -37,7 +37,7 @@ public class CasoDeUso4Test {
         Energia energiaEsperada = new Energia(energiaInicialValor + ComidaConstantes.VALOR_DE_RECOMPOSICION);
 
         // Act
-        this.gladiador.recibirConsecuencia(comida);
+        comida.afectarGladiador(gladiador);
 
         // Assert
         assertEquals(energiaEsperada, gladiador.getEnergia());

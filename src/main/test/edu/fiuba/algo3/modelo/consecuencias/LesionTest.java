@@ -29,7 +29,7 @@ public class LesionTest {
                 .avanzar();
 
         //Act
-        gladiadorMock.recibirConsecuencia(lesion);
+        lesion.afectarGladiador(gladiadorMock);
 
         //Assert
         Assertions.assertThrows(MovimientoException.class, gladiadorMock::avanzar);
