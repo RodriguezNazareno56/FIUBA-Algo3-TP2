@@ -1,0 +1,61 @@
+@startuml
+actor Actor as "actor"
+participant AlgoRoma as ":AlgoRoma"
+participant JuegoSinIniciar as ":JuegoSinIniciar"
+participant Gladiador as ":Gladiador"
+participant ObservableAlgoRoma as ":ObservableAlgoRoma"
+participant Mapa as ":Mapa"
+participant Camino as ":Camino"
+participant Celda as ":Celda"
+participant Consecuencia as ":Consecuencia"
+participant ObservableMapa as ":ObservableMapa"
+
+  activate Actor
+    Actor->AlgoRoma: jugarTurno <color:gray> 0.381 ms</color>
+    activate AlgoRoma
+      AlgoRoma->JuegoSinIniciar: jugarTurno <color:gray> 0.369 ms</color>
+      activate JuegoSinIniciar
+        JuegoSinIniciar->AlgoRoma: jugarTurnoSegunEstado <color:gray> 0.351 ms</color>
+          AlgoRoma->ObservableAlgoRoma: notificarNuevoTurno <color:gray> 0.0027 ms</color>
+          activate ObservableAlgoRoma
+          AlgoRoma<--ObservableAlgoRoma: void
+          deactivate ObservableAlgoRoma
+          AlgoRoma->Mapa: avanzarNPosicionesGladiador(gladiador)
+          activate Mapa
+            Mapa->Camino: proximoEnNPosiciones <color:gray> 0.0098 ms</color>
+            activate Camino
+            Mapa<--Camino: edu.fiuba.algo3.modelo.celda.Celda
+            deactivate Camino
+            Mapa->Gladiador: avanzar <color:gray> 0.0577 ms</color>
+            activate Gladiador
+            note over Gladiador: Para mas detalles, mirar diagramas de avanzar Gladiador
+            Mapa<--Gladiador: void
+            Mapa->Celda: afectarGladiadorConConsecuencia(gladiador)
+            loop for (IConsecuencia consecuencia : consecuencias)
+            activate Celda
+              Celda->Consecuencia: afectarGladiador(gladiador)
+              activate Consecuencia
+              Consecuencia->Gladiador: afeccion de acuerdo al tipo de consecuencia (comer, lesionar, atacar, etc)
+              Gladiador-->Consecuencia: void
+              deactivate Gladiador
+              Consecuencia-->Celda: void
+              deactivate Consecuencia
+            end
+            Mapa<--Celda: void
+            deactivate Celda
+            Mapa->ObservableMapa: notificarPosicionamientoDeGladiador <color:gray> 0.0022 ms</color>
+            activate ObservableMapa
+            Mapa<--ObservableMapa: void
+            deactivate ObservableMapa
+          AlgoRoma<--Mapa: void
+          deactivate Mapa
+        JuegoSinIniciar<--AlgoRoma: void
+        JuegoSinIniciar->AlgoRoma: setEstadoJuego <color:gray> 0.0021 ms</color>
+        JuegoSinIniciar<--AlgoRoma: void
+      AlgoRoma<--JuegoSinIniciar: void
+      deactivate JuegoSinIniciar
+    Actor<--AlgoRoma: void
+    deactivate AlgoRoma
+
+  deactivate Actor
+@enduml
