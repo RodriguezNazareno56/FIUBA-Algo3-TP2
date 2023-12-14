@@ -1,32 +1,40 @@
 @startuml
 actor Actor as "actor"
 participant AlgoRoma as ":AlgoRoma"
-participant JuegoSinIniciar as ":JuegoSinIniciar"
-participant Gladiador as ":Gladiador"
+participant JuegoEnCurso as ":JuegoEnCurso"
+participant Dado as ":dado"
+participant Gladiador as "gladiador : Gladiador"
 participant ObservableAlgoRoma as ":ObservableAlgoRoma"
 participant Mapa as ":Mapa"
 participant Camino as ":Camino"
-participant Celda as ":Celda"
+participant Celda as "celdaDestino : Celda"
 participant Consecuencia as ":Consecuencia"
-participant ObservableMapa as ":ObservableMapa"
+participant ObservableMapa as ":ObservableMap"
 
   activate Actor
-    Actor->AlgoRoma: jugarTurno <color:gray> 0.381 ms</color>
+    Actor->AlgoRoma: jugarTurno()
     activate AlgoRoma
-      AlgoRoma->JuegoSinIniciar: jugarTurno <color:gray> 0.369 ms</color>
-      activate JuegoSinIniciar
-        JuegoSinIniciar->AlgoRoma: jugarTurnoSegunEstado <color:gray> 0.351 ms</color>
-          AlgoRoma->ObservableAlgoRoma: notificarNuevoTurno <color:gray> 0.0027 ms</color>
+      AlgoRoma->JuegoEnCurso: jugarTurno()
+      activate JuegoEnCurso
+        JuegoEnCurso->AlgoRoma: jugarTurnoSegunEstado(this)
+          activate AlgoRoma
+          AlgoRoma->AlgoRoma: avanzarGladiador()
+          AlgoRoma->ObservableAlgoRoma: notificarNuevoTurno()
           activate ObservableAlgoRoma
           AlgoRoma<--ObservableAlgoRoma: void
           deactivate ObservableAlgoRoma
-          AlgoRoma->Mapa: avanzarNPosicionesGladiador(gladiador)
+          AlgoRoma->Dado: tirarDado()
+          activate Dado
+          Dado-->AlgoRoma: int dadoResultado
+          deactivate Dado
+          AlgoRoma->Mapa: avanzarNPosicionesGladiador(gladiador, dadoResultado)
+          deactivate AlgoRoma
           activate Mapa
-            Mapa->Camino: proximoEnNPosiciones <color:gray> 0.0098 ms</color>
+            Mapa->Camino: proximoEnNPosiciones(celdaActual, dadoResultado)
             activate Camino
-            Mapa<--Camino: edu.fiuba.algo3.modelo.celda.Celda
+            Mapa<--Camino: celdaDestino: Celda
             deactivate Camino
-            Mapa->Gladiador: avanzar <color:gray> 0.0577 ms</color>
+            Mapa->Gladiador: avanzar()
             activate Gladiador
             note over Gladiador: Para mas detalles, mirar diagramas de avanzar Gladiador
             Mapa<--Gladiador: void
@@ -43,17 +51,14 @@ participant ObservableMapa as ":ObservableMapa"
             end
             Mapa<--Celda: void
             deactivate Celda
-            Mapa->ObservableMapa: notificarPosicionamientoDeGladiador <color:gray> 0.0022 ms</color>
+            Mapa->ObservableMapa: notificarPosicionamientoDeGladiador(gladiador, celdaDestino.getCoordenada()
             activate ObservableMapa
             Mapa<--ObservableMapa: void
             deactivate ObservableMapa
-          AlgoRoma<--Mapa: void
+          JuegoEnCurso<--Mapa: void
           deactivate Mapa
-        JuegoSinIniciar<--AlgoRoma: void
-        JuegoSinIniciar->AlgoRoma: setEstadoJuego <color:gray> 0.0021 ms</color>
-        JuegoSinIniciar<--AlgoRoma: void
-      AlgoRoma<--JuegoSinIniciar: void
-      deactivate JuegoSinIniciar
+      AlgoRoma<--JuegoEnCurso: void
+      deactivate JuegoEnCurso
     Actor<--AlgoRoma: void
     deactivate AlgoRoma
 
