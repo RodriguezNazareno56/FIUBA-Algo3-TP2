@@ -88,6 +88,7 @@ verificarQueSiPasan8TurnosElSeniorityDelGladiadorPasaDeNovatoASemiSeniorYVeSuEne
       Gladiador->Senority: aumentarExperiencia()
       activate Senority
         Senority->NovatoState: aumentarExperiencia()
+        opt 8 rondas jugadas como experiencia
         activate NovatoState
           NovatoState->SemiSeniorState: << createRequest >>
           activate SemiSeniorState
@@ -103,6 +104,7 @@ verificarQueSiPasan8TurnosElSeniorityDelGladiadorPasaDeNovatoASemiSeniorYVeSuEne
           end
           deactivate SemiSeniorState
           NovatoState<--ObservableSenorityState: void
+          end
           deactivate ObservableSenorityState
         Senority<--NovatoState: senority.states.SemiSeniorState
         deactivate NovatoState
