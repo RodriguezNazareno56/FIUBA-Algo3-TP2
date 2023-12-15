@@ -1,7 +1,6 @@
 package edu.fiuba.algo3.modelo;
 
 import edu.fiuba.algo3.data_acceso.MapaService;
-import edu.fiuba.algo3.modelo.algoRomaEstado.JuegoEnCurso;
 import edu.fiuba.algo3.modelo.algoRomaEstado.JuegoSinIniciar;
 import edu.fiuba.algo3.modelo.algoRomaEstado.JuegoTerminado;
 import edu.fiuba.algo3.modelo.dado.Dado;
@@ -256,7 +255,7 @@ public class AlgoRomaTest {
 
 
         //assert
-        assertEquals(4, algoRoma.cantidadDeGladiadores());
+        assertEquals(4, algoRoma.getCantidadDeGladiadores());
 
     }
 
@@ -297,6 +296,7 @@ public class AlgoRomaTest {
     public void agregarGladiadorLlamaAlMetodoAgregarGladiadorDelEstado() throws JuegoEnCursoException, MaximoGladiadoresException, FinDelJuegoException {
         //arrange
         Gladiador gladiador = Mockito.mock(Gladiador.class);
+        ArrayList<Gladiador> gladiadores = new ArrayList<>();
 
         JuegoSinIniciar juegoSinIniciar = Mockito.mock(JuegoSinIniciar.class);
         algoRoma.setEstadoJuego(juegoSinIniciar);
@@ -305,6 +305,7 @@ public class AlgoRomaTest {
         algoRoma.agregarGladiador(gladiador);
 
         //assert
-        Mockito.verify(juegoSinIniciar, Mockito.times(1)).agregarGladiador(gladiador);
+        Mockito.verify(juegoSinIniciar, Mockito.times(1)).agregarGladiador(gladiadores, gladiador);
     }
+
 }

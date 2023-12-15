@@ -16,6 +16,8 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import org.mockito.Mockito;
 import org.slf4j.Logger;
 
+import java.util.ArrayList;
+
 public class JuegoSinIniciarTest {
 
     AlgoRoma algoRoma;
@@ -25,19 +27,9 @@ public class JuegoSinIniciarTest {
     public void setUp() throws Exception {
         algoRoma = Mockito.mock(AlgoRoma.class);
 
-        juegoSinIniciar = new JuegoSinIniciar(algoRoma);
+        juegoSinIniciar = new JuegoSinIniciar(algoRoma, Mockito.mock(Logger.class));
     }
 
-    @Test
-    public void seLlamaAAgregarGladiadorEnListaCuandoSeAgregaUnGladiador() throws MaximoGladiadoresException {
-        // Arrange
-        String nombre = "Espartaco";
-        Gladiador gladiador = Mockito.mock(Gladiador.class);
-        // Act
-        juegoSinIniciar.agregarGladiador(gladiador);
-        // Assert
-        Mockito.verify(algoRoma, Mockito.times(1)).agregarGladiadorALaLista(gladiador);
-    }
 
     @Test
     public void seLlamaAJugarTurnoSegunEstadoConParametroDeTipoJuegoSinIniciarCuandoSeJuegaTurno() throws Exception {

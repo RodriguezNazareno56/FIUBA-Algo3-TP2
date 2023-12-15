@@ -22,13 +22,11 @@ import static edu.fiuba.algo3.modelo.constantes.AlgoRomaConstantes.*;
 import static edu.fiuba.algo3.modelo.constantes.GladiadorConstantes.ENERGIA_INICIAL_GLADIADOR;
 
 
-public class AlgoRoma extends ObservableAlgoRoma implements AlgoRomaModelo, ObservadorGladiador {
+public class AlgoRoma extends ObservableAlgoRoma implements AlgoRomaModelo, AlgoRomaEstado, ObservadorGladiador {
 
     private EstadoJuego estadoJuego;
 
     private final Logger logger;
-
-    private int rondaActual = 0;
 
     private final ArrayList<Gladiador> gladiadores;
 
@@ -36,12 +34,11 @@ public class AlgoRoma extends ObservableAlgoRoma implements AlgoRomaModelo, Obse
 
     private Mapa mapa;
 
-    private final int MAX_CANTIDAD_GLADIADORES = 6;
-
     private final MapaService mapaService;
 
     private final Dado dado;
 
+    private int rondaActual = 0;
 
 
     public AlgoRoma(MapaService mapaService, Dado dado, Logger logger) {
@@ -51,7 +48,7 @@ public class AlgoRoma extends ObservableAlgoRoma implements AlgoRomaModelo, Obse
         this.gladiadores = new ArrayList<>();
         this.gladiadoresEnEspera = new LinkedList<>();
 
-        this.estadoJuego = new JuegoSinIniciar(this);
+        this.estadoJuego = new JuegoSinIniciar(this, this.logger);
 
         this.mapaService = mapaService;
         this.dado = dado;
@@ -72,12 +69,16 @@ public class AlgoRoma extends ObservableAlgoRoma implements AlgoRomaModelo, Obse
     public void agregarGladiador(String nombreGladiador) throws MaximoGladiadoresException,
             JuegoEnCursoException, FinDelJuegoException, NombreInvalidoException {
         Gladiador gladiador = new Gladiador(nombreGladiador, new Energia(ENERGIA_INICIAL_GLADIADOR), new SinEquipamiento(), new Senority(), this.logger);
-        this.estadoJuego.agregarGladiador(gladiador);
+        this.estadoJuego.agregarGladiador(gladiadores, gladiador);
+        gladiador.subscribir(this);
+        this.notificarNuevoGladiador();
     }
 
     public void agregarGladiador(Gladiador gladiador) throws MaximoGladiadoresException,
             JuegoEnCursoException, FinDelJuegoException {
-        this.estadoJuego.agregarGladiador(gladiador);
+        this.estadoJuego.agregarGladiador(gladiadores, gladiador);
+        gladiador.subscribir(this);
+        this.notificarNuevoGladiador();
     }
 
     public void jugarTurno() throws Exception {
@@ -88,34 +89,9 @@ public class AlgoRoma extends ObservableAlgoRoma implements AlgoRomaModelo, Obse
         this.estadoJuego.jugarTurno();
     }
 
-    public void agregarGladiadorALaLista(Gladiador gladiador) throws MaximoGladiadoresException {
-        //este metodo lo usan los estados, redefinir por un nombre más apropiado
-        if( gladiadores.size() >= MAX_CANTIDAD_GLADIADORES){
-            throw new MaximoGladiadoresException("No se pueden agregar mas gladiadores");
-        }
-
-        gladiador.subscribir(this);
-        this.gladiadores.add(gladiador);
-        this.notificarNuevoGladiador();
-        logger.info(gladiador + " se unio al juego");
-    }
-
-    private void inicializarJuego() throws MinimoGladiadoresException {
-        if( gladiadores.size() < MINIMA_CANTIDAD_DE_GLADIADORES){
-            throw new MinimoGladiadoresException("No se puede inicializar un juego con menos de dos gladiadores");
-        }
-
-        //Collections.shuffle(gladiadores);
-
-        // TODO: no se si aca esta bien. pero al mapa hay que cargarle los gladiadores
+    private void inicializarJuego() {
         this.mapa.setGladiadores(gladiadores);
-        this.logger.info("Juego inicilizado");
-
-        // TODO: no se estan usando. Creo que son para eliminar
-//        notificarOrdenDeTurno();
-//        notificarFormaDeMapa();
     }
-
 
     public void jugarTurnoSegunEstado(JuegoSinIniciar juegoSinIniciar) throws Exception {
         this.inicializarJuego();
@@ -168,16 +144,11 @@ public class AlgoRoma extends ObservableAlgoRoma implements AlgoRomaModelo, Obse
         // TODO: a finalidad de testear arrojo exepcion
         throw new Exception();
     }
-    /*
-    public ArrayList<Gladiador> getGladiadores() {
-        return gladiadores;
-    }
-    */
     public Mapa getMapa(){
         return this.mapa;
     }
 
-    public int cantidadDeGladiadores(){
+    public int getCantidadDeGladiadores(){
         return this.gladiadores.size();
     }
 
@@ -247,6 +218,6 @@ public class AlgoRoma extends ObservableAlgoRoma implements AlgoRomaModelo, Obse
     }
 
     public int getMaximaCantidadGladiadores() {
-        return MAX_CANTIDAD_GLADIADORES;
+        return MAXIMA_CANTIDAD_DE_GLADIADORES;
     }
 }
