@@ -1,7 +1,6 @@
 package edu.fiuba.algo3.modelo;
 
 import edu.fiuba.algo3.data_acceso.MapaService;
-import edu.fiuba.algo3.modelo.algoRomaEstado.JuegoEnCurso;
 import edu.fiuba.algo3.modelo.algoRomaEstado.JuegoSinIniciar;
 import edu.fiuba.algo3.modelo.algoRomaEstado.JuegoTerminado;
 import edu.fiuba.algo3.modelo.dado.Dado;
@@ -256,7 +255,7 @@ public class AlgoRomaTest {
 
 
         //assert
-        assertEquals(4, algoRoma.cantidadDeGladiadores());
+        assertEquals(4, algoRoma.getCantidadDeGladiadores());
 
     }
 

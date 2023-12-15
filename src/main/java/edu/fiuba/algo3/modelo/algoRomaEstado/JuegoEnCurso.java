@@ -15,8 +15,6 @@ public class JuegoEnCurso extends EstadoJuego{
             super(algoRoma, logger);
         }
 
-
-
         public void agregarGladiador(ArrayList<Gladiador> gladiadores, Gladiador gladiador) throws JuegoEnCursoException {
                 throw new JuegoEnCursoException("No se pueden agregar gladiadores en un juego en curso");
         }

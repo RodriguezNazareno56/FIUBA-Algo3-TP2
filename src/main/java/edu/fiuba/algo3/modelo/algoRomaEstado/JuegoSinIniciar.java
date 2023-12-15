@@ -6,9 +6,6 @@ import org.slf4j.Logger;
 
 import java.util.ArrayList;
 
-import static edu.fiuba.algo3.modelo.constantes.AlgoRomaConstantes.MAXIMA_CANTIDAD_DE_GLADIADORES;
-import static edu.fiuba.algo3.modelo.constantes.AlgoRomaConstantes.MINIMA_CANTIDAD_DE_GLADIADORES;
-
 
 public class JuegoSinIniciar extends EstadoJuego{
 
@@ -28,7 +25,7 @@ public class JuegoSinIniciar extends EstadoJuego{
 
     @Override
     public void jugarTurno() throws Exception {
-        if( algoRoma.cantidadDeGladiadores() < algoRoma.getMinimaCantidadGladiadores()){
+        if( algoRoma.getCantidadDeGladiadores() < algoRoma.getMinimaCantidadGladiadores()){
             throw new MinimoGladiadoresException("No se puede inicializar un juego con menos de dos gladiadores");
         }
         this.logger.info("Juego inicilizado");

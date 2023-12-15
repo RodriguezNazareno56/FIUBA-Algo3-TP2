@@ -28,20 +28,17 @@ public class AlgoRoma extends ObservableAlgoRoma implements AlgoRomaEstado, Obse
 
     private final Logger logger;
 
-    private int rondaActual = 0;
-
     private final ArrayList<Gladiador> gladiadores;
 
     private final Queue<Gladiador> gladiadoresEnEspera;
 
     private Mapa mapa;
 
-    private final int MAX_CANTIDAD_GLADIADORES = 6;
-
     private final MapaService mapaService;
 
     private final Dado dado;
 
+    private int rondaActual = 0;
 
 
     public AlgoRoma(MapaService mapaService, Dado dado, Logger logger) {
@@ -151,7 +148,7 @@ public class AlgoRoma extends ObservableAlgoRoma implements AlgoRomaEstado, Obse
         return this.mapa;
     }
 
-    public int cantidadDeGladiadores(){
+    public int getCantidadDeGladiadores(){
         return this.gladiadores.size();
     }
 
@@ -221,6 +218,6 @@ public class AlgoRoma extends ObservableAlgoRoma implements AlgoRomaEstado, Obse
     }
 
     public int getMaximaCantidadGladiadores() {
-        return MAX_CANTIDAD_GLADIADORES;
+        return MAXIMA_CANTIDAD_DE_GLADIADORES;
     }
 }

@@ -18,7 +18,7 @@ public class ComenzarPartidaButtonHandler extends BotonProximaEscenaEventHandler
     @Override
     public void handle(ActionEvent actionEvent) {
         // TODO: esta validacion debe realizarla el modelo
-        if(algoRoma.cantidadDeGladiadores()>=2 && algoRoma.cantidadDeGladiadores()<=6){
+        if(algoRoma.getCantidadDeGladiadores()>=2 && algoRoma.getCantidadDeGladiadores()<=6){
             // TODO: la vista no deberia hacer uso del metodo algoRoma.notificarObservadores (de echo el mismo deberia
             //  ser privado)
 //            algoRoma.notificarAObservadores();
