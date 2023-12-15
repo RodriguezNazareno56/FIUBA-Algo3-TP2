@@ -13,6 +13,7 @@ import edu.fiuba.algo3.data_acceso.repositories.CaminoRepositoryImpl;
 import edu.fiuba.algo3.data_acceso.repositories.MapaRepositoryImpl;
 import edu.fiuba.algo3.data_acceso.repositories.MapaRepository;
 import edu.fiuba.algo3.modelo.AlgoRoma;
+import edu.fiuba.algo3.modelo.AlgoRomaModelo;
 import edu.fiuba.algo3.modelo.dado.Dado;
 import edu.fiuba.algo3.vista.BienvenidaPantalla;
 import edu.fiuba.algo3.vista.ViewProperties;
@@ -36,7 +37,7 @@ import java.util.HashMap;
  */
 public class App extends Application {
 
-    private AlgoRoma algoRoma;
+    private AlgoRomaModelo algoRoma;
     private Dado dado;
 
     @Override

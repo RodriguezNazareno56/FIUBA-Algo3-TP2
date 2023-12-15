@@ -3,6 +3,7 @@ package edu.fiuba.algo3.vista.pantalla_elegir_gladiador;
 import edu.fiuba.algo3.controladores.GladiadorFactory;
 import edu.fiuba.algo3.controladores.observers.ObservadorAlgoRoma;
 import edu.fiuba.algo3.modelo.AlgoRoma;
+import edu.fiuba.algo3.modelo.AlgoRomaModelo;
 import edu.fiuba.algo3.vista.menuBarra.MenuBarra;
 import edu.fiuba.algo3.vista.pantalla_elegir_gladiador.componentes.JugarPartidaButtonEventHandler;
 import edu.fiuba.algo3.vista.AlgoRomaPantalla;
@@ -25,7 +26,7 @@ public class ElegirGladiadorPantalla extends BorderPane implements ObservadorAlg
 
     private HashMap<String, String> colorPorClaveNombreGladiador;
 
-    private AlgoRoma algoRoma;
+    private AlgoRomaModelo algoRoma;
 
     private HBox gladiadoresElegidosHBox;
 
@@ -39,7 +40,7 @@ public class ElegirGladiadorPantalla extends BorderPane implements ObservadorAlg
     // File:src/main/resources/edu/fiuba/algo3/vista/mapa/components/perfilesGladiadores/PerfilGladiador1.png sin el 1.png, debe ser png por ahora
 
     private final int ESPACIADO_BLOQUES = 40;
-    public ElegirGladiadorPantalla(Stage stage, Scene escenaSiguiente, AlgoRoma algoRoma, AlgoRomaPantalla algoRomaPantalla,
+    public ElegirGladiadorPantalla(Stage stage, Scene escenaSiguiente, AlgoRomaModelo algoRoma, AlgoRomaPantalla algoRomaPantalla,
                                    HashMap<String,String> colorPorClaveNombreGladiador, AudioClip sonidoFondo) {
         super();
 
