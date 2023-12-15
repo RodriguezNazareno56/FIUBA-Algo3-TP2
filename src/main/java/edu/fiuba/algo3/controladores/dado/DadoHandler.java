@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.controladores.dado;
 
 import edu.fiuba.algo3.modelo.AlgoRoma;
+import edu.fiuba.algo3.modelo.AlgoRomaModelo;
 import edu.fiuba.algo3.modelo.FinDelJuegoException;
 import edu.fiuba.algo3.vista.ViewProperties;
 import edu.fiuba.algo3.vista.VistaGanador;
@@ -26,9 +27,9 @@ public class DadoHandler implements EventHandler<ActionEvent> {
     private Stage stage;
 
 
-    private AlgoRoma algoRoma; // TODO: creo que deberia llegar por el constructor
+    private AlgoRomaModelo algoRoma; // TODO: creo que deberia llegar por el constructor
 
-    public DadoHandler(DadoButton dado, AlgoRoma algoRoma, Stage stage) {
+    public DadoHandler(DadoButton dado, AlgoRomaModelo algoRoma, Stage stage) {
         super();
         this.dado = dado;
         this.animacion = new AnimacionDado();
@@ -36,7 +37,7 @@ public class DadoHandler implements EventHandler<ActionEvent> {
         this.stage = stage;
     }
 
-    public void setAlgoRoma(AlgoRoma algoRoma) {
+    public void setAlgoRoma(AlgoRomaModelo algoRoma) {
         this.algoRoma = algoRoma;
     }
 

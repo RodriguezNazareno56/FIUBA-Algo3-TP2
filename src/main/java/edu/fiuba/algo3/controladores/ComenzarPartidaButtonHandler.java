@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.controladores;
 
 import edu.fiuba.algo3.modelo.AlgoRoma;
+import edu.fiuba.algo3.modelo.AlgoRomaModelo;
 import edu.fiuba.algo3.vista.components.boton.BotonProximaEscenaEventHandler;
 import javafx.event.ActionEvent;
 import javafx.scene.Scene;
@@ -8,9 +9,9 @@ import javafx.stage.Stage;
 
 public class ComenzarPartidaButtonHandler extends BotonProximaEscenaEventHandler {
 
-    private AlgoRoma algoRoma;
+    private AlgoRomaModelo algoRoma;
 
-    public ComenzarPartidaButtonHandler(Stage stage, Scene proximaEscena, AlgoRoma algoRoma) {
+    public ComenzarPartidaButtonHandler(Stage stage, Scene proximaEscena, AlgoRomaModelo algoRoma) {
         super(stage, proximaEscena);
         this.algoRoma = algoRoma;
     }
