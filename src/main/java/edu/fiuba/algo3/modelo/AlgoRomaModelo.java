@@ -17,7 +17,7 @@ public interface AlgoRomaModelo {
 
     int getRondasJugadas();
 
-    int cantidadDeGladiadores();
+    int getCantidadDeGladiadores();
 
     int getMaximaCantidadRondas();
 
