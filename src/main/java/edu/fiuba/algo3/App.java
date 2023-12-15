@@ -44,7 +44,7 @@ public class App extends Application {
     public void start(Stage stage) throws IOException {
         this.cargarDependencias();
 
-        HashMap<String, String> dirImagenesPorNombreGladiador = new HashMap<>();
+        HashMap<String, String> colorPorClaveNombreGladiador = new HashMap<>();
 
         AudioClip sonidoDeFondo = new AudioClip("file:src/main/resources/edu/fiuba/algo3/vista/media/gamemusic.mp3");
         sonidoDeFondo.play();
@@ -52,11 +52,11 @@ public class App extends Application {
         DadoButton dadoButton = new DadoButton(algoRoma, stage);
         dado.agregarObservador(dadoButton);
 
-        AlgoRomaPantalla algoRomaPantalla = new AlgoRomaPantalla(stage, algoRoma, dadoButton, dirImagenesPorNombreGladiador, sonidoDeFondo);
+        AlgoRomaPantalla algoRomaPantalla = new AlgoRomaPantalla(stage, algoRoma, dadoButton, colorPorClaveNombreGladiador, sonidoDeFondo);
         Scene mapaVista = new Scene(algoRomaPantalla, ViewProperties.stageMaximoAlto, ViewProperties.stageMaximoAncho );
 
         ElegirGladiadorPantalla agregarJugadorPantalla = new ElegirGladiadorPantalla(stage, mapaVista,
-                algoRoma , algoRomaPantalla, dirImagenesPorNombreGladiador, sonidoDeFondo);
+                algoRoma , algoRomaPantalla, colorPorClaveNombreGladiador, sonidoDeFondo);
         Scene escenaJugador = new Scene(agregarJugadorPantalla, ViewProperties.stageMaximoAlto, ViewProperties.stageMaximoAncho);
 
         BienvenidaPantalla bienvenidaPantalla = new BienvenidaPantalla(stage, escenaJugador, sonidoDeFondo);
