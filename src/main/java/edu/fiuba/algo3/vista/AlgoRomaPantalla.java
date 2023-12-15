@@ -2,6 +2,7 @@ package edu.fiuba.algo3.vista;
 
 import edu.fiuba.algo3.controladores.observers.ObservadorAlgoRoma;
 import edu.fiuba.algo3.modelo.AlgoRoma;
+import edu.fiuba.algo3.modelo.AlgoRomaModelo;
 import edu.fiuba.algo3.vista.menuBarra.MenuBarra;
 import edu.fiuba.algo3.vista.dado.DadoButton;
 import edu.fiuba.algo3.vista.gladiador.GladiadorAnimado;
@@ -27,14 +28,14 @@ public class AlgoRomaPantalla extends BorderPane implements ObservadorAlgoRoma {
 
     private static final Logger LOG = LoggerFactory.getLogger(AlgoRomaPantalla.class);
 
-    private AlgoRoma algoRoma;
+    private AlgoRomaModelo algoRoma;
     private final MapaVista mapaVista;
     private PanelLateralGladiadores panelPanelLateralGladiadores;
     private final Deque<PanelInferior> panelInferiorsDeque;
     private ArrayList<GladiadorAnimado> gladiadoresAnimados;
     private HashMap<String, String> colorPorClaveNombreGladiador;
 
-    public AlgoRomaPantalla(Stage stage, AlgoRoma algoRoma, DadoButton dadoButton, HashMap<String, String> colorPorClaveNombreGladiador, AudioClip sonidoFondo) throws MalformedURLException {
+    public AlgoRomaPantalla(Stage stage, AlgoRomaModelo algoRoma, DadoButton dadoButton, HashMap<String, String> colorPorClaveNombreGladiador, AudioClip sonidoFondo) throws MalformedURLException {
         super();
         this.algoRoma = algoRoma;
         this.colorPorClaveNombreGladiador = colorPorClaveNombreGladiador;

@@ -22,14 +22,14 @@ import static edu.fiuba.algo3.modelo.constantes.GladiadorConstantes.ENERGIA_INIC
 
 public class GladiadorFactory {
 
-    private AlgoRoma algoRoma;
+    private AlgoRomaModelo algoRoma;
     private AlgoRomaPantalla algoRomaPantalla;
     private Deque<GladiadorVista.Color> coloresGladiadorVista;
     private Deque<GladiadorAnimado.Color> coloresGladiadorAnimado;
     private GladiadorAnimado.Color colorGladiadorAnimado;
     private GladiadorVista.Color colorGladiadorVista;
 
-    public GladiadorFactory(AlgoRoma algoRoma, AlgoRomaPantalla algoRomaPantalla) {
+    public GladiadorFactory(AlgoRomaModelo algoRoma, AlgoRomaPantalla algoRomaPantalla) {
         this.algoRoma = algoRoma;
         this.algoRomaPantalla = algoRomaPantalla;
         inicializarColores();

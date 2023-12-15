@@ -22,7 +22,7 @@ import static edu.fiuba.algo3.modelo.constantes.AlgoRomaConstantes.*;
 import static edu.fiuba.algo3.modelo.constantes.GladiadorConstantes.ENERGIA_INICIAL_GLADIADOR;
 
 
-public class AlgoRoma extends ObservableAlgoRoma implements ObservadorGladiador {
+public class AlgoRoma extends ObservableAlgoRoma implements AlgoRomaModelo, ObservadorGladiador {
 
     private EstadoJuego estadoJuego;
 
