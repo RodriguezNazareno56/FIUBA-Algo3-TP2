@@ -14,6 +14,9 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.mockito.Mockito;
 import org.slf4j.Logger;
+
+import java.util.ArrayList;
+
 public class JuegoEnCursoTest {
 
     AlgoRoma algoRoma;
@@ -24,15 +27,16 @@ public class JuegoEnCursoTest {
         algoRoma = Mockito.mock(AlgoRoma.class);
         //Mockito.when(mapaService.cargarMapa()).thenReturn(Mockito.mock(Mapa.class));
 
-        juegoEnCurso = new JuegoEnCurso(algoRoma);
+        juegoEnCurso = new JuegoEnCurso(algoRoma, Mockito.mock(Logger.class));
     }
 
     @Test
     public void seLanzaJuegoEnCursoExceptionUCuandoSeAgregaUnGladiador() throws FinDelJuegoException {
         // Arrange
         Gladiador gladiador = Mockito.mock(Gladiador.class);
+        ArrayList<Gladiador> gladiadores = new ArrayList<>();
         // Assert
-        assertThrows(JuegoEnCursoException.class, () -> juegoEnCurso.agregarGladiador(gladiador) );
+        assertThrows(JuegoEnCursoException.class, () -> juegoEnCurso.agregarGladiador(gladiadores, gladiador) );
     }
     
 

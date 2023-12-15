@@ -2,18 +2,24 @@ package edu.fiuba.algo3.modelo.algoRomaEstado;
 
 import edu.fiuba.algo3.modelo.*;
 import edu.fiuba.algo3.modelo.gladiador.Gladiador;
+import org.slf4j.Logger;
+
+import java.util.ArrayList;
 
 public abstract class EstadoJuego {
 
     protected AlgoRoma algoRoma;
 
-    public EstadoJuego(AlgoRoma algoRoma) {
+    protected Logger logger;
+
+    public EstadoJuego(AlgoRoma algoRoma, Logger logger) {
         this.algoRoma = algoRoma;
+        this.logger = logger;
     }
 
     public abstract void jugarTurno() throws Exception;
 
-    public abstract void agregarGladiador(Gladiador gladiador) throws FinDelJuegoException, MaximoGladiadoresException, JuegoEnCursoException;
 
+    public abstract void agregarGladiador(ArrayList<Gladiador> gladiadores, Gladiador gladiador) throws FinDelJuegoException, MaximoGladiadoresException, JuegoEnCursoException;
     public abstract void agregarTriunfo(Gladiador gladiador) throws FinDelJuegoException;
 }

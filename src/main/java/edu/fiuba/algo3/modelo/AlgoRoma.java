@@ -51,7 +51,7 @@ public class AlgoRoma extends ObservableAlgoRoma implements ObservadorGladiador 
         this.gladiadores = new ArrayList<>();
         this.gladiadoresEnEspera = new LinkedList<>();
 
-        this.estadoJuego = new JuegoSinIniciar(this);
+        this.estadoJuego = new JuegoSinIniciar(this, this.logger);
 
         this.mapaService = mapaService;
         this.dado = dado;
@@ -72,12 +72,16 @@ public class AlgoRoma extends ObservableAlgoRoma implements ObservadorGladiador 
     public void agregarGladiador(String nombreGladiador) throws MaximoGladiadoresException,
             JuegoEnCursoException, FinDelJuegoException, NombreInvalidoException {
         Gladiador gladiador = new Gladiador(nombreGladiador, new Energia(ENERGIA_INICIAL_GLADIADOR), new SinEquipamiento(), new Senority(), this.logger);
-        this.estadoJuego.agregarGladiador(gladiador);
+        this.estadoJuego.agregarGladiador(gladiadores, gladiador);
+        gladiador.subscribir(this);
+        this.notificarNuevoGladiador();
     }
 
     public void agregarGladiador(Gladiador gladiador) throws MaximoGladiadoresException,
             JuegoEnCursoException, FinDelJuegoException {
-        this.estadoJuego.agregarGladiador(gladiador);
+        this.estadoJuego.agregarGladiador(gladiadores, gladiador);
+        gladiador.subscribir(this);
+        this.notificarNuevoGladiador();
     }
 
     public void jugarTurno() throws Exception {
@@ -88,34 +92,9 @@ public class AlgoRoma extends ObservableAlgoRoma implements ObservadorGladiador 
         this.estadoJuego.jugarTurno();
     }
 
-    public void agregarGladiadorALaLista(Gladiador gladiador) throws MaximoGladiadoresException {
-        //este metodo lo usan los estados, redefinir por un nombre más apropiado
-        if( gladiadores.size() >= MAX_CANTIDAD_GLADIADORES){
-            throw new MaximoGladiadoresException("No se pueden agregar mas gladiadores");
-        }
-
-        gladiador.subscribir(this);
-        this.gladiadores.add(gladiador);
-        this.notificarNuevoGladiador();
-        logger.info(gladiador + " se unio al juego");
-    }
-
-    private void inicializarJuego() throws MinimoGladiadoresException {
-        if( gladiadores.size() < MINIMA_CANTIDAD_DE_GLADIADORES){
-            throw new MinimoGladiadoresException("No se puede inicializar un juego con menos de dos gladiadores");
-        }
-
-        //Collections.shuffle(gladiadores);
-
-        // TODO: no se si aca esta bien. pero al mapa hay que cargarle los gladiadores
+    private void inicializarJuego() {
         this.mapa.setGladiadores(gladiadores);
-        this.logger.info("Juego inicilizado");
-
-        // TODO: no se estan usando. Creo que son para eliminar
-//        notificarOrdenDeTurno();
-//        notificarFormaDeMapa();
     }
-
 
     public void jugarTurnoSegunEstado(JuegoSinIniciar juegoSinIniciar) throws Exception {
         this.inicializarJuego();
@@ -168,11 +147,6 @@ public class AlgoRoma extends ObservableAlgoRoma implements ObservadorGladiador 
         // TODO: a finalidad de testear arrojo exepcion
         throw new Exception();
     }
-    /*
-    public ArrayList<Gladiador> getGladiadores() {
-        return gladiadores;
-    }
-    */
     public Mapa getMapa(){
         return this.mapa;
     }

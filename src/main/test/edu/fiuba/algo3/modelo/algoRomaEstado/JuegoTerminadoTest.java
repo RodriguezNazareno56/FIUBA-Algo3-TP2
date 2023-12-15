@@ -9,6 +9,9 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
+import org.slf4j.Logger;
+
+import java.util.ArrayList;
 
 public class JuegoTerminadoTest {
 
@@ -22,15 +25,16 @@ public class JuegoTerminadoTest {
         algoRoma = Mockito.mock(AlgoRoma.class);
         //Mockito.when(mapaService.cargarMapa()).thenReturn(Mockito.mock(Mapa.class));
 
-        juegoTerminado = new JuegoTerminado(algoRoma);
+        juegoTerminado = new JuegoTerminado(algoRoma, Mockito.mock(Logger.class));
     }
 
     @Test
     public void seLanzaUnaExcepcionCuandoSeAgregaUnGladiador() throws FinDelJuegoException {
         // Arrange
         Gladiador gladiador = Mockito.mock(Gladiador.class);
+        ArrayList<Gladiador> gladiadores = new ArrayList<>();
         // Assert
-        assertThrows(FinDelJuegoException.class, () -> juegoTerminado.agregarGladiador(gladiador) );
+        assertThrows(FinDelJuegoException.class, () -> juegoTerminado.agregarGladiador(gladiadores, gladiador) );
     }
 
     @Test

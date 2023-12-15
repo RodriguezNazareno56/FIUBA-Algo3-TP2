@@ -1,19 +1,23 @@
 package edu.fiuba.algo3.modelo.algoRomaEstado;
 import edu.fiuba.algo3.modelo.AlgoRoma;
 import edu.fiuba.algo3.modelo.FinDelJuegoException;
+import edu.fiuba.algo3.modelo.JuegoEnCursoException;
 import edu.fiuba.algo3.modelo.gladiador.Gladiador;
+import org.slf4j.Logger;
+
+import java.util.ArrayList;
 
 public class JuegoTerminado extends EstadoJuego{
 
-    public JuegoTerminado(AlgoRoma algoRoma) {
-        super(algoRoma);
+    public JuegoTerminado(AlgoRoma algoRoma, Logger logger) {
+        super(algoRoma, logger);
     }
 
-    @Override
-    public void agregarGladiador(Gladiador gladiador) throws FinDelJuegoException {
+
+
+    public void agregarGladiador(ArrayList<Gladiador> gladiadores, Gladiador gladiador) throws FinDelJuegoException {
         throw new FinDelJuegoException(" No se pueden agregar gladiadores en un juego terminado");
     }
-
     @Override
     public void jugarTurno() throws FinDelJuegoException {
         algoRoma.jugarTurnoSegunEstado(this);

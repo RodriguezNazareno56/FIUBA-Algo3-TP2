@@ -3,24 +3,27 @@ package edu.fiuba.algo3.modelo.algoRomaEstado;
 import edu.fiuba.algo3.modelo.AlgoRoma;
 import edu.fiuba.algo3.modelo.JuegoEnCursoException;
 import edu.fiuba.algo3.modelo.gladiador.Gladiador;
+import org.slf4j.Logger;
+
+import java.util.ArrayList;
 
 public class JuegoEnCurso extends EstadoJuego{
 
 
-        public JuegoEnCurso(AlgoRoma algoRoma) {
-            super(algoRoma);
+        public JuegoEnCurso(AlgoRoma algoRoma, Logger logger) {
+            super(algoRoma, logger);
         }
 
-        @Override
-        public void agregarGladiador(Gladiador gladiador) throws JuegoEnCursoException {
-                throw new JuegoEnCursoException("No se pueden agregar gladiadores en un juego en curso");
 
+
+        public void agregarGladiador(ArrayList<Gladiador> gladiadores, Gladiador gladiador) throws JuegoEnCursoException {
+                throw new JuegoEnCursoException("No se pueden agregar gladiadores en un juego en curso");
         }
         @Override
         public void jugarTurno() throws Exception {
 
                 if(algoRoma.getRondasJugadas() >= algoRoma.getMaximaCantidadRondas()){
-                        JuegoTerminado juegoTerminado = new JuegoTerminado(algoRoma);
+                        JuegoTerminado juegoTerminado = new JuegoTerminado(algoRoma, this.logger);
                         algoRoma.setEstadoJuego( juegoTerminado );
                         juegoTerminado.jugarTurno();
                 }
@@ -31,7 +34,8 @@ public class JuegoEnCurso extends EstadoJuego{
 
         @Override
         public void agregarTriunfo(Gladiador gladiador) {
-                algoRoma.setEstadoJuego( new JuegoTerminado(algoRoma));
+                //con solo un gladiador triunfando se termina el juego
+                algoRoma.setEstadoJuego( new JuegoTerminado(algoRoma, this.logger) );
         }
 
 }
