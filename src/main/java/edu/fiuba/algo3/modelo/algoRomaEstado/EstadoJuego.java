@@ -8,11 +8,11 @@ import java.util.ArrayList;
 
 public abstract class EstadoJuego {
 
-    protected AlgoRoma algoRoma;
+    protected AlgoRomaEstado algoRoma;
 
     protected Logger logger;
 
-    public EstadoJuego(AlgoRoma algoRoma, Logger logger) {
+    public EstadoJuego(AlgoRomaEstado algoRoma, Logger logger) {
         this.algoRoma = algoRoma;
         this.logger = logger;
     }

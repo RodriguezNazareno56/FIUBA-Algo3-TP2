@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo.algoRomaEstado;
 import edu.fiuba.algo3.modelo.AlgoRoma;
+import edu.fiuba.algo3.modelo.AlgoRomaEstado;
 import edu.fiuba.algo3.modelo.FinDelJuegoException;
 import edu.fiuba.algo3.modelo.JuegoEnCursoException;
 import edu.fiuba.algo3.modelo.gladiador.Gladiador;
@@ -9,7 +10,7 @@ import java.util.ArrayList;
 
 public class JuegoTerminado extends EstadoJuego{
 
-    public JuegoTerminado(AlgoRoma algoRoma, Logger logger) {
+    public JuegoTerminado(AlgoRomaEstado algoRoma, Logger logger) {
         super(algoRoma, logger);
     }
 

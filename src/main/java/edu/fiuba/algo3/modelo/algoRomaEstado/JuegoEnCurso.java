@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo.algoRomaEstado;
 
 import edu.fiuba.algo3.modelo.AlgoRoma;
+import edu.fiuba.algo3.modelo.AlgoRomaEstado;
 import edu.fiuba.algo3.modelo.JuegoEnCursoException;
 import edu.fiuba.algo3.modelo.gladiador.Gladiador;
 import org.slf4j.Logger;
@@ -10,7 +11,7 @@ import java.util.ArrayList;
 public class JuegoEnCurso extends EstadoJuego{
 
 
-        public JuegoEnCurso(AlgoRoma algoRoma, Logger logger) {
+        public JuegoEnCurso(AlgoRomaEstado algoRoma, Logger logger) {
             super(algoRoma, logger);
         }
 
