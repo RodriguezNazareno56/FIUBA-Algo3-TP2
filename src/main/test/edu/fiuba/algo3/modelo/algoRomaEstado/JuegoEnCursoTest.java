@@ -25,9 +25,10 @@ public class JuegoEnCursoTest {
     @BeforeEach
     public void setUp() throws Exception {
         algoRoma = Mockito.mock(AlgoRoma.class);
+        ArrayList<Gladiador> gladiadores = new ArrayList<>();
         //Mockito.when(mapaService.cargarMapa()).thenReturn(Mockito.mock(Mapa.class));
 
-        juegoEnCurso = new JuegoEnCurso(algoRoma, Mockito.mock(Logger.class));
+        juegoEnCurso = new JuegoEnCurso(algoRoma, Mockito.mock(Logger.class), gladiadores);
     }
 
     @Test

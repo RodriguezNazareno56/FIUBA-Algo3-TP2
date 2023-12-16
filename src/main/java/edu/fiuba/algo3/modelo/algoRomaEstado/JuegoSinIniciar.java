@@ -9,8 +9,11 @@ import java.util.ArrayList;
 
 public class JuegoSinIniciar extends EstadoJuego{
 
+    private ArrayList<Gladiador> gladiadores;
+
     public JuegoSinIniciar(AlgoRoma algoRoma, Logger logger) {
         super(algoRoma, logger);
+        this.gladiadores = new ArrayList<>();
     }
 
 
@@ -19,7 +22,9 @@ public class JuegoSinIniciar extends EstadoJuego{
         if( algoRoma.getCantidadDeGladiadores() >= algoRoma.getMaximaCantidadGladiadores()){
             throw new MaximoGladiadoresException("No se pueden agregar mas gladiadores");
         }
+
         algoRoma.agregarNuevoGladiador(gladiador);
+        this.gladiadores.add(gladiador);
         logger.info(gladiador + " se unio al juego");
     }
 
@@ -30,7 +35,7 @@ public class JuegoSinIniciar extends EstadoJuego{
         }
         this.logger.info("Juego inicilizado");
         algoRoma.jugarTurnoSegunEstado(this);
-        algoRoma.setEstadoJuego( new JuegoEnCurso(algoRoma, this.logger) );
+        algoRoma.setEstadoJuego( new JuegoEnCurso(algoRoma, this.logger, this.gladiadores) );
     }
 
 

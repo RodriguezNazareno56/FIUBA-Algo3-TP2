@@ -36,13 +36,5 @@ public class JuegoTerminadoTest {
         assertThrows(FinDelJuegoException.class, () -> juegoTerminado.agregarGladiador(gladiador) );
     }
 
-    @Test
-    public void seLlamaAJugarTurnoSegunEstadoCuandoSeJuegaUnTurno() throws FinDelJuegoException {
-
-        juegoTerminado.jugarTurno();
-        // assert
-        Mockito.verify(algoRoma, Mockito.times(1)).jugarTurnoSegunEstado(Mockito.any(JuegoTerminado.class));
-
-    }
 
 }
