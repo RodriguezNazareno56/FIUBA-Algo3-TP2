@@ -33,10 +33,7 @@ public class JuegoSinIniciar extends EstadoJuego{
         algoRoma.setEstadoJuego( new JuegoEnCurso(algoRoma, this.logger) );
     }
 
-    @Override
-    public void agregarTriunfo(Gladiador gladiador) throws JuegoNoIniciadoException {
-        throw new JuegoNoIniciadoException(" No se pueden agregar triunfos en un juego no iniciado");
-    }
+
 
 
 

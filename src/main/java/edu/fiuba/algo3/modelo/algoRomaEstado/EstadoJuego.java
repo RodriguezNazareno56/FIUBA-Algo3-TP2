@@ -21,5 +21,4 @@ public abstract class EstadoJuego {
 
 
     public abstract void agregarGladiador(ArrayList<Gladiador> gladiadores, Gladiador gladiador) throws FinDelJuegoException, MaximoGladiadoresException, JuegoEnCursoException;
-    public abstract void agregarTriunfo(Gladiador gladiador) throws FinDelJuegoException;
 }

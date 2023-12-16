@@ -155,7 +155,6 @@ public class AlgoRoma extends ObservableAlgoRoma implements AlgoRomaModelo, Algo
     @Override
     public void notificarTriunfo(Gladiador gladiador) throws FinDelJuegoException {
         this.logger.info(gladiador + " ha triunfado!!!");
-        this.estadoJuego.agregarTriunfo(gladiador);
         throw new FinDelJuegoException(gladiador + " ha triunfado !!");
     }
 

@@ -48,11 +48,4 @@ public class JuegoSinIniciarTest {
         // Assert
         Mockito.verify(algoRoma, Mockito.times(1)).setEstadoJuego(Mockito.any(JuegoEnCurso.class));
     }
-
-    @Test
-    public void seLanzaJuegoNoIniciadoExceptionCuandoSeAgregaUnTriunfo() throws FinDelJuegoException {
-        Gladiador gladiador = Mockito.mock(Gladiador.class);
-        // Arrange
-        assertThrows(JuegoNoIniciadoException.class, () -> juegoSinIniciar.agregarTriunfo(gladiador) );
-    }
 }

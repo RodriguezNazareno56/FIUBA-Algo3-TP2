@@ -24,10 +24,5 @@ public class JuegoTerminado extends EstadoJuego{
         algoRoma.jugarTurnoSegunEstado(this);
     }
 
-    @Override
-    public void agregarTriunfo(Gladiador gladiador) throws FinDelJuegoException {
-        throw new FinDelJuegoException(" No se pueden agregar triunfos en un juego terminado");
-    }
-
 
 }

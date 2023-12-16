@@ -31,10 +31,6 @@ public class JuegoEnCurso extends EstadoJuego{
                 }
         }
 
-        @Override
-        public void agregarTriunfo(Gladiador gladiador) {
-                //con solo un gladiador triunfando se termina el juego
-                algoRoma.setEstadoJuego( new JuegoTerminado(algoRoma, this.logger) );
-        }
+
 
 }

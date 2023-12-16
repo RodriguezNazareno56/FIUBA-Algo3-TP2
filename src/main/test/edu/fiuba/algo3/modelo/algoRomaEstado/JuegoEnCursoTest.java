@@ -40,17 +40,7 @@ public class JuegoEnCursoTest {
     }
     
 
-    @Test
-    public void seLLamaACambiarEstadoAJuegoTerminadoEnAlgoRomaCuandoSeAgregaUnTriunfo() {
-        Gladiador gladiador = Mockito.mock(Gladiador.class);
-        Mockito.when(algoRoma.getRondasJugadas()).thenReturn(10);
-        Mockito.when(algoRoma.getMaximaCantidadRondas()).thenReturn(30);
-        //Act
-        juegoEnCurso.agregarTriunfo(gladiador);
-        // Arrange
-        Mockito.verify(algoRoma, Mockito.times(1)).setEstadoJuego(Mockito.any(JuegoTerminado.class));
 
-    }
 
 
 }

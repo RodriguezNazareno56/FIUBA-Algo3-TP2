@@ -46,10 +46,4 @@ public class JuegoTerminadoTest {
 
     }
 
-    @Test
-    public void seLanzaUnaFinDeJuegoExcepctionCuandoSeAgregaUnTriunfo() throws FinDelJuegoException {
-        Gladiador gladiador = Mockito.mock(Gladiador.class);
-        // Arrange
-        assertThrows(FinDelJuegoException.class, () -> juegoTerminado.agregarTriunfo(gladiador) );
-    }
 }
