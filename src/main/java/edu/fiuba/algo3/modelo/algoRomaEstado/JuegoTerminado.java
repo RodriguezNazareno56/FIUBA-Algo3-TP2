@@ -16,7 +16,7 @@ public class JuegoTerminado extends EstadoJuego{
 
 
 
-    public void agregarGladiador(ArrayList<Gladiador> gladiadores, Gladiador gladiador) throws FinDelJuegoException {
+    public void agregarGladiador(Gladiador gladiador) throws FinDelJuegoException {
         throw new FinDelJuegoException(" No se pueden agregar gladiadores en un juego terminado");
     }
     @Override

@@ -32,9 +32,8 @@ public class JuegoTerminadoTest {
     public void seLanzaUnaExcepcionCuandoSeAgregaUnGladiador() throws FinDelJuegoException {
         // Arrange
         Gladiador gladiador = Mockito.mock(Gladiador.class);
-        ArrayList<Gladiador> gladiadores = new ArrayList<>();
         // Assert
-        assertThrows(FinDelJuegoException.class, () -> juegoTerminado.agregarGladiador(gladiadores, gladiador) );
+        assertThrows(FinDelJuegoException.class, () -> juegoTerminado.agregarGladiador(gladiador) );
     }
 
     @Test

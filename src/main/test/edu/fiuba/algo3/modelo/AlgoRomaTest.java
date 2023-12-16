@@ -296,7 +296,6 @@ public class AlgoRomaTest {
     public void agregarGladiadorLlamaAlMetodoAgregarGladiadorDelEstado() throws JuegoEnCursoException, MaximoGladiadoresException, FinDelJuegoException {
         //arrange
         Gladiador gladiador = Mockito.mock(Gladiador.class);
-        ArrayList<Gladiador> gladiadores = new ArrayList<>();
 
         JuegoSinIniciar juegoSinIniciar = Mockito.mock(JuegoSinIniciar.class);
         algoRoma.setEstadoJuego(juegoSinIniciar);
@@ -305,7 +304,7 @@ public class AlgoRomaTest {
         algoRoma.agregarGladiador(gladiador);
 
         //assert
-        Mockito.verify(juegoSinIniciar, Mockito.times(1)).agregarGladiador(gladiadores, gladiador);
+        Mockito.verify(juegoSinIniciar, Mockito.times(1)).agregarGladiador(gladiador);
     }
 
 }

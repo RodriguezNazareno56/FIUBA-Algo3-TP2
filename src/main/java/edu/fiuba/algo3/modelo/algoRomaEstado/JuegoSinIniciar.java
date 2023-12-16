@@ -15,11 +15,11 @@ public class JuegoSinIniciar extends EstadoJuego{
 
 
 
-    public void agregarGladiador(ArrayList<Gladiador> gladiadores, Gladiador gladiador) throws MaximoGladiadoresException {
-        if( gladiadores.size() >= algoRoma.getMaximaCantidadGladiadores()){
+    public void agregarGladiador(Gladiador gladiador) throws MaximoGladiadoresException {
+        if( algoRoma.getCantidadDeGladiadores() >= algoRoma.getMaximaCantidadGladiadores()){
             throw new MaximoGladiadoresException("No se pueden agregar mas gladiadores");
         }
-        gladiadores.add(gladiador);
+        algoRoma.agregarNuevoGladiador(gladiador);
         logger.info(gladiador + " se unio al juego");
     }
 
