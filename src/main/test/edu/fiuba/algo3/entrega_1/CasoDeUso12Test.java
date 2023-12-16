@@ -3,7 +3,7 @@ package edu.fiuba.algo3.entrega_1;
 import edu.fiuba.algo3.data_acceso.MapaService;
 import edu.fiuba.algo3.modelo.AlgoRoma;
 import edu.fiuba.algo3.modelo.dado.Dado;
-import edu.fiuba.algo3.modelo.FinDelJuegoException;
+import edu.fiuba.algo3.modelo.excepciones.FinDelJuegoException;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

@@ -40,10 +40,6 @@ public class VistaGanador extends VBox {
         BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.REPEAT,BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
         this.setBackground(new Background(imagenDeFondo));
 
-        /**Button reiniciarButton = new Button("Reiniciar Juego");
-        reiniciarButton.setStyle("-fx-background-color: #006600; -fx-text-fill: white; -fx-font-size: 28px;-fx-background-radius: 10;");
-        reiniciarButton.setOnAction(e-> s);**/
-
         this.getChildren().addAll(etiquetaJuego,imageView,mensaje);
     }
 }

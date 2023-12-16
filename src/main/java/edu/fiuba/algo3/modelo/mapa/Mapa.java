@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.modelo.mapa;
 
 import edu.fiuba.algo3.controladores.observers.ObservableMapa;
-import edu.fiuba.algo3.modelo.FinDelJuegoException;
+import edu.fiuba.algo3.modelo.excepciones.FinDelJuegoException;
 import edu.fiuba.algo3.modelo.gladiador.exepciones.MovimientoException;
 import edu.fiuba.algo3.modelo.camino.Camino;
 import edu.fiuba.algo3.modelo.celda.ICelda;

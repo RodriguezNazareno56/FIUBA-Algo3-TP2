@@ -1,10 +1,12 @@
 package edu.fiuba.algo3.modelo.algoRomaEstado;
 
 import edu.fiuba.algo3.modelo.*;
+import edu.fiuba.algo3.modelo.excepciones.FinDelJuegoException;
+import edu.fiuba.algo3.modelo.excepciones.JuegoEnCursoException;
+import edu.fiuba.algo3.modelo.excepciones.MaximoGladiadoresException;
+import edu.fiuba.algo3.modelo.excepciones.NombreInvalidoException;
 import edu.fiuba.algo3.modelo.gladiador.Gladiador;
 import org.slf4j.Logger;
-
-import java.util.ArrayList;
 
 public abstract class EstadoJuego {
 

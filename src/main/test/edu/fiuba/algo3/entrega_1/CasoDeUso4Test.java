@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.entrega_1;
 
-import edu.fiuba.algo3.modelo.NombreInvalidoException;
+import edu.fiuba.algo3.modelo.excepciones.NombreInvalidoException;
 import edu.fiuba.algo3.modelo.consecuencias.Comida;
 import edu.fiuba.algo3.modelo.constantes.ComidaConstantes;
 import edu.fiuba.algo3.modelo.equipamientos.Equipamiento;

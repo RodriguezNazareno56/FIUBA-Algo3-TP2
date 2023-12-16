@@ -1,6 +1,9 @@
 package edu.fiuba.algo3.modelo.algoRomaEstado;
 
 import edu.fiuba.algo3.modelo.*;
+import edu.fiuba.algo3.modelo.excepciones.MaximoGladiadoresException;
+import edu.fiuba.algo3.modelo.excepciones.MinimoGladiadoresException;
+import edu.fiuba.algo3.modelo.excepciones.NombreInvalidoException;
 import edu.fiuba.algo3.modelo.gladiador.Gladiador;
 import org.slf4j.Logger;
 

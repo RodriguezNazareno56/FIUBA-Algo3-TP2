@@ -1,7 +1,6 @@
 package edu.fiuba.algo3.entrega_1;
 
-import edu.fiuba.algo3.modelo.NombreInvalidoException;
-import edu.fiuba.algo3.modelo.gladiador.exepciones.TriunfoNoPosibleException;
+import edu.fiuba.algo3.modelo.excepciones.NombreInvalidoException;
 import edu.fiuba.algo3.modelo.gladiador.Energia;
 import edu.fiuba.algo3.modelo.equipamientos.Casco;
 import edu.fiuba.algo3.modelo.equipamientos.Equipamiento;
