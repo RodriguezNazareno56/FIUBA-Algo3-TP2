@@ -7,9 +7,9 @@ import edu.fiuba.algo3.data_acceso.data_mappers.JsonFormatoInvalidoException;
 import edu.fiuba.algo3.modelo.algoRomaEstado.EstadoJuego;
 import edu.fiuba.algo3.modelo.algoRomaEstado.JuegoEnCurso;
 import edu.fiuba.algo3.modelo.algoRomaEstado.JuegoSinIniciar;
-import edu.fiuba.algo3.modelo.algoRomaEstado.JuegoTerminado;
 import edu.fiuba.algo3.modelo.dado.Dado;
 import edu.fiuba.algo3.modelo.equipamientos.SinEquipamiento;
+import edu.fiuba.algo3.modelo.excepciones.*;
 import edu.fiuba.algo3.modelo.gladiador.*;
 import edu.fiuba.algo3.modelo.gladiador.exepciones.MovimientoException;
 import edu.fiuba.algo3.modelo.gladiador.senority.Senority;
@@ -53,11 +53,10 @@ public class AlgoRoma extends ObservableAlgoRoma implements AlgoRomaModelo, Algo
         this.mapaService = mapaService;
         this.dado = dado;
 
-        //fabricar mapa con json
         try {
             cargarMapa();
         } catch (JsonFormatoInvalidoException e) {
-            // TODO: hasta donde se propagan la exepciones o en que lugar las capturamos para visulizar un mensaje?
+            this.logger.info("Error al procesar el JSON: ",e);
         }
     }
 
@@ -65,9 +64,7 @@ public class AlgoRoma extends ObservableAlgoRoma implements AlgoRomaModelo, Algo
         this.mapa = mapaService.cargarMapa();
     }
 
-    // TODO: posible a eliminar
-    public void agregarGladiador(String nombreGladiador) throws MaximoGladiadoresException,
-            JuegoEnCursoException, FinDelJuegoException, NombreInvalidoException {
+    public void agregarGladiador(String nombreGladiador) throws MaximoGladiadoresException, JuegoEnCursoException, FinDelJuegoException, NombreInvalidoException {
         Gladiador gladiador = new Gladiador(nombreGladiador, new Energia(ENERGIA_INICIAL_GLADIADOR), new SinEquipamiento(), new Senority(), this.logger);
         this.estadoJuego.agregarGladiador(gladiador);
         gladiador.subscribir(this);
@@ -107,7 +104,7 @@ public class AlgoRoma extends ObservableAlgoRoma implements AlgoRomaModelo, Algo
 
         Gladiador gladiador = gladiadoresEnEspera.poll();
 
-        logger.info("~~~~~~ Turno para el jugador: " + gladiador + "~~~~~~");
+        logger.info("~~~~~~ Turno para el jugador: {} ~~~~~~", gladiador);
         
         int resultadoDado = this.dado.tirarDado();
 
@@ -115,7 +112,7 @@ public class AlgoRoma extends ObservableAlgoRoma implements AlgoRomaModelo, Algo
             mapa.avanzarNPosicionesGladiador(gladiador, resultadoDado);
         }
         catch (MovimientoException e){
-            notificarTurnoPerdido(gladiador);
+            throw new NotificarTurnoPerdidoException("Turno perdido");
         }
     }
 
@@ -124,18 +121,12 @@ public class AlgoRoma extends ObservableAlgoRoma implements AlgoRomaModelo, Algo
     }
 
     public int getRondasJugadas() {
-        //una ronda se jugo si no hay mas gladiadores en espera
         if( gladiadoresEnEspera.isEmpty() ){
             return rondaActual;
         }
         return rondaActual-1;
     }
 
-    private void notificarTurnoPerdido(Gladiador gladiador) throws Exception {
-        // notificar a la vista que el gladiador perdio el turno
-        // TODO: a finalidad de testear arrojo exepcion
-        throw new Exception();
-    }
     public Mapa getMapa(){
         return this.mapa;
     }
@@ -159,7 +150,6 @@ public class AlgoRoma extends ObservableAlgoRoma implements AlgoRomaModelo, Algo
     }
 
     public ArrayList<String> getNombresGladiadoresSegunOrdenEnRonda(){
-        //si no hay gladiadores agregados devuelve una lista vacia
 
         ArrayList<String> nombresEnOrden = new ArrayList<>();
 

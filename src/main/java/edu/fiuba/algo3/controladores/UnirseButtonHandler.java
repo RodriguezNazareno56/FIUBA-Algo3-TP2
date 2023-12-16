@@ -1,9 +1,9 @@
 package edu.fiuba.algo3.controladores;
 
-import edu.fiuba.algo3.modelo.FinDelJuegoException;
-import edu.fiuba.algo3.modelo.JuegoEnCursoException;
-import edu.fiuba.algo3.modelo.MaximoGladiadoresException;
-import edu.fiuba.algo3.modelo.NombreInvalidoException;
+import edu.fiuba.algo3.modelo.excepciones.FinDelJuegoException;
+import edu.fiuba.algo3.modelo.excepciones.JuegoEnCursoException;
+import edu.fiuba.algo3.modelo.excepciones.MaximoGladiadoresException;
+import edu.fiuba.algo3.modelo.excepciones.NombreInvalidoException;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Alert;

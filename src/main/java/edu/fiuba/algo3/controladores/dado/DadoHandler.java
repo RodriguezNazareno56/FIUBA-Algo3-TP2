@@ -1,8 +1,7 @@
 package edu.fiuba.algo3.controladores.dado;
 
-import edu.fiuba.algo3.modelo.AlgoRoma;
 import edu.fiuba.algo3.modelo.AlgoRomaModelo;
-import edu.fiuba.algo3.modelo.FinDelJuegoException;
+import edu.fiuba.algo3.modelo.excepciones.FinDelJuegoException;
 import edu.fiuba.algo3.vista.ViewProperties;
 import edu.fiuba.algo3.vista.VistaGanador;
 import edu.fiuba.algo3.vista.components.animacion.Animacion;

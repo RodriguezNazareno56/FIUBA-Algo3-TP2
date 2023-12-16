@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.otros_casos_de_uso;
 
-import edu.fiuba.algo3.modelo.NombreInvalidoException;
+import edu.fiuba.algo3.modelo.excepciones.NombreInvalidoException;
 import edu.fiuba.algo3.modelo.camino.Camino;
 import edu.fiuba.algo3.modelo.celda.Celda;
 import edu.fiuba.algo3.modelo.celda.Coordenada;

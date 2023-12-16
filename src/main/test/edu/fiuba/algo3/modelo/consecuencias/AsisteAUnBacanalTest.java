@@ -2,7 +2,7 @@ package edu.fiuba.algo3.modelo.consecuencias;
 
 import edu.fiuba.algo3.modelo.constantes.Constantes;
 import edu.fiuba.algo3.modelo.dado.Dado;
-import edu.fiuba.algo3.modelo.NombreInvalidoException;
+import edu.fiuba.algo3.modelo.excepciones.NombreInvalidoException;
 import edu.fiuba.algo3.modelo.equipamientos.Equipamiento;
 import edu.fiuba.algo3.modelo.equipamientos.SinEquipamiento;
 import edu.fiuba.algo3.modelo.gladiador.Energia;

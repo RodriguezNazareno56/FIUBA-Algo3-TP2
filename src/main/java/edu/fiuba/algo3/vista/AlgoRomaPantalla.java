@@ -18,7 +18,6 @@ import javafx.stage.Stage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.net.MalformedURLException;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Deque;
@@ -35,7 +34,7 @@ public class AlgoRomaPantalla extends BorderPane implements ObservadorAlgoRoma {
     private ArrayList<GladiadorAnimado> gladiadoresAnimados;
     private HashMap<String, String> colorPorClaveNombreGladiador;
 
-    public AlgoRomaPantalla(Stage stage, AlgoRomaModelo algoRoma, DadoButton dadoButton, HashMap<String, String> colorPorClaveNombreGladiador, AudioClip sonidoFondo) throws MalformedURLException {
+    public AlgoRomaPantalla(Stage stage, AlgoRomaModelo algoRoma, DadoButton dadoButton, HashMap<String, String> colorPorClaveNombreGladiador, AudioClip sonidoFondo) {
         super();
         this.algoRoma = algoRoma;
         this.colorPorClaveNombreGladiador = colorPorClaveNombreGladiador;
@@ -46,36 +45,18 @@ public class AlgoRomaPantalla extends BorderPane implements ObservadorAlgoRoma {
         MenuBarra menuBarra = new MenuBarra(stage , sonidoFondo);
         this.setTop(menuBarra);
 
-        // Columna Izquierda con perfiles de Gladiadores
         this.panelPanelLateralGladiadores = new PanelLateralGladiadores(dadoButton);
 
 
         this.setLeft(panelPanelLateralGladiadores);
         this.setMargin(panelPanelLateralGladiadores, new Insets(5, 0, 5, 5));
 
-        //Creacion del panel centrar que contiene el mapa
         this.mapaVista = new MapaVista(algoRoma);
         PanelPrincipal panelPrincipal = new PanelPrincipal(algoRoma.getMapa(), mapaVista);
         this.setCenter(panelPrincipal);
         this.setMargin(panelPrincipal, new Insets(5, 5, 5, 5));
 
         BorderPane.setAlignment(mapaVista, Pos.TOP_CENTER);
-/*
-        File mediaFile = new File("src/main/resources/edu/fiuba/algo3/vista/media/gamemusic.mp3");
-        try {
-            Media media = new Media(mediaFile.toURI().toURL().toString());
-            MediaPlayer mediaPlayer = new MediaPlayer(media);
-            MediaView mediaView = new MediaView(mediaPlayer);
-            this.getChildren().add(mediaView);
-            mediaPlayer.play();
-        }catch (MalformedURLException e){
-            LOG.error("No se puede reproducir audio: " + e.getMessage(), e);
-        }
-*/
-
-
-
-
         algoRoma.agregarObservadorNuevoTurno(this);
     }
 
@@ -86,7 +67,6 @@ public class AlgoRomaPantalla extends BorderPane implements ObservadorAlgoRoma {
     }
 
     public void agregarGladiador(GladiadorAnimado gladiadorAnimado) {
-        //this.panelGladiadores.agregarGladiador();
         this.gladiadoresAnimados.add(gladiadorAnimado);
         mapaVista.agregarGladiadorAlInicio(gladiadorAnimado);
     }
@@ -98,12 +78,9 @@ public class AlgoRomaPantalla extends BorderPane implements ObservadorAlgoRoma {
         panelInferiorsDeque.add(popPanelInferior);
 
         this.panelPanelLateralGladiadores.actualizarGladiadorEnEspera();
-        //actualizarOrdenDeGladiadores();
     }
 
     public void actualizarOrdenDeGladiadores() {
-        //this.panelGladiadores.visualizarNuevoGladiador();
-        //esta funcion se llama en el pase de escena, temporal coupling?
         this.panelPanelLateralGladiadores.actualizarGladiadores(algoRoma.getNombresGladiadoresSegunOrdenEnRonda(),
                 colorPorClaveNombreGladiador);
         this.actualizarOrdenYColorPanelInferior();

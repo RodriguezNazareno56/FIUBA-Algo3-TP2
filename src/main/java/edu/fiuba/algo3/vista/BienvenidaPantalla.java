@@ -27,9 +27,6 @@ public class BienvenidaPantalla extends BorderPane {
         MenuBarra menuBarra = new MenuBarra(stage , sonidoFondo);
         this.setTop(menuBarra);
 
-
-        //Contenido principal de la pantalla
-
         VBox contenedorPrincipal = new VBox();
 
         Image imagen = new Image("file:src/main/resources/edu/fiuba/algo3/vista/backgroundBienvenidaPantalla.png");

@@ -12,7 +12,7 @@ import edu.fiuba.algo3.data_acceso.repositories.MapaRepository;
 import edu.fiuba.algo3.data_acceso.repositories.MapaRepositoryImpl;
 import edu.fiuba.algo3.modelo.AlgoRoma;
 import edu.fiuba.algo3.modelo.dado.Dado;
-import edu.fiuba.algo3.modelo.FinDelJuegoException;
+import edu.fiuba.algo3.modelo.excepciones.FinDelJuegoException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

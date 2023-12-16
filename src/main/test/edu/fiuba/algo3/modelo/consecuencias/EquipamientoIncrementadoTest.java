@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.modelo.consecuencias;
 
-import edu.fiuba.algo3.modelo.FinDelJuegoException;
-import edu.fiuba.algo3.modelo.NombreInvalidoException;
+import edu.fiuba.algo3.modelo.excepciones.FinDelJuegoException;
+import edu.fiuba.algo3.modelo.excepciones.NombreInvalidoException;
 import edu.fiuba.algo3.modelo.equipamientos.Casco;
 import edu.fiuba.algo3.modelo.equipamientos.Armadura;
 import edu.fiuba.algo3.modelo.equipamientos.EscudoYEspada;

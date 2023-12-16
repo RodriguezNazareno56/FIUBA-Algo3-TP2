@@ -1,7 +1,5 @@
 package edu.fiuba.algo3.vista.paneles_de_visualizacion;
 
-import edu.fiuba.algo3.controladores.observers.ObservadorAlgoRoma;
-import edu.fiuba.algo3.modelo.AlgoRoma;
 import edu.fiuba.algo3.vista.dado.DadoButton;
 import edu.fiuba.algo3.vista.pantalla_elegir_gladiador.ElegirGladiadorPantalla;
 import javafx.geometry.Insets;
@@ -17,9 +15,7 @@ import javafx.scene.text.FontWeight;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-// TODO: renombrar a panelGladiadores
 public class PanelLateralGladiadores extends VBox{
-
 
     private DadoButton dadoButton;
     private double altoImagenPerfil = 50 ;
@@ -36,7 +32,6 @@ public class PanelLateralGladiadores extends VBox{
     }
 
     public void actualizarGladiadorEnEspera(){
-        // si el label esta en darkgreen pongo el siguiente label en darkgreen y los demas en white
         for( int i = 0 ; i < this.labelsGladiadores.size() ; i++ ){
             if( this.labelsGladiadores.get(i).getTextFill() == Color.DARKGREEN ){
                 this.labelsGladiadores.get(i).setTextFill(Color.WHITE);
