@@ -20,5 +20,5 @@ public abstract class EstadoJuego {
     public abstract void jugarTurno() throws Exception;
 
 
-    public abstract void agregarGladiador(Gladiador gladiador) throws FinDelJuegoException, MaximoGladiadoresException, JuegoEnCursoException;
+    public abstract void agregarGladiador(Gladiador gladiador) throws FinDelJuegoException, MaximoGladiadoresException, JuegoEnCursoException, NombreInvalidoException;
 }

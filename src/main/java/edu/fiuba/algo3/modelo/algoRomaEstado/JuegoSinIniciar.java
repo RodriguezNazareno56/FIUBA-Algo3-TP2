@@ -18,9 +18,14 @@ public class JuegoSinIniciar extends EstadoJuego{
 
 
 
-    public void agregarGladiador(Gladiador gladiador) throws MaximoGladiadoresException {
+    public void agregarGladiador(Gladiador gladiador) throws MaximoGladiadoresException, NombreInvalidoException {
         if( algoRoma.getCantidadDeGladiadores() >= algoRoma.getMaximaCantidadGladiadores()){
             throw new MaximoGladiadoresException("No se pueden agregar mas gladiadores");
+        }
+
+        ArrayList<String> gladiadoresEnElJuego = algoRoma.getNombresGladiadoresSegunOrdenEnRonda();
+        if( gladiadoresEnElJuego.contains(gladiador.getNombre()) ){
+            throw new NombreInvalidoException("No se pueden agregar dos gladiadores con el mismo nombre");
         }
 
         algoRoma.agregarNuevoGladiador(gladiador);
@@ -31,11 +36,11 @@ public class JuegoSinIniciar extends EstadoJuego{
     @Override
     public void jugarTurno() throws Exception {
         if( algoRoma.getCantidadDeGladiadores() < algoRoma.getMinimaCantidadGladiadores()){
-            throw new MinimoGladiadoresException("No se puede inicializar un juego con menos de dos gladiadores");
+            throw new MinimoGladiadoresException("No se puede iniciar un juego con menos de dos gladiadores");
         }
         this.logger.info("Juego inicilizado");
         algoRoma.jugarTurnoSegunEstado(this);
-        algoRoma.setEstadoJuego( new JuegoEnCurso(algoRoma, this.logger, this.gladiadores) );
+        algoRoma.setEstadoJuego( new JuegoEnCurso(algoRoma, this.logger, gladiadores) );
     }
 
 

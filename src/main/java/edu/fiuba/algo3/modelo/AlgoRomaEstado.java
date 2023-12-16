@@ -6,21 +6,24 @@ import edu.fiuba.algo3.modelo.algoRomaEstado.JuegoSinIniciar;
 import edu.fiuba.algo3.modelo.algoRomaEstado.JuegoTerminado;
 import edu.fiuba.algo3.modelo.gladiador.Gladiador;
 
+import java.util.ArrayList;
+
 public interface AlgoRomaEstado {
+
+    void agregarNuevoGladiador(Gladiador gladiador);
 
     void jugarTurnoSegunEstado(JuegoSinIniciar juegoSinIniciar) throws Exception;
     void jugarTurnoSegunEstado(JuegoEnCurso juegoEnCurso) throws Exception;
-    void jugarTurnoSegunEstado(JuegoTerminado juegoTerminado) throws FinDelJuegoException ;
 
     void setEstadoJuego(EstadoJuego estadoJuego);
 
-    void agregarNuevoGladiador(Gladiador gladiador);
 
     int getCantidadDeGladiadores();
     int getMaximaCantidadRondas();
     int getMaximaCantidadGladiadores();
     int getMinimaCantidadGladiadores();
     int getRondasJugadas();
+    ArrayList<String> getNombresGladiadoresSegunOrdenEnRonda();
 
 
 }

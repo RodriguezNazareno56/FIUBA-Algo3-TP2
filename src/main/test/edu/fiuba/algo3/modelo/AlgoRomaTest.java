@@ -71,7 +71,7 @@ public class AlgoRomaTest {
     public void seAgreganMasDe6JugadoresSeLanzaMaximoGladiadoresException() throws Exception {
         // Arrange
         for( int i=1 ; i <= 6 ; i++ ) {
-            algoRoma.agregarGladiador("Espartaco");
+            algoRoma.agregarGladiador("Espartaco"+i);
         }
         // Assert
         assertThrows(MaximoGladiadoresException.class,
@@ -259,22 +259,6 @@ public class AlgoRomaTest {
 
     }
 
-    @Test
-    public void jugarSegunEstadoJuegoTerminadoCuandoSeJueganTodasLasRondasLanzaFinDelJuegoException() throws Exception {
-        // Arrange
-        JuegoTerminado juegoTerminado = Mockito.mock(JuegoTerminado.class);
-        algoRoma.agregarGladiador("Espartaco");
-        algoRoma.agregarGladiador("Augusto");
-        for( int i=1 ; i <= 60 ; i++ ) {
-            algoRoma.jugarTurno();
-
-        }
-
-        // Assert
-        assertThrows(FinDelJuegoException.class, () -> {
-            algoRoma.jugarTurnoSegunEstado(juegoTerminado);
-        });
-    }
 
     @Test
     public void getMaximaCantidadDeGladiadoresDevuelveSeis(){
@@ -293,7 +277,7 @@ public class AlgoRomaTest {
     }
 
     @Test
-    public void agregarGladiadorLlamaAlMetodoAgregarGladiadorDelEstado() throws JuegoEnCursoException, MaximoGladiadoresException, FinDelJuegoException {
+    public void agregarGladiadorLlamaAlMetodoAgregarGladiadorDelEstado() throws JuegoEnCursoException, MaximoGladiadoresException, FinDelJuegoException, NombreInvalidoException {
         //arrange
         Gladiador gladiador = Mockito.mock(Gladiador.class);
 
@@ -305,6 +289,24 @@ public class AlgoRomaTest {
 
         //assert
         Mockito.verify(juegoSinIniciar, Mockito.times(1)).agregarGladiador(gladiador);
+    }
+    @Test
+    public void agregarDosGladiadoresConElMismoNombreInvalidoException() throws NombreInvalidoException,
+            MaximoGladiadoresException, JuegoEnCursoException, FinDelJuegoException {
+        //arrange
+        String nombre = "Espartaco";
+        Gladiador gladiador1 = Mockito.mock(Gladiador.class);
+        Gladiador gladiador2 = Mockito.mock(Gladiador.class);
+
+        Mockito.when(gladiador1.getNombre()).thenReturn(nombre);
+        Mockito.when(gladiador2.getNombre()).thenReturn(nombre);
+
+        algoRoma.agregarGladiador(gladiador1);
+
+        //assert
+        assertThrows(NombreInvalidoException.class, () -> {
+            algoRoma.agregarGladiador(gladiador2);
+        });
     }
 
 }
