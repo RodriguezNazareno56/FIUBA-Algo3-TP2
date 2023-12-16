@@ -34,11 +34,9 @@ public class AlgoRoma extends ObservableAlgoRoma implements AlgoRomaModelo, Algo
 
     private Mapa mapa;
 
-    private final MapaService mapaService;
-
     private final Dado dado;
 
-    private int rondaActual = 0;
+    private int turnosJugados = 0;
 
 
     public AlgoRoma(MapaService mapaService, Dado dado, Logger logger) {
@@ -50,21 +48,17 @@ public class AlgoRoma extends ObservableAlgoRoma implements AlgoRomaModelo, Algo
 
         this.estadoJuego = new JuegoSinIniciar(this, this.logger);
 
-        this.mapaService = mapaService;
         this.dado = dado;
 
         try {
-            cargarMapa();
+            this.mapa = mapaService.cargarMapa();
         } catch (JsonFormatoInvalidoException e) {
             this.logger.info("Error al procesar el JSON: ",e);
         }
     }
 
-    private void cargarMapa() throws JsonFormatoInvalidoException {
-        this.mapa = mapaService.cargarMapa();
-    }
-
-    public void agregarGladiador(String nombreGladiador) throws MaximoGladiadoresException, JuegoEnCursoException, FinDelJuegoException, NombreInvalidoException {
+    public void agregarGladiador(String nombreGladiador) throws MaximoGladiadoresException,
+            JuegoEnCursoException, FinDelJuegoException, NombreInvalidoException {
         Gladiador gladiador = new Gladiador(nombreGladiador, new Energia(ENERGIA_INICIAL_GLADIADOR), new SinEquipamiento(), new Senority(), this.logger);
         this.estadoJuego.agregarGladiador(gladiador);
 
@@ -76,22 +70,18 @@ public class AlgoRoma extends ObservableAlgoRoma implements AlgoRomaModelo, Algo
     }
 
     public void agregarNuevoGladiador(Gladiador gladiador) {
-        this.gladiadores.add(gladiador);
+        this.gladiadores.add(gladiador);    
         gladiador.subscribir(this);
         this.notificarNuevoGladiador();
+        sortearOrdenDeLosJugadoresEnElJuego();
     }
-    private void inicializarJuego() {
-        this.mapa.setGladiadores(gladiadores);
-    }
+
     public void jugarTurno() throws Exception {
-        if( gladiadoresEnEspera.isEmpty()){
-            this.rondaActual++;
-            this.gladiadoresEnEspera.addAll(this.getGladiadoresSegunOrdenEnRonda());
-        }
         this.estadoJuego.jugarTurno();
     }
+
     public void jugarTurnoSegunEstado(JuegoSinIniciar juegoSinIniciar) throws Exception {
-        this.inicializarJuego();
+        this.mapa.setGladiadores(gladiadores);
         avanzarGladiador();
     }
     public void jugarTurnoSegunEstado(JuegoEnCurso juegoEnCurso) throws Exception {
@@ -100,8 +90,10 @@ public class AlgoRoma extends ObservableAlgoRoma implements AlgoRomaModelo, Algo
 
     private void avanzarGladiador() throws Exception {
         notificarNuevoTurno();
+        turnosJugados++;
 
         Gladiador gladiador = gladiadoresEnEspera.poll();
+        gladiadoresEnEspera.add(gladiador);
 
         logger.info("~~~~~~ Turno para el jugador: {} ~~~~~~", gladiador);
         
@@ -120,10 +112,10 @@ public class AlgoRoma extends ObservableAlgoRoma implements AlgoRomaModelo, Algo
     }
 
     public int getRondasJugadas() {
-        if( gladiadoresEnEspera.isEmpty() ){
-            return rondaActual;
+        if (gladiadores.isEmpty()){
+            return 0;
         }
-        return rondaActual-1;
+        return turnosJugados / gladiadores.size();
     }
 
     public Mapa getMapa(){
@@ -148,41 +140,30 @@ public class AlgoRoma extends ObservableAlgoRoma implements AlgoRomaModelo, Algo
         return MAXIMA_CANTIDAD_DE_RONDAS;
     }
 
-    public ArrayList<String> getNombresGladiadoresSegunOrdenEnRonda(){
-
-        ArrayList<String> nombresEnOrden = new ArrayList<>();
-
+    private void sortearOrdenDeLosJugadoresEnElJuego() {
         Random random = new Random(gladiadores.size());
-        int indicePrimerGladiador;
-        try {
-            indicePrimerGladiador = random.nextInt(gladiadores.size());
-        }
-        catch (IllegalArgumentException e){
-            indicePrimerGladiador = 0;
+        int indexGladiadorSorteado = 0;
+        if (! gladiadores.isEmpty()) {
+            indexGladiadorSorteado = random.nextInt(gladiadores.size());
         }
 
-        for(int i = indicePrimerGladiador; i<gladiadores.size() ; i++){
-            nombresEnOrden.add(gladiadores.get(i).getNombre());
-        }
-        for( int i=0 ; i<indicePrimerGladiador ; i++){
-            nombresEnOrden.add(gladiadores.get(i).getNombre());
-        }
+        gladiadoresEnEspera.clear();
+        // Encolo todos los gladiadores
+        gladiadoresEnEspera.addAll(gladiadores);
 
-        return nombresEnOrden;
+        // Desencolo y vuelvo a encolar los gladiadores previos al gladiador sorteado de modo que este quede primero
+        for (int i = 0; i < indexGladiadorSorteado; i++) {
+            Gladiador gladiador = gladiadoresEnEspera.poll();
+            gladiadoresEnEspera.offer(gladiador);
+        }
     }
 
-    private ArrayList<Gladiador> getGladiadoresSegunOrdenEnRonda(){
-        ArrayList<String> nombres = getNombresGladiadoresSegunOrdenEnRonda();
-
-        ArrayList<Gladiador> gladiadoresOrdenados = new ArrayList<>();
-
-        for(String nombre : nombres){
-            gladiadoresOrdenados.add(gladiadores.stream()
-                    .filter(gladiador -> gladiador.getNombre().equals(nombre) )
-                    .findFirst()
-                    .orElse(null));
+    public ArrayList<String> getNombresGladiadoresSegunOrdenEnRonda(){
+        ArrayList<String> nombresEnOrden = new ArrayList<>();
+        for (Gladiador gladiador: gladiadoresEnEspera ) {
+            nombresEnOrden.add(gladiador.getNombre());
         }
-        return gladiadoresOrdenados;
+        return nombresEnOrden;
     }
 
     public ArrayList<String> getNombresGladiadoresSegunOrdenDeIngreso(){

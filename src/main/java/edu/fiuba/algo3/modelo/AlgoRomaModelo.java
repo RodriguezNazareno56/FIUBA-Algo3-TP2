@@ -39,7 +39,7 @@ public interface AlgoRomaModelo {
 
     void agregarObservadorNuevoGladiador(ObservadorAlgoRoma observador);
 
-    void notificarNuevoTurno();
-
-    void notificarNuevoGladiador();
+//    void notificarNuevoTurno();
+//
+//    void notificarNuevoGladiador();
 }
