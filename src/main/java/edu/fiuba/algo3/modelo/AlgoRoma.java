@@ -61,20 +61,19 @@ public class AlgoRoma extends ObservableAlgoRoma implements AlgoRomaModelo, Algo
             JuegoEnCursoException, FinDelJuegoException, NombreInvalidoException {
         Gladiador gladiador = new Gladiador(nombreGladiador, new Energia(ENERGIA_INICIAL_GLADIADOR), new SinEquipamiento(), new Senority(), this.logger);
         this.estadoJuego.agregarGladiador(gladiador);
-        gladiador.subscribir(this);
-        this.notificarNuevoGladiador();
+
     }
 
     public void agregarGladiador(Gladiador gladiador) throws MaximoGladiadoresException,
             JuegoEnCursoException, FinDelJuegoException, NombreInvalidoException {
         this.estadoJuego.agregarGladiador(gladiador);
-        gladiador.subscribir(this);
-        this.notificarNuevoGladiador();
     }
 
     public void agregarNuevoGladiador(Gladiador gladiador) {
-        this.gladiadores.add(gladiador);
-        sortearOrdenDeLosJugadoresEnElJuego();
+        this.gladiadores.add(gladiador);    
+        gladiador.subscribir(this);
+        this.notificarNuevoGladiador();
+        sortearOrdenDeLosJugadoresEnElJuego()
     }
 
     public void jugarTurno() throws Exception {
