@@ -12,6 +12,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import javafx.scene.text.TextAlignment;
 
 public class ComidaInfo extends VBox implements PantallaInfo {
     private final Label etiquetaJuego;
@@ -25,6 +26,8 @@ public class ComidaInfo extends VBox implements PantallaInfo {
         etiquetaJuego.setFont(Font.font("Helvetica", FontWeight.BOLD,42));
         etiquetaJuego.setTextFill(Color.web("#FFFFFF"));
         aplicarEfectosDeContornoTexto(etiquetaJuego);
+        etiquetaJuego.setWrapText(true);
+        etiquetaJuego.setTextAlignment(TextAlignment.CENTER);
 
         Label mensaje = new Label();
         mensaje.setFont(Font.font("Helvetica", FontWeight.BOLD,24));
@@ -45,7 +48,7 @@ public class ComidaInfo extends VBox implements PantallaInfo {
     }
 
     public VBox getPantallaConInfoDe(Gladiador gladiador, IConsecuencia consecuencia) {
-        etiquetaJuego.setText("\n"+gladiador + " encontró comida\n Su energía subió 15 puntos!");
+        etiquetaJuego.setText("El " + gladiador + " encontró comida. Su energía subió 15 puntos!");
         return this;
     }
 

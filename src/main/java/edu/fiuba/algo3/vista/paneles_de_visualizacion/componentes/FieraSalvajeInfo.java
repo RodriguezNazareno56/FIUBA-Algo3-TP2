@@ -16,6 +16,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import javafx.scene.text.TextAlignment;
 
 public class FieraSalvajeInfo extends VBox implements PantallaInfo {
     private final Label etiquetaJuego;
@@ -29,6 +30,8 @@ public class FieraSalvajeInfo extends VBox implements PantallaInfo {
         etiquetaJuego.setFont(Font.font("Helvetica", FontWeight.BOLD,38));
         etiquetaJuego.setTextFill(Color.web("#FFFFFF"));
         aplicarEfectosDeContornoTexto(etiquetaJuego);
+        etiquetaJuego.setWrapText(true);
+        etiquetaJuego.setTextAlignment(TextAlignment.CENTER);
 
         Label mensaje = new Label();
         mensaje.setFont(Font.font("Helvetica", FontWeight.BOLD,20));
@@ -50,7 +53,8 @@ public class FieraSalvajeInfo extends VBox implements PantallaInfo {
 
     public VBox getPantallaConInfoDe(Gladiador gladiador, IConsecuencia consecuencia) {
         Energia energiaGladiador = gladiador.getEnergia();
-        etiquetaJuego.setText(gladiador + " fue atacado por una fiera salvaje\n Le quedan " + energiaGladiador + " de energia ");
+        etiquetaJuego.setText("El " + gladiador + " fue atacado por una fiera salvaje\n Le quedan "
+                + energiaGladiador + " de energia");
         return this;
     }
 
