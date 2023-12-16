@@ -22,6 +22,7 @@ public class JuegoTerminado extends EstadoJuego{
     @Override
     public void jugarTurno() throws FinDelJuegoException {
         if( algoRoma.getRondasJugadas() >= algoRoma.getMaximaCantidadRondas()){
+            logger.info("Se alcanzo el numero maximo de rondas");
             throw new FinDelJuegoException("Se alcanzo el numero maximo de rondas");
         }
         throw new FinDelJuegoException("Un Gladiador ya gano el juego");

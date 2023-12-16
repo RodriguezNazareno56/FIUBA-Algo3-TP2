@@ -84,6 +84,9 @@ public class AlgoRoma extends ObservableAlgoRoma implements AlgoRomaModelo, Algo
     public void agregarNuevoGladiador(Gladiador gladiador) {
         this.gladiadores.add(gladiador);
     }
+    private void inicializarJuego() {
+        this.mapa.setGladiadores(gladiadores);
+    }
     public void jugarTurno() throws Exception {
         if( gladiadoresEnEspera.isEmpty()){
             this.rondaActual++;
@@ -91,16 +94,10 @@ public class AlgoRoma extends ObservableAlgoRoma implements AlgoRomaModelo, Algo
         }
         this.estadoJuego.jugarTurno();
     }
-
-    private void inicializarJuego() {
-        this.mapa.setGladiadores(gladiadores);
-    }
-
     public void jugarTurnoSegunEstado(JuegoSinIniciar juegoSinIniciar) throws Exception {
         this.inicializarJuego();
         avanzarGladiador();
     }
-
     public void jugarTurnoSegunEstado(JuegoEnCurso juegoEnCurso) throws Exception {
         avanzarGladiador();
     }
