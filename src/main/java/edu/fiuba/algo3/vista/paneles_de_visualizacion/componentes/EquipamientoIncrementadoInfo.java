@@ -14,6 +14,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import javafx.scene.text.TextAlignment;
 
 public class EquipamientoIncrementadoInfo extends VBox implements PantallaInfo {
     private final StackPane contenedorPrincipal;
@@ -28,6 +29,8 @@ public class EquipamientoIncrementadoInfo extends VBox implements PantallaInfo {
         etiquetaJuego.setFont(Font.font("Helvetica", FontWeight.BOLD,42));
         etiquetaJuego.setTextFill(Color.web("#FFFFFF"));
         aplicarEfectosDeContornoTexto(etiquetaJuego);
+        etiquetaJuego.setWrapText(true);
+        etiquetaJuego.setTextAlignment(TextAlignment.CENTER);
 
         //Contenedor principal
         StackPane contenedorPrincipal = new StackPane();
@@ -61,7 +64,7 @@ public class EquipamientoIncrementadoInfo extends VBox implements PantallaInfo {
         ImageView imageView = new ImageView(gladiadorImage);
         contenedorPrincipal.getChildren().add(imageView);
 
-        etiquetaJuego.setText(gladiador + " Consiguió " + equipamiento);
+        etiquetaJuego.setText("El " + gladiador + " Consiguió " + equipamiento);
         return this;
     }
 

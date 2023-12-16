@@ -16,6 +16,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import javafx.scene.text.TextAlignment;
 
 public class BacanalInfo extends VBox implements PantallaInfo {
     private final Label etiquetaJuego;
@@ -29,6 +30,8 @@ public class BacanalInfo extends VBox implements PantallaInfo {
         etiquetaJuego.setFont(Font.font("Helvetica", FontWeight.BOLD,36));
         etiquetaJuego.setTextFill(Color.web("#FFFFFF"));
         aplicarEfectosDeContornoTexto(etiquetaJuego);
+        etiquetaJuego.setWrapText(true);
+        etiquetaJuego.setTextAlignment(TextAlignment.CENTER);
 
         Label mensaje = new Label();
         mensaje.setFont(Font.font("Helvetica", FontWeight.BOLD,24));
@@ -50,7 +53,8 @@ public class BacanalInfo extends VBox implements PantallaInfo {
 
     public VBox getPantallaConInfoDe(Gladiador gladiador, IConsecuencia consecuencia) {
         Energia energiaActual = gladiador.getEnergia();
-        etiquetaJuego.setText("\n"+gladiador + " asistió a un bacanal\n Tomó tanto vino que su energía bajó a "+ energiaActual);
+        etiquetaJuego.setText("El " + gladiador + " asistió a un bacanal. \n Tomó tanto " +
+                "vino que su energía bajó a "+ energiaActual);
         return this;
     }
 

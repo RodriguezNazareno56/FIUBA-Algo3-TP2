@@ -15,6 +15,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import javafx.scene.text.TextAlignment;
 
 public class LesionInfo extends VBox implements PantallaInfo {
     private final Label etiquetaJuego;
@@ -28,6 +29,8 @@ public class LesionInfo extends VBox implements PantallaInfo {
         etiquetaJuego.setFont(Font.font("Helvetica", FontWeight.BOLD,36));
         etiquetaJuego.setTextFill(Color.web("#FFFFFF"));
         aplicarEfectosDeContornoTexto(etiquetaJuego);
+        etiquetaJuego.setWrapText(true);
+        etiquetaJuego.setTextAlignment(TextAlignment.CENTER);
 
         Label mensaje = new Label();
         mensaje.setFont(Font.font("Helvetica", FontWeight.BOLD,24));
@@ -49,8 +52,8 @@ public class LesionInfo extends VBox implements PantallaInfo {
     }
 
     public VBox getPantallaConInfoDe(Gladiador gladiador, IConsecuencia consecuencia) {
-        etiquetaJuego.setText("\n"+gladiador + " se enojó con la vida, pateó una piedra\n y sufrió una lesion, se saltará un turno" +
-                "\n para poder descansar");
+        etiquetaJuego.setText("El " + gladiador + " se enojó con la vida, pateó una piedra y sufrió una lesion. " +
+                "\n Se saltará un turno para poder descansar");
         return this;
     }
 
