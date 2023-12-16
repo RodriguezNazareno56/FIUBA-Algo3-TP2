@@ -73,7 +73,7 @@ public class AlgoRoma extends ObservableAlgoRoma implements AlgoRomaModelo, Algo
         this.gladiadores.add(gladiador);    
         gladiador.subscribir(this);
         this.notificarNuevoGladiador();
-        sortearOrdenDeLosJugadoresEnElJuego()
+        sortearOrdenDeLosJugadoresEnElJuego();
     }
 
     public void jugarTurno() throws Exception {
