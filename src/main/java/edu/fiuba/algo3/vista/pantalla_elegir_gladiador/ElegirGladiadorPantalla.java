@@ -18,6 +18,7 @@ import javafx.stage.Stage;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.concurrent.atomic.AtomicReferenceArray;
 
 
 public class ElegirGladiadorPantalla extends BorderPane implements ObservadorAlgoRoma {
@@ -137,7 +138,8 @@ public class ElegirGladiadorPantalla extends BorderPane implements ObservadorAlg
 
     public ArrayList<Image> getImageSeleccionablesGladiadores() {
         ArrayList<Image> imagenes = new ArrayList<>();
-        for (int i = 1; i <= 6; i++) {
+        int cantidadImagenesDiferentes = 6;
+        for (int i = 1; i <= cantidadImagenesDiferentes; i++) {
             String direccionImagen = this.DIRECCION_IMAGENES + i + ".png";
             Image imageSeleccionable = new Image(direccionImagen);
             imagenes.add(imageSeleccionable);
@@ -154,58 +156,31 @@ public class ElegirGladiadorPantalla extends BorderPane implements ObservadorAlg
 
         return partes[0].substring(partes[0].length() - 1);
     }
-    public static String getColorSegunNumeroImagen(String nombreImagen){
+    public static String getColorSegunNumeroImagen(String numeroImagen){
         //posible refactor a algun tipo de lista enlazada o algo asi y a otra clase
-        String color = "gris";
 
-        switch (nombreImagen) {
-            case "1":
-                color= "rojo";
-                break;
-            case "2":
-                color= "azul";
-                break;
-            case "3":
-                color= "verde";
-                break;
-            case "4":
-                color= "amarillo";
-                break;
-            case "5":
-                color= "violeta";
-                break;
-            case "6":
-                color= "celeste";
-                break;
-        }
-        return color;
+        ArrayList<String> colores = getListaColores();
+
+        return colores.get(Integer.parseInt(numeroImagen) - 1);
+
+    }
+    public static String getNumeroSegunColor(String color){
+
+        ArrayList<String> colores = getListaColores();
+
+        int numero = colores.indexOf(color) + 1;
+        return Integer.toString(numero);
 
     }
 
-    public static String getNumeroSegunColor(String color){
-        String numero = "1";
-
-        switch (color) {
-            case "rojo":
-                numero= "1";
-                break;
-            case "azul":
-                numero= "2";
-                break;
-            case "verde":
-                numero= "3";
-                break;
-            case "amarillo":
-                numero= "4";
-                break;
-            case "violeta":
-                numero= "5";
-                break;
-            case "celeste":
-                numero= "6";
-                break;
-        }
-        return numero;
-
+    private static ArrayList<String>  getListaColores() {
+        ArrayList<String> colores = new ArrayList<>();
+        colores.add("rojo");
+        colores.add("azul");
+        colores.add("verde");
+        colores.add("amarillo");
+        colores.add("violeta");
+        colores.add("celeste");
+        return colores;
     }
 }
