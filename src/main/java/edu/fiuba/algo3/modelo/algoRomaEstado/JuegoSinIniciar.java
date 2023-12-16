@@ -9,34 +9,41 @@ import java.util.ArrayList;
 
 public class JuegoSinIniciar extends EstadoJuego{
 
+    private ArrayList<Gladiador> gladiadores;
+
     public JuegoSinIniciar(AlgoRoma algoRoma, Logger logger) {
         super(algoRoma, logger);
+        this.gladiadores = new ArrayList<>();
     }
 
 
 
-    public void agregarGladiador(ArrayList<Gladiador> gladiadores, Gladiador gladiador) throws MaximoGladiadoresException {
-        if( gladiadores.size() >= algoRoma.getMaximaCantidadGladiadores()){
+    public void agregarGladiador(Gladiador gladiador) throws MaximoGladiadoresException, NombreInvalidoException {
+        if( algoRoma.getCantidadDeGladiadores() >= algoRoma.getMaximaCantidadGladiadores()){
             throw new MaximoGladiadoresException("No se pueden agregar mas gladiadores");
         }
-        gladiadores.add(gladiador);
+
+        ArrayList<String> gladiadoresEnElJuego = algoRoma.getNombresGladiadoresSegunOrdenEnRonda();
+        if( gladiadoresEnElJuego.contains(gladiador.getNombre()) ){
+            throw new NombreInvalidoException("No se pueden agregar dos gladiadores con el mismo nombre");
+        }
+
+        algoRoma.agregarNuevoGladiador(gladiador);
+        this.gladiadores.add(gladiador);
         logger.info(gladiador + " se unio al juego");
     }
 
     @Override
     public void jugarTurno() throws Exception {
         if( algoRoma.getCantidadDeGladiadores() < algoRoma.getMinimaCantidadGladiadores()){
-            throw new MinimoGladiadoresException("No se puede inicializar un juego con menos de dos gladiadores");
+            throw new MinimoGladiadoresException("No se puede iniciar un juego con menos de dos gladiadores");
         }
         this.logger.info("Juego inicilizado");
         algoRoma.jugarTurnoSegunEstado(this);
-        algoRoma.setEstadoJuego( new JuegoEnCurso(algoRoma, this.logger) );
+        algoRoma.setEstadoJuego( new JuegoEnCurso(algoRoma, this.logger, gladiadores) );
     }
 
-    @Override
-    public void agregarTriunfo(Gladiador gladiador) throws JuegoNoIniciadoException {
-        throw new JuegoNoIniciadoException(" No se pueden agregar triunfos en un juego no iniciado");
-    }
+
 
 
 

@@ -10,8 +10,8 @@ public interface AlgoRomaModelo {
     void agregarGladiador(String nombre)throws MaximoGladiadoresException,
             JuegoEnCursoException, FinDelJuegoException, NombreInvalidoException;
 
-    void agregarGladiador(Gladiador gladiador)throws MaximoGladiadoresException,
-            JuegoEnCursoException, FinDelJuegoException;
+    void agregarGladiador(Gladiador gladiador) throws MaximoGladiadoresException,
+            JuegoEnCursoException, FinDelJuegoException, NombreInvalidoException;
 
     void jugarTurno() throws Exception ;
 

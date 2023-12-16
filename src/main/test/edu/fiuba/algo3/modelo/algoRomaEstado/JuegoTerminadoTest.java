@@ -32,24 +32,18 @@ public class JuegoTerminadoTest {
     public void seLanzaUnaExcepcionCuandoSeAgregaUnGladiador() throws FinDelJuegoException {
         // Arrange
         Gladiador gladiador = Mockito.mock(Gladiador.class);
-        ArrayList<Gladiador> gladiadores = new ArrayList<>();
         // Assert
-        assertThrows(FinDelJuegoException.class, () -> juegoTerminado.agregarGladiador(gladiadores, gladiador) );
+        assertThrows(FinDelJuegoException.class, () -> juegoTerminado.agregarGladiador(gladiador) );
     }
 
     @Test
-    public void seLlamaAJugarTurnoSegunEstadoCuandoSeJuegaUnTurno() throws FinDelJuegoException {
-
-        juegoTerminado.jugarTurno();
-        // assert
-        Mockito.verify(algoRoma, Mockito.times(1)).jugarTurnoSegunEstado(Mockito.any(JuegoTerminado.class));
-
-    }
-
-    @Test
-    public void seLanzaUnaFinDeJuegoExcepctionCuandoSeAgregaUnTriunfo() throws FinDelJuegoException {
-        Gladiador gladiador = Mockito.mock(Gladiador.class);
+    public void seLanzaUnaExcepcionCuandoSeJuegaUnTurnoYAlgoRomaNoAlcanzoElLimiteDeRondas() throws FinDelJuegoException {
+        Mockito.when(algoRoma.getRondasJugadas()).thenReturn(1);
+        Mockito.when(algoRoma.getMaximaCantidadRondas()).thenReturn(15);
         // Arrange
-        assertThrows(FinDelJuegoException.class, () -> juegoTerminado.agregarTriunfo(gladiador) );
+        // Assert
+        assertThrows(FinDelJuegoException.class, () -> juegoTerminado.jugarTurno() );
     }
+
+
 }

@@ -16,17 +16,16 @@ public class JuegoTerminado extends EstadoJuego{
 
 
 
-    public void agregarGladiador(ArrayList<Gladiador> gladiadores, Gladiador gladiador) throws FinDelJuegoException {
+    public void agregarGladiador(Gladiador gladiador) throws FinDelJuegoException {
         throw new FinDelJuegoException(" No se pueden agregar gladiadores en un juego terminado");
     }
     @Override
     public void jugarTurno() throws FinDelJuegoException {
-        algoRoma.jugarTurnoSegunEstado(this);
-    }
-
-    @Override
-    public void agregarTriunfo(Gladiador gladiador) throws FinDelJuegoException {
-        throw new FinDelJuegoException(" No se pueden agregar triunfos en un juego terminado");
+        if( algoRoma.getRondasJugadas() >= algoRoma.getMaximaCantidadRondas()){
+            logger.info("Se alcanzo el numero maximo de rondas");
+            throw new FinDelJuegoException("Se alcanzo el numero maximo de rondas");
+        }
+        throw new FinDelJuegoException("Un Gladiador ya gano el juego");
     }
 
 

@@ -69,18 +69,24 @@ public class AlgoRoma extends ObservableAlgoRoma implements AlgoRomaModelo, Algo
     public void agregarGladiador(String nombreGladiador) throws MaximoGladiadoresException,
             JuegoEnCursoException, FinDelJuegoException, NombreInvalidoException {
         Gladiador gladiador = new Gladiador(nombreGladiador, new Energia(ENERGIA_INICIAL_GLADIADOR), new SinEquipamiento(), new Senority(), this.logger);
-        this.estadoJuego.agregarGladiador(gladiadores, gladiador);
+        this.estadoJuego.agregarGladiador(gladiador);
         gladiador.subscribir(this);
         this.notificarNuevoGladiador();
     }
 
     public void agregarGladiador(Gladiador gladiador) throws MaximoGladiadoresException,
-            JuegoEnCursoException, FinDelJuegoException {
-        this.estadoJuego.agregarGladiador(gladiadores, gladiador);
+            JuegoEnCursoException, FinDelJuegoException, NombreInvalidoException {
+        this.estadoJuego.agregarGladiador(gladiador);
         gladiador.subscribir(this);
         this.notificarNuevoGladiador();
     }
 
+    public void agregarNuevoGladiador(Gladiador gladiador) {
+        this.gladiadores.add(gladiador);
+    }
+    private void inicializarJuego() {
+        this.mapa.setGladiadores(gladiadores);
+    }
     public void jugarTurno() throws Exception {
         if( gladiadoresEnEspera.isEmpty()){
             this.rondaActual++;
@@ -88,26 +94,12 @@ public class AlgoRoma extends ObservableAlgoRoma implements AlgoRomaModelo, Algo
         }
         this.estadoJuego.jugarTurno();
     }
-
-    private void inicializarJuego() {
-        this.mapa.setGladiadores(gladiadores);
-    }
-
     public void jugarTurnoSegunEstado(JuegoSinIniciar juegoSinIniciar) throws Exception {
         this.inicializarJuego();
         avanzarGladiador();
     }
-
     public void jugarTurnoSegunEstado(JuegoEnCurso juegoEnCurso) throws Exception {
         avanzarGladiador();
-    }
-
-    public void jugarTurnoSegunEstado(JuegoTerminado juegoTerminado) throws FinDelJuegoException {
-        if( this.rondaActual >= MAXIMA_CANTIDAD_DE_RONDAS){
-            logger.info("Se alcanzo el numero maximo de rondas");
-            throw new FinDelJuegoException("Se alcanzo el numero maximo de rondas");
-        }
-        //comprobar si el juego termino porque algun gladiador gano
     }
 
     private void avanzarGladiador() throws Exception {
@@ -155,7 +147,6 @@ public class AlgoRoma extends ObservableAlgoRoma implements AlgoRomaModelo, Algo
     @Override
     public void notificarTriunfo(Gladiador gladiador) throws FinDelJuegoException {
         this.logger.info(gladiador + " ha triunfado!!!");
-        this.estadoJuego.agregarTriunfo(gladiador);
         throw new FinDelJuegoException(gladiador + " ha triunfado !!");
     }
 

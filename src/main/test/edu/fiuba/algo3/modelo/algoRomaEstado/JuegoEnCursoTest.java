@@ -25,32 +25,33 @@ public class JuegoEnCursoTest {
     @BeforeEach
     public void setUp() throws Exception {
         algoRoma = Mockito.mock(AlgoRoma.class);
+        ArrayList<Gladiador> gladiadores = new ArrayList<>();
         //Mockito.when(mapaService.cargarMapa()).thenReturn(Mockito.mock(Mapa.class));
 
-        juegoEnCurso = new JuegoEnCurso(algoRoma, Mockito.mock(Logger.class));
+        juegoEnCurso = new JuegoEnCurso(algoRoma, Mockito.mock(Logger.class), gladiadores);
     }
 
     @Test
     public void seLanzaJuegoEnCursoExceptionUCuandoSeAgregaUnGladiador() throws FinDelJuegoException {
         // Arrange
         Gladiador gladiador = Mockito.mock(Gladiador.class);
-        ArrayList<Gladiador> gladiadores = new ArrayList<>();
         // Assert
-        assertThrows(JuegoEnCursoException.class, () -> juegoEnCurso.agregarGladiador(gladiadores, gladiador) );
+        assertThrows(JuegoEnCursoException.class, () -> juegoEnCurso.agregarGladiador(gladiador) );
+    }
+
+    @Test
+    public void seLlamaACambiarDeEstadoCuandoSeNotificaUnTriunfo() throws FinDelJuegoException {
+        // Arrange
+        Gladiador gladiador = Mockito.mock(Gladiador.class);
+
+        // Act
+        juegoEnCurso.notificarTriunfo(gladiador);
+        // Assert
+        Mockito.verify(algoRoma, Mockito.times(1)).setEstadoJuego(Mockito.any(EstadoJuego.class));
     }
     
 
-    @Test
-    public void seLLamaACambiarEstadoAJuegoTerminadoEnAlgoRomaCuandoSeAgregaUnTriunfo() {
-        Gladiador gladiador = Mockito.mock(Gladiador.class);
-        Mockito.when(algoRoma.getRondasJugadas()).thenReturn(10);
-        Mockito.when(algoRoma.getMaximaCantidadRondas()).thenReturn(30);
-        //Act
-        juegoEnCurso.agregarTriunfo(gladiador);
-        // Arrange
-        Mockito.verify(algoRoma, Mockito.times(1)).setEstadoJuego(Mockito.any(JuegoTerminado.class));
 
-    }
 
 
 }
