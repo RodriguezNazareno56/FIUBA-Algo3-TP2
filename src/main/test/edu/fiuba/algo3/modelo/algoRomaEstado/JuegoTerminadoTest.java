@@ -36,5 +36,14 @@ public class JuegoTerminadoTest {
         assertThrows(FinDelJuegoException.class, () -> juegoTerminado.agregarGladiador(gladiador) );
     }
 
+    @Test
+    public void seLanzaUnaExcepcionCuandoSeJuegaUnTurnoYAlgoRomaNoAlcanzoElLimiteDeRondas() throws FinDelJuegoException {
+        Mockito.when(algoRoma.getRondasJugadas()).thenReturn(1);
+        Mockito.when(algoRoma.getMaximaCantidadRondas()).thenReturn(15);
+        // Arrange
+        // Assert
+        assertThrows(FinDelJuegoException.class, () -> juegoTerminado.jugarTurno() );
+    }
+
 
 }

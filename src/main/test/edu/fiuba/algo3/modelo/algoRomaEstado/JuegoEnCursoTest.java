@@ -38,6 +38,17 @@ public class JuegoEnCursoTest {
         // Assert
         assertThrows(JuegoEnCursoException.class, () -> juegoEnCurso.agregarGladiador(gladiador) );
     }
+
+    @Test
+    public void seLlamaACambiarDeEstadoCuandoSeNotificaUnTriunfo() throws FinDelJuegoException {
+        // Arrange
+        Gladiador gladiador = Mockito.mock(Gladiador.class);
+
+        // Act
+        juegoEnCurso.notificarTriunfo(gladiador);
+        // Assert
+        Mockito.verify(algoRoma, Mockito.times(1)).setEstadoJuego(Mockito.any(EstadoJuego.class));
+    }
     
 
 
