@@ -62,7 +62,7 @@ public class ElegirGladiadorPantalla extends BorderPane implements ObservadorAlg
         this.selectorGladiador = new SelectorGladiadorVista(this.getImageSeleccionablesGladiadores(), gladiadorFactory);
 
         botonSiguienteEscena = new Button("Jugar");
-        botonSiguienteEscena.setOnAction(new JugarPartidaButtonEventHandler(stage, escenaSiguiente, algoRoma, algoRomaPantalla));
+        botonSiguienteEscena.setOnAction(new JugarPartidaButtonEventHandler(stage, escenaSiguiente, algoRomaPantalla));
         botonSiguienteEscena.setStyle("-fx-background-color: #006600; -fx-text-fill: white; -fx-font-size: 28px;-fx-background-radius: 10;");
 
         this.actualizarBotonSiguienteEscena();
@@ -116,7 +116,7 @@ public class ElegirGladiadorPantalla extends BorderPane implements ObservadorAlg
     }
 
     private void actualizarBotonSiguienteEscena(){
-        if( algoRoma.getNombresGladiadoresSegunOrdenDeIngreso().size() < algoRoma.getMinimaCantidadGladiadores()){
+        if( algoRoma.getCantidadDeGladiadores() < algoRoma.getMinimaCantidadGladiadores()){
             botonSiguienteEscena.setDisable(true);
         }
         else{
@@ -125,7 +125,7 @@ public class ElegirGladiadorPantalla extends BorderPane implements ObservadorAlg
     }
 
     private void actualizarBotonesSelectorGladiador(){
-        if(algoRoma.getNombresGladiadoresSegunOrdenDeIngreso().size() >= algoRoma.getMaximaCantidadGladiadores()){
+        if(algoRoma.getCantidadDeGladiadores() >= algoRoma.getMaximaCantidadGladiadores()){
             //selectorGladiador.setDesactivarBotonEnviarNombre(true);
             selectorGladiador.desactivarBotones(true);
         }
