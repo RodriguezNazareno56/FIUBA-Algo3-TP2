@@ -1,6 +1,5 @@
 package edu.fiuba.algo3.modelo.constantes;
 
-// TODO: unificar todas las constantes
 public interface AlgoRomaConstantes {
     boolean SE_PUEDE_AGREGAR_GLADIADOR_EN_JUEGO_EN_CURSO = false;
 

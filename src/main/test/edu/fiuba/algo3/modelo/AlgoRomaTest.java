@@ -108,14 +108,6 @@ public class AlgoRomaTest {
                 });
     }
 
-    // TODO: en principio no hay razon para este test
-//    @Test
-//    public void jugarTurnoSinInicializarLanzaJuegoNoIniciadoException(){
-//        // Assert
-//        assertThrows(JuegoNoIniciadoException.class,
-//                algoRoma::jugarTurno);
-//    }
-
     @Test
     public void jugarMasDe30RondasLanzaFinDelJuegoException() throws Exception {
         // Arrange

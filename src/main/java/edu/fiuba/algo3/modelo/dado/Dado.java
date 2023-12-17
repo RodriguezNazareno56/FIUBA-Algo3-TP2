@@ -20,7 +20,7 @@ public class Dado implements ObservableDado {
     public int tirarDado(){
         Random random = new Random();
         int valorDelDado = random.nextInt(6) + 1;
-        logger.info("El valor del dado es " + valorDelDado); // TODO: eliminar
+        logger.info("El valor del dado es " + valorDelDado);
         notificarObservadores(valorDelDado);
         return valorDelDado;
     }

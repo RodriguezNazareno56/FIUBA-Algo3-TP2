@@ -43,7 +43,8 @@ public class Camino {
     }
 
     public ICelda getMitadDeCamino() {
-        // TODO: Explicar esto
+        // index de celdas en camino: 0 - celdas.size()-1
+        // mitad de camino: (celdas.size()-1)/2
         return celdas.get((celdas.size()-1)/2);
     }
 
@@ -54,7 +55,6 @@ public class Camino {
                 '}';
     }
 
-    // TODO: con motivo de testear
     public List<ICelda> getCeldas() {
         return this.celdas;
     }
