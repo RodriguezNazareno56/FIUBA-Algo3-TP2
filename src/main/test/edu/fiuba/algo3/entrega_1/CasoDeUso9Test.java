@@ -30,7 +30,7 @@ public class CasoDeUso9Test {
     private Gladiador gladiador;
     private Mapa mapa;
     private List<ICelda> celdas;
-    private int cantidadDeCasillero =  0;
+    private int cantidadDeCeldas =  0;
 
     @BeforeEach
     public void setUp() throws NombreInvalidoException {
@@ -38,14 +38,14 @@ public class CasoDeUso9Test {
         this.celdas = new ArrayList<>();
         for (int i = 0; i < 9; i++) {
             celdas.add(new Celda(new Coordenada(i,i), new ArrayList<>()));
-            cantidadDeCasillero++;
+            cantidadDeCeldas++;
         }
         // Celda final con consecuencia Triunfo
         List<IConsecuencia> consecuencias = new ArrayList<>();
         IConsecuencia triunfo = new Triunfo();
         consecuencias.add(triunfo);
         celdas.add(new Celda(new Coordenada(9,9), consecuencias));
-        cantidadDeCasillero++;
+        cantidadDeCeldas++;
         Camino camino = new Camino(celdas);
 
         // Construyo un Gladiador
@@ -63,11 +63,11 @@ public class CasoDeUso9Test {
     @Test
     public void verificarQueSiLlegaALaMetaSinLaLlaveEnElEquipamientoRetrocedeALaMitadDeLasCasillas() throws MovimientoException, FinDelJuegoException {
         // Act
-        mapa.avanzarNPosicionesGladiador(gladiador,cantidadDeCasillero);
+        mapa.avanzarNPosicionesGladiador(gladiador, cantidadDeCeldas);
 
         // Assert
-        // Al llegar al final sin la llave vuelve a mitad de las casillas. cantidadDeCasillero-1 por ser que el array empieza en 0
-        // TODO: se podria ver mejor este asserEquals
-        assertEquals(this.celdas.get((cantidadDeCasillero-1)/2), mapa.getPosicionDeGladiador(gladiador));
+        // Al llegar al final sin la llave vuelve a mitad de las casillas. cantidadDeCeldas-1 por ser que el array empieza en 0
+        ICelda mitadDeCaminoCelda = this.celdas.get((cantidadDeCeldas - 1) / 2);
+        assertEquals(mitadDeCaminoCelda, mapa.getPosicionDeGladiador(gladiador));
     }
 }

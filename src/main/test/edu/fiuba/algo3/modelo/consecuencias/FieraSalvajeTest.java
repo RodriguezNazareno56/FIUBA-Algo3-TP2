@@ -35,8 +35,6 @@ public class FieraSalvajeTest {
         Mockito.verify(gladiador, times(1)).recibirAtaque(fieraSalvaje);
     }
 
-    //TODO: Discutible sino tendria que mockiar Energia tambien
-
     @Test
     public void atacarATravesDeNadaCausaUnDanioDe20PuntosDeEnergia() {
         // Arrange

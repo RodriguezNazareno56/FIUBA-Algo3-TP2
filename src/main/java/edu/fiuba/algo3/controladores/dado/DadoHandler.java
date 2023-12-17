@@ -26,7 +26,7 @@ public class DadoHandler implements EventHandler<ActionEvent> {
     private Stage stage;
 
 
-    private AlgoRomaModelo algoRoma; // TODO: creo que deberia llegar por el constructor
+    private AlgoRomaModelo algoRoma;
 
     public DadoHandler(DadoButton dado, AlgoRomaModelo algoRoma, Stage stage) {
         super();
@@ -52,14 +52,7 @@ public class DadoHandler implements EventHandler<ActionEvent> {
 
                     }catch (FinDelJuegoException finDelJuegoException){
                       this.cargarVistaGanador(finDelJuegoException.getMessage());
-                    } catch (Exception ignored) {
-                        //LOG.info("FIn del juego", ignored);
-                        //this.mostrarAlertWarning();
-                        // TODO: no se si lo correcto es siempre ignorar. Por ejemplo al finalizar el juego deberia
-                        //  impedir seguir tirando el dado. Para esto es necesario que jugarTurno devuelva las exepciones
-                        //  especificas y no un simple Exception. De igual modo el fin de la partida puede se tratado de
-                        //  otro modo.
-                    }
+                    } catch (Exception ignored) {}
                     dado.setDisable(false);
                 })
         );
