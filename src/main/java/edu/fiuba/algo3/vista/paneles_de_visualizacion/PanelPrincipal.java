@@ -76,8 +76,6 @@ public class PanelPrincipal extends StackPane implements ObservadorMapa {
         this.getChildren().add(mapaVista);
     }
 
-    /** TODO: no está funcionando como debería, se supone que saque las pantallas de aviso
-     en 5 segundos y a veces lo saca antes **/
     private void limpiarPantallaEnTiempo(PantallaInfo pantallaInfo) {
         Duration duration = Duration.seconds(6);
         KeyFrame keyFrame = new KeyFrame(duration, event -> {
