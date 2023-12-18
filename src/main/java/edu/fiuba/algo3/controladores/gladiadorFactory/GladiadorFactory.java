@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.controladores;
+package edu.fiuba.algo3.controladores.gladiadorFactory;
 
 import edu.fiuba.algo3.modelo.*;
 import edu.fiuba.algo3.modelo.equipamientos.SinEquipamiento;

@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.vista.paneles_de_visualizacion;
 
 import edu.fiuba.algo3.vista.dado.DadoButton;
-import edu.fiuba.algo3.vista.pantalla_elegir_gladiador.ElegirGladiadorPantalla;
+import edu.fiuba.algo3.vista.ElegirGladiadorPantalla;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;

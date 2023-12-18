@@ -1,16 +1,16 @@
-package edu.fiuba.algo3.vista.pantalla_elegir_gladiador;
+package edu.fiuba.algo3.vista;
 
-import edu.fiuba.algo3.controladores.GladiadorFactory;
+import edu.fiuba.algo3.controladores.gladiadorFactory.GladiadorFactory;
 import edu.fiuba.algo3.controladores.observers.ObservadorAlgoRoma;
-import edu.fiuba.algo3.modelo.AlgoRoma;
 import edu.fiuba.algo3.modelo.AlgoRomaModelo;
 import edu.fiuba.algo3.vista.menuBarra.MenuBarra;
-import edu.fiuba.algo3.vista.pantalla_elegir_gladiador.componentes.JugarPartidaButtonEventHandler;
+import edu.fiuba.algo3.controladores.JugarPartidaButtonEventHandler;
 import edu.fiuba.algo3.vista.AlgoRomaPantalla;
+import edu.fiuba.algo3.vista.pantalla_elegir_gladiador.componentes.GladiadorElegidoVista;
+import edu.fiuba.algo3.vista.pantalla_elegir_gladiador.componentes.SelectorGladiadorVista;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Menu;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.scene.media.AudioClip;
@@ -18,7 +18,6 @@ import javafx.stage.Stage;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.concurrent.atomic.AtomicReferenceArray;
 
 
 public class ElegirGladiadorPantalla extends BorderPane implements ObservadorAlgoRoma {
@@ -65,7 +64,7 @@ public class ElegirGladiadorPantalla extends BorderPane implements ObservadorAlg
         botonSiguienteEscena.setOnAction(new JugarPartidaButtonEventHandler(stage, escenaSiguiente, algoRomaPantalla));
         botonSiguienteEscena.setStyle("-fx-background-color: #006600; -fx-text-fill: white; -fx-font-size: 28px;-fx-background-radius: 10;");
 
-        this.actualizarBotonSiguienteEscena();
+        this.updateBotonSiguienteEscena();
 
 
         contenedorElegirGladiador.getChildren().addAll(this.gladiadoresElegidosHBox, selectorGladiador);
@@ -90,32 +89,33 @@ public class ElegirGladiadorPantalla extends BorderPane implements ObservadorAlg
 
     @Override
     public void update() {
-        this.actualizarGladiadoresElegidos();
+        ArrayList<String> nombreGladiadores = algoRoma.getNombresGladiadoresSegunOrdenDeIngreso();
+        this.updateGladiadoresElegidos(nombreGladiadores);
+
     }
 
-    private void actualizarGladiadoresElegidos(){
-        ArrayList<String> nombreGladiadores = algoRoma.getNombresGladiadoresSegunOrdenDeIngreso();
+    private void updateGladiadoresElegidos(ArrayList<String> nombreGladiadores){
 
-        for(String nombreGladiador : nombreGladiadores){
-            // si el gladiador no esta en el hashmap entonces lo agrego con la imagen del selector
-            if(!this.colorPorClaveNombreGladiador.containsKey(nombreGladiador)){
-                Image imageElegida = this.selectorGladiador.getAndDeleteImagenElegidaParaGladiador();
+        String nombreGladiador = nombreGladiadores.get(nombreGladiadores.size() - 1);
 
-                GladiadorElegidoVista gladiadorNuevoVista = new GladiadorElegidoVista(nombreGladiador, imageElegida);
-                this.gladiadoresElegidosHBox.getChildren().add(gladiadorNuevoVista);
+        if(!this.colorPorClaveNombreGladiador.containsKey(nombreGladiador)){
+            Image imageElegida = this.selectorGladiador.getAndDeleteImagenElegidaParaGladiador();
+
+            GladiadorElegidoVista gladiadorNuevoVista = new GladiadorElegidoVista(nombreGladiador, imageElegida);
+            this.gladiadoresElegidosHBox.getChildren().add(gladiadorNuevoVista);
 
 
-                String color = getColorSegunNumeroImagen(this.conseguirNumeroImagen(this.direccionesPorImage.get(imageElegida)));
-                this.colorPorClaveNombreGladiador.put(nombreGladiador, color);
+            String color = getColorSegunNumeroImagen(this.conseguirNumeroImagen(this.direccionesPorImage.get(imageElegida)));
+            this.colorPorClaveNombreGladiador.put(nombreGladiador, color);
 
-                this.actualizarBotonSiguienteEscena();
-                this.actualizarBotonesSelectorGladiador();
-            }
+            this.updateBotonSiguienteEscena();
+            this.updateBotonesSelectorGladiador();
         }
 
+
     }
 
-    private void actualizarBotonSiguienteEscena(){
+    private void updateBotonSiguienteEscena(){
         if( algoRoma.getCantidadDeGladiadores() < algoRoma.getMinimaCantidadGladiadores()){
             botonSiguienteEscena.setDisable(true);
         }
@@ -124,7 +124,7 @@ public class ElegirGladiadorPantalla extends BorderPane implements ObservadorAlg
         }
     }
 
-    private void actualizarBotonesSelectorGladiador(){
+    private void updateBotonesSelectorGladiador(){
         if(algoRoma.getCantidadDeGladiadores() >= algoRoma.getMaximaCantidadGladiadores()){
             //selectorGladiador.setDesactivarBotonEnviarNombre(true);
             selectorGladiador.desactivarBotones(true);
