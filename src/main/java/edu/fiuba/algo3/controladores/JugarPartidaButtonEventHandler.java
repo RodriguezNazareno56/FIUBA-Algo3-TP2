@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.vista.pantalla_elegir_gladiador.componentes;
+package edu.fiuba.algo3.controladores;
 
 import edu.fiuba.algo3.vista.AlgoRomaPantalla;
 import edu.fiuba.algo3.vista.components.boton.BotonProximaEscenaEventHandler;

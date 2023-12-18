@@ -1,16 +1,16 @@
 package edu.fiuba.algo3.vista.pantalla_elegir_gladiador;
 
-import edu.fiuba.algo3.controladores.GladiadorFactory;
+import edu.fiuba.algo3.controladores.gladiadorFactory.GladiadorFactory;
 import edu.fiuba.algo3.controladores.observers.ObservadorAlgoRoma;
-import edu.fiuba.algo3.modelo.AlgoRoma;
 import edu.fiuba.algo3.modelo.AlgoRomaModelo;
 import edu.fiuba.algo3.vista.menuBarra.MenuBarra;
-import edu.fiuba.algo3.vista.pantalla_elegir_gladiador.componentes.JugarPartidaButtonEventHandler;
+import edu.fiuba.algo3.controladores.JugarPartidaButtonEventHandler;
 import edu.fiuba.algo3.vista.AlgoRomaPantalla;
+import edu.fiuba.algo3.vista.pantalla_elegir_gladiador.componentes.GladiadorElegidoVista;
+import edu.fiuba.algo3.vista.pantalla_elegir_gladiador.componentes.SelectorGladiadorVista;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Menu;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.scene.media.AudioClip;
@@ -18,7 +18,6 @@ import javafx.stage.Stage;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.concurrent.atomic.AtomicReferenceArray;
 
 
 public class ElegirGladiadorPantalla extends BorderPane implements ObservadorAlgoRoma {

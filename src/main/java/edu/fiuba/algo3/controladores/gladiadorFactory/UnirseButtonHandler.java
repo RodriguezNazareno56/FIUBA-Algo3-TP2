@@ -1,5 +1,6 @@
-package edu.fiuba.algo3.controladores;
+package edu.fiuba.algo3.controladores.gladiadorFactory;
 
+import edu.fiuba.algo3.controladores.gladiadorFactory.GladiadorFactory;
 import edu.fiuba.algo3.modelo.excepciones.FinDelJuegoException;
 import edu.fiuba.algo3.modelo.excepciones.JuegoEnCursoException;
 import edu.fiuba.algo3.modelo.excepciones.MaximoGladiadoresException;

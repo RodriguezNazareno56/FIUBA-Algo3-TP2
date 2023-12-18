@@ -1,9 +1,9 @@
-package edu.fiuba.algo3.vista.pantalla_elegir_gladiador;
+package edu.fiuba.algo3.vista.pantalla_elegir_gladiador.componentes;
 
-import edu.fiuba.algo3.controladores.GladiadorFactory;
-import edu.fiuba.algo3.controladores.UnirseButtonHandler;
-import edu.fiuba.algo3.vista.pantalla_elegir_gladiador.componentes.SiguienteImagenButtonEventHandler;
-import edu.fiuba.algo3.vista.pantalla_elegir_gladiador.componentes.TextoAccionaBotonEventHandler;
+import edu.fiuba.algo3.controladores.gladiadorFactory.GladiadorFactory;
+import edu.fiuba.algo3.controladores.gladiadorFactory.UnirseButtonHandler;
+import edu.fiuba.algo3.controladores.SiguienteImagenButtonEventHandler;
+import edu.fiuba.algo3.controladores.TextoAccionaBotonEventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
