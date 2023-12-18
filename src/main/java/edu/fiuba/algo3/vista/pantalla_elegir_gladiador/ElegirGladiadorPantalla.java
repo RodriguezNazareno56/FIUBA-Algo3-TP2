@@ -89,28 +89,29 @@ public class ElegirGladiadorPantalla extends BorderPane implements ObservadorAlg
 
     @Override
     public void update() {
-        this.updateGladiadoresElegidos();
+        ArrayList<String> nombreGladiadores = algoRoma.getNombresGladiadoresSegunOrdenDeIngreso();
+        this.updateGladiadoresElegidos(nombreGladiadores);
+
     }
 
-    private void updateGladiadoresElegidos(){
-        ArrayList<String> nombreGladiadores = algoRoma.getNombresGladiadoresSegunOrdenDeIngreso();
+    private void updateGladiadoresElegidos(ArrayList<String> nombreGladiadores){
 
-        for(String nombreGladiador : nombreGladiadores){
-            // si el gladiador no esta en el hashmap entonces lo agrego con la imagen del selector
-            if(!this.colorPorClaveNombreGladiador.containsKey(nombreGladiador)){
-                Image imageElegida = this.selectorGladiador.getAndDeleteImagenElegidaParaGladiador();
+        String nombreGladiador = nombreGladiadores.get(nombreGladiadores.size() - 1);
 
-                GladiadorElegidoVista gladiadorNuevoVista = new GladiadorElegidoVista(nombreGladiador, imageElegida);
-                this.gladiadoresElegidosHBox.getChildren().add(gladiadorNuevoVista);
+        if(!this.colorPorClaveNombreGladiador.containsKey(nombreGladiador)){
+            Image imageElegida = this.selectorGladiador.getAndDeleteImagenElegidaParaGladiador();
+
+            GladiadorElegidoVista gladiadorNuevoVista = new GladiadorElegidoVista(nombreGladiador, imageElegida);
+            this.gladiadoresElegidosHBox.getChildren().add(gladiadorNuevoVista);
 
 
-                String color = getColorSegunNumeroImagen(this.conseguirNumeroImagen(this.direccionesPorImage.get(imageElegida)));
-                this.colorPorClaveNombreGladiador.put(nombreGladiador, color);
+            String color = getColorSegunNumeroImagen(this.conseguirNumeroImagen(this.direccionesPorImage.get(imageElegida)));
+            this.colorPorClaveNombreGladiador.put(nombreGladiador, color);
 
-                this.updateBotonSiguienteEscena();
-                this.updateBotonesSelectorGladiador();
-            }
+            this.updateBotonSiguienteEscena();
+            this.updateBotonesSelectorGladiador();
         }
+
 
     }
 
