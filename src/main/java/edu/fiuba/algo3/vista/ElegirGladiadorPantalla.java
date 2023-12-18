@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.vista.pantalla_elegir_gladiador;
+package edu.fiuba.algo3.vista;
 
 import edu.fiuba.algo3.controladores.gladiadorFactory.GladiadorFactory;
 import edu.fiuba.algo3.controladores.observers.ObservadorAlgoRoma;
