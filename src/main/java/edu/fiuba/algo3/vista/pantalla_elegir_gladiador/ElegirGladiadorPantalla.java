@@ -64,7 +64,7 @@ public class ElegirGladiadorPantalla extends BorderPane implements ObservadorAlg
         botonSiguienteEscena.setOnAction(new JugarPartidaButtonEventHandler(stage, escenaSiguiente, algoRomaPantalla));
         botonSiguienteEscena.setStyle("-fx-background-color: #006600; -fx-text-fill: white; -fx-font-size: 28px;-fx-background-radius: 10;");
 
-        this.actualizarBotonSiguienteEscena();
+        this.updateBotonSiguienteEscena();
 
 
         contenedorElegirGladiador.getChildren().addAll(this.gladiadoresElegidosHBox, selectorGladiador);
@@ -89,10 +89,10 @@ public class ElegirGladiadorPantalla extends BorderPane implements ObservadorAlg
 
     @Override
     public void update() {
-        this.actualizarGladiadoresElegidos();
+        this.updateGladiadoresElegidos();
     }
 
-    private void actualizarGladiadoresElegidos(){
+    private void updateGladiadoresElegidos(){
         ArrayList<String> nombreGladiadores = algoRoma.getNombresGladiadoresSegunOrdenDeIngreso();
 
         for(String nombreGladiador : nombreGladiadores){
@@ -107,14 +107,14 @@ public class ElegirGladiadorPantalla extends BorderPane implements ObservadorAlg
                 String color = getColorSegunNumeroImagen(this.conseguirNumeroImagen(this.direccionesPorImage.get(imageElegida)));
                 this.colorPorClaveNombreGladiador.put(nombreGladiador, color);
 
-                this.actualizarBotonSiguienteEscena();
-                this.actualizarBotonesSelectorGladiador();
+                this.updateBotonSiguienteEscena();
+                this.updateBotonesSelectorGladiador();
             }
         }
 
     }
 
-    private void actualizarBotonSiguienteEscena(){
+    private void updateBotonSiguienteEscena(){
         if( algoRoma.getCantidadDeGladiadores() < algoRoma.getMinimaCantidadGladiadores()){
             botonSiguienteEscena.setDisable(true);
         }
@@ -123,7 +123,7 @@ public class ElegirGladiadorPantalla extends BorderPane implements ObservadorAlg
         }
     }
 
-    private void actualizarBotonesSelectorGladiador(){
+    private void updateBotonesSelectorGladiador(){
         if(algoRoma.getCantidadDeGladiadores() >= algoRoma.getMaximaCantidadGladiadores()){
             //selectorGladiador.setDesactivarBotonEnviarNombre(true);
             selectorGladiador.desactivarBotones(true);
