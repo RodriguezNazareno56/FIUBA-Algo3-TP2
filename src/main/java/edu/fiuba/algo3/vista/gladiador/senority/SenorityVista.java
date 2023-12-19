@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.vista.gladiador.senority;
 
-import edu.fiuba.algo3.controladores.observers.ObservadorSenority;
+import edu.fiuba.algo3.controladores.observers.SenorityObservador;
 import edu.fiuba.algo3.modelo.gladiador.senority.Senority;
 import edu.fiuba.algo3.vista.gladiador.senority.states.NovatoStateVista;
 import edu.fiuba.algo3.vista.gladiador.senority.states.SemiSeniorVista;
@@ -16,7 +16,7 @@ import javafx.scene.paint.Color;
 import java.util.ArrayDeque;
 import java.util.Queue;
 
-public class SenorityVista extends StackPane implements ObservadorSenority {
+public class SenorityVista extends StackPane implements SenorityObservador {
 
     private Queue<Label> senoritiesSiguientes;
     private Label senorityActual;

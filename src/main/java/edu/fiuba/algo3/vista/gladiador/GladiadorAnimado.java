@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.vista.gladiador;
 
-import edu.fiuba.algo3.vista.ViewProperties;
+import edu.fiuba.algo3.vista.utilidades.ViewProperties;
 import javafx.animation.Animation;
 import javafx.animation.Interpolator;
 import javafx.animation.Transition;

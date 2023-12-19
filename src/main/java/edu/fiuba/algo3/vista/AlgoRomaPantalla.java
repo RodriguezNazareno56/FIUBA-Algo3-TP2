@@ -1,7 +1,6 @@
 package edu.fiuba.algo3.vista;
 
-import edu.fiuba.algo3.controladores.observers.ObservadorAlgoRoma;
-import edu.fiuba.algo3.modelo.AlgoRoma;
+import edu.fiuba.algo3.controladores.observers.AlgoRomaObservador;
 import edu.fiuba.algo3.modelo.AlgoRomaModelo;
 import edu.fiuba.algo3.vista.menuBarra.MenuBarra;
 import edu.fiuba.algo3.vista.dado.DadoButton;
@@ -23,7 +22,7 @@ import java.util.ArrayList;
 import java.util.Deque;
 import java.util.HashMap;
 
-public class AlgoRomaPantalla extends BorderPane implements ObservadorAlgoRoma {
+public class AlgoRomaPantalla extends BorderPane implements AlgoRomaObservador {
 
     private static final Logger LOG = LoggerFactory.getLogger(AlgoRomaPantalla.class);
 

@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.vista.equipamientos;
 
-import edu.fiuba.algo3.vista.ViewProperties;
+import edu.fiuba.algo3.vista.utilidades.ViewProperties;
 import javafx.geometry.Pos;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;

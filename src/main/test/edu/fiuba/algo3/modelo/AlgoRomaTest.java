@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.modelo;
 
 import edu.fiuba.algo3.data_acceso.MapaService;
-import edu.fiuba.algo3.modelo.algoRomaEstado.JuegoSinIniciar;
+import edu.fiuba.algo3.modelo.algoRoma_estado.JuegoSinIniciar;
 import edu.fiuba.algo3.modelo.dado.Dado;
 import edu.fiuba.algo3.modelo.excepciones.*;
 import edu.fiuba.algo3.modelo.gladiador.Gladiador;

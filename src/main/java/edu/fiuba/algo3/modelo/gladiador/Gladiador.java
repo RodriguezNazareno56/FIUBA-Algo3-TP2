@@ -1,9 +1,9 @@
 package edu.fiuba.algo3.modelo.gladiador;
 
-import edu.fiuba.algo3.controladores.observers.ObservableEquipamiento;
-import edu.fiuba.algo3.controladores.observers.ObservableGladiador;
-import edu.fiuba.algo3.controladores.observers.ObservadorEquipamiento;
-import edu.fiuba.algo3.controladores.observers.ObservadorGladiador;
+import edu.fiuba.algo3.controladores.observers.EquipamientoObservable;
+import edu.fiuba.algo3.controladores.observers.GladiadorObservable;
+import edu.fiuba.algo3.controladores.observers.EquipamientoObservador;
+import edu.fiuba.algo3.controladores.observers.GladiadorObservador;
 import edu.fiuba.algo3.modelo.excepciones.FinDelJuegoException;
 import edu.fiuba.algo3.modelo.excepciones.NombreInvalidoException;
 import edu.fiuba.algo3.modelo.consecuencias.Enemigo;
@@ -15,15 +15,15 @@ import org.slf4j.Logger;
 
 import java.util.ArrayList;
 
-public class Gladiador implements ObservableGladiador, ObservableEquipamiento {
+public class Gladiador implements GladiadorObservable, EquipamientoObservable {
     private Logger logger;
 
     private String nombre;
     private Energia energia;
     private Equipamiento equipamiento;
     private Senority senority;
-    private ArrayList<ObservadorGladiador> observadores;
-    private ArrayList<ObservadorEquipamiento> observadoresEquipamiento;
+    private ArrayList<GladiadorObservador> observadores;
+    private ArrayList<EquipamientoObservador> observadoresEquipamiento;
 
     private boolean estaHabilitadoParaMover;
 
@@ -37,7 +37,7 @@ public class Gladiador implements ObservableGladiador, ObservableEquipamiento {
         this.senority = senority;
         this.logger = logger;
         this.estaHabilitadoParaMover = true;
-        this.observadores = new ArrayList<ObservadorGladiador>();
+        this.observadores = new ArrayList<GladiadorObservador>();
         this.observadoresEquipamiento = new ArrayList<>();
     }
 
@@ -115,26 +115,26 @@ public class Gladiador implements ObservableGladiador, ObservableEquipamiento {
 
     @Override
     public void notificarTriunfoObservadores() throws FinDelJuegoException {
-        for (ObservadorGladiador observador : this.observadores) {
+        for (GladiadorObservador observador : this.observadores) {
             observador.notificarTriunfo(this);
         }
     }
 
     @Override
-    public void subscribir(ObservadorGladiador observadorGladiador) {
+    public void subscribir(GladiadorObservador observadorGladiador) {
         this.observadores.add(observadorGladiador);
     }
 
 
     @Override
     public void notificarObservadoresEquipamiento() {
-        for(ObservadorEquipamiento observador : observadoresEquipamiento) {
+        for(EquipamientoObservador observador : observadoresEquipamiento) {
             observador.notificarActualizacionEquipamiento();
         }
     }
 
     @Override
-    public void agregarObservadorEquipamiento(ObservadorEquipamiento observadorEquipamiento) {
+    public void agregarObservadorEquipamiento(EquipamientoObservador observadorEquipamiento) {
         this.observadoresEquipamiento.add(observadorEquipamiento);
     }
 

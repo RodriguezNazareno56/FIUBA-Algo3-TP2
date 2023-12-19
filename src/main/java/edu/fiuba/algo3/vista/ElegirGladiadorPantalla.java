@@ -1,11 +1,10 @@
 package edu.fiuba.algo3.vista;
 
 import edu.fiuba.algo3.controladores.gladiadorFactory.GladiadorFactory;
-import edu.fiuba.algo3.controladores.observers.ObservadorAlgoRoma;
+import edu.fiuba.algo3.controladores.observers.AlgoRomaObservador;
 import edu.fiuba.algo3.modelo.AlgoRomaModelo;
 import edu.fiuba.algo3.vista.menuBarra.MenuBarra;
-import edu.fiuba.algo3.controladores.JugarPartidaButtonEventHandler;
-import edu.fiuba.algo3.vista.AlgoRomaPantalla;
+import edu.fiuba.algo3.vista.pantalla_elegir_gladiador.controladores.JugarPartidaButtonEventHandler;
 import edu.fiuba.algo3.vista.pantalla_elegir_gladiador.componentes.GladiadorElegidoVista;
 import edu.fiuba.algo3.vista.pantalla_elegir_gladiador.componentes.SelectorGladiadorVista;
 import javafx.geometry.Pos;
@@ -20,7 +19,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 
-public class ElegirGladiadorPantalla extends BorderPane implements ObservadorAlgoRoma {
+public class ElegirGladiadorPantalla extends BorderPane implements AlgoRomaObservador {
 
     private HashMap<Image, String> direccionesPorImage = new HashMap<>();
 

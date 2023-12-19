@@ -1,9 +1,8 @@
 package edu.fiuba.algo3.modelo;
 
-import edu.fiuba.algo3.modelo.algoRomaEstado.EstadoJuego;
-import edu.fiuba.algo3.modelo.algoRomaEstado.JuegoEnCurso;
-import edu.fiuba.algo3.modelo.algoRomaEstado.JuegoSinIniciar;
-import edu.fiuba.algo3.modelo.algoRomaEstado.JuegoTerminado;
+import edu.fiuba.algo3.modelo.algoRoma_estado.EstadoJuego;
+import edu.fiuba.algo3.modelo.algoRoma_estado.JuegoEnCurso;
+import edu.fiuba.algo3.modelo.algoRoma_estado.JuegoSinIniciar;
 import edu.fiuba.algo3.modelo.gladiador.Gladiador;
 
 import java.util.ArrayList;

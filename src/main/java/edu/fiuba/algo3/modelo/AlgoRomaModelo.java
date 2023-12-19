@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.modelo;
 
-import edu.fiuba.algo3.controladores.observers.ObservadorAlgoRoma;
+import edu.fiuba.algo3.controladores.observers.AlgoRomaObservador;
 import edu.fiuba.algo3.modelo.excepciones.FinDelJuegoException;
 import edu.fiuba.algo3.modelo.excepciones.JuegoEnCursoException;
 import edu.fiuba.algo3.modelo.excepciones.MaximoGladiadoresException;
@@ -35,9 +35,9 @@ public interface AlgoRomaModelo {
 
     Mapa getMapa();
 
-    void agregarObservadorNuevoTurno(ObservadorAlgoRoma observador);
+    void agregarObservadorNuevoTurno(AlgoRomaObservador observador);
 
-    void agregarObservadorNuevoGladiador(ObservadorAlgoRoma observador);
+    void agregarObservadorNuevoGladiador(AlgoRomaObservador observador);
 
 //    void notificarNuevoTurno();
 //

@@ -1,20 +1,19 @@
 package edu.fiuba.algo3.vista.mapa;
 
-import edu.fiuba.algo3.controladores.observers.ObservadorMapa;
-import edu.fiuba.algo3.modelo.AlgoRoma;
+import edu.fiuba.algo3.controladores.observers.MapaObservador;
 import edu.fiuba.algo3.modelo.AlgoRomaModelo;
 import edu.fiuba.algo3.modelo.celda.Coordenada;
 import edu.fiuba.algo3.modelo.celda.ICelda;
 import edu.fiuba.algo3.modelo.gladiador.Gladiador;
 import edu.fiuba.algo3.vista.celda.CeldaVista;
-import edu.fiuba.algo3.vista.consecuencias.ConsecuenciaManager;
+import edu.fiuba.algo3.vista.consecuencias.controladores.ConsecuenciaManager;
 import edu.fiuba.algo3.vista.gladiador.GladiadorAnimado;
 import javafx.geometry.Pos;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import java.util.HashMap;
 
-public class MapaVista extends GridPane implements ObservadorMapa {
+public class MapaVista extends GridPane implements MapaObservador {
     private final HashMap<String, GladiadorAnimado> gladiadorAnimadoEnElMapa;
     private final AlgoRomaModelo algoRoma;
 

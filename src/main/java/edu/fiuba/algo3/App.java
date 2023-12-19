@@ -16,7 +16,7 @@ import edu.fiuba.algo3.modelo.AlgoRoma;
 import edu.fiuba.algo3.modelo.AlgoRomaModelo;
 import edu.fiuba.algo3.modelo.dado.Dado;
 import edu.fiuba.algo3.vista.BienvenidaPantalla;
-import edu.fiuba.algo3.vista.ViewProperties;
+import edu.fiuba.algo3.vista.utilidades.ViewProperties;
 import edu.fiuba.algo3.vista.dado.DadoButton;
 import edu.fiuba.algo3.vista.ElegirGladiadorPantalla;
 import edu.fiuba.algo3.vista.AlgoRomaPantalla;

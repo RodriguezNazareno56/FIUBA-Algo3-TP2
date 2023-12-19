@@ -1,17 +1,16 @@
 package edu.fiuba.algo3.vista.gladiador;
 
-import edu.fiuba.algo3.controladores.observers.ObservadorEnergia;
+import edu.fiuba.algo3.controladores.observers.EnergiaObservador;
 import edu.fiuba.algo3.modelo.gladiador.Energia;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 
-public class EnergiaVista extends StackPane implements ObservadorEnergia {
+public class EnergiaVista extends StackPane implements EnergiaObservador {
 
     private Label valorEnergiaLabel;
 

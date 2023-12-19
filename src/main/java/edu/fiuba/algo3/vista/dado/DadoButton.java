@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.vista.dado;
 
 import edu.fiuba.algo3.controladores.dado.DadoHandler;
-import edu.fiuba.algo3.controladores.observers.ObservadorDado;
+import edu.fiuba.algo3.controladores.observers.DadoObservador;
 import edu.fiuba.algo3.modelo.AlgoRoma;
 import edu.fiuba.algo3.modelo.AlgoRomaModelo;
 import javafx.scene.control.Button;
@@ -11,7 +11,7 @@ import javafx.stage.Stage;
 
 import java.net.URL;
 
-public class DadoButton extends Button implements ObservadorDado {
+public class DadoButton extends Button implements DadoObservador {
 
     private final DadoHandler dadoHandler;
 

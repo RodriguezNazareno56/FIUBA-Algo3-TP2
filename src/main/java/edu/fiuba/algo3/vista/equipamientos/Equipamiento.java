@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.vista.equipamientos;
 
-import edu.fiuba.algo3.vista.ViewProperties;
+import edu.fiuba.algo3.vista.utilidades.ViewProperties;
 import javafx.scene.effect.Shadow;
 import javafx.scene.image.ImageView;
 
