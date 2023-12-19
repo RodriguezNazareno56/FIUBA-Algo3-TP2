@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.modelo.mapa;
 
-import edu.fiuba.algo3.controladores.observers.ObservableMapa;
+import edu.fiuba.algo3.controladores.observers.MapaObservable;
 import edu.fiuba.algo3.modelo.excepciones.FinDelJuegoException;
 import edu.fiuba.algo3.modelo.gladiador.exepciones.MovimientoException;
 import edu.fiuba.algo3.modelo.camino.Camino;
@@ -15,7 +15,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Objects;
 
-public class Mapa extends ObservableMapa {
+public class Mapa extends MapaObservable {
     private static final Logger logger = LoggerFactory.getLogger(Mapa.class);
 
     private int ancho;

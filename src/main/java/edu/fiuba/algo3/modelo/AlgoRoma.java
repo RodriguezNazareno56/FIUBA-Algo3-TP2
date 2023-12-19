@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.modelo;
 
-import edu.fiuba.algo3.controladores.observers.ObservableAlgoRoma;
-import edu.fiuba.algo3.controladores.observers.ObservadorGladiador;
+import edu.fiuba.algo3.controladores.observers.AlgoRomaObservable;
+import edu.fiuba.algo3.controladores.observers.GladiadorObservador;
 import edu.fiuba.algo3.data_acceso.MapaService;
 import edu.fiuba.algo3.data_acceso.data_mappers.JsonFormatoInvalidoException;
 import edu.fiuba.algo3.modelo.algoRoma_estado.EstadoJuego;
@@ -22,7 +22,7 @@ import static edu.fiuba.algo3.modelo.constantes.AlgoRomaConstantes.*;
 import static edu.fiuba.algo3.modelo.constantes.GladiadorConstantes.ENERGIA_INICIAL_GLADIADOR;
 
 
-public class AlgoRoma extends ObservableAlgoRoma implements AlgoRomaModelo, AlgoRomaEstado, ObservadorGladiador {
+public class AlgoRoma extends AlgoRomaObservable implements AlgoRomaModelo, AlgoRomaEstado, GladiadorObservador {
 
     private EstadoJuego estadoJuego;
 

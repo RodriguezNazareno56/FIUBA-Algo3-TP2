@@ -1,10 +1,10 @@
 package edu.fiuba.algo3.modelo.gladiador.senority.states;
 
-import edu.fiuba.algo3.controladores.observers.ObservableSenorityState;
+import edu.fiuba.algo3.controladores.observers.SenorityStateObservable;
 import edu.fiuba.algo3.modelo.gladiador.Energia;
 import edu.fiuba.algo3.modelo.gladiador.senority.Senority;
 
-public abstract class SenorityState extends ObservableSenorityState {
+public abstract class SenorityState extends SenorityStateObservable {
 
     protected int experiencia;
     protected Senority senority;

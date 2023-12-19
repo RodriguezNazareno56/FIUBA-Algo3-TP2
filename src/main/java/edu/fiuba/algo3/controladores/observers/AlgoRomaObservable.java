@@ -3,29 +3,29 @@ package edu.fiuba.algo3.controladores.observers;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ObservableAlgoRoma {
-    private List<ObservadorAlgoRoma> observadoresNuevoGladiador;
-    private List<ObservadorAlgoRoma> observadoresNuevoTurno;
+public class AlgoRomaObservable {
+    private List<AlgoRomaObservador> observadoresNuevoGladiador;
+    private List<AlgoRomaObservador> observadoresNuevoTurno;
 
-    public ObservableAlgoRoma() {
+    public AlgoRomaObservable() {
         this.observadoresNuevoGladiador = new ArrayList<>();
         this.observadoresNuevoTurno = new ArrayList<>();
     }
 
-    public void agregarObservadorNuevoTurno(ObservadorAlgoRoma observador) {
+    public void agregarObservadorNuevoTurno(AlgoRomaObservador observador) {
         this.observadoresNuevoTurno.add(observador);
     }
-    public void agregarObservadorNuevoGladiador(ObservadorAlgoRoma observador) {
+    public void agregarObservadorNuevoGladiador(AlgoRomaObservador observador) {
         this.observadoresNuevoGladiador.add(observador);
     }
 
     public void notificarNuevoTurno() {
-        for (ObservadorAlgoRoma observador : observadoresNuevoTurno) {
+        for (AlgoRomaObservador observador : observadoresNuevoTurno) {
             observador.update();
         }
     }
     public void notificarNuevoGladiador() {
-        for (ObservadorAlgoRoma observador : observadoresNuevoGladiador) {
+        for (AlgoRomaObservador observador : observadoresNuevoGladiador) {
             observador.update();
         }
     }

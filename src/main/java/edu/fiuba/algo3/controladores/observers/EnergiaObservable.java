@@ -3,20 +3,20 @@ package edu.fiuba.algo3.controladores.observers;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ObservableEnergia {
+public class EnergiaObservable {
 
-    private List<ObservadorEnergia> observadores;
+    private List<EnergiaObservador> observadores;
 
-    public ObservableEnergia() {
+    public EnergiaObservable() {
         this.observadores = new ArrayList<>();
     }
 
-    public void agregarObservador(ObservadorEnergia observador) {
+    public void agregarObservador(EnergiaObservador observador) {
         this.observadores.add(observador);
     }
 
     public void notificar(int energiaValor) {
-        for (ObservadorEnergia observador : observadores) {
+        for (EnergiaObservador observador : observadores) {
             observador.actualizar(energiaValor);
         }
     }

@@ -6,21 +6,21 @@ import edu.fiuba.algo3.modelo.gladiador.Gladiador;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ObservableMapa {
+public class MapaObservable {
 
-    private List<ObservadorMapa> observadores;
+    private List<MapaObservador> observadores;
 
-    public ObservableMapa() {
+    public MapaObservable() {
         this.observadores = new ArrayList<>();
     }
 
     public void notificarPosicionamientoDeGladiador(Gladiador gladiador, Coordenada coordenada) {
-        for (ObservadorMapa observador : observadores) {
+        for (MapaObservador observador : observadores) {
             observador.actualizar(gladiador, coordenada);
         }
     }
 
-    public void agregarObservador(ObservadorMapa observador) {
+    public void agregarObservador(MapaObservador observador) {
         this.observadores.add(observador);
     }
 }

@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.vista.paneles_de_visualizacion;
 
-import edu.fiuba.algo3.controladores.observers.ObservadorMapa;
+import edu.fiuba.algo3.controladores.observers.MapaObservador;
 import edu.fiuba.algo3.modelo.celda.Coordenada;
 import edu.fiuba.algo3.modelo.celda.ICelda;
 import edu.fiuba.algo3.modelo.consecuencias.IConsecuencia;
@@ -16,7 +16,7 @@ import javafx.scene.layout.VBox;
 import javafx.util.Duration;
 import java.util.List;
 
-public class PanelPrincipal extends StackPane implements ObservadorMapa {
+public class PanelPrincipal extends StackPane implements MapaObservador {
     private final Mapa mapa;
     private final MapaVista mapaVista;
     public PanelPrincipal(Mapa mapa, MapaVista mapaVista) {

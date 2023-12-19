@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.modelo.algoRoma_estado;
 
-import edu.fiuba.algo3.controladores.observers.ObservadorGladiador;
+import edu.fiuba.algo3.controladores.observers.GladiadorObservador;
 import edu.fiuba.algo3.modelo.AlgoRomaEstado;
 import edu.fiuba.algo3.modelo.excepciones.FinDelJuegoException;
 import edu.fiuba.algo3.modelo.excepciones.JuegoEnCursoException;
@@ -9,7 +9,7 @@ import org.slf4j.Logger;
 
 import java.util.ArrayList;
 
-public class JuegoEnCurso extends EstadoJuego implements ObservadorGladiador {
+public class JuegoEnCurso extends EstadoJuego implements GladiadorObservador {
 
 
         public JuegoEnCurso(AlgoRomaEstado algoRoma, Logger logger, ArrayList<Gladiador> gladiadores) {

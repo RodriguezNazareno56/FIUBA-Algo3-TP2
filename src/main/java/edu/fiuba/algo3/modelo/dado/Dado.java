@@ -1,16 +1,16 @@
 package edu.fiuba.algo3.modelo.dado;
 
-import edu.fiuba.algo3.controladores.observers.ObservableDado;
-import edu.fiuba.algo3.controladores.observers.ObservadorDado;
+import edu.fiuba.algo3.controladores.observers.DadoObservable;
+import edu.fiuba.algo3.controladores.observers.DadoObservador;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.Random;
 
-public class Dado implements ObservableDado {
+public class Dado implements DadoObservable {
 
-    private ArrayList<ObservadorDado> observadores;
+    private ArrayList<DadoObservador> observadores;
     Logger logger = LoggerFactory.getLogger(this.getClass());
 
     public Dado() {
@@ -27,13 +27,13 @@ public class Dado implements ObservableDado {
 
     @Override
     public void notificarObservadores(int valorDelDado) {
-        for(ObservadorDado observador : observadores) {
+        for(DadoObservador observador : observadores) {
             observador.actualizar(valorDelDado);
         }
     }
 
     @Override
-    public void agregarObservador(ObservadorDado observador) {
+    public void agregarObservador(DadoObservador observador) {
         this.observadores.add(observador);
     }
 }

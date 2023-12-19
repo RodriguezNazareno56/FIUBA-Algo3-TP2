@@ -1,10 +1,10 @@
 package edu.fiuba.algo3.modelo.gladiador;
 
-import edu.fiuba.algo3.controladores.observers.ObservableEnergia;
+import edu.fiuba.algo3.controladores.observers.EnergiaObservable;
 
 import java.util.Objects;
 
-public class Energia extends ObservableEnergia {
+public class Energia extends EnergiaObservable {
     private int valor;
 
     public Energia(int valor) {

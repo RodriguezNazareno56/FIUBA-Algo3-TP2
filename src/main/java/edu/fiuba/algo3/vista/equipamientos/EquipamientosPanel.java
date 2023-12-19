@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.vista.equipamientos;
 
-import edu.fiuba.algo3.controladores.observers.ObservadorEquipamiento;
+import edu.fiuba.algo3.controladores.observers.EquipamientoObservador;
 import edu.fiuba.algo3.modelo.gladiador.Gladiador;
 import javafx.geometry.Pos;
 import javafx.scene.layout.GridPane;
@@ -8,7 +8,7 @@ import javafx.scene.layout.GridPane;
 import java.util.ArrayDeque;
 import java.util.Deque;
 
-public class EquipamientosPanel extends GridPane implements ObservadorEquipamiento {
+public class EquipamientosPanel extends GridPane implements EquipamientoObservador {
 
     private Deque<EquipamientoBox> equipamientos;
 

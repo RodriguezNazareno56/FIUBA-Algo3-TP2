@@ -5,25 +5,25 @@ import edu.fiuba.algo3.modelo.gladiador.senority.states.SenorityState;
 import java.util.ArrayList;
 
 // TODO: puede extender de Observable
-public abstract class ObservableSenorityState {
-    private final ArrayList<ObservadorSenority> observadores;
+public abstract class SenorityStateObservable {
+    private final ArrayList<SenorityObservador> observadores;
 
-    protected ObservableSenorityState() {
+    protected SenorityStateObservable() {
         this.observadores = new ArrayList<>();
     }
 
-    public void agregarObservador(ObservadorSenority observador) {
+    public void agregarObservador(SenorityObservador observador) {
         this.observadores.add(observador);
     }
 
     protected void notificarCambioDeSenority() {
-        for (ObservadorSenority observador : observadores) {
+        for (SenorityObservador observador : observadores) {
             observador.actualizarPorAumentoDeSenority();
         }
     }
 
     protected void transferirObservadoresA(SenorityState senorityState) {
-        for (ObservadorSenority observador : observadores) {
+        for (SenorityObservador observador : observadores) {
             senorityState.agregarObservador(observador);
         }
     }
