@@ -1,7 +1,8 @@
-package edu.fiuba.algo3.vista.consecuencias;
+package edu.fiuba.algo3.vista.consecuencias.controladores;
 
 import edu.fiuba.algo3.modelo.celda.Coordenada;
 import edu.fiuba.algo3.modelo.consecuencias.IConsecuencia;
+import edu.fiuba.algo3.vista.consecuencias.ConsecuenciaAnimacion;
 import edu.fiuba.algo3.vista.consecuencias.comida.ComidaAnimacionManager;
 import edu.fiuba.algo3.vista.consecuencias.equipamiento.EquipamientoAnimacionManager;
 import edu.fiuba.algo3.vista.consecuencias.obstaculos.ObstaculoAnimacionManager;

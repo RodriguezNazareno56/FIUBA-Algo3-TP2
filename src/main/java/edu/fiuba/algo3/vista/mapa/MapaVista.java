@@ -1,13 +1,12 @@
 package edu.fiuba.algo3.vista.mapa;
 
 import edu.fiuba.algo3.controladores.observers.ObservadorMapa;
-import edu.fiuba.algo3.modelo.AlgoRoma;
 import edu.fiuba.algo3.modelo.AlgoRomaModelo;
 import edu.fiuba.algo3.modelo.celda.Coordenada;
 import edu.fiuba.algo3.modelo.celda.ICelda;
 import edu.fiuba.algo3.modelo.gladiador.Gladiador;
 import edu.fiuba.algo3.vista.celda.CeldaVista;
-import edu.fiuba.algo3.vista.consecuencias.ConsecuenciaManager;
+import edu.fiuba.algo3.vista.consecuencias.controladores.ConsecuenciaManager;
 import edu.fiuba.algo3.vista.gladiador.GladiadorAnimado;
 import javafx.geometry.Pos;
 import javafx.scene.image.Image;

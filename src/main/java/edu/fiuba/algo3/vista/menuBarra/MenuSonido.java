@@ -1,9 +1,7 @@
 package edu.fiuba.algo3.vista.menuBarra;
 
-import edu.fiuba.algo3.vista.menuBarra.controladoresBarra.ActivarSonidoEventHandler;
-import edu.fiuba.algo3.vista.menuBarra.controladoresBarra.DesactivarSonidoEventHandler;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
+import edu.fiuba.algo3.vista.menuBarra.controladores.ActivarSonidoEventHandler;
+import edu.fiuba.algo3.vista.menuBarra.controladores.DesactivarSonidoEventHandler;
 import javafx.scene.control.Menu;
 import javafx.scene.control.RadioMenuItem;
 import javafx.scene.control.ToggleGroup;

@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.controladores;
+package edu.fiuba.algo3.vista.pantalla_elegir_gladiador.controladores;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;

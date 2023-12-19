@@ -1,8 +1,8 @@
 package edu.fiuba.algo3.vista.menuBarra;
 
-import edu.fiuba.algo3.vista.menuBarra.controladoresBarra.CerrarAppEventHandler;
-import edu.fiuba.algo3.vista.menuBarra.controladoresBarra.PantallaCompletaEventHandler;
-import edu.fiuba.algo3.vista.menuBarra.controladoresBarra.mostrarInstruccionesEventHandler;
+import edu.fiuba.algo3.vista.menuBarra.controladores.CerrarAppEventHandler;
+import edu.fiuba.algo3.vista.menuBarra.controladores.PantallaCompletaEventHandler;
+import edu.fiuba.algo3.vista.menuBarra.controladores.mostrarInstruccionesEventHandler;
 import javafx.beans.binding.When;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;

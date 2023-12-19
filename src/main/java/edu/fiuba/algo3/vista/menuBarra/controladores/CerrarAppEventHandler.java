@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.vista.menuBarra.controladoresBarra;
+package edu.fiuba.algo3.vista.menuBarra.controladores;
 
 import javafx.event.Event;
 import javafx.event.EventHandler;

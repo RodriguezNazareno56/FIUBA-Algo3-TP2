@@ -1,18 +1,13 @@
-package edu.fiuba.algo3.vista.menuBarra.controladoresBarra;
+package edu.fiuba.algo3.vista.menuBarra.controladores;
 
 import edu.fiuba.algo3.vista.InstruccionesVista;
-import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
-import javafx.scene.layout.Border;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.VBox;
 import javafx.stage.Popup;
 import javafx.stage.Stage;
-
-import java.util.concurrent.ConcurrentNavigableMap;
 
 public class mostrarInstruccionesEventHandler implements EventHandler {
 
