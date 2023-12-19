@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.vista.components.boton;
 
-import edu.fiuba.algo3.vista.ViewProperties;
+import edu.fiuba.algo3.vista.utilidades.ViewProperties;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;

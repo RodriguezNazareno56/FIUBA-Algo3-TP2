@@ -10,9 +10,9 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 
-public class VistaGanador extends VBox {
+public class GanadorVista extends VBox {
 
-    public VistaGanador(String mensajeGanador){
+    public GanadorVista(String mensajeGanador){
         super();
 
         this.setAlignment(Pos.CENTER);

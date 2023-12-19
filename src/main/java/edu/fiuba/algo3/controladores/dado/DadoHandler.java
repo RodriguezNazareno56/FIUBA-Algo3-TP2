@@ -2,8 +2,8 @@ package edu.fiuba.algo3.controladores.dado;
 
 import edu.fiuba.algo3.modelo.AlgoRomaModelo;
 import edu.fiuba.algo3.modelo.excepciones.FinDelJuegoException;
-import edu.fiuba.algo3.vista.ViewProperties;
-import edu.fiuba.algo3.vista.VistaGanador;
+import edu.fiuba.algo3.vista.utilidades.ViewProperties;
+import edu.fiuba.algo3.vista.GanadorVista;
 import edu.fiuba.algo3.vista.components.animacion.Animacion;
 import edu.fiuba.algo3.vista.dado.AnimacionDado;
 import edu.fiuba.algo3.vista.dado.DadoButton;
@@ -60,7 +60,7 @@ public class DadoHandler implements EventHandler<ActionEvent> {
     }
 
     private void cargarVistaGanador(String mensaje){
-        Scene sceneGanador = new Scene(new VistaGanador(mensaje));
+        Scene sceneGanador = new Scene(new GanadorVista(mensaje));
         this.stage.setScene(sceneGanador);
         stage.setWidth(ViewProperties.stageMaximoAlto);
         stage.setHeight(ViewProperties.stageMaximoAncho);
