@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.modelo.algoRomaEstado;
+package edu.fiuba.algo3.modelo.algoRoma_estado;
 
 import edu.fiuba.algo3.modelo.*;
 import edu.fiuba.algo3.modelo.excepciones.MaximoGladiadoresException;

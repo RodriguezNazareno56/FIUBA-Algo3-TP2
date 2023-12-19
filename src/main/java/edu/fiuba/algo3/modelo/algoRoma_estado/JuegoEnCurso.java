@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.modelo.algoRomaEstado;
+package edu.fiuba.algo3.modelo.algoRoma_estado;
 
 import edu.fiuba.algo3.controladores.observers.ObservadorGladiador;
 import edu.fiuba.algo3.modelo.AlgoRomaEstado;
