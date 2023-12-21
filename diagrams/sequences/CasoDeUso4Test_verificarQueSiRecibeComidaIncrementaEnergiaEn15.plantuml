@@ -4,7 +4,7 @@ participant comida as ":Comida"
 participant EnergiaNueva as ":Energia"
 participant Gladiador as "gladiador:Gladiador"
 participant Energia as "energiaDelGladiador : Energia"
-participant observers as ":ObservableEnergia"
+participant observers as ":EnergiaObservable"
   activate Actor
     Actor->comida: afectarGladiador(gladiador)
     activate comida
