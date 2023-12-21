@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo.equipamientos;
 
+import edu.fiuba.algo3.modelo.consecuencias.Enemigo;
 import edu.fiuba.algo3.modelo.consecuencias.FieraSalvaje;
 import edu.fiuba.algo3.modelo.gladiador.Energia;
 
@@ -10,8 +11,8 @@ public class Armadura extends Equipamiento {
     }
 
     @Override
-    public Energia disiparAtaque(FieraSalvaje fieraSalvaje) {
-        return fieraSalvaje.atacarContraEquipado(this);
+    public Energia disiparAtaque(Enemigo enemigo) {
+        return enemigo.atacarContraEquipado(this);
     }
 
     @Override

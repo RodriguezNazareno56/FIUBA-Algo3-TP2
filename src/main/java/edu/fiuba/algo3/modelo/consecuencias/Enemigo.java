@@ -10,35 +10,35 @@ public interface Enemigo {
      * @param equipamiento equipamiento que posee el gladiador.
      * @return Energia por el valor del daño.
      */
-    public Energia atacarATravesDelEquipamiento(Equipamiento equipamiento);
+    Energia atacarATravesDelEquipamiento(Equipamiento equipamiento);
 
     /**
      * Daño que causa al atacar contra gladiador que no posee equipamiento
      * @return Energia por el valor del daño.
      */
-    public Energia atacarContraEquipado(SinEquipamiento sinEquipamiento);
+    Energia atacarContraEquipado(SinEquipamiento sinEquipamiento);
 
     /**
      * Daño que causa al atacar contra gladiador que posee un casco
      * @return Energia por el valor del daño.
      */
-    public Energia atacarContraEquipado(Casco casco);
+    Energia atacarContraEquipado(Casco casco);
 
     /**
      * Daño que causa al atacar contra gladiador que posee una Armadura
      * @return Energia por el valor del daño.
      */
-    public Energia atacarContraEquipado(Armadura armadura);
+    Energia atacarContraEquipado(Armadura armadura);
 
     /**
      * Daño que causa al atacar contra gladiador que posee un EscudoYEspada
      * @return Energia por el valor del daño.
      */
-    public Energia atacarContraEquipado(EscudoYEspada escudoYEspada);
+    Energia atacarContraEquipado(EscudoYEspada escudoYEspada);
 
     /**
      * Daño que causa al atacar contra gladiador que posee una LLave
      * @return Energia por el valor del daño.
      */
-    public Energia atacarContraEquipado(Llave llave);
+    Energia atacarContraEquipado(Llave llave);
 }
