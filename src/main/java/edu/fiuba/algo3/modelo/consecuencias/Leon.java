@@ -1,11 +1,11 @@
 package edu.fiuba.algo3.modelo.consecuencias;
 
-import edu.fiuba.algo3.modelo.constantes.FieraSalvajeConstantes;
+import edu.fiuba.algo3.modelo.constantes.LeonConstantes;
 import edu.fiuba.algo3.modelo.equipamientos.*;
 import edu.fiuba.algo3.modelo.gladiador.Energia;
 import edu.fiuba.algo3.modelo.gladiador.Gladiador;
 
-public class FieraSalvaje extends Enemigo implements FieraSalvajeConstantes {
+public class Leon extends Enemigo implements LeonConstantes {
 
     @Override
     public void afectarGladiador(Gladiador gladiador) {
