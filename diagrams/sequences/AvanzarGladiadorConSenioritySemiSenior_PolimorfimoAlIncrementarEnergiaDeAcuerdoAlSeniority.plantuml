@@ -4,8 +4,8 @@ participant Gladiador as ":Gladiador"
 participant Energia as ":Energia"
 participant Senority as ":Senority"
 participant SemiSeniorState as ":SemiSeniorState"
-participant ObservableEnergia as ":ObservableEnergia"
-participant ObservableSenorityState as ":ObservableSenorityState"
+participant ObservableEnergia as ":EnergiaObservable"
+participant ObservableSenorityState as ":SenorityStateObservable"
 
 participant EnergiaExtra as "energiaExtra :Energia"
 

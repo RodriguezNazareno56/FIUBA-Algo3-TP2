@@ -4,12 +4,12 @@ participant AlgoRoma as ":AlgoRoma"
 participant JuegoEnCurso as ":JuegoEnCurso"
 participant Dado as ":dado"
 participant Gladiador as "gladiador : Gladiador"
-participant ObservableAlgoRoma as ":ObservableAlgoRoma"
+participant ObservableAlgoRoma as ":AlgoRomaObservable"
 participant Mapa as ":Mapa"
 participant Camino as ":Camino"
 participant Celda as "celdaDestino : Celda"
 participant Consecuencia as ":Consecuencia"
-participant ObservableMapa as ":ObservableMap"
+participant ObservableMapa as ":MapaObservable"
 
   activate Actor
     Actor->AlgoRoma: jugarTurno()

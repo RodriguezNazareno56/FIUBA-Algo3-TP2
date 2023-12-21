@@ -1,0 +1,29 @@
+@startuml
+actor Actor as "actor"
+
+participant DadoButton as ":DadoButton"
+participant DadoHandler as ":DadoHandler"
+participant AlgoRoma as ":AlgoRoma"
+participant Dado as ":Dado"
+  activate Actor
+    Actor->DadoButton: pulsar()
+    activate DadoButton
+    DadoButton->DadoHandler: handler()
+    activate DadoHandler
+    DadoHandler->AlgoRoma: jugarTurno()
+    activate AlgoRoma
+    DadoHandler->DadoButton: setGraphic(animacion)
+    AlgoRoma->AlgoRoma: avanzarGladiador()
+    activate AlgoRoma
+    AlgoRoma->Dado: tirarDado()
+    activate Dado
+    Dado->Dado: notificarObservadores()
+    note over Dado: Dado implements DadoObservable
+    activate Dado
+    Dado->DadoButton: actualizar(valorDelDado)
+    note over DadoHandler: DadoButton implements DadoObservador
+    DadoButton-->Dado:void
+    deactivate Dado
+    Dado-->AlgoRoma: valorDelDado: int
+    deactivate Dado
+@enduml

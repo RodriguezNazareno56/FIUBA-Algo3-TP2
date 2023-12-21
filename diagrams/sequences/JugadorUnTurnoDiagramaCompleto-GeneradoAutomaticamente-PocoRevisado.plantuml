@@ -9,11 +9,11 @@ participant Camino as "Camino"
 participant Energia as "Energia"
 participant Senority as "Senority"
 participant NovatoState as "NovatoState"
-participant ObservableEnergia as "ObservableEnergia"
+participant ObservableEnergia as "EnergiaObservable"
 participant Celda as "Celda"
 participant EquipamientoIncrementado as "EquipamientoIncrementado"
 participant SinEquipamiento as "SinEquipamiento"
-participant ObservableMapa as "ObservableMapa"
+participant ObservableMapa as "MapaObservable"
 
   activate CasoDeUso19Test
     CasoDeUso19Test->AlgoRoma: jugarTurno <color:gray> 0.381 ms</color>
