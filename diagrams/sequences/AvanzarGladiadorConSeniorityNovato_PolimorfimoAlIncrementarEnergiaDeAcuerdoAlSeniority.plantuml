@@ -40,11 +40,11 @@ verificarQueSiPasan8TurnosElSeniorityDelGladiadorPasaDeNovatoASemiSeniorYVeSuEne
         deactivate NovatoState
       Gladiador<--Senority: void
       deactivate Senority
-      Gladiador->Senority: aumentarExperiencia())
+      Gladiador->Senority: aumentarExperiencia()
       activate Senority
         Senority->NovatoState: aumentarExperiencia()
         activate NovatoState
-        Senority<--NovatoState: senority.states.NovatoState
+        Senority<--NovatoState: NovatoState
         deactivate NovatoState
       Gladiador<--Senority: void
       deactivate Senority

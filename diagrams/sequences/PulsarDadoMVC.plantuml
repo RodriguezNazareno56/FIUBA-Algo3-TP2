@@ -10,9 +10,10 @@ participant Dado as ":Dado"
     activate DadoButton
     DadoButton->DadoHandler: handler()
     activate DadoHandler
+    DadoHandler->DadoButton: setGraphic(animacion)
+    DadoButton-->DadoHandler: void
     DadoHandler->AlgoRoma: jugarTurno()
     activate AlgoRoma
-    DadoHandler->DadoButton: setGraphic(animacion)
     AlgoRoma->AlgoRoma: avanzarGladiador()
     activate AlgoRoma
     AlgoRoma->Dado: tirarDado()

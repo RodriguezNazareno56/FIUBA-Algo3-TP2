@@ -20,10 +20,10 @@ participant CaminoRepositoryImpl as ":CaminoRepositoryImpl"
       activate MapaRepositoryImp
       MapaRepositoryImp->MapaDAOJsonImpl: obtener()
       activate MapaDAOJsonImpl
-      MapaDAOJsonImpl-->MapaDto: setAncho
+      MapaDAOJsonImpl->MapaDto: setAncho
       activate MapaDto
       MapaDto-->MapaDAOJsonImpl
-      MapaDAOJsonImpl-->MapaDto: setLargo
+      MapaDAOJsonImpl->MapaDto: setLargo
       MapaDto-->MapaDAOJsonImpl
       deactivate MapaDto
       MapaDAOJsonImpl-->MapaRepositoryImp: mapaDto: MapaDto
@@ -38,9 +38,9 @@ participant CaminoRepositoryImpl as ":CaminoRepositoryImpl"
       MapaRepositoryImp-->MapaService: mapa
       deactivate MapaRepositoryImp
       MapaService->Mapa: setCamino(camino)
-      Mapa->MapaService: void
+      Mapa-->MapaService: void
       deactivate Mapa
-      MapaService->Actor: mapa
+      MapaService-->Actor: mapa
     deactivate MapaService
   deactivate Actor
 @enduml
