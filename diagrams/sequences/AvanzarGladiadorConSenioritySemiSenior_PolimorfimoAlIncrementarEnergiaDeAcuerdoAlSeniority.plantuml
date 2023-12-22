@@ -9,7 +9,7 @@ participant ObservableSenorityState as ":SenorityStateObservable"
 
 participant EnergiaExtra as "energiaExtra :Energia"
 
-    Actor->Gladiador: avanzar
+    Actor->Gladiador: avanzar()
         activate Gladiador
           Gladiador->Energia: isAgotada()
           activate Energia
@@ -37,11 +37,11 @@ participant EnergiaExtra as "energiaExtra :Energia"
             deactivate SemiSeniorState
           Gladiador<--Senority: void
           deactivate Senority
-      Gladiador->Senority: aumentarExperiencia <color:gray> 0.0068 ms</color>
+      Gladiador->Senority: aumentarExperiencia()
       activate Senority
-        Senority->SemiSeniorState: aumentarExperiencia <color:gray> 0.0024 ms</color>
+        Senority->SemiSeniorState: aumentarExperiencia()
         activate SemiSeniorState
-        Senority<--SemiSeniorState: senority.states.SemiSeniorState
+        Senority<--SemiSeniorState: SemiSeniorState
         deactivate SemiSeniorState
       Gladiador<--Senority: void
       deactivate Senority

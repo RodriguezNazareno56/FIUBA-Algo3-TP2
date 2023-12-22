@@ -106,7 +106,7 @@ verificarQueSiPasan8TurnosElSeniorityDelGladiadorPasaDeNovatoASemiSeniorYVeSuEne
           NovatoState<--ObservableSenorityState: void
           end
           deactivate ObservableSenorityState
-        Senority<--NovatoState: senority.states.SemiSeniorState
+        Senority<--NovatoState: SemiSeniorState
         deactivate NovatoState
       Gladiador<--Senority: void
       deactivate Senority
@@ -142,11 +142,11 @@ verificarQueSiPasan8TurnosElSeniorityDelGladiadorPasaDeNovatoASemiSeniorYVeSuEne
             deactivate SemiSeniorState
           Gladiador<--Senority: void
           deactivate Senority
-      Gladiador->Senority: aumentarExperiencia <color:gray> 0.0068 ms</color>
+      Gladiador->Senority: aumentarExperiencia
       activate Senority
-        Senority->SemiSeniorState: aumentarExperiencia <color:gray> 0.0024 ms</color>
+        Senority->SemiSeniorState: aumentarExperiencia
         activate SemiSeniorState
-        Senority<--SemiSeniorState: senority.states.SemiSeniorState
+        Senority<--SemiSeniorState: SemiSeniorState
         deactivate SemiSeniorState
       Gladiador<--Senority: void
       deactivate Senority

@@ -9,7 +9,7 @@ participant CeldaMapper as ":CeldaMapper"
   activate Actor
       Actor->CaminoRepositoryImpl: obtener()
       activate CaminoRepositoryImpl
-      CaminoRepositoryImpl->CaminoDAOJsonImpl
+      CaminoRepositoryImpl->CaminoDAOJsonImpl: obtener()
         activate CaminoDAOJsonImpl
         loop for celda in celdas jsonArray
         CaminoDAOJsonImpl->CeldaDto: setObstaculo
@@ -28,7 +28,7 @@ participant CeldaMapper as ":CeldaMapper"
      CaminoRepositoryImpl->CaminoMapper: convertirDesdeDto(caminoDto)
      activate CaminoMapper
        loop for celdasDto in caminoDto
-       CaminoMapper->CeldaMapper: convertirDesdeDto
+       CaminoMapper->CeldaMapper: convertirDesdeDto(celdaDto)
        CeldaMapper-->CaminoMapper: Celda
        end
      CaminoMapper-->CaminoRepositoryImpl: Camino

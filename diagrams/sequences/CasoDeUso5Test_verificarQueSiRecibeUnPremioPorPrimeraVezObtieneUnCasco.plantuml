@@ -10,17 +10,17 @@ Recibe un premio por primera vez y obtiene un casco
   activate actor
     actor->EquipamientoIncrementado: afectarGladiador(gladiador)
     activate EquipamientoIncrementado
-      EquipamientoIncrementado->Gladiador: incrementarEquipamiento
+      EquipamientoIncrementado->Gladiador: incrementarEquipamiento()
       activate Gladiador
-        Gladiador->SinEquipamiento: incrementar
+        Gladiador->SinEquipamiento: incrementar()
         activate SinEquipamiento
           SinEquipamiento->Casco: << createRequest >>
           activate Casco
           Casco-->SinEquipamiento: RequestCreated
           deactivate Casco
-        Gladiador<--SinEquipamiento: modelo.equipamientos.Casco
+        Gladiador<--SinEquipamiento: Casco
         deactivate SinEquipamiento
-        Gladiador->Gladiador: notificarObservadoresEquipamiento
+        Gladiador->Gladiador: notificarObservadoresEquipamiento()
         activate Gladiador
         Gladiador<--Gladiador: void
         deactivate Gladiador
